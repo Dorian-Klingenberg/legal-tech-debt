@@ -2,15 +2,21 @@
 
 ## Project Overview
 
-This sandbox explores the application of **legal tech debt detection and regulatory automation** specifically to insurance claims adjudication. The goal is to build prototypes and validate feasibility of technologies that surface policy ambiguities, regulatory drift, and claim decision inconsistencies before they become litigation.
+This sandbox explores the application of **legal tech debt detection and regulatory automation** specifically to Kentucky homeowners insurance policy and claims work. The goal is to build prototypes and validate feasibility of technologies that surface policy ambiguities, regulatory drift, and claim decision inconsistencies before they become litigation.
 
-**Status**: Research Phase → MVP Planning
+**Status**: Active sandbox. Sandbox 001 is complete as foundational research; this sandbox now carries forward useful 001 primitives into insurance policy and claims experiments.
+
+See [002-CARRY-FORWARD-FROM-001.md](002-CARRY-FORWARD-FROM-001.md) for what to reuse, adapt, and leave parked.
+
+See [002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md](002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md) for how to collect Kentucky insurance source material for fixtures.
+
+**Current scope**: Kentucky homeowners insurance only. Do not start personal auto, motor vehicle, no-fault, or PIP work unless the user explicitly reopens that scope.
 
 ---
 
 ## Problem Statement
 
-Insurance claims processing is a high-value attack vector for legal tech innovation:
+Kentucky homeowners policy and claims processing is the current high-value attack vector for legal tech innovation:
 
 - **Regulatory Complexity**: 50+ state regimes + federal overlays (ACA, ERISA, FCRA)
 - **Policy Ambiguity**: Vague language ("reasonable," "customary") creates inconsistent claim decisions
@@ -18,6 +24,24 @@ Insurance claims processing is a high-value attack vector for legal tech innovat
 - **Financial Exposure**: Ambiguous denials lead to litigation; one class-action suit can exceed $5M–50M
 
 **Core Insight**: Claims decisions all derive from the same fragile, un-versioned rule substrate (underwriting rules + coverage rules + exclusions + regulatory obligations).
+
+---
+
+## Relationship to Sandbox 001
+
+Sandbox 001 proved the reusable foundation:
+
+- lightweight section/reference extraction
+- dangling/null reference detection
+- circular reference detection
+- orphan definition detection
+- graph/matrix outputs
+- JSON, Markdown, CSV, and static dashboard evidence
+- staged proof-of-concept workflow
+
+Sandbox 002 should reuse those primitives only where they help insurance policy and claims smells. The active focus is not infrastructure; it is fast, readable proof-of-concept detectors for high-value insurance defects.
+
+The first carry-forward stage is [stages/001-foundation-import](stages/001-foundation-import/STAGE.md).
 
 ---
 
@@ -102,7 +126,7 @@ Insurance claims processing is a high-value attack vector for legal tech innovat
 ## Quick Start (Week 1)
 
 1. **Validate Broken Link Detection**:
-   - Pick one NAIC model law + one state's auto insurance policy
+   - Pick one Kentucky homeowners policy/form package plus relevant Kentucky homeowners/property statutes, regulations, and DOI filing materials
    - Extract all statutory citations using NLP
    - Check against live statute database (free APIs available)
    - Time the process, measure accuracy
@@ -115,7 +139,7 @@ Insurance claims processing is a high-value attack vector for legal tech innovat
    - **Goal**: Demonstrate impact analysis feasibility
 
 3. **Non-Determinism Report**:
-   - Collect 100 claim decisions (anonymized)
+   - Collect or synthesize a small set of homeowners claim decision examples
    - Extract reasoning language
    - Cluster by outcome (approved vs. denied)
    - Find language that appears in both clusters (ambiguity signal)

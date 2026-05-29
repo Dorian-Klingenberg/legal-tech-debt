@@ -1,0 +1,306 @@
+{
+  "sections": [
+    {
+      "id": "10",
+      "title": "Authority",
+      "document": "homeowners_claims_manual.md",
+      "line": 2,
+      "body_offset": 62,
+      "body": "\n\nThis manual implements Section 300 and Section 310 of the Kentucky homeowners property coverage reference.\n"
+    },
+    {
+      "id": "20",
+      "title": "Required Action",
+      "document": "homeowners_claims_manual.md",
+      "line": 6,
+      "body_offset": 202,
+      "body": "\n\nWhen a homeowners claim is denied for insufficient coverage, the adjuster shall send notice within 10 business days.\nThe notice workflow references Section 30.\n"
+    },
+    {
+      "id": "30",
+      "title": "Evidence",
+      "document": "homeowners_claims_manual.md",
+      "line": 11,
+      "body_offset": 388,
+      "body": "\n\nThe claim file must include policy version, denial reason, notice date, dwelling coverage limit, peril classification, and reviewer initials.\n"
+    },
+    {
+      "id": "40",
+      "title": "External Guidance",
+      "document": "homeowners_claims_manual.md",
+      "line": 15,
+      "body_offset": 565,
+      "body": "\n\nThe homeowners product team should consult NAIC guidance and ISO homeowners circulars when updating forms and templates.\n"
+    },
+    {
+      "id": "100",
+      "title": "Purpose",
+      "document": "homeowners_property_reference.md",
+      "line": 2,
+      "body_offset": 84,
+      "body": "\n\nThis reference establishes minimum structural review rules for Kentucky homeowners property policies.\n"
+    },
+    {
+      "id": "200",
+      "title": "Definitions",
+      "document": "homeowners_property_reference.md",
+      "line": 6,
+      "body_offset": 216,
+      "body": "\n\n- \"Covered dwelling\" means a residence premises insured under a homeowners policy subject to this reference.\n- \"Legacy endorsement\" means a homeowners endorsement form retired before January 1, 2020.\n- \"Policy year\" means the annual period beginning on the policy effective date.\n"
+    },
+    {
+      "id": "300",
+      "title": "Minimum Property Coverage",
+      "document": "homeowners_property_reference.md",
+      "line": 12,
+      "body_offset": 540,
+      "body": "\n\nAn insurer shall describe dwelling coverage and covered property conditions as provided in Section 310.\nNotices required by this section must comply with Section 900.\n"
+    },
+    {
+      "id": "310",
+      "title": "Coverage Amounts",
+      "document": "homeowners_property_reference.md",
+      "line": 17,
+      "body_offset": 742,
+      "body": "\n\nCoverage amounts shall follow NAIC Model Law guidance unless a more specific Kentucky property rule applies.\nThe disclosure template must follow ISO homeowners form language.\n"
+    },
+    {
+      "id": "400",
+      "title": "Claim Notice",
+      "document": "homeowners_property_reference.md",
+      "line": 22,
+      "body_offset": 948,
+      "body": "\n\nClaim notice timing is governed by Section 410.\n"
+    },
+    {
+      "id": "410",
+      "title": "Claim Notice Exception",
+      "document": "homeowners_property_reference.md",
+      "line": 26,
+      "body_offset": 1037,
+      "body": "\n\nExceptions to claim notice timing are governed by Section 400.\n"
+    }
+  ],
+  "references": [
+    {
+      "from_section": "10",
+      "to_section": "300",
+      "document": "homeowners_claims_manual.md",
+      "line": 5,
+      "snippet": "This manual implements Section 300 and Section 310 of the Kentucky homeowners property coverage reference."
+    },
+    {
+      "from_section": "10",
+      "to_section": "310",
+      "document": "homeowners_claims_manual.md",
+      "line": 5,
+      "snippet": "This manual implements Section 300 and Section 310 of the Kentucky homeowners property coverage reference."
+    },
+    {
+      "from_section": "20",
+      "to_section": "30",
+      "document": "homeowners_claims_manual.md",
+      "line": 10,
+      "snippet": "The notice workflow references Section 30."
+    },
+    {
+      "from_section": "300",
+      "to_section": "310",
+      "document": "homeowners_property_reference.md",
+      "line": 15,
+      "snippet": "An insurer shall describe dwelling coverage and covered property conditions as provided in Section 310."
+    },
+    {
+      "from_section": "300",
+      "to_section": "900",
+      "document": "homeowners_property_reference.md",
+      "line": 16,
+      "snippet": "Notices required by this section must comply with Section 900."
+    },
+    {
+      "from_section": "400",
+      "to_section": "410",
+      "document": "homeowners_property_reference.md",
+      "line": 25,
+      "snippet": "Claim notice timing is governed by Section 410."
+    },
+    {
+      "from_section": "410",
+      "to_section": "400",
+      "document": "homeowners_property_reference.md",
+      "line": 29,
+      "snippet": "Exceptions to claim notice timing are governed by Section 400."
+    }
+  ],
+  "findings": [
+    {
+      "detector": "DanglingReference",
+      "severity": "high",
+      "document": "homeowners_property_reference.md",
+      "line": 16,
+      "message": "Section 300 references missing Section 900.",
+      "evidence": "Notices required by this section must comply with Section 900."
+    },
+    {
+      "detector": "CircularReference",
+      "severity": "medium",
+      "document": "homeowners_property_reference.md",
+      "line": 25,
+      "message": "Section 400 and Section 410 reference each other.",
+      "evidence": "Claim notice timing is governed by Section 410. / Exceptions to claim notice timing are governed by Section 400."
+    },
+    {
+      "detector": "OrphanDefinition",
+      "severity": "low",
+      "document": "homeowners_property_reference.md",
+      "line": 9,
+      "message": "Defined term \"Covered dwelling\" appears to be unused outside its definition.",
+      "evidence": "- \"Covered dwelling\" means a residence premises insured under a homeowners policy subject to this reference."
+    },
+    {
+      "detector": "OrphanDefinition",
+      "severity": "low",
+      "document": "homeowners_property_reference.md",
+      "line": 10,
+      "message": "Defined term \"Legacy endorsement\" appears to be unused outside its definition.",
+      "evidence": "- \"Legacy endorsement\" means a homeowners endorsement form retired before January 1, 2020."
+    },
+    {
+      "detector": "OrphanDefinition",
+      "severity": "low",
+      "document": "homeowners_property_reference.md",
+      "line": 11,
+      "message": "Defined term \"Policy year\" appears to be unused outside its definition.",
+      "evidence": "- \"Policy year\" means the annual period beginning on the policy effective date."
+    },
+    {
+      "detector": "UnversionedExternalAuthority",
+      "severity": "medium",
+      "document": "homeowners_claims_manual.md",
+      "line": 18,
+      "message": "NAIC is referenced without an obvious version, date, or effective source anchor.",
+      "evidence": "The homeowners product team should consult NAIC guidance and ISO homeowners circulars when updating forms and templates."
+    },
+    {
+      "detector": "UnversionedExternalAuthority",
+      "severity": "medium",
+      "document": "homeowners_property_reference.md",
+      "line": 20,
+      "message": "NAIC is referenced without an obvious version, date, or effective source anchor.",
+      "evidence": "Coverage amounts shall follow NAIC Model Law guidance unless a more specific Kentucky property rule applies."
+    },
+    {
+      "detector": "UnversionedExternalAuthority",
+      "severity": "medium",
+      "document": "homeowners_property_reference.md",
+      "line": 21,
+      "message": "ISO is referenced without an obvious version, date, or effective source anchor.",
+      "evidence": "The disclosure template must follow ISO homeowners form language."
+    }
+  ],
+  "matrix_nodes": [
+    {
+      "key": "section:10",
+      "label": "Section 10",
+      "kind": "section",
+      "section_id": "10",
+      "document": "homeowners_claims_manual.md",
+      "line": 2,
+      "title": "Authority"
+    },
+    {
+      "key": "section:20",
+      "label": "Section 20",
+      "kind": "section",
+      "section_id": "20",
+      "document": "homeowners_claims_manual.md",
+      "line": 6,
+      "title": "Required Action"
+    },
+    {
+      "key": "section:30",
+      "label": "Section 30",
+      "kind": "section",
+      "section_id": "30",
+      "document": "homeowners_claims_manual.md",
+      "line": 11,
+      "title": "Evidence"
+    },
+    {
+      "key": "section:40",
+      "label": "Section 40",
+      "kind": "section",
+      "section_id": "40",
+      "document": "homeowners_claims_manual.md",
+      "line": 15,
+      "title": "External Guidance"
+    },
+    {
+      "key": "section:100",
+      "label": "Section 100",
+      "kind": "section",
+      "section_id": "100",
+      "document": "homeowners_property_reference.md",
+      "line": 2,
+      "title": "Purpose"
+    },
+    {
+      "key": "section:200",
+      "label": "Section 200",
+      "kind": "section",
+      "section_id": "200",
+      "document": "homeowners_property_reference.md",
+      "line": 6,
+      "title": "Definitions"
+    },
+    {
+      "key": "section:300",
+      "label": "Section 300",
+      "kind": "section",
+      "section_id": "300",
+      "document": "homeowners_property_reference.md",
+      "line": 12,
+      "title": "Minimum Property Coverage"
+    },
+    {
+      "key": "section:310",
+      "label": "Section 310",
+      "kind": "section",
+      "section_id": "310",
+      "document": "homeowners_property_reference.md",
+      "line": 17,
+      "title": "Coverage Amounts"
+    },
+    {
+      "key": "section:400",
+      "label": "Section 400",
+      "kind": "section",
+      "section_id": "400",
+      "document": "homeowners_property_reference.md",
+      "line": 22,
+      "title": "Claim Notice"
+    },
+    {
+      "key": "section:410",
+      "label": "Section 410",
+      "kind": "section",
+      "section_id": "410",
+      "document": "homeowners_property_reference.md",
+      "line": 26,
+      "title": "Claim Notice Exception"
+    },
+    {
+      "key": "missing:900",
+      "label": "Missing Section 900",
+      "kind": "missing",
+      "section_id": "900",
+      "document": "",
+      "line": null,
+      "title": "unresolved reference target"
+    }
+  ],
+  "cycle_nodes": [
+    "section:400",
+    "section:410"
+  ]
+}

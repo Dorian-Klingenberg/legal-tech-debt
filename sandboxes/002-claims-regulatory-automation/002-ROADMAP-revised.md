@@ -49,19 +49,23 @@ based on economic impact rather than guesswork.
 
 ---
 
+## Current Scope
+
+This roadmap is currently narrowed to Kentucky homeowners insurance. Do not pursue personal auto, motor vehicle, no-fault, or PIP work unless that scope is explicitly reopened.
+
 ## Phase 1: Validation — Broken Links + Calculation Drift (Weeks 1–4)
 
 **Objective**: Prove that detecting **Broken Links** and **Calculation Rule Drift**
-for a narrow KY property/farmowners fixture is technically feasible and delivers
+for a narrow KY homeowners fixture is technically feasible and delivers
 immediate value.
 
 ### 1.1 MVP: Dual-Detector Probe
 
 **Inputs**
-- ~50 sample insurance policies (policy text corpus) for KY property/farmowners.
+- ~50 sample insurance policies/forms or synthetic excerpts for KY homeowners.
 - NAIC model laws + one state's insurance code (statutory reference).
 - A simplified rating specification for one exposure base (e.g., dwelling TIV,
-  payroll, or square footage) with a "filed/expected" formula.
+  roof age, construction type, protection class, dwelling TIV, or square footage) with a "filed/expected" formula.
 
 **Process**
 - Lightweight parsing to:
@@ -260,4 +264,3 @@ start selling to multiple carriers or software vendors.
 
 [1] See "Insurance Policy Smells" and "Insurance Policy Smells — Cost Estimates" documents
 for the underlying taxonomy and cost attribution.
-

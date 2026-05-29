@@ -1,5 +1,7 @@
 # Sandbox 001: Legal Debt Primitives
 
+Status: Complete as foundational research. See [CLOSURE.md](CLOSURE.md).
+
 This sandbox explores the smallest useful building blocks for a legal tech debt tool:
 
 - extract section anchors from statutes, policies, and internal manuals
@@ -55,15 +57,30 @@ Matrix interpretation notes are recorded in [MATRIX_NOTES.md](MATRIX_NOTES.md).
 Stage 003 adds a larger synthetic Kentucky insurance fixture at [stages/003-kentucky-insurance-sample](stages/003-kentucky-insurance-sample/STAGE.md).
 Stage 004 sets up typed-edge study materials at [stages/004-typed-edge-study](stages/004-typed-edge-study/STAGE.md).
 
-## Current Question
+## Final Question
 
 How far can lightweight parsing plus graph/matrix checks get before we need heavier tools such as Akoma Ntoso, LegalRuleML, spaCy, embeddings, a graph database, or LLM-assisted extraction?
 
+## Final Answer
+
+Lightweight parsing plus graph/matrix checks get far enough to support useful proof-of-concept legal debt detection:
+
+- section/reference extraction
+- dangling/null references
+- simple circular references
+- orphan definitions
+- unversioned external authorities
+- matrix and dashboard evidence
+
+They also expose the next bottleneck: legal references need semantic relationship types before reachability can be treated as legal or compliance meaning.
+
+That lesson now carries forward into [../002-claims-regulatory-automation](../002-claims-regulatory-automation/002-claims-regulatory-automation-README.md), where the active focus is insurance policy and claims smells.
+
 ## Success Criteria
 
-- The probe finds intentional defects in the sample corpus.
-- The output is understandable enough for a compliance or legal SME to review.
-- The experiment produces a clear next question instead of pretending to be a full solution.
+- Complete: The probe finds intentional defects in the sample corpus.
+- Complete: The output is understandable enough for a compliance or legal SME to review.
+- Complete: The experiment produces a clear next question instead of pretending to be a full solution.
 
 ## Non-Goals
 

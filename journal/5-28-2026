@@ -1,0 +1,63 @@
+# Journal — Friday, May 29, 2026
+
+## What I Worked On
+
+Today I connected the dots between my **sandbox experiments** and the **bigger product roadmap** for a legal tech debt platform in insurance.
+
+I started by confirming that my current sandbox — `legal_debt_probe.py` plus staged fixtures and outputs like adjacency matrices and transitive closures — really is the core of a **legal smell detector** for statutes and policies.[file:199] The probe already:
+
+- Extracts section anchors and references.
+- Finds dangling references, simple circular references, orphan definitions.
+- Flags unversioned external authorities.
+
+That validated that I’m not “just exploring” — I’ve already built the nucleus of the engine I’ve been talking about.
+
+I then rediscovered an existing roadmap file (`002-ROADMAP.md`) which laid out a multi-phase plan for an **Insurance Claims Regulatory Automation Platform**.[file:216] It focused Phase 1 entirely on Broken Link Detection and then jumped quickly into a broader claims/regulatory automation platform. With today’s deeper work on code smells and cost estimates, I realized that initial roadmap was written **before** I knew which smells were actually the highest-value.
+
+We used the smell taxonomy and cost model from earlier sessions to recognize that the **biggest money** is in:
+
+- **Calculation Rule Drift** (systematic mispricing when formulas/exposure bases drift).
+- **Untested Coverage Paths** (gaps only discovered at claim time).
+- **Coverage Inversion and Magic Number Terms** (ambiguous language that drives bad-faith disputes and litigation).[web:150]
+
+Broken links are still important, but not the single highest-impact target.
+
+Based on this, we created a **revised roadmap** (`ROADMAP-revised.md`) that:
+
+- Inserts a Phase 0.5 “Smell Impact Triage” step so detector priorities are driven by quantified impact, not guesses.
+- Refocuses Phase 1 on **two detectors**:
+  - Broken Link / Null Reference Clause.
+  - Calculation Rule Drift (for a narrow KY property/farmowners slice).
+- Plans Phase 2 around adding:
+  - Untested Coverage Paths.
+  - Coverage Inversion + Magic Number Terms.
+  - A minimal dashboard on top of the probe engine.
+
+We also created a `PATH.md` file that serves as a **micro-level roadmap** for the sandbox itself: how to progress from simple adjacency matrices to typed edges, named smells, and a stable `probe_corpus -> Findings` API.
+
+Finally, I clarified my relationship with OpenFisca:
+
+- I no longer see it as a component to shoehorn into my system.
+- Instead, I’ll treat it as a **reference design** to study later — once my own obligation model and detector loop are solid — to refine how I represent rules as code.[web:185]
+
+## How I Felt
+
+For part of the day I felt **lost** — torn between continuing my sandbox work and jumping sideways into studying OpenFisca. Seeing the README and the existing roadmap again made it clear that:
+
+- I am already building the core of the system I’ve been imagining.
+- The “lost” feeling was just the normal disorientation that shows up once you move beyond tutorials into genuinely new territory.[web:214]
+
+Rewriting the roadmap to reflect the **actual** pain and cost structure calmed that anxiety. I now have a clearer sequence:
+
+1. Make the current probe really good at Broken Links + Calculation Drift on a KY fixture.
+2. Add Untested Coverage Paths and Coverage Inversion/Magic Number detection.
+3. Only then invest in a pilot and richer tooling (LLMs, spaCy, graph DB).
+
+## Where I’m Going Next
+
+- Finish the **typed-edge study** so the probe works over meaningful edge types, not just raw adjacency.
+- Implement a first pass at **Calculation Rule Drift detection** in the KY Home/Farmowners sandbox.
+- Use the revised roadmap as the strategic guide, and `PATH.md` as the day-to-day map for the next few stages.
+
+Today was about realizing I’m not circling the problem anymore — I’m actually inside the system I set out to build.
+```

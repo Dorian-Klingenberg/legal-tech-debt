@@ -1,0 +1,12 @@
+index,node_key,label,kind,section_id,document,line,title
+0,section:10,Section 10,section,10,homeowners_claims_manual.md,2,Authority
+1,section:20,Section 20,section,20,homeowners_claims_manual.md,6,Required Action
+2,section:30,Section 30,section,30,homeowners_claims_manual.md,11,Evidence
+3,section:40,Section 40,section,40,homeowners_claims_manual.md,15,External Guidance
+4,section:100,Section 100,section,100,homeowners_property_reference.md,2,Purpose
+5,section:200,Section 200,section,200,homeowners_property_reference.md,6,Definitions
+6,section:300,Section 300,section,300,homeowners_property_reference.md,12,Minimum Property Coverage
+7,section:310,Section 310,section,310,homeowners_property_reference.md,17,Coverage Amounts
+8,section:400,Section 400,section,400,homeowners_property_reference.md,22,Claim Notice
+9,section:410,Section 410,section,410,homeowners_property_reference.md,26,Claim Notice Exception
+10,missing:900,Missing Section 900,missing,900,,,unresolved reference target

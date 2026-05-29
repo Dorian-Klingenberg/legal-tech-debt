@@ -1,5 +1,7 @@
 # 001 → 002 Overlap Analysis: What's Already Done
 
+Status note: Sandbox 001 is now closed as foundational research. Use this document as background analysis, and use [002-CARRY-FORWARD-FROM-001.md](002-CARRY-FORWARD-FROM-001.md) as the active carry-forward decision record.
+
 ## Executive Summary
 
 Sandbox 001 (Legal Debt Primitives) has completed **foundational research and core pattern detection infrastructure**. It has proven the core defect detection concept works, but is domain-agnostic and test-focused rather than insurance-specific or production-ready.

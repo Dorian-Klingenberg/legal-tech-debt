@@ -1,5 +1,7 @@
 # Roadmap: Insurance Claims Regulatory Automation Platform
 
+Status note: this older roadmap is background only. Current Sandbox 002 work is narrowed to Kentucky homeowners insurance, not auto/no-fault/PIP, and the revised roadmap plus procurement guide should control near-term work.
+
 ## Phase 1: Validation (Weeks 1–4)
 
 **Objective**: Prove that Broken Link Detection is technically feasible and delivers immediate value

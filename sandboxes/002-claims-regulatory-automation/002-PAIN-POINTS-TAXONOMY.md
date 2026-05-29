@@ -171,8 +171,8 @@ This document maps the complete landscape of pain points in insurance claims adj
 **Definition**: Coverage definitions silently expand over time beyond their original intent.
 
 **Symptoms**:
-- Coverage term "business use" originally = commercial vehicle
-- Over 5 years, adjudicators approve personal-use-with-business-side-trips
+- Coverage term "residence premises" originally = owner-occupied dwelling
+- Over 5 years, adjudicators approve short-term-rental, vacant, or mixed-use losses without clear policy support
 - Now paying claims the drafter never intended
 - Profitability impact: +2% loss ratio
 
