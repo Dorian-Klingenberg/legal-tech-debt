@@ -1,0 +1,1731 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Legal Debt Dashboard Mockup</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17202a;
+      --muted: #5d6875;
+      --line: #d7dde5;
+      --soft: #f4f7fa;
+      --panel: #ffffff;
+      --page: #eef2f6;
+      --header-bg: #fbfcfe;
+      --toolbar-bg: #ffffff;
+      --sidebar-bg: #f8fafc;
+      --main-bg: #ffffff;
+      --detail-bg: #fbfcfe;
+      --field-bg: #ffffff;
+      --hover-bg: #eaf1f8;
+      --graph-bg: #fbfdff;
+      --heading: #33485c;
+      --label: #405469;
+      --table-line: #e1e6ed;
+      --table-head: #f3f6fa;
+      --sticky-bg: #f8fafc;
+      --chip-bg: #ffffff;
+      --evidence-bg: #f5f8fb;
+      --edge: #8ea1b4;
+      --node-fill: #ffffff;
+      --node-stroke: #9db0c2;
+      --missing-fill: #fff4f2;
+      --cycle-fill: #fff8e8;
+      --selected-soft: #dbeaf8;
+      --cell-focus: #0f766e;
+      --blue: #245c9c;
+      --teal: #087a72;
+      --red: #b42318;
+      --amber: #9a5b00;
+      --green: #2f7d32;
+      --violet: #6b4fa3;
+      --shadow: 0 1px 2px rgba(20, 30, 45, 0.08);
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --ink: #e6edf3;
+      --muted: #9aa9ba;
+      --line: #334155;
+      --soft: #16202c;
+      --panel: #111827;
+      --page: #0b1118;
+      --header-bg: #101721;
+      --toolbar-bg: #111b26;
+      --sidebar-bg: #0f1722;
+      --main-bg: #0d1520;
+      --detail-bg: #101721;
+      --field-bg: #0b1320;
+      --hover-bg: #17283a;
+      --graph-bg: #0b1320;
+      --heading: #d8e2ee;
+      --label: #b7c4d3;
+      --table-line: #263546;
+      --table-head: #172334;
+      --sticky-bg: #111c28;
+      --chip-bg: #172334;
+      --evidence-bg: #0c1622;
+      --edge: #708298;
+      --node-fill: #111c28;
+      --node-stroke: #5b6e83;
+      --missing-fill: #2b1517;
+      --cycle-fill: #2b220f;
+      --selected-soft: #14304d;
+      --cell-focus: #38bdf8;
+      --blue: #71a8e8;
+      --teal: #5ad4c8;
+      --red: #ff7d73;
+      --amber: #f2b84b;
+      --green: #7edb8f;
+      --violet: #b39af4;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: var(--page);
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    .shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+    }
+
+    header {
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--line);
+      padding: 16px 20px 14px;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.2;
+      letter-spacing: 0;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      margin-top: 4px;
+      color: var(--muted);
+      max-width: 820px;
+    }
+
+    .stage-badge {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      color: var(--heading);
+      border-radius: 6px;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    .header-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .theme-toggle {
+      min-height: 34px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      border-radius: 6px;
+      padding: 7px 10px;
+      cursor: pointer;
+      font-weight: 650;
+      box-shadow: var(--shadow);
+    }
+
+    .theme-toggle:hover {
+      background: var(--hover-bg);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(105px, 1fr));
+      gap: 10px;
+    }
+
+    .metric {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px 12px;
+      box-shadow: var(--shadow);
+      min-height: 72px;
+    }
+
+    .metric .value {
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 750;
+      margin-bottom: 8px;
+    }
+
+    .metric .label {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 20px;
+      border-bottom: 1px solid var(--line);
+      background: var(--toolbar-bg);
+    }
+
+    .tabs {
+      display: inline-flex;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--soft);
+    }
+
+    .tab {
+      border: 0;
+      border-right: 1px solid var(--line);
+      background: transparent;
+      padding: 7px 12px;
+      color: var(--heading);
+      cursor: pointer;
+      min-width: 86px;
+    }
+
+    .tab:last-child {
+      border-right: 0;
+    }
+
+    .tab.active {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .filter-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--muted);
+      margin-left: auto;
+    }
+
+    .filter-group select,
+    .filter-group input {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 7px 9px;
+      background: var(--field-bg);
+      color: var(--ink);
+      min-height: 34px;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(220px, 280px) minmax(460px, 1fr) minmax(300px, 380px);
+      min-height: 0;
+    }
+
+    aside,
+    main,
+    .detail {
+      min-height: 0;
+    }
+
+    aside {
+      border-right: 1px solid var(--line);
+      background: var(--sidebar-bg);
+      padding: 14px 12px;
+      overflow: auto;
+    }
+
+    .detail {
+      border-left: 1px solid var(--line);
+      background: var(--detail-bg);
+      overflow: auto;
+      padding: 14px;
+    }
+
+    main {
+      background: var(--main-bg);
+      overflow: auto;
+    }
+
+    .panel-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .panel-heading h2 {
+      font-size: 14px;
+      margin: 0;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      color: var(--heading);
+    }
+
+    .list {
+      display: grid;
+      gap: 6px;
+    }
+
+    .node-button {
+      width: 100%;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      background: transparent;
+      padding: 8px;
+      text-align: left;
+      cursor: pointer;
+      color: var(--ink);
+    }
+
+    .node-button:hover,
+    .node-button.active {
+      background: var(--hover-bg);
+      border-color: var(--line);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .dot.missing {
+      background: var(--red);
+    }
+
+    .dot.cycle {
+      background: var(--amber);
+    }
+
+    .node-main {
+      min-width: 0;
+    }
+
+    .node-title {
+      font-weight: 650;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .node-meta {
+      color: var(--muted);
+      font-size: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .count-pill {
+      min-width: 24px;
+      text-align: center;
+      border-radius: 999px;
+      background: var(--selected-soft);
+      color: var(--heading);
+      font-size: 12px;
+      padding: 2px 7px;
+      font-weight: 700;
+    }
+
+    .view {
+      display: none;
+      padding: 16px;
+      min-height: 100%;
+    }
+
+    .view.active {
+      display: block;
+    }
+
+    .graph-wrap {
+      border: 1px solid var(--line);
+      background: var(--graph-bg);
+      border-radius: 6px;
+      min-height: 630px;
+      position: relative;
+      overflow: auto;
+    }
+
+    svg.graph {
+      display: block;
+      width: 100%;
+      min-width: 820px;
+      height: 630px;
+    }
+
+    .edge {
+      fill: none;
+      stroke: var(--edge);
+      stroke-width: 2;
+      marker-end: url(#arrow);
+      opacity: 0.72;
+    }
+
+    .edge.selected,
+    .edge.highlight {
+      stroke: var(--blue);
+      stroke-width: 3;
+      opacity: 1;
+    }
+
+    .edge.cell-path {
+      stroke: var(--cell-focus);
+      stroke-width: 4;
+      opacity: 1;
+    }
+
+    .edge.dangling {
+      stroke: var(--red);
+    }
+
+    .edge.cycle {
+      stroke: var(--amber);
+    }
+
+    .node rect {
+      fill: var(--node-fill);
+      stroke: var(--node-stroke);
+      stroke-width: 1.4;
+      rx: 6;
+      ry: 6;
+    }
+
+    .node.missing rect {
+      fill: var(--missing-fill);
+      stroke: var(--red);
+    }
+
+    .node.cycle rect {
+      fill: var(--cycle-fill);
+      stroke: var(--amber);
+    }
+
+    .node.selected rect {
+      stroke: var(--blue);
+      stroke-width: 3;
+    }
+
+    .node.cell-focus rect {
+      stroke: var(--cell-focus);
+      stroke-width: 3;
+    }
+
+    .node.dim {
+      opacity: 0.35;
+    }
+
+    .node text {
+      fill: var(--ink);
+      font-size: 12px;
+      pointer-events: none;
+    }
+
+    .lane-label {
+      fill: var(--label);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .matrix-shell {
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      max-height: 620px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .matrix-table {
+      font-size: 12px;
+      min-width: 900px;
+    }
+
+    .matrix-table th,
+    .matrix-table td {
+      border: 1px solid var(--table-line);
+      padding: 6px;
+      text-align: center;
+      min-width: 44px;
+    }
+
+    .matrix-table th {
+      background: var(--table-head);
+      color: var(--label);
+      font-weight: 650;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    .matrix-table th:first-child {
+      left: 0;
+      z-index: 3;
+      text-align: left;
+    }
+
+    .matrix-table td:first-child {
+      background: var(--sticky-bg);
+      color: var(--label);
+      text-align: left;
+      position: sticky;
+      left: 0;
+      z-index: 1;
+      font-weight: 650;
+    }
+
+    .cell-on {
+      background: #245c9c;
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .cell-cycle {
+      background: #9a5b00;
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .matrix-cell {
+      cursor: pointer;
+    }
+
+    .matrix-cell:hover {
+      outline: 2px solid var(--cell-focus);
+      outline-offset: -2px;
+    }
+
+    .matrix-table tr.row-selected td:first-child,
+    .matrix-table th.col-selected,
+    .matrix-table td.col-selected {
+      background: var(--selected-soft);
+      color: var(--ink);
+    }
+
+    .matrix-table td.cell-selected-row,
+    .matrix-table td.cell-selected-col {
+      box-shadow: inset 0 0 0 2px rgba(113, 168, 232, 0.65);
+    }
+
+    .matrix-table td.cell-selected-dependency {
+      box-shadow: inset 0 0 0 3px var(--blue);
+    }
+
+    .matrix-table th.cell-picked,
+    .matrix-table td.cell-picked {
+      box-shadow: inset 0 0 0 3px var(--cell-focus);
+    }
+
+    .row-node {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      text-align: left;
+      padding: 0;
+      cursor: pointer;
+      font-weight: 650;
+    }
+
+    .row-node:hover {
+      text-decoration: underline;
+    }
+
+    .matrix-table td.cell-new {
+      background: var(--teal);
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .matrix-table.compact {
+      min-width: 780px;
+    }
+
+    .node-matrix-panel {
+      margin-top: 14px;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+
+    .matrix-note {
+      color: var(--muted);
+      font-size: 12px;
+      margin: 8px 0 10px;
+    }
+
+    .path-summary {
+      margin-top: 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--soft);
+      padding: 10px;
+    }
+
+    .path-summary strong {
+      color: var(--heading);
+    }
+
+    .findings-table th,
+    .findings-table td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .findings-table th {
+      background: var(--table-head);
+      color: var(--label);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .finding-row {
+      cursor: pointer;
+    }
+
+    .finding-row:hover {
+      background: var(--hover-bg);
+    }
+
+    .severity {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: 12px;
+      font-weight: 750;
+      text-transform: uppercase;
+    }
+
+    .severity.high {
+      color: #fff;
+      background: var(--red);
+    }
+
+    .severity.medium {
+      color: #3b2700;
+      background: #ffd98a;
+    }
+
+    .severity.low {
+      color: #173b1b;
+      background: #cdeccf;
+    }
+
+    .detail h2 {
+      font-size: 18px;
+      margin: 0 0 3px;
+      letter-spacing: 0;
+    }
+
+    .detail-section {
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+      margin-top: 12px;
+    }
+
+    .detail-section h3 {
+      margin: 0 0 8px;
+      color: var(--heading);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .kv {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 6px 10px;
+    }
+
+    .kv dt {
+      color: var(--muted);
+    }
+
+    .kv dd {
+      margin: 0;
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 8px;
+      background: var(--chip-bg);
+      color: var(--ink);
+      font-size: 12px;
+    }
+
+    .evidence {
+      background: var(--evidence-bg);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .mini-item {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 9px;
+      background: var(--panel);
+    }
+
+    .mini-title {
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .mini-meta {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 1120px) {
+      .metrics {
+        grid-template-columns: repeat(3, minmax(120px, 1fr));
+      }
+
+      .workspace {
+        grid-template-columns: 240px minmax(430px, 1fr);
+      }
+
+      .detail {
+        grid-column: 1 / -1;
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .title-row {
+        display: grid;
+      }
+
+      .stage-badge {
+        width: fit-content;
+      }
+
+      .metrics {
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
+      }
+
+      .toolbar {
+        align-items: stretch;
+      }
+
+      .tabs {
+        width: 100%;
+      }
+
+      .tab {
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+
+      .filter-group {
+        width: 100%;
+        margin-left: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .workspace {
+        display: block;
+      }
+
+      aside,
+      main,
+      .detail {
+        border-left: 0;
+        border-right: 0;
+        border-top: 1px solid var(--line);
+        max-height: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="title-row">
+        <div>
+          <h1>Legal Debt Dependency Dashboard</h1>
+          <div class="subtitle">Stage 002 dashboard mockup using the synthetic run from Sandbox 001.</div>
+        </div>
+        <div class="header-actions">
+          <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">Dark</button>
+          <div class="stage-badge">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M4 6.5h16M4 12h16M4 17.5h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            002-dashboard-mockup
+          </div>
+        </div>
+      </div>
+      <section class="metrics" id="metrics"></section>
+    </header>
+
+    <nav class="toolbar" aria-label="Dashboard views">
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-view="graphView" type="button">Graph</button>
+        <button class="tab" data-view="matrixView" type="button">Matrix</button>
+        <button class="tab" data-view="findingsView" type="button">Findings</button>
+      </div>
+      <div class="filter-group">
+        <label for="matrixMode">Matrix</label>
+        <select id="matrixMode">
+          <option value="adjacency">Direct A</option>
+          <option value="twoHop">A^2</option>
+          <option value="closure">Closure</option>
+        </select>
+        <label for="searchBox">Search</label>
+        <input id="searchBox" type="search" placeholder="section, detector, evidence">
+      </div>
+    </nav>
+
+    <div class="workspace">
+      <aside>
+        <div class="panel-heading">
+          <h2>Nodes</h2>
+          <span class="count-pill" id="nodeCount">0</span>
+        </div>
+        <div class="list" id="nodeList"></div>
+      </aside>
+
+      <main>
+        <section class="view active" id="graphView">
+          <div class="panel-heading">
+            <h2>Dependency Graph</h2>
+            <span class="node-meta">A node depends on the nodes it points to</span>
+          </div>
+          <div class="graph-wrap">
+            <svg class="graph" id="graphSvg" viewBox="0 0 900 620" role="img" aria-label="Dependency graph"></svg>
+          </div>
+          <div class="legend">
+            <span><i class="dot"></i>Section</span>
+            <span><i class="dot missing"></i>Missing target</span>
+            <span><i class="dot cycle"></i>Cycle member</span>
+            <span><span class="severity high">High</span> Dangling reference</span>
+            <span><span class="severity medium">Medium</span> Cycle or unversioned authority</span>
+          </div>
+        </section>
+
+        <section class="view" id="matrixView">
+          <div class="panel-heading">
+            <h2>Dependency Matrix</h2>
+            <span class="node-meta">Rows depend on columns</span>
+          </div>
+          <div class="matrix-shell" id="matrixShell"></div>
+          <div class="node-matrix-panel" id="nodeMatrixPanel"></div>
+        </section>
+
+        <section class="view" id="findingsView">
+          <div class="panel-heading">
+            <h2>Findings</h2>
+            <span class="count-pill" id="findingCount">0</span>
+          </div>
+          <div class="matrix-shell">
+            <table class="findings-table">
+              <thead>
+                <tr>
+                  <th>Severity</th>
+                  <th>Detector</th>
+                  <th>Source</th>
+                  <th>Message</th>
+                </tr>
+              </thead>
+              <tbody id="findingsBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+      <section class="detail" id="detailPanel" aria-label="Drill-down details"></section>
+    </div>
+  </div>
+
+  <script>
+    const runData = {
+      sections: [
+        { id: "10", title: "Authority", document: "internal_policy_manual.md", line: 2, body: "This manual implements Section 300 and Section 310 of the state minimum coverage statute." },
+        { id: "20", title: "Required Action", document: "internal_policy_manual.md", line: 6, body: "When a claim is denied for insufficient coverage, the adjuster shall send notice within 10 business days.\nThe notice workflow references Section 30." },
+        { id: "30", title: "Evidence", document: "internal_policy_manual.md", line: 11, body: "The claim file must include policy version, denial reason, notice date, and reviewer initials." },
+        { id: "40", title: "External Guidance", document: "internal_policy_manual.md", line: 15, body: "The claims team should consult NAIC guidance and ISO circulars when updating templates." },
+        { id: "100", title: "Purpose", document: "state_minimum_coverage_statute.md", line: 2, body: "This chapter establishes minimum coverage rules for private passenger auto policies." },
+        { id: "200", title: "Definitions", document: "state_minimum_coverage_statute.md", line: 6, body: "- \"Covered vehicle\" means a vehicle insured under a policy subject to this chapter.\n- \"Legacy endorsement\" means an endorsement form retired before January 1, 2020.\n- \"Policy year\" means the annual period beginning on the policy effective date." },
+        { id: "300", title: "Minimum Coverage", document: "state_minimum_coverage_statute.md", line: 12, body: "An insurer shall provide minimum liability coverage as described in Section 310.\nNotices required by this section must comply with Section 900." },
+        { id: "310", title: "Coverage Amounts", document: "state_minimum_coverage_statute.md", line: 17, body: "Coverage amounts shall follow NAIC Model Law guidance unless a more specific state rule applies.\nThe disclosure template must follow ISO form language." },
+        { id: "400", title: "Claim Notice", document: "state_minimum_coverage_statute.md", line: 22, body: "Claim notice timing is governed by Section 410." },
+        { id: "410", title: "Claim Notice Exception", document: "state_minimum_coverage_statute.md", line: 26, body: "Exceptions to claim notice timing are governed by Section 400." }
+      ],
+      references: [
+        { from_section: "10", to_section: "300", document: "internal_policy_manual.md", line: 5, snippet: "This manual implements Section 300 and Section 310 of the state minimum coverage statute." },
+        { from_section: "10", to_section: "310", document: "internal_policy_manual.md", line: 5, snippet: "This manual implements Section 300 and Section 310 of the state minimum coverage statute." },
+        { from_section: "20", to_section: "30", document: "internal_policy_manual.md", line: 10, snippet: "The notice workflow references Section 30." },
+        { from_section: "300", to_section: "310", document: "state_minimum_coverage_statute.md", line: 15, snippet: "An insurer shall provide minimum liability coverage as described in Section 310." },
+        { from_section: "300", to_section: "900", document: "state_minimum_coverage_statute.md", line: 16, snippet: "Notices required by this section must comply with Section 900." },
+        { from_section: "400", to_section: "410", document: "state_minimum_coverage_statute.md", line: 25, snippet: "Claim notice timing is governed by Section 410." },
+        { from_section: "410", to_section: "400", document: "state_minimum_coverage_statute.md", line: 29, snippet: "Exceptions to claim notice timing are governed by Section 400." }
+      ],
+      findings: [
+        { detector: "DanglingReference", severity: "high", document: "state_minimum_coverage_statute.md", line: 16, message: "Section 300 references missing Section 900.", evidence: "Notices required by this section must comply with Section 900." },
+        { detector: "CircularReference", severity: "medium", document: "state_minimum_coverage_statute.md", line: 25, message: "Section 400 and Section 410 reference each other.", evidence: "Claim notice timing is governed by Section 410. / Exceptions to claim notice timing are governed by Section 400." },
+        { detector: "OrphanDefinition", severity: "low", document: "state_minimum_coverage_statute.md", line: 9, message: "Defined term \"Covered vehicle\" appears to be unused outside its definition.", evidence: "- \"Covered vehicle\" means a vehicle insured under a policy subject to this chapter." },
+        { detector: "OrphanDefinition", severity: "low", document: "state_minimum_coverage_statute.md", line: 10, message: "Defined term \"Legacy endorsement\" appears to be unused outside its definition.", evidence: "- \"Legacy endorsement\" means an endorsement form retired before January 1, 2020." },
+        { detector: "OrphanDefinition", severity: "low", document: "state_minimum_coverage_statute.md", line: 11, message: "Defined term \"Policy year\" appears to be unused outside its definition.", evidence: "- \"Policy year\" means the annual period beginning on the policy effective date." },
+        { detector: "UnversionedExternalAuthority", severity: "medium", document: "internal_policy_manual.md", line: 18, message: "NAIC is referenced without an obvious version, date, or effective source anchor.", evidence: "The claims team should consult NAIC guidance and ISO circulars when updating templates." },
+        { detector: "UnversionedExternalAuthority", severity: "medium", document: "state_minimum_coverage_statute.md", line: 20, message: "NAIC is referenced without an obvious version, date, or effective source anchor.", evidence: "Coverage amounts shall follow NAIC Model Law guidance unless a more specific state rule applies." },
+        { detector: "UnversionedExternalAuthority", severity: "medium", document: "state_minimum_coverage_statute.md", line: 21, message: "ISO is referenced without an obvious version, date, or effective source anchor.", evidence: "The disclosure template must follow ISO form language." }
+      ],
+      cycleNodes: ["section:400", "section:410"],
+      rootsByNode: {
+        "section:10": ["section:310", "missing:900"],
+        "section:20": ["section:30"],
+        "section:300": ["section:310", "missing:900"]
+      }
+    };
+
+    const positions = {
+      "section:10": { x: 120, y: 110 },
+      "section:20": { x: 120, y: 250 },
+      "section:30": { x: 120, y: 380 },
+      "section:40": { x: 120, y: 510 },
+      "section:100": { x: 420, y: 60 },
+      "section:200": { x: 420, y: 150 },
+      "section:300": { x: 420, y: 250 },
+      "section:310": { x: 420, y: 360 },
+      "section:400": { x: 420, y: 470 },
+      "section:410": { x: 650, y: 470 },
+      "missing:900": { x: 690, y: 250 }
+    };
+
+    const storedTheme = (() => {
+      try {
+        return localStorage.getItem("legalDebtDashboardTheme");
+      } catch {
+        return null;
+      }
+    })();
+
+    const state = {
+      selectedKey: "section:300",
+      selectedCell: null,
+      activeView: "graphView",
+      matrixMode: "adjacency",
+      search: "",
+      theme: storedTheme === "dark" ? "dark" : "light"
+    };
+
+    const sectionById = new Map(runData.sections.map(section => [section.id, section]));
+    const nodeByKey = new Map();
+    const nodes = buildNodes();
+    nodes.forEach(node => nodeByKey.set(node.key, node));
+    const matrices = buildMatrices(nodes, runData.references);
+
+    function buildNodes() {
+      const known = new Set(runData.sections.map(section => section.id));
+      const sectionNodes = runData.sections.map(section => ({
+        key: `section:${section.id}`,
+        id: section.id,
+        label: `Section ${section.id}`,
+        title: section.title,
+        document: section.document,
+        line: section.line,
+        body: section.body,
+        kind: "section"
+      }));
+      const missingNodes = [...new Set(runData.references.filter(ref => !known.has(ref.to_section)).map(ref => ref.to_section))]
+        .sort((a, b) => Number(a) - Number(b))
+        .map(id => ({
+          key: `missing:${id}`,
+          id,
+          label: `Missing Section ${id}`,
+          title: "unresolved reference target",
+          document: "",
+          line: null,
+          body: "",
+          kind: "missing"
+        }));
+      return [...sectionNodes, ...missingNodes];
+    }
+
+    function keyForTarget(id) {
+      return sectionById.has(id) ? `section:${id}` : `missing:${id}`;
+    }
+
+    function buildMatrices(nodeList, refs) {
+      const index = new Map(nodeList.map((node, i) => [node.key, i]));
+      const size = nodeList.length;
+      const adjacency = Array.from({ length: size }, () => Array(size).fill(0));
+      refs.forEach(ref => {
+        const source = index.get(`section:${ref.from_section}`);
+        const target = index.get(keyForTarget(ref.to_section));
+        if (source !== undefined && target !== undefined) adjacency[source][target] = 1;
+      });
+      const twoHop = multiplyBoolean(adjacency, adjacency);
+      const closure = closureBoolean(adjacency);
+      return { adjacency, twoHop, closure, index };
+    }
+
+    function multiplyBoolean(left, right) {
+      const size = left.length;
+      const out = Array.from({ length: size }, () => Array(size).fill(0));
+      for (let row = 0; row < size; row++) {
+        for (let mid = 0; mid < size; mid++) {
+          if (!left[row][mid]) continue;
+          for (let col = 0; col < size; col++) {
+            if (right[mid][col]) out[row][col] = 1;
+          }
+        }
+      }
+      return out;
+    }
+
+    function closureBoolean(matrix) {
+      const size = matrix.length;
+      const closure = matrix.map(row => row.slice());
+      for (let mid = 0; mid < size; mid++) {
+        for (let row = 0; row < size; row++) {
+          if (!closure[row][mid]) continue;
+          for (let col = 0; col < size; col++) {
+            if (closure[mid][col]) closure[row][col] = 1;
+          }
+        }
+      }
+      return closure;
+    }
+
+    function findingsForNode(key) {
+      const node = nodeByKey.get(key);
+      if (!node) return [];
+      if (node.kind === "missing") {
+        return runData.findings.filter(finding => finding.message.includes(node.id));
+      }
+      return runData.findings.filter(finding => {
+        const id = node.id;
+        return finding.message.includes(`Section ${id}`) ||
+          finding.evidence.includes(`Section ${id}`) ||
+          (finding.document === node.document && Math.abs(finding.line - node.line) <= 5);
+      });
+    }
+
+    function refsFrom(key) {
+      const node = nodeByKey.get(key);
+      if (!node || node.kind !== "section") return [];
+      return runData.references.filter(ref => ref.from_section === node.id);
+    }
+
+    function refsTo(key) {
+      const node = nodeByKey.get(key);
+      if (!node) return [];
+      return runData.references.filter(ref => keyForTarget(ref.to_section) === key);
+    }
+
+    function outgoingKeys(key) {
+      return refsFrom(key).map(ref => keyForTarget(ref.to_section));
+    }
+
+    function edgeKey(fromKey, toKey) {
+      return `${fromKey}->${toKey}`;
+    }
+
+    function directReferenceBetween(fromKey, toKey) {
+      const node = nodeByKey.get(fromKey);
+      if (!node || node.kind !== "section") return null;
+      return runData.references.find(ref => ref.from_section === node.id && keyForTarget(ref.to_section) === toKey) || null;
+    }
+
+    function matrixValue(mode, rowKey, colKey) {
+      const matrix = matrices[mode];
+      const row = matrices.index.get(rowKey);
+      const col = matrices.index.get(colKey);
+      if (!matrix || row === undefined || col === undefined) return 0;
+      return matrix[row][col];
+    }
+
+    function findPathWithLength(sourceKey, targetKey, length) {
+      let paths = [[sourceKey]];
+      for (let step = 0; step < length; step++) {
+        const nextPaths = [];
+        paths.forEach(path => {
+          const last = path[path.length - 1];
+          outgoingKeys(last).forEach(next => nextPaths.push([...path, next]));
+        });
+        paths = nextPaths;
+      }
+      return paths.find(path => path[path.length - 1] === targetKey) || [];
+    }
+
+    function findShortestPath(sourceKey, targetKey) {
+      const queue = [[sourceKey]];
+      const seen = new Set([sourceKey]);
+      while (queue.length) {
+        const path = queue.shift();
+        const last = path[path.length - 1];
+        if (path.length > nodes.length + 1) continue;
+        for (const next of outgoingKeys(last)) {
+          const nextPath = [...path, next];
+          if (next === targetKey && nextPath.length > 1) return nextPath;
+          if (!seen.has(next)) {
+            seen.add(next);
+            queue.push(nextPath);
+          }
+        }
+      }
+      return [];
+    }
+
+    function edgeKeysForPath(path) {
+      const edgeKeys = [];
+      for (let i = 0; i < path.length - 1; i++) {
+        edgeKeys.push(edgeKey(path[i], path[i + 1]));
+      }
+      return edgeKeys;
+    }
+
+    function selectedCellPath() {
+      if (!state.selectedCell) return { reachable: false, path: [], edgeKeys: [] };
+      const { rowKey, colKey } = state.selectedCell;
+      if (!matrixValue(state.matrixMode, rowKey, colKey)) {
+        return { reachable: false, path: [], edgeKeys: [] };
+      }
+
+      const path = state.matrixMode === "adjacency"
+        ? findPathWithLength(rowKey, colKey, 1)
+        : state.matrixMode === "twoHop"
+          ? findPathWithLength(rowKey, colKey, 2)
+          : findShortestPath(rowKey, colKey);
+
+      return { reachable: Boolean(path.length), path, edgeKeys: edgeKeysForPath(path) };
+    }
+
+    function dependencyOrdersForNode(key) {
+      const rowIndex = matrices.index.get(key);
+      const closureKeys = rowIndex === undefined
+        ? []
+        : nodes.filter((node, colIndex) => matrices.closure[rowIndex][colIndex]).map(node => node.key);
+      const orders = [];
+      const seenReachable = new Set();
+      const seenSignatures = new Set();
+      let frontier = new Set([key]);
+
+      for (let order = 1; order <= nodes.length + 1; order++) {
+        const exact = new Set();
+        frontier.forEach(item => outgoingKeys(item).forEach(target => exact.add(target)));
+        if (!exact.size) break;
+
+        const keys = nodes.filter(node => exact.has(node.key)).map(node => node.key);
+        const signature = keys.join("|");
+        const repeats = seenSignatures.has(signature);
+        const newKeys = keys.filter(item => !seenReachable.has(item));
+        orders.push({ order, keys, newKeys, repeats });
+        newKeys.forEach(item => seenReachable.add(item));
+
+        if (repeats) break;
+        seenSignatures.add(signature);
+        frontier = new Set(keys);
+      }
+
+      const highestNew = orders.filter(order => order.newKeys.length).at(-1);
+      return {
+        orders,
+        closureKeys,
+        highestNewOrder: highestNew ? highestNew.order : 0,
+        repeatsAt: orders.find(order => order.repeats)?.order || 0
+      };
+    }
+
+    function filteredNodes() {
+      if (!state.search.trim()) return nodes;
+      const q = state.search.toLowerCase();
+      return nodes.filter(node =>
+        node.key.toLowerCase().includes(q) ||
+        node.title.toLowerCase().includes(q) ||
+        node.document.toLowerCase().includes(q)
+      );
+    }
+
+    function filteredFindings() {
+      if (!state.search.trim()) return runData.findings;
+      const q = state.search.toLowerCase();
+      return runData.findings.filter(finding =>
+        finding.detector.toLowerCase().includes(q) ||
+        finding.severity.toLowerCase().includes(q) ||
+        finding.message.toLowerCase().includes(q) ||
+        finding.evidence.toLowerCase().includes(q) ||
+        finding.document.toLowerCase().includes(q)
+      );
+    }
+
+    function renderMetrics() {
+      const high = runData.findings.filter(f => f.severity === "high").length;
+      const medium = runData.findings.filter(f => f.severity === "medium").length;
+      const missing = nodes.filter(node => node.kind === "missing").length;
+      const metricData = [
+        ["Sections", runData.sections.length],
+        ["References", runData.references.length],
+        ["Findings", runData.findings.length],
+        ["High", high],
+        ["Medium", medium],
+        ["Missing", missing]
+      ];
+      document.getElementById("metrics").innerHTML = metricData.map(([label, value]) => `
+        <div class="metric">
+          <div class="value">${value}</div>
+          <div class="label">${label}</div>
+        </div>
+      `).join("");
+    }
+
+    function renderNodeList() {
+      const list = document.getElementById("nodeList");
+      document.getElementById("nodeCount").textContent = filteredNodes().length;
+      list.innerHTML = filteredNodes().map(node => {
+        const count = findingsForNode(node.key).length;
+        const classes = ["dot"];
+        if (node.kind === "missing") classes.push("missing");
+        if (runData.cycleNodes.includes(node.key)) classes.push("cycle");
+        return `
+          <button class="node-button ${state.selectedKey === node.key ? "active" : ""}" type="button" data-node="${node.key}">
+            <i class="${classes.join(" ")}"></i>
+            <span class="node-main">
+              <span class="node-title">${escapeHtml(node.label)}</span>
+              <span class="node-meta">${escapeHtml(node.title)}</span>
+            </span>
+            <span class="count-pill">${count}</span>
+          </button>
+        `;
+      }).join("");
+      list.querySelectorAll("[data-node]").forEach(button => {
+        button.addEventListener("click", () => selectNode(button.dataset.node));
+      });
+    }
+
+    function renderGraph() {
+      const svg = document.getElementById("graphSvg");
+      const selected = state.selectedKey;
+      const cellPath = selectedCellPath();
+      const cellFocusNodes = new Set(cellPath.path);
+      const cellFocusEdges = new Set(cellPath.edgeKeys);
+      if (state.selectedCell) {
+        cellFocusNodes.add(state.selectedCell.rowKey);
+        cellFocusNodes.add(state.selectedCell.colKey);
+      }
+      const related = new Set([selected]);
+      refsFrom(selected).forEach(ref => related.add(keyForTarget(ref.to_section)));
+      refsTo(selected).forEach(ref => related.add(`section:${ref.from_section}`));
+      cellFocusNodes.forEach(key => related.add(key));
+
+      const defs = `
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="#62788f"></path>
+          </marker>
+        </defs>
+      `;
+      const laneLabels = `
+        <text class="lane-label" x="60" y="36">Internal manual</text>
+        <text class="lane-label" x="360" y="36">State statute</text>
+        <text class="lane-label" x="650" y="36">Unresolved</text>
+      `;
+      const edgeMarkup = runData.references.map((ref, index) => {
+        const fromKey = `section:${ref.from_section}`;
+        const toKey = keyForTarget(ref.to_section);
+        const from = positions[fromKey];
+        const to = positions[toKey];
+        const isSelected = fromKey === selected || toKey === selected;
+        const isCellPath = cellFocusEdges.has(edgeKey(fromKey, toKey));
+        const dangling = toKey.startsWith("missing:");
+        const cycle = runData.cycleNodes.includes(fromKey) && runData.cycleNodes.includes(toKey);
+        const curve = Math.max(40, Math.abs(to.x - from.x) * 0.36);
+        const x1 = from.x + 150;
+        const y1 = from.y + 26;
+        const x2 = to.x;
+        const y2 = to.y + 26;
+        const path = `M ${x1} ${y1} C ${x1 + curve} ${y1}, ${x2 - curve} ${y2}, ${x2} ${y2}`;
+        return `<path class="edge ${isSelected ? "highlight" : ""} ${isCellPath ? "cell-path" : ""} ${dangling ? "dangling" : ""} ${cycle ? "cycle" : ""}" d="${path}" data-edge="${index}"><title>${fromKey} -> ${toKey}</title></path>`;
+      }).join("");
+      const nodeMarkup = nodes.map(node => {
+        const p = positions[node.key];
+        const isSelected = node.key === selected;
+        const isCellFocus = cellFocusNodes.has(node.key);
+        const isRelated = related.has(node.key);
+        const isCycle = runData.cycleNodes.includes(node.key);
+        const classes = ["node"];
+        if (node.kind === "missing") classes.push("missing");
+        if (isCycle) classes.push("cycle");
+        if (isSelected) classes.push("selected");
+        if (isCellFocus) classes.push("cell-focus");
+        if (selected && !isRelated) classes.push("dim");
+        return `
+          <g class="${classes.join(" ")}" data-node="${node.key}" transform="translate(${p.x}, ${p.y})" tabindex="0" role="button">
+            <rect width="150" height="52"></rect>
+            <text x="10" y="20">${escapeSvg(node.label)}</text>
+            <text x="10" y="38">${escapeSvg(shorten(node.title, 21))}</text>
+          </g>
+        `;
+      }).join("");
+      svg.innerHTML = defs + laneLabels + edgeMarkup + nodeMarkup;
+      svg.querySelectorAll("[data-node]").forEach(group => {
+        group.addEventListener("click", () => selectNode(group.dataset.node));
+        group.addEventListener("keydown", event => {
+          if (event.key === "Enter" || event.key === " ") selectNode(group.dataset.node);
+        });
+      });
+    }
+
+    function renderMatrix() {
+      const matrix = matrices[state.matrixMode];
+      const selectedIndex = matrices.index.get(state.selectedKey);
+      const picked = state.selectedCell;
+      const html = `
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>${escapeHtml(matrixModeLabel(state.matrixMode))}</th>
+              ${nodes.map((node, colIndex) => {
+                const classes = [];
+                if (colIndex === selectedIndex) classes.push("col-selected");
+                if (picked?.colKey === node.key) classes.push("cell-picked");
+                return `<th class="${classes.join(" ")}">${escapeHtml(shortMatrixLabel(node.key))}</th>`;
+              }).join("")}
+            </tr>
+          </thead>
+          <tbody>
+            ${nodes.map((node, rowIndex) => `
+              <tr class="${rowIndex === selectedIndex ? "row-selected" : ""}">
+                <td><button class="row-node" type="button" data-matrix-node="${node.key}">${escapeHtml(node.key)}</button></td>
+                ${nodes.map((target, colIndex) => {
+                  const value = matrix[rowIndex][colIndex];
+                  const cycle = value && rowIndex === colIndex && runData.cycleNodes.includes(node.key);
+                  const classes = ["matrix-cell"];
+                  if (value) classes.push(cycle ? "cell-cycle" : "cell-on");
+                  if (rowIndex === selectedIndex) classes.push("cell-selected-row");
+                  if (colIndex === selectedIndex) classes.push("cell-selected-col");
+                  if (rowIndex === selectedIndex && value) classes.push("cell-selected-dependency");
+                  if (picked?.rowKey === node.key && picked?.colKey === target.key) classes.push("cell-picked");
+                  const title = `${matrixModeLabel(state.matrixMode)}: ${node.key} depends on ${target.key}: ${value}`;
+                  return `<td class="${classes.join(" ")}" role="button" tabindex="0" data-row="${node.key}" data-col="${target.key}" title="${escapeHtml(title)}" aria-label="${escapeHtml(title)}">${value ? "1" : ""}</td>`;
+                }).join("")}
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      `;
+      const shell = document.getElementById("matrixShell");
+      shell.innerHTML = html;
+      shell.querySelectorAll("[data-row][data-col]").forEach(cell => {
+        cell.addEventListener("click", () => selectMatrixCell(cell.dataset.row, cell.dataset.col));
+        cell.addEventListener("keydown", event => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            selectMatrixCell(cell.dataset.row, cell.dataset.col);
+          }
+        });
+      });
+      shell.querySelectorAll("[data-matrix-node]").forEach(button => {
+        button.addEventListener("click", () => selectNode(button.dataset.matrixNode));
+      });
+      renderNodeMatrixPanel();
+    }
+
+    function renderNodeMatrixPanel() {
+      const panel = document.getElementById("nodeMatrixPanel");
+      const node = nodeByKey.get(state.selectedKey);
+      if (!node) {
+        panel.innerHTML = "";
+        return;
+      }
+
+      const orders = dependencyOrdersForNode(node.key);
+      const highest = orders.highestNewOrder
+        ? `Highest new dependency order: A^${orders.highestNewOrder}`
+        : "No outgoing dependency orders";
+      const repeat = orders.repeatsAt
+        ? ` Cycle repeats at A^${orders.repeatsAt}.`
+        : "";
+
+      const orderTable = orders.orders.length ? `
+        <div class="matrix-shell">
+          <table class="matrix-table compact">
+            <thead>
+              <tr>
+                <th>Order</th>
+                ${nodes.map(target => `<th>${escapeHtml(shortMatrixLabel(target.key))}</th>`).join("")}
+              </tr>
+            </thead>
+            <tbody>
+              ${orders.orders.map(order => `
+                <tr>
+                  <td>A^${order.order}${order.repeats ? " repeat" : ""}</td>
+                  ${nodes.map(target => renderOrderCell(target.key, order.keys, order.newKeys)).join("")}
+                </tr>
+              `).join("")}
+              <tr>
+                <td>Closure</td>
+                ${nodes.map(target => renderOrderCell(target.key, orders.closureKeys, [])).join("")}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      ` : `
+        <div class="path-summary">
+          <strong>${escapeHtml(node.key)}</strong> does not point to any other node in this demo data.
+        </div>
+      `;
+
+      panel.innerHTML = `
+        <div class="panel-heading">
+          <h2>Selected Node Dependency Orders</h2>
+          <span class="node-meta">${escapeHtml(node.key)}</span>
+        </div>
+        <div class="matrix-note">${highest}.${escapeHtml(repeat)} Cells in teal are first reached at that order; blue cells are reachable again or already known.</div>
+        ${orderTable}
+        ${renderSelectedCellSummary()}
+      `;
+    }
+
+    function renderOrderCell(targetKey, keys, newKeys) {
+      const active = keys.includes(targetKey);
+      const newlyReached = newKeys.includes(targetKey);
+      const picked = state.selectedCell?.colKey === targetKey && state.selectedCell?.rowKey === state.selectedKey;
+      const classes = [];
+      if (active) classes.push(newlyReached ? "cell-new" : "cell-on");
+      if (picked) classes.push("cell-picked");
+      return `<td class="${classes.join(" ")}" title="${escapeHtml(targetKey)}">${active ? "1" : ""}</td>`;
+    }
+
+    function renderSelectedCellSummary() {
+      if (!state.selectedCell) {
+        return `
+          <div class="path-summary">
+            Select a cell in the main matrix to highlight its source node, target node, and witness path in the graph.
+          </div>
+        `;
+      }
+
+      const { rowKey, colKey } = state.selectedCell;
+      const source = nodeByKey.get(rowKey);
+      const target = nodeByKey.get(colKey);
+      const value = matrixValue(state.matrixMode, rowKey, colKey);
+      const witness = selectedCellPath();
+
+      if (!value) {
+        return `
+          <div class="path-summary">
+            <strong>${escapeHtml(rowKey)} to ${escapeHtml(colKey)}</strong>: no relationship in ${escapeHtml(matrixModeLabel(state.matrixMode))}.
+          </div>
+        `;
+      }
+
+      const references = witness.path.slice(0, -1).map((key, index) => directReferenceBetween(key, witness.path[index + 1])).filter(Boolean);
+      return `
+        <div class="path-summary">
+          <strong>${escapeHtml(source?.label || rowKey)} to ${escapeHtml(target?.label || colKey)}</strong>
+          <div class="matrix-note">Witness path: ${witness.path.map(item => escapeHtml(item)).join(" -> ") || "not found"}</div>
+          ${references.length ? `
+            <div class="mini-list">
+              ${references.map(ref => `
+                <div class="mini-item">
+                  <div class="mini-title">${escapeHtml(`Section ${ref.from_section} -> ${keyForTarget(ref.to_section)}`)}</div>
+                  <div class="mini-meta">${escapeHtml(ref.document)}:${ref.line}</div>
+                  <div>${escapeHtml(ref.snippet)}</div>
+                </div>
+              `).join("")}
+            </div>
+          ` : ""}
+        </div>
+      `;
+    }
+
+    function renderFindings() {
+      const findings = filteredFindings();
+      document.getElementById("findingCount").textContent = findings.length;
+      document.getElementById("findingsBody").innerHTML = findings.map((finding, index) => `
+        <tr class="finding-row" data-finding="${index}">
+          <td><span class="severity ${finding.severity}">${finding.severity}</span></td>
+          <td>${escapeHtml(finding.detector)}</td>
+          <td>${escapeHtml(finding.document)}:${finding.line}</td>
+          <td>${escapeHtml(finding.message)}</td>
+        </tr>
+      `).join("");
+      document.querySelectorAll("[data-finding]").forEach((row, i) => {
+        row.addEventListener("click", () => renderFindingDetail(findings[i]));
+      });
+    }
+
+    function renderDetail() {
+      const node = nodeByKey.get(state.selectedKey) || nodes[0];
+      const dependencies = refsFrom(node.key);
+      const dependents = refsTo(node.key);
+      const findings = findingsForNode(node.key);
+      const roots = runData.rootsByNode[node.key] || [];
+      const cycle = runData.cycleNodes.includes(node.key);
+
+      document.getElementById("detailPanel").innerHTML = `
+        <h2>${escapeHtml(node.label)}</h2>
+        <div class="node-meta">${escapeHtml(node.title)}</div>
+        <div class="detail-section">
+          <h3>Identity</h3>
+          <dl class="kv">
+            <dt>Kind</dt><dd>${escapeHtml(node.kind)}</dd>
+            <dt>Document</dt><dd>${escapeHtml(node.document || "not found in corpus")}</dd>
+            <dt>Line</dt><dd>${node.line ?? "none"}</dd>
+            <dt>Status</dt><dd>${node.kind === "missing" ? "dangling target" : cycle ? "cycle member" : "active sample node"}</dd>
+          </dl>
+        </div>
+        <div class="detail-section">
+          <h3>Dependencies</h3>
+          ${renderReferenceList(dependencies, "out")}
+        </div>
+        <div class="detail-section">
+          <h3>Dependents</h3>
+          ${renderReferenceList(dependents, "in")}
+        </div>
+        <div class="detail-section">
+          <h3>Roots</h3>
+          <div class="chip-list">${roots.length ? roots.map(root => `<span class="chip">${escapeHtml(root)}</span>`).join("") : `<span class="node-meta">No terminal roots</span>`}</div>
+        </div>
+        <div class="detail-section">
+          <h3>Findings</h3>
+          ${renderMiniFindings(findings)}
+        </div>
+        <div class="detail-section">
+          <h3>Source</h3>
+          <div class="evidence">${escapeHtml(node.body || "No source text available for this node.")}</div>
+        </div>
+      `;
+    }
+
+    function renderReferenceList(refs, direction) {
+      if (!refs.length) return `<div class="node-meta">None</div>`;
+      return `<div class="mini-list">${refs.map(ref => {
+        const otherKey = direction === "out" ? keyForTarget(ref.to_section) : `section:${ref.from_section}`;
+        const other = nodeByKey.get(otherKey);
+        return `
+          <div class="mini-item">
+            <div class="mini-title">${direction === "out" ? "Depends on" : "Used by"} ${escapeHtml(other ? other.label : otherKey)}</div>
+            <div class="mini-meta">${escapeHtml(ref.document)}:${ref.line}</div>
+            <div>${escapeHtml(ref.snippet)}</div>
+          </div>
+        `;
+      }).join("")}</div>`;
+    }
+
+    function renderMiniFindings(findings) {
+      if (!findings.length) return `<div class="node-meta">None linked to this node</div>`;
+      return `<div class="mini-list">${findings.map(finding => `
+        <div class="mini-item">
+          <div class="mini-title"><span class="severity ${finding.severity}">${finding.severity}</span> ${escapeHtml(finding.detector)}</div>
+          <div class="mini-meta">${escapeHtml(finding.document)}:${finding.line}</div>
+          <div>${escapeHtml(finding.message)}</div>
+        </div>
+      `).join("")}</div>`;
+    }
+
+    function renderFindingDetail(finding) {
+      document.getElementById("detailPanel").innerHTML = `
+        <h2>${escapeHtml(finding.detector)}</h2>
+        <div><span class="severity ${finding.severity}">${finding.severity}</span></div>
+        <div class="detail-section">
+          <h3>Source</h3>
+          <dl class="kv">
+            <dt>Document</dt><dd>${escapeHtml(finding.document)}</dd>
+            <dt>Line</dt><dd>${finding.line}</dd>
+          </dl>
+        </div>
+        <div class="detail-section">
+          <h3>Message</h3>
+          <div>${escapeHtml(finding.message)}</div>
+        </div>
+        <div class="detail-section">
+          <h3>Evidence</h3>
+          <div class="evidence">${escapeHtml(finding.evidence)}</div>
+        </div>
+      `;
+    }
+
+    function selectNode(key) {
+      state.selectedKey = key;
+      state.selectedCell = null;
+      renderNodeList();
+      renderGraph();
+      renderMatrix();
+      renderDetail();
+    }
+
+    function selectMatrixCell(rowKey, colKey) {
+      state.selectedKey = rowKey;
+      state.selectedCell = { rowKey, colKey };
+      renderNodeList();
+      renderGraph();
+      renderMatrix();
+      renderDetail();
+    }
+
+    function switchView(viewId) {
+      state.activeView = viewId;
+      document.querySelectorAll(".tab").forEach(tab => tab.classList.toggle("active", tab.dataset.view === viewId));
+      document.querySelectorAll(".view").forEach(view => view.classList.toggle("active", view.id === viewId));
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function escapeSvg(value) {
+      return escapeHtml(value);
+    }
+
+    function shorten(value, max) {
+      return value.length <= max ? value : `${value.slice(0, max - 1)}...`;
+    }
+
+    function matrixModeLabel(mode) {
+      return {
+        adjacency: "Direct A",
+        twoHop: "A^2",
+        closure: "Closure"
+      }[mode] || mode;
+    }
+
+    function shortMatrixLabel(key) {
+      return key.replace("section:", "S").replace("missing:", "M");
+    }
+
+    function applyTheme() {
+      document.documentElement.dataset.theme = state.theme;
+      const button = document.getElementById("themeToggle");
+      button.textContent = state.theme === "dark" ? "Light" : "Dark";
+      button.setAttribute("aria-pressed", state.theme === "dark" ? "true" : "false");
+    }
+
+    function toggleTheme() {
+      state.theme = state.theme === "dark" ? "light" : "dark";
+      try {
+        localStorage.setItem("legalDebtDashboardTheme", state.theme);
+      } catch {
+        // Theme persistence is optional in a static file.
+      }
+      applyTheme();
+    }
+
+    document.querySelectorAll(".tab").forEach(tab => {
+      tab.addEventListener("click", () => switchView(tab.dataset.view));
+    });
+    document.getElementById("matrixMode").addEventListener("change", event => {
+      state.matrixMode = event.target.value;
+      renderGraph();
+      renderMatrix();
+    });
+    document.getElementById("themeToggle").addEventListener("click", toggleTheme);
+    document.getElementById("searchBox").addEventListener("input", event => {
+      state.search = event.target.value;
+      renderNodeList();
+      renderFindings();
+    });
+
+    applyTheme();
+    renderMetrics();
+    renderNodeList();
+    renderGraph();
+    renderMatrix();
+    renderFindings();
+    renderDetail();
+  </script>
+</body>
+</html>

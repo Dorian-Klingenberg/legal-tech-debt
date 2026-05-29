@@ -1,0 +1,66 @@
+index,node_key,label,kind,section_id,document,line,title
+0,section:1000,Section 1000,section,1000,commonwealth_auto_claims_playbook_synthetic.md,4,Scope and authority
+1,section:1010,Section 1010,section,1010,commonwealth_auto_claims_playbook_synthetic.md,9,Kentucky intake classification
+2,section:1020,Section 1020,section,1020,commonwealth_auto_claims_playbook_synthetic.md,14,Basic reparation benefits routing
+3,section:1030,Section 1030,section,1030,commonwealth_auto_claims_playbook_synthetic.md,19,Proof validation and card evidence
+4,section:1040,Section 1040,section,1040,commonwealth_auto_claims_playbook_synthetic.md,24,No-fault rejection handling
+5,section:1050,Section 1050,section,1050,commonwealth_auto_claims_playbook_synthetic.md,29,Cancellation and nonrenewal hold
+6,section:1060,Section 1060,section,1060,commonwealth_auto_claims_playbook_synthetic.md,34,Liability limit verification
+7,section:1070,Section 1070,section,1070,commonwealth_auto_claims_playbook_synthetic.md,39,UM escalation and external authority
+8,section:1080,Section 1080,section,1080,commonwealth_auto_claims_playbook_synthetic.md,44,Form and template update review
+9,section:1090,Section 1090,section,1090,commonwealth_auto_claims_playbook_synthetic.md,49,Notice workflow
+10,section:1100,Section 1100,section,1100,commonwealth_auto_claims_playbook_synthetic.md,54,Adverse action letter
+11,section:1110,Section 1110,section,1110,commonwealth_auto_claims_playbook_synthetic.md,59,Producer communications
+12,section:1120,Section 1120,section,1120,commonwealth_auto_claims_playbook_synthetic.md,64,Evidence packet
+13,section:1200,Section 1200,section,1200,commonwealth_auto_claims_playbook_synthetic.md,69,Applicant disclosure intake
+14,section:1300,Section 1300,section,1300,commonwealth_auto_claims_playbook_synthetic.md,74,Digital proof exception process
+15,section:1400,Section 1400,section,1400,commonwealth_auto_claims_playbook_synthetic.md,79,Printed proof fallback
+16,section:1500,Section 1500,section,1500,commonwealth_auto_claims_playbook_synthetic.md,84,Records retention
+17,section:1600,Section 1600,section,1600,commonwealth_auto_claims_playbook_synthetic.md,88,Supervisory review
+18,section:1700,Section 1700,section,1700,commonwealth_auto_claims_playbook_synthetic.md,93,Quality audit
+19,section:304.20.020,Section 304.20.020,section,304.20.020,ky_auto_policy_notice_statute_synthetic.md,4,Uninsured vehicle coverage
+20,section:304.20.040,Section 304.20.040,section,304.20.040,ky_auto_policy_notice_statute_synthetic.md,9,"Cancellation, nonrenewal, or termination of automobile insurance"
+21,section:304.20.050,Section 304.20.050,section,304.20.050,ky_auto_policy_notice_statute_synthetic.md,14,Nonpayment notice
+22,section:304.20.060,Section 304.20.060,section,304.20.060,ky_auto_policy_notice_statute_synthetic.md,19,Material misrepresentation review
+23,section:304.20.300,Section 304.20.300,section,304.20.300,ky_auto_policy_notice_statute_synthetic.md,24,Property and casualty declination purpose
+24,section:304.20.320,Section 304.20.320,section,304.20.320,ky_auto_policy_notice_statute_synthetic.md,29,Specific reason for declination
+25,section:304.20.330,Section 304.20.330,section,304.20.330,ky_auto_policy_notice_statute_synthetic.md,34,Review of adverse underwriting action
+26,section:304.20.340,Section 304.20.340,section,304.20.340,ky_auto_policy_notice_statute_synthetic.md,39,Recordkeeping for notice decisions
+27,section:304.20.350,Section 304.20.350,section,304.20.350,ky_auto_policy_notice_statute_synthetic.md,44,Penalties and enforcement
+28,section:304.20.360,Section 304.20.360,section,304.20.360,ky_auto_policy_notice_statute_synthetic.md,49,Privacy notice for adverse action
+29,section:304.39.010,Section 304.39.010,section,304.39.010,ky_motor_vehicle_insurance_code_synthetic.md,4,Policy and purpose
+30,section:304.39.020,Section 304.39.020,section,304.39.020,ky_motor_vehicle_insurance_code_synthetic.md,9,Definitions for motor vehicle security
+31,section:304.39.030,Section 304.39.030,section,304.39.030,ky_motor_vehicle_insurance_code_synthetic.md,21,Right to basic reparation benefits
+32,section:304.39.040,Section 304.39.040,section,304.39.040,ky_motor_vehicle_insurance_code_synthetic.md,26,Obligation to pay basic reparation benefits
+33,section:304.39.045,Section 304.39.045,section,304.39.045,ky_motor_vehicle_insurance_code_synthetic.md,31,Exclusion from coverage by agreement
+34,section:304.39.050,Section 304.39.050,section,304.39.050,ky_motor_vehicle_insurance_code_synthetic.md,35,Priority of security for payment
+35,section:304.39.060,Section 304.39.060,section,304.39.060,ky_motor_vehicle_insurance_code_synthetic.md,40,Acceptance or rejection of tort limitation
+36,section:304.39.070,Section 304.39.070,section,304.39.070,ky_motor_vehicle_insurance_code_synthetic.md,45,Secured person and obligor recovery rights
+37,section:304.39.080,Section 304.39.080,section,304.39.080,ky_motor_vehicle_insurance_code_synthetic.md,50,Security covering motor vehicle
+38,section:304.39.083,Section 304.39.083,section,304.39.083,ky_motor_vehicle_insurance_code_synthetic.md,55,Binder cancellation
+39,section:304.39.085,Section 304.39.085,section,304.39.085,ky_motor_vehicle_insurance_code_synthetic.md,60,Termination reporting to the vehicle regulator
+40,section:304.39.087,Section 304.39.087,section,304.39.087,ky_motor_vehicle_insurance_code_synthetic.md,65,Vehicle identification number reporting
+41,section:304.39.090,Section 304.39.090,section,304.39.090,ky_motor_vehicle_insurance_code_synthetic.md,70,Required security
+42,section:304.39.100,Section 304.39.100,section,304.39.100,ky_motor_vehicle_insurance_code_synthetic.md,75,Included coverages
+43,section:304.39.110,Section 304.39.110,section,304.39.110,ky_motor_vehicle_insurance_code_synthetic.md,79,Required minimum tort liability insurance
+44,section:304.39.117,Section 304.39.117,section,304.39.117,ky_motor_vehicle_insurance_code_synthetic.md,85,Motor vehicle insurance card
+45,section:304.39.120,Section 304.39.120,section,304.39.120,ky_motor_vehicle_insurance_code_synthetic.md,90,Applicant disclosure and no-fault election
+46,section:304.39.200,Section 304.39.200,section,304.39.200,ky_motor_vehicle_insurance_code_synthetic.md,95,Records supporting reparations decisions
+47,section:2000,Section 2000,section,2000,ky_product_compliance_matrix_synthetic.md,4,Product change intake
+48,section:2010,Section 2010,section,2010,ky_product_compliance_matrix_synthetic.md,8,Rate and rule filing screen
+49,section:2020,Section 2020,section,2020,ky_product_compliance_matrix_synthetic.md,13,Form ownership
+50,section:2030,Section 2030,section,2030,ky_product_compliance_matrix_synthetic.md,17,Producer training
+51,section:2040,Section 2040,section,2040,ky_product_compliance_matrix_synthetic.md,21,Control map
+52,section:806.39.070.1,Section 806.39.070.1,section,806.39.070.1,ky_proof_of_insurance_regulation_synthetic.md,4,Definitions
+53,section:806.39.070.2,Section 806.39.070.2,section,806.39.070.2,ky_proof_of_insurance_regulation_synthetic.md,9,Proof of insurance to be provided by insurers
+54,section:806.39.070.3,Section 806.39.070.3,section,806.39.070.3,ky_proof_of_insurance_regulation_synthetic.md,14,Printed proof card format
+55,section:806.39.070.4,Section 806.39.070.4,section,806.39.070.4,ky_proof_of_insurance_regulation_synthetic.md,19,Electronic coverage reporting
+56,section:806.39.070.5,Section 806.39.070.5,section,806.39.070.5,ky_proof_of_insurance_regulation_synthetic.md,24,Presentation to county clerk or peace officer
+57,section:806.39.070.6,Section 806.39.070.6,section,806.39.070.6,ky_proof_of_insurance_regulation_synthetic.md,29,"Binder, contract, and commercial policy cancellation notices"
+58,section:806.39.070.7,Section 806.39.070.7,section,806.39.070.7,ky_proof_of_insurance_regulation_synthetic.md,34,Electronic reporting exceptions
+59,section:806.39.070.8,Section 806.39.070.8,section,806.39.070.8,ky_proof_of_insurance_regulation_synthetic.md,39,Forms library and card templates
+60,missing:2055,Missing Section 2055,missing,2055,,,unresolved reference target
+61,missing:304.20.999,Missing Section 304.20.999,missing,304.20.999,,,unresolved reference target
+62,missing:304.39.888,Missing Section 304.39.888,missing,304.39.888,,,unresolved reference target
+63,missing:806.39.070.9,Missing Section 806.39.070.9,missing,806.39.070.9,,,unresolved reference target
+64,missing:9999,Missing Section 9999,missing,9999,,,unresolved reference target

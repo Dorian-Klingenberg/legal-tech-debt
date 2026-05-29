@@ -1,0 +1,290 @@
+[
+  {
+    "Label": "Law Smells paper (arXiv preprint) — Coupette, Hartung, Beckedorf, Böther, Katz (2021/2023)",
+    "Url": "https://arxiv.org/abs/2110.11984"
+  },
+  {
+    "Label": "Law Smells — ACM ProLaLa 2022 presentation page",
+    "Url": "https://popl22.sigplan.org/details/prolala-2022-papers/4/Law-Smells-Defining-and-Detecting-Problematic-Patterns-in-Legal-Draftin"
+  },
+  {
+    "Label": "Catala arXiv preprint",
+    "Url": "https://arxiv.org/abs/2103.03198"
+  },
+  {
+    "Label": "Programming Languages and Law: A Research Agenda — arXiv (Grimmelmann 2022)",
+    "Url": "https://arxiv.org/abs/2206.14879"
+  },
+  {
+    "Label": "ProLaLa 2022 Workshop (Programming Languages and the Law) — POPL",
+    "Url": "https://popl22.sigplan.org/home/prolala-2022"
+  },
+  {
+    "Label": "Catala Language — Official Site",
+    "Url": "https://catala-lang.org/"
+  },
+  {
+    "Label": "Catala GitHub Repository (CatalaLang)",
+    "Url": "https://github.com/CatalaLang/catala"
+  },
+  {
+    "Label": "OpenFisca — Official Site",
+    "Url": "https://openfisca.org/en/"
+  },
+  {
+    "Label": "OpenFisca Core — GitHub",
+    "Url": "https://github.com/openfisca/openfisca-core"
+  },
+  {
+    "Label": "OpenFisca France — GitHub",
+    "Url": "https://github.com/openfisca/openfisca-france"
+  },
+  {
+    "Label": "Akoma Ntoso — OASIS LegalDocML Technical Committee",
+    "Url": "https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=legaldocml"
+  },
+  {
+    "Label": "LegalRuleML — OASIS Technical Committee",
+    "Url": "https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=legalruleml"
+  },
+  {
+    "Label": "spaCy — Industrial-Strength NLP",
+    "Url": "https://spacy.io/"
+  },
+  {
+    "Label": "Hugging Face",
+    "Url": "https://huggingface.co/"
+  },
+  {
+    "Label": "Neo4j — Graph Database",
+    "Url": "https://neo4j.com/"
+  },
+  {
+    "Label": "Drools — Rule Engine",
+    "Url": "https://www.drools.org/"
+  },
+  {
+    "Label": "Camunda — BPMN Process Automation",
+    "Url": "https://camunda.com/"
+  },
+  {
+    "Label": "Docassemble — Open-source document assembly",
+    "Url": "https://www.docassemble.org/"
+  },
+  {
+    "Label": "Stanford CodeX — Center for Legal Informatics",
+    "Url": "https://codex.stanford.edu/"
+  },
+  {
+    "Label": "Stanford Law — CodeX page",
+    "Url": "https://law.stanford.edu/codex-the-stanford-center-for-legal-informatics/"
+  },
+  {
+    "Label": "Berkman Klein Center for Internet & Society — Harvard",
+    "Url": "https://berkman.harvard.edu/"
+  },
+  {
+    "Label": "Harvard Cyberlaw Clinic",
+    "Url": "https://cyber.harvard.edu/"
+  },
+  {
+    "Label": "Harvard Law Review",
+    "Url": "https://www.harvardlawreview.org/"
+  },
+  {
+    "Label": "Computational Law — computationallaw.org",
+    "Url": "https://computationallaw.org/"
+  },
+  {
+    "Label": "SMUCCLAW — Singapore Management University Centre for Computational Law",
+    "Url": "https://github.com/smucclaw"
+  },
+  {
+    "Label": "Legal Informatics — Wikipedia",
+    "Url": "https://en.wikipedia.org/wiki/Legal_informatics"
+  },
+  {
+    "Label": "Computational Law — Wikipedia",
+    "Url": "https://en.wikipedia.org/wiki/Computational_law"
+  },
+  {
+    "Label": "Legal Informatics Blog",
+    "Url": "https://legalinformatics.wordpress.com/"
+  },
+  {
+    "Label": "Rules as Code — New Zealand Digital Government",
+    "Url": "https://www.digital.govt.nz/dmsdocument/95-better-rules-for-government-discovery-report/html"
+  },
+  {
+    "Label": "New South Wales Digital Government",
+    "Url": "https://www.digital.nsw.gov.au/"
+  },
+  {
+    "Label": "Canada Treasury Board — Digital Policy",
+    "Url": "https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32603"
+  },
+  {
+    "Label": "Beeck Center — AI Rules as Code (Georgetown 2025)",
+    "Url": "https://www.beeckcenter.org/work/ai-rules-as-code"
+  },
+  {
+    "Label": "CADE Project — OECD AI in Government report",
+    "Url": "https://cadeproject.org/updates/oecd-publishes-new-report-on-governing-with-artificial-intelligence-in-government/"
+  },
+  {
+    "Label": "Open Data Institute (ODI)",
+    "Url": "https://www.theodi.org/"
+  },
+  {
+    "Label": "GovHack",
+    "Url": "https://www.govhack.org/"
+  },
+  {
+    "Label": "Perma.cc — Permanent citation links",
+    "Url": "https://perma.cc/"
+  },
+  {
+    "Label": "Akoma Ntoso — Wikipedia",
+    "Url": "https://en.wikipedia.org/wiki/Akoma_Ntoso"
+  },
+  {
+    "Label": "U.S. Code — Office of the Law Revision Counsel",
+    "Url": "https://uscode.house.gov/"
+  },
+  {
+    "Label": "U.S. Code — Cornell LII",
+    "Url": "https://www.law.cornell.edu/uscode/text"
+  },
+  {
+    "Label": "UK Legislation",
+    "Url": "https://www.legislation.gov.uk/"
+  },
+  {
+    "Label": "NAIC — National Association of Insurance Commissioners",
+    "Url": "https://www.naic.org/"
+  },
+  {
+    "Label": "RegTech Market Size 2025–2034 — Custom Market Insights",
+    "Url": "https://www.custommarketinsights.com/report/regtech-market/"
+  },
+  {
+    "Label": "RegTech Market Statistics — IMARC Group ($77B by 2034)",
+    "Url": "https://www.imarcgroup.com/regtech-market-statistics"
+  },
+  {
+    "Label": "RegTech Industry Report 2025–2035 ($115.5B) — Yahoo Finance",
+    "Url": "https://uk.finance.yahoo.com/news/regtech-industry-research-report-2025-101600298.html"
+  },
+  {
+    "Label": "World Market for RegTech 2025–2030 — Yahoo Finance",
+    "Url": "https://finance.yahoo.com/news/world-market-regtech-2025-2030-100300802.html"
+  },
+  {
+    "Label": "RegTech Market to Surpass $85.48B by 2035 — LinkedIn",
+    "Url": "https://www.linkedin.com/pulse/regtech-market-size-surpass-usd-8548-billion-2035-m1o9f"
+  },
+  {
+    "Label": "Cost of Regulatory Compliance in the United States — Cato Institute",
+    "Url": "https://www.cato.org/research-briefs-economic-policy/cost-regulatory-compliance-united-states"
+  },
+  {
+    "Label": "Tracking the Cost of Complying with Government Regulation — NBER",
+    "Url": "https://www.nber.org/digest/20232/tracking-cost-complying-government-regulation"
+  },
+  {
+    "Label": "Economics and Peace — Institute for Economics & Peace",
+    "Url": "https://www.economicsandpeace.org/"
+  },
+  {
+    "Label": "Regulatory Burden in Insurance — Taylor Root 2025",
+    "Url": "https://www.taylorroot.com/market-insight/the-regulatory-burden-navigating-compliance-challenges-in-the-insurance-sector/"
+  },
+  {
+    "Label": "The Cost of Non-Compliance for Insurance Companies — ReSource Pro",
+    "Url": "https://www.resourcepro.com/blog/the-cost-of-non-compliance/"
+  },
+  {
+    "Label": "Caslon Analytics — Insurance and Regulation",
+    "Url": "https://www.caslon.com.au/insurancenote8.htm"
+  },
+  {
+    "Label": "Institute for Legal Reform",
+    "Url": "https://www.instituteforlegalreform.com/"
+  },
+  {
+    "Label": "GovTech — Government Technology News",
+    "Url": "https://www.govtech.com/"
+  },
+  {
+    "Label": "Harvey AI — $11B Funding Announcement (Harvey Blog, March 2026)",
+    "Url": "https://www.harvey.ai/blog/harvey-raises-growth-round-at-dollar11-billion-valuation-co-led-by-gic-and-sequoia"
+  },
+  {
+    "Label": "Harvey raising at $11B — TechCrunch (Feb 2026)",
+    "Url": "https://techcrunch.com/2026/02/09/harvey-reportedly-raising-at-11b-valuation-just-months-after-it-hit-8b/"
+  },
+  {
+    "Label": "Harvey AI — Parsers VC Profile",
+    "Url": "https://o.parsers.vc/startup/harvey.ai/"
+  },
+  {
+    "Label": "DoNotPay",
+    "Url": "https://donotpay.com/"
+  },
+  {
+    "Label": "Ironclad — Contract Lifecycle Management",
+    "Url": "https://www.ironclad.ai/"
+  },
+  {
+    "Label": "Ironclad — Integrations",
+    "Url": "https://ironclad.ai/integrations"
+  },
+  {
+    "Label": "Juro — AI Contract Collaboration",
+    "Url": "https://juro.com/"
+  },
+  {
+    "Label": "Regology — AI Regulatory Intelligence",
+    "Url": "https://regology.com/"
+  },
+  {
+    "Label": "Hebbia — AI Research Platform",
+    "Url": "https://www.hebbia.ai/"
+  },
+  {
+    "Label": "Gradient AI — Insurance AI",
+    "Url": "https://gradient.ai/"
+  },
+  {
+    "Label": "LegalZoom",
+    "Url": "https://www.legalzoom.com/"
+  },
+  {
+    "Label": "Legal.io",
+    "Url": "https://legal.io/"
+  },
+  {
+    "Label": "Litera — Legal Technology",
+    "Url": "https://www.litera.com/"
+  },
+  {
+    "Label": "LexisNexis — Lexis+",
+    "Url": "https://www.lexisnexis.com/en-us/products/lexis-plus.page"
+  },
+  {
+    "Label": "Thomson Reuters — Westlaw",
+    "Url": "https://legal.thomsonreuters.com/en/westlaw"
+  },
+  {
+    "Label": "Docket Alarm",
+    "Url": "https://www.docketalarm.com/"
+  },
+  {
+    "Label": "Legal Aid at Work",
+    "Url": "https://legalaidatwork.org/"
+  },
+  {
+    "Label": "AI Law and AI Ethics: AI That Can Sniff Out Unsavory Legal Patterns — Forbes (2022)",
+    "Url": "https://www.forbes.com/sites/lanceeliot/2022/10/27/ai-law-and-ai-ethics-are-giving-thumbs-up-to-ai-that-can-sniff-out-unsavory-l"
+  }
+]

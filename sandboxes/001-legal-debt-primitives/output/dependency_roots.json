@@ -1,0 +1,150 @@
+{
+  "edge_direction": "A[i,j] = 1 means node i depends on node j",
+  "root_definition": "For a node, dependency roots are reachable dependency nodes with no further reachable dependencies in the closure matrix.",
+  "nodes": [
+    {
+      "key": "section:10",
+      "label": "Section 10",
+      "kind": "section",
+      "section_id": "10",
+      "document": "internal_policy_manual.md",
+      "line": 2,
+      "title": "Authority"
+    },
+    {
+      "key": "section:20",
+      "label": "Section 20",
+      "kind": "section",
+      "section_id": "20",
+      "document": "internal_policy_manual.md",
+      "line": 6,
+      "title": "Required Action"
+    },
+    {
+      "key": "section:30",
+      "label": "Section 30",
+      "kind": "section",
+      "section_id": "30",
+      "document": "internal_policy_manual.md",
+      "line": 11,
+      "title": "Evidence"
+    },
+    {
+      "key": "section:40",
+      "label": "Section 40",
+      "kind": "section",
+      "section_id": "40",
+      "document": "internal_policy_manual.md",
+      "line": 15,
+      "title": "External Guidance"
+    },
+    {
+      "key": "section:100",
+      "label": "Section 100",
+      "kind": "section",
+      "section_id": "100",
+      "document": "state_minimum_coverage_statute.md",
+      "line": 2,
+      "title": "Purpose"
+    },
+    {
+      "key": "section:200",
+      "label": "Section 200",
+      "kind": "section",
+      "section_id": "200",
+      "document": "state_minimum_coverage_statute.md",
+      "line": 6,
+      "title": "Definitions"
+    },
+    {
+      "key": "section:300",
+      "label": "Section 300",
+      "kind": "section",
+      "section_id": "300",
+      "document": "state_minimum_coverage_statute.md",
+      "line": 12,
+      "title": "Minimum Coverage"
+    },
+    {
+      "key": "section:310",
+      "label": "Section 310",
+      "kind": "section",
+      "section_id": "310",
+      "document": "state_minimum_coverage_statute.md",
+      "line": 17,
+      "title": "Coverage Amounts"
+    },
+    {
+      "key": "section:400",
+      "label": "Section 400",
+      "kind": "section",
+      "section_id": "400",
+      "document": "state_minimum_coverage_statute.md",
+      "line": 22,
+      "title": "Claim Notice"
+    },
+    {
+      "key": "section:410",
+      "label": "Section 410",
+      "kind": "section",
+      "section_id": "410",
+      "document": "state_minimum_coverage_statute.md",
+      "line": 26,
+      "title": "Claim Notice Exception"
+    },
+    {
+      "key": "missing:900",
+      "label": "Missing Section 900",
+      "kind": "missing",
+      "section_id": "900",
+      "document": "",
+      "line": null,
+      "title": "unresolved reference target"
+    }
+  ],
+  "cycle_nodes": [
+    "section:400",
+    "section:410"
+  ],
+  "roots_by_node": {
+    "section:10": [
+      {
+        "key": "section:310",
+        "label": "Section 310",
+        "kind": "section"
+      },
+      {
+        "key": "missing:900",
+        "label": "Missing Section 900",
+        "kind": "missing"
+      }
+    ],
+    "section:20": [
+      {
+        "key": "section:30",
+        "label": "Section 30",
+        "kind": "section"
+      }
+    ],
+    "section:30": [],
+    "section:40": [],
+    "section:100": [],
+    "section:200": [],
+    "section:300": [
+      {
+        "key": "section:310",
+        "label": "Section 310",
+        "kind": "section"
+      },
+      {
+        "key": "missing:900",
+        "label": "Missing Section 900",
+        "kind": "missing"
+      }
+    ],
+    "section:310": [],
+    "section:400": [],
+    "section:410": [],
+    "missing:900": []
+  }
+}

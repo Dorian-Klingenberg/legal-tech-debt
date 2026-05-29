@@ -1,0 +1,506 @@
+[
+  {
+    "Label": "Law Smells paper (arXiv preprint) — Coupette, Hartung, Beckedorf, Böther, Katz (2021/2023)",
+    "Url": "https://arxiv.org/abs/2110.11984",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Law Smells paper (arXiv preprint) — Coupette, Hartung, Beckedorf, Böther, Katz (2021_2023).html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Law Smells — ACM ProLaLa 2022 presentation page",
+    "Url": "https://popl22.sigplan.org/details/prolala-2022-papers/4/Law-Smells-Defining-and-Detecting-Problematic-Patterns-in-Legal-Draftin",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Law Smells — ACM ProLaLa 2022 presentation page.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Catala arXiv preprint",
+    "Url": "https://arxiv.org/abs/2103.03198",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Catala arXiv preprint.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Programming Languages and Law: A Research Agenda — arXiv (Grimmelmann 2022)",
+    "Url": "https://arxiv.org/abs/2206.14879",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Programming Languages and Law_ A Research Agenda — arXiv (Grimmelmann 2022).html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "ProLaLa 2022 Workshop (Programming Languages and the Law) — POPL",
+    "Url": "https://popl22.sigplan.org/home/prolala-2022",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\ProLaLa 2022 Workshop (Programming Languages and the Law) — POPL.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Catala Language — Official Site",
+    "Url": "https://catala-lang.org/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Catala Language — Official Site.html",
+    "ContentType": "text/html",
+    "Status": "ok"
+  },
+  {
+    "Label": "Catala GitHub Repository (CatalaLang)",
+    "Url": "https://github.com/CatalaLang/catala",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Catala GitHub Repository (CatalaLang).html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "OpenFisca — Official Site",
+    "Url": "https://openfisca.org/en/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\OpenFisca — Official Site.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "OpenFisca Core — GitHub",
+    "Url": "https://github.com/openfisca/openfisca-core",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\OpenFisca Core — GitHub.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "OpenFisca France — GitHub",
+    "Url": "https://github.com/openfisca/openfisca-france",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\OpenFisca France — GitHub.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Akoma Ntoso — OASIS LegalDocML Technical Committee",
+    "Url": "https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=legaldocml",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Akoma Ntoso — OASIS LegalDocML Technical Committee.html",
+    "ContentType": "text/html",
+    "Status": "ok"
+  },
+  {
+    "Label": "LegalRuleML — OASIS Technical Committee",
+    "Url": "https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=legalruleml",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\LegalRuleML — OASIS Technical Committee.html",
+    "ContentType": "text/html",
+    "Status": "ok"
+  },
+  {
+    "Label": "spaCy — Industrial-Strength NLP",
+    "Url": "https://spacy.io/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\spaCy — Industrial-Strength NLP.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Hugging Face",
+    "Url": "https://huggingface.co/",
+    "File": "",
+    "ContentType": "",
+    "Status": "failed: The SSL connection could not be established, see inner exception."
+  },
+  {
+    "Label": "Neo4j — Graph Database",
+    "Url": "https://neo4j.com/",
+    "File": "",
+    "ContentType": "",
+    "Status": "failed: The SSL connection could not be established, see inner exception."
+  },
+  {
+    "Label": "Drools — Rule Engine",
+    "Url": "https://www.drools.org/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Drools — Rule Engine.html",
+    "ContentType": "text/html",
+    "Status": "ok"
+  },
+  {
+    "Label": "Camunda — BPMN Process Automation",
+    "Url": "https://camunda.com/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Camunda — BPMN Process Automation.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Docassemble — Open-source document assembly",
+    "Url": "https://www.docassemble.org/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Docassemble — Open-source document assembly.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Stanford CodeX — Center for Legal Informatics",
+    "Url": "https://codex.stanford.edu/",
+    "File": "",
+    "ContentType": "",
+    "Status": "failed: Response status code does not indicate success: 403 (Forbidden)."
+  },
+  {
+    "Label": "Stanford Law — CodeX page",
+    "Url": "https://law.stanford.edu/codex-the-stanford-center-for-legal-informatics/",
+    "File": "",
+    "ContentType": "",
+    "Status": "failed: Response status code does not indicate success: 403 (Forbidden)."
+  },
+  {
+    "Label": "Berkman Klein Center for Internet & Society — Harvard",
+    "Url": "https://berkman.harvard.edu/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Berkman Klein Center for Internet & Society — Harvard.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Harvard Cyberlaw Clinic",
+    "Url": "https://cyber.harvard.edu/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Harvard Cyberlaw Clinic.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Harvard Law Review",
+    "Url": "https://www.harvardlawreview.org/",
+    "File": "",
+    "ContentType": "",
+    "Status": "failed: Response status code does not indicate success: 403 (Forbidden)."
+  },
+  {
+    "Label": "Computational Law — computationallaw.org",
+    "Url": "https://computationallaw.org/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Computational Law — computationallaw.org.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "SMUCCLAW — Singapore Management University Centre for Computational Law",
+    "Url": "https://github.com/smucclaw",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\SMUCCLAW — Singapore Management University Centre for Computational Law.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Legal Informatics — Wikipedia",
+    "Url": "https://en.wikipedia.org/wiki/Legal_informatics",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Legal Informatics — Wikipedia.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Computational Law — Wikipedia",
+    "Url": "https://en.wikipedia.org/wiki/Computational_law",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Computational Law — Wikipedia.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Legal Informatics Blog",
+    "Url": "https://legalinformatics.wordpress.com/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Legal Informatics Blog.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Rules as Code — New Zealand Digital Government",
+    "Url": "https://www.digital.govt.nz/dmsdocument/95-better-rules-for-government-discovery-report/html",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Rules as Code — New Zealand Digital Government.html",
+    "ContentType": "text/html",
+    "Status": "blocked: saved Incapsula/noindex stub, not usable source content"
+  },
+  {
+    "Label": "New South Wales Digital Government",
+    "Url": "https://www.digital.nsw.gov.au/",
+    "File": "",
+    "ContentType": "",
+    "Status": "failed: The SSL connection could not be established, see inner exception."
+  },
+  {
+    "Label": "Canada Treasury Board — Digital Policy",
+    "Url": "https://www.tbs-sct.gc.ca/pol/doc-eng.aspx?id=32603",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Canada Treasury Board — Digital Policy.html",
+    "ContentType": "text/html",
+    "Status": "blocked: saved request-rejected page, not usable source content"
+  },
+  {
+    "Label": "Beeck Center — AI Rules as Code (Georgetown 2025)",
+    "Url": "https://www.beeckcenter.org/work/ai-rules-as-code",
+    "File": "",
+    "ContentType": "",
+    "Status": "failed: The SSL connection could not be established, see inner exception."
+  },
+  {
+    "Label": "CADE Project — OECD AI in Government report",
+    "Url": "https://cadeproject.org/updates/oecd-publishes-new-report-on-governing-with-artificial-intelligence-in-government/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\CADE Project — OECD AI in Government report.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Open Data Institute (ODI)",
+    "Url": "https://www.theodi.org/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Open Data Institute (ODI).html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "GovHack",
+    "Url": "https://www.govhack.org/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\GovHack.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Perma.cc — Permanent citation links",
+    "Url": "https://perma.cc/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Perma.cc — Permanent citation links.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Akoma Ntoso — Wikipedia",
+    "Url": "https://en.wikipedia.org/wiki/Akoma_Ntoso",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Akoma Ntoso — Wikipedia.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "U.S. Code — Office of the Law Revision Counsel",
+    "Url": "https://uscode.house.gov/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\U.S. Code — Office of the Law Revision Counsel.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "U.S. Code — Cornell LII",
+    "Url": "https://www.law.cornell.edu/uscode/text",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\U.S. Code — Cornell LII.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "UK Legislation",
+    "Url": "https://www.legislation.gov.uk/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\UK Legislation.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "NAIC — National Association of Insurance Commissioners",
+    "Url": "https://www.naic.org/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\NAIC — National Association of Insurance Commissioners.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "RegTech Market Size 2025–2034 — Custom Market Insights",
+    "Url": "https://www.custommarketinsights.com/report/regtech-market/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\RegTech Market Size 2025–2034 — Custom Market Insights.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "RegTech Market Statistics — IMARC Group ($77B by 2034)",
+    "Url": "https://www.imarcgroup.com/regtech-market-statistics",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\RegTech Market Statistics — IMARC Group ($77B by 2034).html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "RegTech Industry Report 2025–2035 ($115.5B) — Yahoo Finance",
+    "Url": "https://uk.finance.yahoo.com/news/regtech-industry-research-report-2025-101600298.html",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\RegTech Industry Report 2025–2035 ($115.5B) — Yahoo Finance.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "World Market for RegTech 2025–2030 — Yahoo Finance",
+    "Url": "https://finance.yahoo.com/news/world-market-regtech-2025-2030-100300802.html",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\World Market for RegTech 2025–2030 — Yahoo Finance.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "RegTech Market to Surpass $85.48B by 2035 — LinkedIn",
+    "Url": "https://www.linkedin.com/pulse/regtech-market-size-surpass-usd-8548-billion-2035-m1o9f",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\RegTech Market to Surpass $85.48B by 2035 — LinkedIn.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Cost of Regulatory Compliance in the United States — Cato Institute",
+    "Url": "https://www.cato.org/research-briefs-economic-policy/cost-regulatory-compliance-united-states",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Cost of Regulatory Compliance in the United States — Cato Institute.html",
+    "ContentType": "text/html",
+    "Status": "blocked: saved Incapsula/noindex stub, not usable source content"
+  },
+  {
+    "Label": "Tracking the Cost of Complying with Government Regulation — NBER",
+    "Url": "https://www.nber.org/digest/20232/tracking-cost-complying-government-regulation",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Tracking the Cost of Complying with Government Regulation — NBER.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Economics and Peace — Institute for Economics & Peace",
+    "Url": "https://www.economicsandpeace.org/",
+    "File": "",
+    "ContentType": "",
+    "Status": "failed: Response status code does not indicate success: 403 (Forbidden)."
+  },
+  {
+    "Label": "Regulatory Burden in Insurance — Taylor Root 2025",
+    "Url": "https://www.taylorroot.com/market-insight/the-regulatory-burden-navigating-compliance-challenges-in-the-insurance-sector/",
+    "File": "",
+    "ContentType": "",
+    "Status": "failed: Response status code does not indicate success: 403 (Forbidden)."
+  },
+  {
+    "Label": "The Cost of Non-Compliance for Insurance Companies — ReSource Pro",
+    "Url": "https://www.resourcepro.com/blog/the-cost-of-non-compliance/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\The Cost of Non-Compliance for Insurance Companies — ReSource Pro.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Caslon Analytics — Insurance and Regulation",
+    "Url": "https://www.caslon.com.au/insurancenote8.htm",
+    "File": "",
+    "ContentType": "",
+    "Status": "failed: Operation is not valid due to the current state of the object."
+  },
+  {
+    "Label": "Institute for Legal Reform",
+    "Url": "https://www.instituteforlegalreform.com/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Institute for Legal Reform.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "GovTech — Government Technology News",
+    "Url": "https://www.govtech.com/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\GovTech — Government Technology News.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Harvey AI — $11B Funding Announcement (Harvey Blog, March 2026)",
+    "Url": "https://www.harvey.ai/blog/harvey-raises-growth-round-at-dollar11-billion-valuation-co-led-by-gic-and-sequoia",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Harvey AI — $11B Funding Announcement (Harvey Blog, March 2026).html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Harvey raising at $11B — TechCrunch (Feb 2026)",
+    "Url": "https://techcrunch.com/2026/02/09/harvey-reportedly-raising-at-11b-valuation-just-months-after-it-hit-8b/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Harvey raising at $11B — TechCrunch (Feb 2026).html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Harvey AI — Parsers VC Profile",
+    "Url": "https://o.parsers.vc/startup/harvey.ai/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Harvey AI — Parsers VC Profile.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "DoNotPay",
+    "Url": "https://donotpay.com/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\DoNotPay.html",
+    "ContentType": "text/html",
+    "Status": "ok"
+  },
+  {
+    "Label": "Ironclad — Contract Lifecycle Management",
+    "Url": "https://www.ironclad.ai/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Ironclad — Contract Lifecycle Management.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Ironclad — Integrations",
+    "Url": "https://ironclad.ai/integrations",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Ironclad — Integrations.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Juro — AI Contract Collaboration",
+    "Url": "https://juro.com/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Juro — AI Contract Collaboration.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Regology — AI Regulatory Intelligence",
+    "Url": "https://regology.com/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Regology — AI Regulatory Intelligence.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Hebbia — AI Research Platform",
+    "Url": "https://www.hebbia.ai/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Hebbia — AI Research Platform.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Gradient AI — Insurance AI",
+    "Url": "https://gradient.ai/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Gradient AI — Insurance AI.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "LegalZoom",
+    "Url": "https://www.legalzoom.com/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\LegalZoom.html",
+    "ContentType": "text/html",
+    "Status": "ok"
+  },
+  {
+    "Label": "Legal.io",
+    "Url": "https://legal.io/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Legal.io.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Litera — Legal Technology",
+    "Url": "https://www.litera.com/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Litera — Legal Technology.html",
+    "ContentType": "text/html; charset=UTF-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "LexisNexis — Lexis+",
+    "Url": "https://www.lexisnexis.com/en-us/products/lexis-plus.page",
+    "File": "",
+    "ContentType": "",
+    "Status": "failed: The SSL connection could not be established, see inner exception."
+  },
+  {
+    "Label": "Thomson Reuters — Westlaw",
+    "Url": "https://legal.thomsonreuters.com/en/westlaw",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Thomson Reuters — Westlaw.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Docket Alarm",
+    "Url": "https://www.docketalarm.com/",
+    "File": "c:\\Users\\DorianKlingenberg\\OneDrive - RenoNerd Inc\\2026-projects\\legal-tech-debt\\sources\\Docket Alarm.html",
+    "ContentType": "text/html; charset=utf-8",
+    "Status": "ok"
+  },
+  {
+    "Label": "Legal Aid at Work",
+    "Url": "https://legalaidatwork.org/",
+    "File": "",
+    "ContentType": "",
+    "Status": "failed: Response status code does not indicate success: 403 (Forbidden)."
+  },
+  {
+    "Label": "AI Law and AI Ethics: AI That Can Sniff Out Unsavory Legal Patterns — Forbes (2022)",
+    "Url": "https://www.forbes.com/sites/lanceeliot/2022/10/27/ai-law-and-ai-ethics-are-giving-thumbs-up-to-ai-that-can-sniff-out-unsavory-l",
+    "File": "",
+    "ContentType": "",
+    "Status": "failed: Response status code does not indicate success: 404 (Not Found)."
+  }
+]

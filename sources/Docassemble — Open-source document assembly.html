@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" class="title-body" itemscope itemtype="http://schema.org/WebPage">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="/bootstrap5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap5/css/main.css" rel="stylesheet">
+    <link href="/tocmd-generator/css/toc.css" rel="stylesheet">
+    <script defer src="/fontawesome/js/all.min.js"></script>
+    <script>
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-bs-theme', 'dark');
+      }
+    </script>
+    <title>Docassemble</title>
+    <meta name="description" content="A free, open-source expert system for guided interviews and document assembly, based on Python, YAML, and Markdown.">
+    <meta itemprop="name" content="Docassemble">
+    <meta itemprop="description" content="A free, open-source expert system for guided interviews and document assembly, based on Python, YAML, and Markdown.">
+    <meta itemprop="image" content="http://docassemble.org/img/docassemble-logo.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@docassemble">
+    <meta name="twitter:title" content="Docassemble">
+    <meta name="twitter:description" content="A free, open-source expert system for guided interviews and document assembly, based on Python, YAML, and Markdown.">
+    <meta name="twitter:creator" content="@docassemble">
+    <meta name="twitter:image" content="http://docassemble.org/img/docassemble-logo-sq-120.jpg">
+    <meta property="og:title" content="Docassemble" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://docassemble.org/" />
+    <meta property="og:image" content="http://docassemble.org/img/docassemble-logo.jpg" />
+    <meta property="og:description" content="A free, open-source expert system for guided interviews and document assembly, based on Python, YAML, and Markdown." />
+    <meta property="og:site_name" content="Docassemble" />
+    <meta property="fb:admins" content="519356657" /> 
+    <link rel="canonical" href="https://docassemble.org/">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BNB919JV29"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-BNB919JV29', {cookie_flags: 'SameSite=None;Secure'});
+    </script>    
+</head>
+
+  <body class="titleonepage">
+    <div class="title-nav ontop">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Docassemble</a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarLinks" aria-expanded="false" aria-controls="navbarLinks" aria-label="Toggle menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarLinks">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="/assets/docassemble-logic.html">Docassemble Interview Logic</a></li>
+            <li class="nav-item"><a class="nav-link" href="/demo.html">Demo</a>
+            <li class="nav-item"><a class="nav-link" href="/docs.html">Documentation</a>
+            <li class="nav-item"><a class="nav-link" href="/download.html">Download</a>
+            <li class="nav-item"><a class="nav-link" href="/deploy.html">Deploy</a>
+          </ul>
+          <form action="/search.html" method="get" accept-charset="UTF-8" class="d-flex">
+            <input type="search" class="form-control me-2" placeholder="Search for..." aria-label="Search" name="q"/>
+            <button class="btn btn-outline-secondary" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    </div>
+<div class="bgimg-1">
+  <div class="caption">
+    <img alt="Docassemble logo" class="logo-image over-image" src="/img/docassemble-white.png">
+    <h1 class="cover-heading centered over-image">Docassemble</h1>
+    <p class="lead over-image">A free, open-source expert system for guided interviews and document assembly, based on Python, YAML, and Markdown.</p>
+    <p class="lead">
+      <a id="learnmore" href="#pagetwo" class="btn btn-lg btn-light box-over-image">Learn more</a>
+    </p>
+  </div>
+</div>
+<div id="pagetwo" class="bgcolor">
+  <div>
+    
+    <h1 id="what-is-docassemble">What is docassemble?</h1>
+
+<p><strong>docassemble</strong> is a free, open-source expert system for guided
+interviews and document assembly.  It provides a web site that
+conducts interviews with users.  Based on the information gathered,
+the interviews can present users with documents in <a href="https://en.wikipedia.org/wiki/Portable_Document_Format">PDF</a>, <a href="https://en.wikipedia.org/wiki/Rich_Text_Format">RTF</a>, or
+<a href="https://en.wikipedia.org/wiki/Office_Open_XML">DOCX</a> format, which users can download or e-mail.</p>
+
+<p>Though the name emphasizes the document assembly feature,
+<strong>docassemble</strong> interviews do not need to assemble a document; they
+might submit an application, direct the user to other resources on the
+internet, <a href="/docs/functions.html#storage">store</a> user input, interact with <a href="/docs/functions.html#google sheets example">APIs</a>, or simply provide the user with
+information.</p>
+
+<p><strong>docassemble</strong> was created by a <a href="https://www.linkedin.com/in/jonathan-pyle-6800a75/">lawyer/computer programmer</a> for
+purposes of automating the practice of law, but it is a
+general-purpose platform that can find applications in a variety of
+fields.</p>
+
+<h1 id="features">Features</h1>
+
+
+    <div class="container-fluid centered">
+      <div class="row">
+        <div class="col-sm-4 miniblock">
+          <div>
+            <div><img alt="" src="/img/word-pdf.svg" style="height:3em;"></div>
+            <h3 title="What You See Is What You Get">WYSIWYG</h3>
+            <p>Compose your templates in <a href="/docs/documents.html#docx template file">.docx</a> (with help of a <a href="/docs/playground.html#word addin">Word Add-in</a>) or <a href="/docs/documents.html#pdf template file">.pdf</a> files.  Synchronize files with your server using <a href="/docs/playground.html#google drive">Google Drive</a>, <a href="/docs/playground.html#onedrive">OneDrive</a>, or a <a href="https://github.com/jhpyle/docassemblecli">command-line utility</a>.</p>
+          </div>
+        </div>
+        <div class="col-sm-4 miniblock">
+          <div>
+            <div><img alt="" src="/img/signature.svg" style="height:3em;"></div>
+            <h3>Signatures</h3>
+            <p>Gather <a href="/docs/fields.html#signature">touchscreen signatures</a> and embed them in documents.</p>
+          </div>
+        </div>
+        <div class="col-sm-4 miniblock">
+          <div>
+            <div><img alt="" src="/img/chat.svg" style="height:3em;"></div>
+            <h3>Live chat</h3>
+            <p>Assist users in real time with <a href="/docs/livehelp.html#chat">live chat</a>, <a href="/docs/livehelp.html#observe">screen sharing</a>, and <a href="/docs/livehelp.html#control">remote screen control</a>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 miniblock">
+          <div>
+            <div><img alt="" src="/img/robot.svg" style="height:3em;"></div>
+            <h3 title="Artificial Intelligence">AI</h3>
+            <p>Use <a href="/docs/ml.html">machine learning</a> to process user input, or use LLMs to converse with the user.</p>
+          </div>
+        </div>
+        <div class="col-sm-4 miniblock">
+          <div>
+            <div><img alt="" src="/img/sms.svg" style="height:3em;"></div>
+            <h3 title="Short Message Service">SMS</h3>
+            <p><a href="/docs/functions.html#send_sms">Send text messages</a> to your users or use the <a href="/docs/sms.html">SMS interface</a> as an alternative to the web interface.</p>
+          </div>
+        </div>
+        <div class="col-sm-4 miniblock">
+          <div>
+            <div><img alt="" src="/img/mail.svg" style="height:3em;"></div>
+            <h3>E-mail</h3>
+            <p><a href="/docs/functions.html#send_email">Send</a> and <a href="/docs/functions.html#get_emails">receive</a> e-mails in your interviews.  (You can <a href="https://docassemble.org/docs/functions.html#send_fax">send faxes</a>, too.)</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 miniblock">
+          <div>
+            <div><img alt="" src="/img/ocr.svg" style="height:3em;"></div>
+            <h3 title="Optical Character Recognition">OCR</h3>
+            <p>Use <a href="/docs/functions.html#ocr_file">optical character recogntion</a> to process images uploaded by the user.</p>
+          </div>
+        </div>
+        <div class="col-sm-4 miniblock">
+          <div>
+            <div><img alt="" src="/img/international.svg" style="height:3em;"></div>
+            <h3>Multilingual</h3>
+            <p>Offer interviews in <a href="/docs/language.html">multiple languages</a>.</p>
+          </div>
+        </div>
+        <div class="col-sm-4 miniblock">
+          <div>
+            <div><img alt="" src="/img/people.svg" style="height:3em;"></div>
+            <h3>Multiuser</h3>
+            <p>Develop applications that involve <a href="/docs/roles.html">more than one user</a>, such as mediation or counseling interviews.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 miniblock">
+          <div>
+            <div><img alt="" src="/img/python.svg" style="height:3em;"></div>
+            <h3>Extensible</h3>
+            <p>Use the power of <a href="/docs/code.html">Python</a> to extend the capabilities of your interviews.</p>
+          </div>
+        </div>
+        <div class="col-sm-4 miniblock">
+          <div>
+            <div><img alt="" src="/img/github.svg" style="height:3em;"></div>
+            <h3>Open</h3>
+            <p><a href="/docs/packages.html">Package</a> your interviews and use <a href="/docs/packages.html#github">GitHub</a> and <a href="/docs/packages.html#pypi">PyPI</a> to share your work with the community.</p>
+          </div>
+        </div>
+        <div class="col-sm-4 miniblock">
+          <div>
+            <div><img alt="" src="/img/background-tasks.svg" style="height:3em;"></div>
+            <h3>Background Tasks</h3>
+            <p>Do things <a href="/docs/background.html">behind the scenes</a> of the interview, even when the user is not logged in.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 miniblock">
+          <div>
+            <div><img alt="" src="/img/scalable.svg" style="height:3em;"></div>
+            <h3>Scalable</h3>
+            <p>Deploy your interviews on <a href="/docs/scalability.html">multiple machines</a> to handle high traffic.</p>
+          </div>
+        </div>
+        <div class="col-sm-4 miniblock">
+          <div>
+            <div><img alt="" src="/img/secure.svg" style="height:3em;"></div>
+            <h3>Secure</h3>
+            <p>Protect user information with <a href="/docs/security.html">server-side encryption</a>, <a href="/docs/config.html#mfa">two-factor authentication</a>, <a href="/docs/functions.html#redact">document redaction</a>, and other security features.</p>
+          </div>
+        </div>
+        <div class="col-sm-4 miniblock">
+          <div>
+            <div><img alt="" src="/img/api.svg" style="height:3em;"></div>
+            <h3 title="Application Program Interfaces">APIs</h3>
+            <p>Integrate with third-party applications using the <a href="/docs/api.html">API</a>, or send your interviews <a href="/docs/special.html#url_args">input</a> and extract <a href="/docs/functions.html#response">output</a> using code.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="pagethree" class="bgimg-2">
+  <div class="caption">
+    <div class="container centered">
+      <h1 class="mega lead over-image">Responsive Design</h1>
+      <h2 class="lead over-image">Based on <a class="whitelink" target="_blank" href="https://getbootstrap.com/">Bootstrap</a></h2>
+    </div>
+  </div>
+</div>
+<div id="pagefour" class="bgcolor">
+  <div>
+    <div class="row centered">
+      <div class="col-md-4 centered">
+        <a href="https://demo.docassemble.org?i=docassemble.demo:data/questions/questions.yml" target="_blank"><img alt="Photo of mobile version" class="centerimage" src="/img/are-you-a-plaintiff-mobile.png"></a>
+      </div>
+      <div class="col-md-8 centered">
+        <a href="https://demo.docassemble.org?i=docassemble.demo:data/questions/questions.yml" target="_blank"><img alt="Photo of desktop version" class="centerimage" src="/img/are-you-a-plaintiff-desktop.png"></a>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="pagefive" class="bgimg-3">
+  <div class="caption">
+    <div class="container centered">
+      <h1 class="mega lead over-image">Writing in Plain Text</h1>
+    </div>
+  </div>
+</div>
+<div id="pagesix" class="bgcolor">
+  <div>
+    
+    <p>Interviews are developed as <a href="https://en.wikipedia.org/wiki/YAML">YAML</a> files.  Within the <a href="https://en.wikipedia.org/wiki/YAML">YAML</a> files,
+the text of the interview questions and documents is formatted with
+<a href="https://daringfireball.net/projects/markdown/syntax">Markdown</a>, and the logic of the interview flow is expressed with
+if/then/else statements in <a href="https://en.wikipedia.org/wiki/Python_%28programming_language%29">Python</a>.</p>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="daexample">
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">question</span><span class="pi">:</span> <span class="pi">|</span>
+  <span class="s">What is your favorite number?</span>
+<span class="na">fields</span><span class="pi">:</span>
+  <span class="na">Favorite number</span><span class="pi">:</span> <span class="s">best_number</span>
+  <span class="na">datatype</span><span class="pi">:</span> <span class="s">number</span>
+<span class="nn">---</span>
+<span class="na">question</span><span class="pi">:</span> <span class="pi">|</span>
+  <span class="s">% if best_number == 42:</span>
+  <span class="s">That's **my** favorite number!</span>
+  <span class="s">% else:</span>
+  <span class="s">What a _lousy_ favorite number.</span>
+  <span class="s">% endif</span>
+<span class="na">mandatory</span><span class="pi">:</span> <span class="s">True</span></code></pre></figure>
+      <div class="dafull" title="See the full code sample">
+        <a href="https://github.com/jhpyle/docassemble/blob/master/docassemble_base/docassemble/base/data/questions/examples/yaml-markdown-python.yml" title="Open on GitHub" target="_blank"><span class="sr-only">GitHub</span><i class="fas fa-ellipsis-h"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <a href="https://demo.docassemble.org/interview?i=docassemble.base:data/questions/examples/yaml-markdown-python.yml&amp;reset=1" target="_blank" title="Click to try this interview"><picture><source srcset="/imgdark/examples/yaml-markdown-python.png" media="(prefers-color-scheme: dark)" /><img class="example" width="488" height="176" alt="Screenshot of yaml-markdown-python example" src="/img/examples/yaml-markdown-python.png" /></picture></a>
+  </div>
+</div>
+
+<h2 id="yaml-markdown-and-python--sounds-scary">YAML, Markdown, and Python?  Sounds scary!</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/YAML">YAML</a> is a text format for expressing information in a way that is
+both human-readable and machine readable.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">food</span><span class="pi">:</span> <span class="s">bread</span>
+<span class="na">ingredients</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">flour</span>
+  <span class="pi">-</span> <span class="s">yeast</span>
+  <span class="pi">-</span> <span class="s">water</span>
+  <span class="pi">-</span> <span class="s">salt</span></code></pre></figure>
+
+<p><a href="https://daringfireball.net/projects/markdown/syntax">Markdown</a> is a text format for expressing typographical formatting.
+For example, if you write this <a href="https://daringfireball.net/projects/markdown/syntax">Markdown</a> text:</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">It is *very* important that you obtain your
+[free credit report](https://www.annualcreditreport.com) as soon
+as possible.</code></pre></figure>
+
+<p>then you get text that looks like this:</p>
+
+<blockquote class="blockquote">
+It is <em>very</em> important that you obtain your 
+<a href="https://www.annualcreditreport.com">free credit report</a> 
+as soon as possible.
+</blockquote>
+
+<p><a href="https://en.wikipedia.org/wiki/Python_%28programming_language%29">Python</a> is a language designed to be readable and easy to learn.
+Interview developers do not need to have any prior experience with
+<a href="https://en.wikipedia.org/wiki/Python_%28programming_language%29">Python</a> or computer programming in order to create <strong>docassemble</strong>
+interviews.  The only <a href="https://en.wikipedia.org/wiki/Python_%28programming_language%29">Python</a> statements developers may need to write
+are if/then/else statements that are very close to plain English.  For
+example:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">if</span> <span class="n">user</span><span class="p">.</span><span class="n">is_citizen</span> <span class="ow">or</span> <span class="n">user</span><span class="p">.</span><span class="n">is_legal_permanent_resident</span><span class="p">:</span>
+  <span class="n">user</span><span class="p">.</span><span class="n">is_eligible</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">user</span><span class="p">.</span><span class="n">is_eligible</span> <span class="o">=</span> <span class="bp">False</span></code></pre></figure>
+
+<h2 id="support-is-available">Support is available</h2>
+
+<p>Although <strong>docassemble</strong> has extensive <a href="/docs.html">documentation</a>, you may have
+questions about how to use it.  To <a href="/docs/support.html">get help</a> from the community of
+developers and other users, you can chat in real time with
+knowledgeable developers on the <a href="https://join.slack.com/t/docassemble/shared_invite/zt-2cspzjo9j-YyE7SrLmi5muAvnPv~Bz~A"><strong>docassemble</strong> Slack group</a>.  If you
+find a bug, you can <a href="https://github.com/jhpyle/docassemble/issues">submit an issue on GitHub</a>.</p>
+
+
+  </div>
+</div>
+<div id="pageseven" class="bgimg-4">
+  <div class="caption">
+    <div class="container centered">
+      <h1 class="mega lead over-image">No Flowcharts</h1>
+    </div>
+  </div>
+</div>
+<div id="pageeight" class="bgcolor">
+  <div>
+    
+    <p>Interview developers do not have to design the “flow” of the interview;
+<strong>docassemble</strong> will automatically determine what questions to ask,
+and the order in which to ask them, based on what information is
+necessary to gather.  The system will refrain from asking unnecessary
+questions.  For example, if the interview contains a conditional
+statement such as:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">if</span> <span class="n">user</span><span class="p">.</span><span class="n">is_disabled</span> <span class="ow">or</span> <span class="n">user</span><span class="p">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">:</span>
+  <span class="n">special_funding_exists</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">special_funding_exists</span> <span class="o">=</span> <span class="bp">False</span></code></pre></figure>
+
+<p>then the user will be asked if he is disabled, and will only be asked
+for his age if he says he is not disabled.  Developers need to provide a
+question for every variable (e.g., there need to be questions that
+determine <code class="language-plaintext highlighter-rouge">user.is_disabled</code> and <code class="language-plaintext highlighter-rouge">user.age</code>) but <strong>docassemble</strong> will
+automatically figure out when and whether to ask those questions.</p>
+
+<p>This allows developers to concentrate on the end result rather than
+worrying about how to construct the interview process.  Developers who
+are lawyers can “practice at the top of their license” by spending
+their time thinking about the law (a lawyer function) rather than
+thinking about the interview process (a non-lawyer function).</p>
+
+<p>Though this automatic interview flow is a powerful feature, sometimes
+interview developers have a particular preference about the order of
+questions.  <strong>docassemble</strong> allows them to use the automatic system as
+much or as little as they want; if they want to dictate a specific
+order of questions, they can do so.</p>
+
+  </div>
+</div>
+<div id="pagenine" class="bgcolortwo" style="position: relative">
+  <div class="centered padbuttons">
+    <a class="btn btn-primary btn-lg" href="https://demo.docassemble.org?i=docassemble.demo:data/questions/questions.yml" target="_blank">Run the demo</a>
+    <a class="btn btn-success btn-lg" href="/docs.html">Read the documentation</a>
+    <a class="btn btn-info btn-lg" href="/deploy.html">Deploy</a>
+  </div>
+</div>
+
+    <div class="centered">
+            <p>Designed and built by <a href="https://github.com/jhpyle">Jonathan Pyle</a><br>
+              Code licensed under
+              <a rel="license" href="https://github.com/jhpyle/docassemble/blob/master/LICENSE.txt" target="_blank">MIT</a>,
+              documentation under <a rel="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.
+            </p>
+
+    </div>
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/bootstrap5/js/bootstrap.min.js"></script>
+    <script>
+      function scrollToAnchor(aid){
+        var aTag = $("#" + aid);
+        $('html,body').animate({scrollTop: aTag.offset().top-50});
+      }
+      $("#learnmore").click(function(event){
+        scrollToAnchor('pagetwo');
+        event.preventDefault();
+      });
+    </script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"f1263e51b87f4dbcb4bd72900fb0d7d9","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+

@@ -1,0 +1,20 @@
+HTTP/1.1 301 Moved Permanently
+Content-Type: text/html
+Content-Length: 162
+Connection: keep-alive
+Date: Mon, 11 May 2026 12:44:43 GMT
+Location: https://neo4j.com/
+Set-Cookie: AWSALB=P5r2Cl7Wik7LZWLYY2s/nqbHNy6SU8qGq2tbuIEVqtifdx8PQztwPu3koTqK0SqqYVFfVV0l+kkZL/pcYZajS/3TMeGJTnOpZOObo7ubwwkveP1SiVEAL7S9UF6N; Expires=Mon, 18 May 2026 12:44:43 GMT; Path=/
+Set-Cookie: AWSALBCORS=P5r2Cl7Wik7LZWLYY2s/nqbHNy6SU8qGq2tbuIEVqtifdx8PQztwPu3koTqK0SqqYVFfVV0l+kkZL/pcYZajS/3TMeGJTnOpZOObo7ubwwkveP1SiVEAL7S9UF6N; Expires=Mon, 18 May 2026 12:44:43 GMT; Path=/; SameSite=None; Secure
+Server: nginx
+X-Cache: Hit from cloudfront
+Via: 1.1 320446d48de33b9e6a0384a85f613b80.cloudfront.net (CloudFront)
+X-Amz-Cf-Pop: ORD58-P2
+X-Amz-Cf-Id: DOPNo0GGHU0C6yU6GtElt6uatTrdLfW6P51M6cDB2vXKZvtBFh1gaA==
+Age: 10710
+Content-Security-Policy: frame-ancestors 'self' https://*.saleshood.com;
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+Link: <https://neo4j.com/>; rel=shortlink, </llms.txt>; rel="llms-txt", </llms-full.txt>; rel="llms-full-txt", </docs/>; rel="service-doc", </.well-known/api-catalog>; rel="api-catalog"
+X-Llms-Txt: /llms.txt
+

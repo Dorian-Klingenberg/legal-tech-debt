@@ -1,0 +1,1233 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+<script>
+var gform;gform||(document.addEventListener("gform_main_scripts_loaded",function(){gform.scriptsLoaded=!0}),document.addEventListener("gform/theme/scripts_loaded",function(){gform.themeScriptsLoaded=!0}),window.addEventListener("DOMContentLoaded",function(){gform.domLoaded=!0}),gform={domLoaded:!1,scriptsLoaded:!1,themeScriptsLoaded:!1,isFormEditor:()=>"function"==typeof InitializeEditor,callIfLoaded:function(o){return!(!gform.domLoaded||!gform.scriptsLoaded||!gform.themeScriptsLoaded&&!gform.isFormEditor()||(gform.isFormEditor()&&console.warn("The use of gform.initializeOnLoaded() is deprecated in the form editor context and will be removed in Gravity Forms 3.1."),o(),0))},initializeOnLoaded:function(o){gform.callIfLoaded(o)||(document.addEventListener("gform_main_scripts_loaded",()=>{gform.scriptsLoaded=!0,gform.callIfLoaded(o)}),document.addEventListener("gform/theme/scripts_loaded",()=>{gform.themeScriptsLoaded=!0,gform.callIfLoaded(o)}),window.addEventListener("DOMContentLoaded",()=>{gform.domLoaded=!0,gform.callIfLoaded(o)}))},hooks:{action:{},filter:{}},addAction:function(o,r,e,t){gform.addHook("action",o,r,e,t)},addFilter:function(o,r,e,t){gform.addHook("filter",o,r,e,t)},doAction:function(o){gform.doHook("action",o,arguments)},applyFilters:function(o){return gform.doHook("filter",o,arguments)},removeAction:function(o,r){gform.removeHook("action",o,r)},removeFilter:function(o,r,e){gform.removeHook("filter",o,r,e)},addHook:function(o,r,e,t,n){null==gform.hooks[o][r]&&(gform.hooks[o][r]=[]);var d=gform.hooks[o][r];null==n&&(n=r+"_"+d.length),gform.hooks[o][r].push({tag:n,callable:e,priority:t=null==t?10:t})},doHook:function(r,o,e){var t;if(e=Array.prototype.slice.call(e,1),null!=gform.hooks[r][o]&&((o=gform.hooks[r][o]).sort(function(o,r){return o.priority-r.priority}),o.forEach(function(o){"function"!=typeof(t=o.callable)&&(t=window[t]),"action"==r?t.apply(null,e):e[0]=t.apply(null,e)})),"filter"==r)return e[0]},removeHook:function(o,r,t,n){var e;null!=gform.hooks[o][r]&&(e=(e=gform.hooks[o][r]).filter(function(o,r,e){return!!(null!=n&&n!=o.tag||null!=t&&t!=o.priority)}),gform.hooks[o][r]=e)}});
+</script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- GTM Container placement set to automatic -->
+    <script data-cfasync="false" data-pagespeed-no-defer type="text/javascript">
+        var dataLayer_content = {
+            "pagePostType": "frontpage",
+            "pagePostType2": "single-page",
+            "pagePostAuthor": "IEP"
+        };
+        dataLayer.push(dataLayer_content);
+    </script>
+    <script data-cfasync="false">
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KD78HND');
+    </script>
+    <!-- End Google Tag Manager for WordPress by gtm4wp.com -->
+    <script type="text/javascript">
+        window.iep = window.iep || {};
+        window.iep.ajaxurl = 'https://www.economicsandpeace.org/wp-admin/admin-ajax.php';
+        window.iep.base_url = 'https://www.economicsandpeace.org';
+    </script>
+
+
+
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v27.5 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Institute for Economics &amp; Peace | Experts in Peace, Conflict and Risk</title>
+	<meta name="description" content="We are creating a paradigm shift in the way the world thinks about peace. Through research, consulting, and training, we unlock the power of peace across all dimensions." />
+	<link rel="canonical" href="https://www.economicsandpeace.org/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Institute for Economics &amp; Peace | Experts in Peace, Conflict and Risk" />
+	<meta property="og:description" content="We are creating a paradigm shift in the way the world thinks about peace. Through research, consulting, and training, we unlock the power of peace across all dimensions." />
+	<meta property="og:url" content="https://www.economicsandpeace.org/" />
+	<meta property="og:site_name" content="Institute for Economics &amp; Peace" />
+	<meta property="article:publisher" content="https://www.facebook.com/GlobalPeaceIndex" />
+	<meta property="article:modified_time" content="2026-04-23T04:04:37+00:00" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@GlobPeaceIndex" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/www.economicsandpeace.org\/","url":"https:\/\/www.economicsandpeace.org\/","name":"Institute for Economics & Peace | Experts in Peace, Conflict and Risk","isPartOf":{"@id":"https:\/\/www.economicsandpeace.org\/#website"},"about":{"@id":"https:\/\/www.economicsandpeace.org\/#organization"},"datePublished":"2023-09-19T06:50:24+00:00","dateModified":"2026-04-23T04:04:37+00:00","description":"We are creating a paradigm shift in the way the world thinks about peace. Through research, consulting, and training, we unlock the power of peace across all dimensions.","breadcrumb":{"@id":"https:\/\/www.economicsandpeace.org\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/www.economicsandpeace.org\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/www.economicsandpeace.org\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https:\/\/www.economicsandpeace.org\/#website","url":"https:\/\/www.economicsandpeace.org\/","name":"Institute for Economics & Peace","description":"Peace Research, Consulting &amp; Training","publisher":{"@id":"https:\/\/www.economicsandpeace.org\/#organization"},"alternateName":"IEP","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/www.economicsandpeace.org\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https:\/\/www.economicsandpeace.org\/#organization","name":"Institute for Economics & Peace","url":"https:\/\/www.economicsandpeace.org\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/www.economicsandpeace.org\/#\/schema\/logo\/image\/","url":"https:\/\/www.economicsandpeace.org\/wp-content\/uploads\/2024\/01\/IEP-acronym-logo-black.png","contentUrl":"https:\/\/www.economicsandpeace.org\/wp-content\/uploads\/2024\/01\/IEP-acronym-logo-black.png","width":1760,"height":1490,"caption":"Institute for Economics & Peace"},"image":{"@id":"https:\/\/www.economicsandpeace.org\/#\/schema\/logo\/image\/"},"sameAs":["https:\/\/www.facebook.com\/GlobalPeaceIndex","https:\/\/x.com\/GlobPeaceIndex","https:\/\/www.linkedin.com\/company\/institute-for-economics-and-peace\/","https:\/\/www.instagram.com\/globalpeaceindex\/","https:\/\/www.youtube.com\/@VisionofHumanityorg"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//ajax.googleapis.com' />
+<link rel='dns-prefetch' href='//cdnjs.cloudflare.com' />
+<link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
+<link rel="alternate" type="application/rss+xml" title="Institute for Economics &amp; Peace &raquo; Feed" href="https://www.economicsandpeace.org/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Institute for Economics &amp; Peace &raquo; Comments Feed" href="https://www.economicsandpeace.org/comments/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.economicsandpeace.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.economicsandpeace.org%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.economicsandpeace.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.economicsandpeace.org%2F&#038;format=xml" />
+		<style>
+			.lazyload,
+			.lazyloading {
+				max-width: 100%;
+			}
+		</style>
+		<style id='wp-img-auto-sizes-contain-inline-css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id='wp-emoji-styles-inline-css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id='wp-block-library-inline-css'>
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}.has-text-align-center{text-align:center}.has-text-align-left{text-align:left}.has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style*=border-top-color]){border-top-style:solid}html :where([style*=border-right-color]){border-right-style:solid}html :where([style*=border-bottom-color]){border-bottom-style:solid}html :where([style*=border-left-color]){border-left-style:solid}html :where([style*=border-width]){border-style:solid}html :where([style*=border-top-width]){border-top-style:solid}html :where([style*=border-right-width]){border-right-style:solid}html :where([style*=border-bottom-width]){border-bottom-style:solid}html :where([style*=border-left-width]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+<style id='classic-theme-styles-inline-css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id='global-styles-inline-css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='iep-bootstrap-css' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='iep-slick-css' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='iep-fancy-css' href='https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='iep-custom-css-css' href='https://www.economicsandpeace.org/wp-content/themes/iep/assets/css/custom.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='iep-style-css' href='https://www.economicsandpeace.org/wp-content/themes/iep/style.css?ver=1.0.0' media='all' />
+<link rel='stylesheet' id='select-css-css' href='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css?ver=1.8.7' media='all' />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js?ver=1" id="iep-jquery-js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/js/bootstrap.bundle.min.js?ver=1" id="iep-bootstrap-js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js?ver=1" id="iep-slick-js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js?ver=1" id="iep-fancy-js"></script>
+<script src="https://www.economicsandpeace.org/wp-content/themes/iep/assets/js/custom.js?ver=1" id="iep-custom-js"></script>
+<script src="https://www.economicsandpeace.org/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script src="https://www.economicsandpeace.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="https://www.economicsandpeace.org/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.economicsandpeace.org/wp-json/wp/v2/pages/7" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.economicsandpeace.org/xmlrpc.php?rsd" />
+<link rel='shortlink' href='https://www.economicsandpeace.org/' />
+		<script>
+			document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+		</script>
+				<style>
+			.no-js img.lazyload {
+				display: none;
+			}
+
+			figure.wp-block-image img.lazyloading {
+				min-width: 150px;
+			}
+
+			.lazyload,
+			.lazyloading {
+				--smush-placeholder-width: 100px;
+				--smush-placeholder-bg-max-width: 120px;
+				--smush-placeholder-aspect-ratio: 1/1;
+				width: var(--smush-image-width, var(--smush-placeholder-width)) !important;
+				aspect-ratio: var(--smush-image-aspect-ratio, var(--smush-placeholder-aspect-ratio)) !important;
+			}
+
+						.lazyload, .lazyloading {
+				opacity: 0;
+			}
+
+			.lazyloaded {
+				opacity: 1;
+				transition: opacity 400ms;
+				transition-delay: 0ms;
+			}
+
+					</style>
+		<link rel="icon" href="https://www.economicsandpeace.org/wp-content/uploads/2025/03/cropped-IEP-logo-32x32.jpg" sizes="32x32" />
+<link rel="icon" href="https://www.economicsandpeace.org/wp-content/uploads/2025/03/cropped-IEP-logo-192x192.jpg" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.economicsandpeace.org/wp-content/uploads/2025/03/cropped-IEP-logo-180x180.jpg" />
+<meta name="msapplication-TileImage" content="https://www.economicsandpeace.org/wp-content/uploads/2025/03/cropped-IEP-logo-270x270.jpg" />
+		<style id="wp-custom-css">
+			
+/* 10-24-2025 */
+html[lang="en-US"] {
+    margin-top: 0 !important;
+}
+.search-results main {
+    max-width: 1050px;
+    margin: 0 auto;
+      padding: 0 20px;
+  }
+  .search-results main  img{
+    margin-bottom: 20px;
+  }
+  .search-results article a {
+   font-size: 36px;
+    text-decoration: none;
+    color: #000000;
+  }
+  
+  .search-results h1.page-title {
+    color: #000;
+    font-size: 46px;
+    margin-top: 150px;
+  }
+  
+  .search-results main {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .search-results main img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  @media (min-width: 992px) and (max-width: 1270px){
+    body .top-menu .navbar .menu > li {
+        margin-right: 14px;
+    }
+  }
+  @media (max-width:991px){
+      .menu-item-content .menu-item-text {
+      display: block;
+     
+  }
+  }
+  @media (max-width: 991px){
+  .menu-item-content .menu-item-text-button .menu-item-button {
+      margin-top: 10px;
+      }
+  }
+  .report_blueLeft {
+      padding-right: 20px;
+  }
+  @media (max-width: 767px){
+  .report_blueLeft {
+      padding-right: 0;
+      }}
+  
+  .btn-blue {
+      font-weight: 500;
+      font-size: 15px;
+  }
+  
+  
+  ul, li {
+    line-height: 23px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+input.gform_button:hover {
+    border-color: #1b5eac;
+}
+  .research {
+      background: #073E6F;
+      padding-top: 70px;
+      padding-bottom: 70px;
+  }
+  
+  .upcoming-events .upcoming-eventsWrap .upcoming-event .date-cat {
+      font-size: 22px;
+  }
+  
+
+  @media (min-width: 1024px) and (max-width: 1600px){
+    .num-text .num {
+        font-size: 50px;
+    }
+      }
+      
+    .discover-global .discover-items .content p {
+        line-height: 30px;
+    }
+    
+    .what_we_do {
+        padding: 60px 0;
+    }
+    
+    .research .content p {
+        margin-right: -8px;
+    }
+    
+    .get-engaged {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    
+    /* h1, .research-left h2 {
+        font-size: 85px;
+        line-height: 75px;
+    }  */
+    
+    .box-arrow {
+        font-size: 20px;
+    }
+    
+    .numbers .numbers-blocks .number-block .num {
+        font-size: 32px;
+    }
+    
+    .site-btn {
+        border: 2px solid #1b5eac;
+        padding: 12px 20px;
+    }
+    
+    .btn-blue {
+        transition: all 0.4s;
+    } 
+    
+
+    		</style>
+		    <!-- Google Tag Manager for WordPress by gtm4wp.com -->
+    <script data-cfasync="false" data-pagespeed-no-defer>
+        var gtm4wp_datalayer_name = "dataLayer";
+        var dataLayer = dataLayer || [];
+    </script>
+    <!-- End Google Tag Manager for WordPress by gtm4wp.com -->
+    <link rel='dns-prefetch' href='//addthisevent.com' />
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-34813087-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+<link rel='stylesheet' id='gform_basic-css' href='https://www.economicsandpeace.org/wp-content/plugins/gravityforms/assets/css/dist/basic.min.css?ver=2.10.1' media='all' />
+<link rel='stylesheet' id='gform_theme_components-css' href='https://www.economicsandpeace.org/wp-content/plugins/gravityforms/assets/css/dist/theme-components.min.css?ver=2.10.1' media='all' />
+<link rel='stylesheet' id='gform_theme-css' href='https://www.economicsandpeace.org/wp-content/plugins/gravityforms/assets/css/dist/theme.min.css?ver=2.10.1' media='all' />
+
+</head>
+
+<body class="home wp-singular page-template page-template-template-parts page-template-template-flexible page-template-template-partstemplate-flexible-php page page-id-7 wp-custom-logo wp-theme-iep page-home">
+    
+    <section id="header">
+        <div class="container">
+            <div class="top-menu">
+                <div class="menu-left">
+                    <a class="navbar-brand" href="https://www.economicsandpeace.org">
+                        <a href="https://www.economicsandpeace.org/" class="custom-logo-link" rel="home" aria-current="page"><img width="166" height="65" data-src="https://www.economicsandpeace.org/wp-content/uploads/2023/09/IEP-combination-logo-white-1.png" class="custom-logo lazyload" alt="Institute for Economics &amp; Peace" decoding="async" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" style="--smush-placeholder-width: 166px; --smush-placeholder-aspect-ratio: 166/65;" /></a>                    </a>
+                </div>
+                <div class="menu-right">
+                    <nav class="navbar navbar-expand-lg ">
+
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="menu-menu-1-container"><ul id="primary-menu" class="menu"><li id="menu-item-775" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-775"><a href="https://www.economicsandpeace.org/research/">Research</a>
+<ul class="sub-menu">
+	<li id="menu-item-789" class="menu-item menu-item-type-custom menu-item-object-custom mega-menu-li menu-item-789"><a href="#">Research<div class="menu-item-content"><div class="menu-item-image"><img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/menu-thumbnail-research.png" alt="Research" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 588px; --smush-placeholder-aspect-ratio: 588/372;"></div><div class="menu-item-text-button"><div class="menu-item-text">Download our data-based peace, conflict, economic and development research and indexes, as well as resources.</div><div class="menu-item-button"><span class="btn-blue" data-href="https://www.economicsandpeace.org/reports/">Research</span></div></div></div></a></li>
+	<li id="menu-item-788" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-788"><a href="#">Thematics</a>
+	<ul class="sub-menu">
+		<li id="menu-item-779" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-779"><a href="https://www.economicsandpeace.org/research/measuring-peace/">Measuring Peace</a></li>
+		<li id="menu-item-777" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-777"><a href="https://www.economicsandpeace.org/research/economics-of-peace/">Peace Economics</a></li>
+		<li id="menu-item-776" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-776"><a href="https://www.economicsandpeace.org/research/positive-peace/">Positive Peace</a></li>
+		<li id="menu-item-778" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-778"><a href="https://www.economicsandpeace.org/research/risk-and-ecology/">Risk &#038; Ecology</a></li>
+	</ul>
+</li>
+	<li id="menu-item-2668" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2668"><a href="#">Core Products</a>
+	<ul class="sub-menu">
+		<li id="menu-item-2669" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2669"><a href="https://www.economicsandpeace.org/global-peace-index/">Global Peace Index</a></li>
+		<li id="menu-item-2675" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2675"><a href="https://www.economicsandpeace.org/global-terrorism-index/">Global Terrorism Index</a></li>
+		<li id="menu-item-2767" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2767"><a href="https://www.economicsandpeace.org/ecological-threat-report/">Ecological Threat Report</a></li>
+		<li id="menu-item-2766" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2766"><a href="https://www.economicsandpeace.org/research/positive-peace-report/">Positive Peace Report</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-769" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-769"><a href="https://www.economicsandpeace.org/consulting/">Consulting<div class="menu-item-content"><div class="menu-item-text-button"><div class="menu-item-text"></div></div></div></a>
+<ul class="sub-menu">
+	<li id="menu-item-1625" class="menu-item menu-item-type-post_type menu-item-object-page mega-menu-li menu-item-1625"><a href="https://www.economicsandpeace.org/case-studies/">View Projects<div class="menu-item-content"><div class="menu-item-image"><img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/menu-thumbnail-consulting.png" alt="View Projects" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 588px; --smush-placeholder-aspect-ratio: 588/372;"></div><div class="menu-item-text-button"><div class="menu-item-text">IEP has built a reputation for being a trusted advisor on economic, financial and attitudinal data for international development.</div><div class="menu-item-button"><span class="btn-blue" data-href="https://www.economicsandpeace.org/case-studies/">Case Studies</span></div></div></div></a></li>
+	<li id="menu-item-2412" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2412"><a href="#">What We Do</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1612" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1612"><a href="https://www.economicsandpeace.org/consulting/custom-reports/">Reports &#038; Briefings</a></li>
+		<li id="menu-item-1613" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1613"><a href="https://www.economicsandpeace.org/consulting/country-analysis/">Country Analysis</a></li>
+		<li id="menu-item-2275" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2275"><a href="https://www.economicsandpeace.org/consulting/indices-frameworks-and-models/">Indices &#038; Frameworks</a></li>
+		<li id="menu-item-772" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-772"><a href="https://www.economicsandpeace.org/consulting/societal-systems/">Societal Systems</a></li>
+		<li id="menu-item-1611" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1611"><a href="https://www.economicsandpeace.org/consulting/dynamic-data-dashboards/">Data Dashboards</a></li>
+	</ul>
+</li>
+	<li id="menu-item-2557" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2557"><a href="#">Access Our Data</a>
+	<ul class="sub-menu">
+		<li id="menu-item-3422" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3422"><a href="https://www.economicsandpeace.org/consulting/data-licensing/">Data Licensing</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-767" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-767"><a href="https://www.economicsandpeace.org/training/">Training</a>
+<ul class="sub-menu">
+	<li id="menu-item-93" class="menu-item menu-item-type-custom menu-item-object-custom mega-menu-li menu-item-93"><a href="#">View projects<div class="menu-item-content"><div class="menu-item-image"><img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/menu-thumbnail-training-1.png" alt="View projects" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 588px; --smush-placeholder-aspect-ratio: 588/372;"></div><div class="menu-item-text-button"><div class="menu-item-text">We partner with multilaterals, governments, NGO’s, CSO’s, community organisations and universities — across six continents.</div><div class="menu-item-button"><span class="btn-blue" data-href="https://www.economicsandpeace.org/case-studies/">Case Studies</span></div></div></div></a></li>
+	<li id="menu-item-47" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-47"><a href="#">Programs</a>
+	<ul class="sub-menu">
+		<li id="menu-item-768" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-768"><a href="https://www.economicsandpeace.org/training/training-program/">Training Programs</a></li>
+		<li id="menu-item-2068" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2068"><a href="https://www.economicsandpeace.org/training/education/">Education Programs</a></li>
+		<li id="menu-item-2067" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2067"><a href="https://www.economicsandpeace.org/training/university-programs/">University Programs</a></li>
+		<li id="menu-item-2093" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2093"><a href="https://www.economicsandpeace.org/training/integrating-peace-solutions/">Integrating Peace</a></li>
+	</ul>
+</li>
+	<li id="menu-item-2069" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2069"><a href="#">Free Training</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1615" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1615"><a href="https://www.economicsandpeace.org/training/iep-peace-academy/">Peace Academy</a></li>
+		<li id="menu-item-1616" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1616"><a href="https://www.economicsandpeace.org/training/iep-ambassador-program/">Ambassador Program</a></li>
+		<li id="menu-item-3455" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3455"><a href="https://iep.coursebox.ai/#/courses/13/about">Business &#038; Peace Course</a></li>
+		<li id="menu-item-3456" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3456"><a href="https://iep.coursebox.ai/#/courses/3/about">Global Terrorism Course</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-2592" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2592"><a href="https://www.economicsandpeace.org/reports/">Reports</a></li>
+<li id="menu-item-203" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-203"><a href="https://www.economicsandpeace.org/about/">About Us</a>
+<ul class="sub-menu">
+	<li id="menu-item-786" class="menu-item menu-item-type-custom menu-item-object-custom mega-menu-li menu-item-786"><a href="#">About Us<div class="menu-item-content"><div class="menu-item-image"><img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/menu-thumbnail-about.png" alt="About Us" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 588px; --smush-placeholder-aspect-ratio: 588/372;"></div><div class="menu-item-text-button"><div class="menu-item-text">Find out about the Institute for Economics &amp; Peace, our people and networks, careers, events and what we do.</div><div class="menu-item-button"><span class="btn-blue" data-href="https://www.economicsandpeace.org/about/">About Us</span></div></div></div></a></li>
+	<li id="menu-item-105" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-105"><a href="#">About</a>
+	<ul class="sub-menu">
+		<li id="menu-item-2485" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2485"><a href="https://www.economicsandpeace.org/our-impact/">Our Impact</a></li>
+		<li id="menu-item-785" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-785"><a href="https://www.economicsandpeace.org/about-our-people/">Our People</a></li>
+		<li id="menu-item-780" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-780"><a href="https://www.economicsandpeace.org/about/jobs-and-internships/">Jobs &#038; Internships</a></li>
+		<li id="menu-item-3424" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3424"><a href="https://www.visionofhumanity.org/donate/">Support our work</a></li>
+	</ul>
+</li>
+	<li id="menu-item-2475" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2475"><a href="#">Outreach</a>
+	<ul class="sub-menu">
+		<li id="menu-item-782" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-782"><a href="https://www.economicsandpeace.org/events/">Events</a></li>
+		<li id="menu-item-1624" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1624"><a href="https://www.economicsandpeace.org/news-media/">News &#038; Media</a></li>
+		<li id="menu-item-1623" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1623"><a href="https://www.economicsandpeace.org/about/sponsorships/">Sponsorships</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-1621" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1621"><a href="https://www.economicsandpeace.org/contact-us/">Contact</a></li>
+</ul></div>
+                        </div>
+                    </nav>
+                    <div class="search">
+                        <img class="toggle-search lazyload" data-src="https://www.economicsandpeace.org/wp-content/themes/iep/assets/img/search.svg" alt="search" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==">
+                        <form role="search" method="get" action="https://www.economicsandpeace.org/">
+                            <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="s">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+
+                    </div>
+                    <div class="google-translate">
+                        <div class="gtranslate_wrapper" id="gt-wrapper-70003793"></div>                    </div>
+                    <div class="menu-btn">
+                        <!-- <a href="#" class="site-btn">Support our work</a> -->
+                                                    <a class="site-btn" href="https://www.economicsandpeace.org/consulting/data-licensing/" target="_blank">Data Licensing</a>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<section class="banner">
+
+    <!-- SLIDER -->
+                    <div class="banner-slider">
+                                                                            <div class="item lazyload" style="background-image:inherit" data-bg-image="url(https://www.economicsandpeace.org/wp-content/uploads/2024/01/homepage-hero-banner-1920-a.jpg)">
+                                                    <div class="container">
+                            <h1>We create a paradigm shift in the way the world thinks about peace</h1>
+                            </div>
+                                            </div>
+                                                            <div class="item lazyload" style="background-image:inherit" data-bg-image="url(https://www.economicsandpeace.org/wp-content/uploads/2024/01/homepage-hero-banner-1920-b.jpg)">
+                                                    <div class="container">
+                            <h1>We do this through data-driven research, consulting &amp; training</h1>
+                            </div>
+                                            </div>
+                                                            <div class="item lazyload" style="background-image:inherit" data-bg-image="url(https://www.economicsandpeace.org/wp-content/uploads/2024/01/homepage-hero-banner-1920-c-1-1.jpg)">
+                                                    <div class="container">
+                            <h1>Find us in Sydney, New York, Brussels, Mexico City, The Hague &amp; Nairobi</h1>
+                            </div>
+                                            </div>
+                                            </div>
+            
+    <div class="container">
+            
+    </div>
+</section>
+<div class="intro">
+        <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2023/09/intro-bg.jpg"
+        alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 1920px; --smush-placeholder-aspect-ratio: 1920/692;" />
+        <div class="container">
+        <div class="intro-text">
+                        <h5>The Institute for Economics &amp; Peace is an internationally renowned think tank. We are experts in peace, conflict and risk with a global mission, influence and impact.</h5>
+                      
+        </div>
+    </div>
+</div>
+<div class="numbers lazyload" style="background-image:inherit;" data-bg-image="url(&#039;https://www.economicsandpeace.org/wp-content/uploads/2023/09/count-pattern.jpg&#039;)">
+    <div class="container-large">
+                <h5> We&#039;re changing the way the world understands peace through research, consulting and training.</h5>
+        
+        <div class="numbers-blocks">
+
+                                    <div class="number-block">
+                <span class="num">
+                                        report downloads                                    </span>
+                <span class="text">
+                                        750k                                    </span>
+            </div>
+                        
+
+                                    <div class="number-block">
+                <span class="num">
+                                        IEP Ambassadors                                     </span>
+                <span class="text">
+                                        4,500                                    </span>
+            </div>
+                        
+                                    <div class="number-block">
+                <span class="num">
+                                        monthly audience                                    </span>
+                <span class="text">
+                                        3.5bn                                    </span>
+            </div>
+                        
+                                    <div class="number-block">
+                <span class="num">
+                                        trained in peace                                    </span>
+                <span class="text">
+                                        200k                                    </span>
+            </div>
+                        
+        </div>
+
+    </div>
+</div>
+<div class="reports a">
+    <div class="container">
+        <div class="title">
+            <div class="left">
+                                    <h5>Latest Research</h5>
+                            </div>
+            <div class="right">
+                                    <a class="btn-caret" href="https://www.economicsandpeace.org/reports/" target="_self">View all publications</a>
+                            </div>
+        </div>
+
+        <div class="reports-list">
+                                <div class="report-item">
+                        <div class="img">
+                            <img width="131" height="185" data-src="https://www.economicsandpeace.org/wp-content/uploads/2026/03/report-cover-414-585-2.jpg" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 131px; --smush-placeholder-aspect-ratio: 131/185;">
+                        </div>
+                        <div class="content">
+                            <div class="title">
+                                <h5>The Iran War and The Global Terrorism Threat</h5>
+                                <div class="excerpt">
+                                                                    </div>
+                            </div>
+                            <div class="pdf">
+                                <a target="_blank" href="https://www.economicsandpeace.org/wp-content/uploads/2026/03/The-Iran-War-and-The-Global-Terrorism-Threat.pdf"><svg width="41" height="38" viewBox="0 0 41 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.4929 21.9038L19.4653 22.9965L20.4929 23.9629L21.5206 22.9965L20.4929 21.9038ZM21.9929 7.94008C21.9929 7.11165 21.3214 6.44008 20.4929 6.44008C19.6645 6.44008 18.9929 7.11165 18.9929 7.94008L21.9929 7.94008ZM11.2164 15.2389L19.4653 22.9965L21.5206 20.8111L13.2716 13.0535L11.2164 15.2389ZM21.5206 22.9965L29.7695 15.2389L27.7142 13.0535L19.4653 20.8111L21.5206 22.9965ZM21.9929 21.9038L21.9929 7.94008L18.9929 7.94008L18.9929 21.9038L21.9929 21.9038Z" fill="#414141"/>
+                                    <path d="M8.94446 25.0068L8.94446 26.5584C8.94446 28.2721 10.4217 29.6614 12.244 29.6614L28.7419 29.6614C30.5642 29.6614 32.0414 28.2721 32.0414 26.5584V25.0068" stroke="#222222" stroke-width="3"/></a>                            </div>
+                        </div>
+                    </div>
+                                    <div class="report-item">
+                        <div class="img">
+                            <img width="131" height="185" data-src="https://www.economicsandpeace.org/wp-content/uploads/2026/03/VOH-homepage-download-thumbnail-global-terrorism-index-2026.jpg" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 131px; --smush-placeholder-aspect-ratio: 131/185;">
+                        </div>
+                        <div class="content">
+                            <div class="title">
+                                <h5>Global Terrorism Index 2026</h5>
+                                <div class="excerpt">
+                                                                    </div>
+                            </div>
+                            <div class="pdf">
+                                <a target="_blank" href="https://www.economicsandpeace.org/wp-content/uploads/2026/03/Global-Terrorism-Index-2026-Report.pdf"><svg width="41" height="38" viewBox="0 0 41 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.4929 21.9038L19.4653 22.9965L20.4929 23.9629L21.5206 22.9965L20.4929 21.9038ZM21.9929 7.94008C21.9929 7.11165 21.3214 6.44008 20.4929 6.44008C19.6645 6.44008 18.9929 7.11165 18.9929 7.94008L21.9929 7.94008ZM11.2164 15.2389L19.4653 22.9965L21.5206 20.8111L13.2716 13.0535L11.2164 15.2389ZM21.5206 22.9965L29.7695 15.2389L27.7142 13.0535L19.4653 20.8111L21.5206 22.9965ZM21.9929 21.9038L21.9929 7.94008L18.9929 7.94008L18.9929 21.9038L21.9929 21.9038Z" fill="#414141"/>
+                                    <path d="M8.94446 25.0068L8.94446 26.5584C8.94446 28.2721 10.4217 29.6614 12.244 29.6614L28.7419 29.6614C30.5642 29.6614 32.0414 28.2721 32.0414 26.5584V25.0068" stroke="#222222" stroke-width="3"/></a>                            </div>
+                        </div>
+                    </div>
+                                    <div class="report-item">
+                        <div class="img">
+                            <img width="131" height="185" data-src="https://www.economicsandpeace.org/wp-content/uploads/2026/03/report-cover-414-585-1.jpg" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 131px; --smush-placeholder-aspect-ratio: 131/185;">
+                        </div>
+                        <div class="content">
+                            <div class="title">
+                                <h5>Global Terrorism Index 2026 Briefing</h5>
+                                <div class="excerpt">
+                                                                    </div>
+                            </div>
+                            <div class="pdf">
+                                <a target="_blank" href="https://www.economicsandpeace.org/wp-content/uploads/2026/03/Global-Terrorism-Index-2026-Briefing.pdf"><svg width="41" height="38" viewBox="0 0 41 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.4929 21.9038L19.4653 22.9965L20.4929 23.9629L21.5206 22.9965L20.4929 21.9038ZM21.9929 7.94008C21.9929 7.11165 21.3214 6.44008 20.4929 6.44008C19.6645 6.44008 18.9929 7.11165 18.9929 7.94008L21.9929 7.94008ZM11.2164 15.2389L19.4653 22.9965L21.5206 20.8111L13.2716 13.0535L11.2164 15.2389ZM21.5206 22.9965L29.7695 15.2389L27.7142 13.0535L19.4653 20.8111L21.5206 22.9965ZM21.9929 21.9038L21.9929 7.94008L18.9929 7.94008L18.9929 21.9038L21.9929 21.9038Z" fill="#414141"/>
+                                    <path d="M8.94446 25.0068L8.94446 26.5584C8.94446 28.2721 10.4217 29.6614 12.244 29.6614L28.7419 29.6614C30.5642 29.6614 32.0414 28.2721 32.0414 26.5584V25.0068" stroke="#222222" stroke-width="3"/></a>                            </div>
+                        </div>
+                    </div>
+                        </div>
+    </div>
+</div>
+
+<div class="research">
+    <div class="container">
+        <div class="research-left">
+            <div class="titles">
+                <!-- research -->
+                                                                <h2 id="research" class="active">
+                    Research                </h2>
+                                                                <!-- consulting -->
+                                                                <h2 id="consulting">
+                    Consulting                </h2>
+                                                                <!-- training -->
+                                                                <h2 id="training">
+                    Training                </h2>
+                                                            </div>
+
+            <div class="content">
+                <!-- research -->
+                <div data-content="research">
+                                                                            <p>Research is central to our mission, with a dedicated team developing global and national indices.</p>
+                                                                <a class="box-arrow" href="https://www.economicsandpeace.org/research/" target="_self">Learn more</a>
+                                                                    </div>
+                <!-- consulting -->
+                <div data-content="consulting">
+                                                                            <p>We're a trusted advisor on economic, financial and attitudinal data for international development. </p>
+                                                                <a class="box-arrow" href="https://www.economicsandpeace.org/consulting/" target="_self">Learn more</a>
+                                                                    </div>
+                <!-- training -->
+                <div data-content="training">
+                                                                            <p>We build capacity through project design, policy making and strengthening leadership.</p>
+                                                                <a class="box-arrow" href="https://www.economicsandpeace.org/training/" target="_self">Learn more</a>
+                                                                    </div>
+            </div>
+        </div>
+        <div class="research-right">
+                 <!-- research -->
+                <div data-img="research">
+                                                                         <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2026/03/iep-homepage-three-reports-1.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 800px; --smush-placeholder-aspect-ratio: 800/800;" />
+                                                                    </div>  
+                 <!-- consulting -->
+                <div data-img="consulting">
+                                                                         <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/02/5.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 900px; --smush-placeholder-aspect-ratio: 900/740;" />
+                                                                    </div>  
+                 <!-- training -->
+                <div data-img="training">
+                                                                         <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/02/4.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 900px; --smush-placeholder-aspect-ratio: 900/740;" />
+                                                                    </div>  
+        </div>
+    </div>
+</div>
+<div class="impact">
+    <div class="container">
+        <!-- <h3>Our Impact</h3> -->
+                   <h2> Our global impact </h2>
+                <div class="impact-wrap">
+        <div class="impact-left">
+            <!-- FIRST -->
+                                        <div class="image-map" data-img="1">
+                                        <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/NEW_1227-scaled.jpg"
+                        alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 2560px; --smush-placeholder-aspect-ratio: 2560/1707;" />
+                                    </div>
+                        
+            <!-- SECOND -->
+                                        <div class="image-map" data-img="2">
+                                        <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/RSD23_028_2195a-scaled.jpg"
+                        alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 2560px; --smush-placeholder-aspect-ratio: 2560/1705;" />
+                                    </div>
+                        
+            <!-- Third -->
+                                        <div class="image-map" data-img="3">
+                                        <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/e3898382-0abc-4917-98e9-02d8c56c063d.jpg"
+                        alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/768;" />
+                                    </div>
+                        
+            <!-- Fourth -->
+                                        <div class="image-map" data-img="4">
+                                        <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/02/map-1.jpg"
+                        alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/768;" />
+                                    </div>
+                        
+        </div>
+        <div class="impact-right">
+            <!-- FIRST -->
+                                        <div class="num-text active" data-content="1">
+                                            <span class="num">  100K</span>
+                                                                <span class="text"> Workshop attendees</span>
+                                    </div>
+                        
+            <!-- Second -->
+                                        <div class="num-text" data-content="2">
+                                            <span class="num">  300+</span>
+                                                                <span class="text"> Yearly events</span>
+                                    </div>
+                        
+            <!-- Third -->
+                                        <div class="num-text" data-content="3">
+                                            <span class="num">  70+</span>
+                                                                <span class="text"> Peace partnerships</span>
+                                    </div>
+                        
+            <!-- Fourth -->
+                                        <div class="num-text" data-content="4">
+                                            <span class="num">  500K</span>
+                                                                <span class="text"> People impacted</span>
+                                    </div>
+                                </div>
+        </div>
+    </div>
+</div>
+<div class="discover-global">
+    <div class="container">
+        <div class="title">
+                            <h3> Discover the world of IEP through conferences, training and seminars.</h3>
+                    </div>
+        <div class="discover-items">
+            <div class="discover-item"> <a href="https://www.economicsandpeace.org/event/gti2026-canberra/"> <div class="texts"><p class="category">Presentation</p><h4> Global Terrorism Index 2026 Presentation </h4><div class="content"><p>
+The Counter Terrorism Branch at the Department of Foreign Affairs and Trade, in partnership with the&nbsp;Institute for Economics & Peace (IEP), is pleased to invite you to a special presentation on the&nbsp;Global Terrorism Index 2026, hosted in Canberra on&nbsp;Tuesday,&nbsp;5 May 2026.
+
+
+
+The event will feature a presentation on the key findings of the 2026 Global Terrorism Index (GTI), followed by an interactive discussion and Q&A with Steve Killelea AM and the GTI team. The index is a globally recognised, publicly&nbsp;available resource that informs international policy discussions on terrorism trends and drivers.
+
+
+
+This event will bring together members of Canberra’s diplomatic corps, Australian Government counter‑terrorism and CVE partners, and DFAT colleagues.
+
+
+
+Note: Participation in this event by invitation only.
+</p></div> <span class="btn-arrow">Find out more</span></div></a> </div><div class="discover-item"> <a href="https://www.economicsandpeace.org/event/the-shared-future-interfaith-collaboration-for-peace-and-prosperity-in-nsw/"> <div class="texts"><p class="category">Presentation</p><h4> The Shared Future – Interfaith Collaboration for Peace and Prosperity in NSW </h4><div class="content"><p>
+At the Parliament of New South Wales, Indians in Sydney is convening The Shared Future – Interfaith Collaboration for Peace and Prosperity in NSW, bringing together faith leaders, policymakers and community representatives from across traditions. IEP Founder and Executive Chairman Steve Killelea will be speaking at the event, sharing insights on the role of peacebuilding and collaboration in fostering social cohesion and prosperity.
+</p></div> <span class="btn-arrow">Find out more</span></div><img width="2560" height="1707" src="https://www.economicsandpeace.org/wp-content/uploads/2023/12/city_people_peaceful_children-scaled.jpg" class="attachment-full size-full wp-post-image" alt="" decoding="async" fetchpriority="high" srcset="https://www.economicsandpeace.org/wp-content/uploads/2023/12/city_people_peaceful_children-scaled.jpg 2560w, https://www.economicsandpeace.org/wp-content/uploads/2023/12/city_people_peaceful_children-300x200.jpg 300w, https://www.economicsandpeace.org/wp-content/uploads/2023/12/city_people_peaceful_children-1024x683.jpg 1024w, https://www.economicsandpeace.org/wp-content/uploads/2023/12/city_people_peaceful_children-768x512.jpg 768w, https://www.economicsandpeace.org/wp-content/uploads/2023/12/city_people_peaceful_children-1536x1024.jpg 1536w, https://www.economicsandpeace.org/wp-content/uploads/2023/12/city_people_peaceful_children-2048x1365.jpg 2048w" sizes="(max-width: 2560px) 100vw, 2560px" /></a> </div><div class="discover-item"> <a href="https://www.economicsandpeace.org/event/sustaining-peace-through-the-tolerance-peace-and-security-tps-agenda/"> <div class="texts"><p class="category">Forum</p><h4> Sustaining Peace through the Tolerance, Peace and Security (TPS) Agenda </h4><div class="content"><p>
+The UAE Mission to the United Nations, in partnership with New York University’s Peace Research and Education Program (NYU-PREP), is developing a TPS Series—a set of expert roundtables linked to the implementation of UN Security Council Resolution 2686 on Tolerance, Peace and Security (TPS).
+
+
+
+The first roundtable "Sustaining Peace through the Tolerance, Peace and Security (TPS) Agenda" will provide an opportunity for a broad range of stakeholders, including Member States, United Nations entities, academia, civil society organisations, and practitioners, to examine how hate speech, acts of extremism, and related forms of intolerance are affecting peace and security dynamics in different contexts.
+
+
+
+The roundtable will:
+
+
+
+
+Provide an overview of how hate speech, extremism, and related forms of intolerance influence conflict dynamics and peace processes across the peace continuum;
+
+
+
+Facilitate an exchange of perspectives among stakeholders on how these dynamics are affecting international peace and security and the work of the United Nations, including peace operations, the Peacebuilding Commission, and UN Country Teams;
+
+
+
+Gather perspectives and recommendations to inform the development of a shared framework and practical guidance to support implementation across the peace continuum
+
+</p></div> <span class="btn-arrow">Find out more</span></div><img width="2560" height="1707" data-src="https://www.economicsandpeace.org/wp-content/uploads/2026/04/pexels-matreding-4468974-scaled.jpg" class="attachment-full size-full wp-post-image lazyload" alt="" decoding="async" data-srcset="https://www.economicsandpeace.org/wp-content/uploads/2026/04/pexels-matreding-4468974-scaled.jpg 2560w, https://www.economicsandpeace.org/wp-content/uploads/2026/04/pexels-matreding-4468974-300x200.jpg 300w, https://www.economicsandpeace.org/wp-content/uploads/2026/04/pexels-matreding-4468974-1024x683.jpg 1024w, https://www.economicsandpeace.org/wp-content/uploads/2026/04/pexels-matreding-4468974-768x512.jpg 768w, https://www.economicsandpeace.org/wp-content/uploads/2026/04/pexels-matreding-4468974-1536x1024.jpg 1536w, https://www.economicsandpeace.org/wp-content/uploads/2026/04/pexels-matreding-4468974-2048x1365.jpg 2048w" data-sizes="(max-width: 2560px) 100vw, 2560px" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" style="--smush-placeholder-width: 2560px; --smush-placeholder-aspect-ratio: 2560/1707;" /></a> </div><div class="discover-item"> <a href="https://www.economicsandpeace.org/event/global-solutions-summit-2026/"> <div class="texts"><p class="category">Summit</p><h4> Global Solutions Summit 2026 </h4><div class="content"><p>
+The Global Solutions Summit 2026 is where global leaders, innovators, and changemakers come together. With 300 global changemakers from politics, business, civil society, philanthropy, and academia. The summit offers 30+ interactive sessions, deep dives, and closed-door meetings. The Summit unites the Global South, middle powers, and leaders across sectors to stress-test bold ideas and develop solutions for:
+
+
+
+
+Climate protection and sustainability
+
+
+
+Human-centered digital transformation
+
+
+
+Artificial intelligence (AI)
+
+
+
+Global governance and cooperation
+
+
+
+Fair global trade, geo-economics, and financial systems
+
+
+
+
+
+
+
+
+If you are interested in attending GSS 2026 in person, we kindly ask you to complete this form using the password: GSS2026. Your request will be carefully reviewed, and a member of our team will contact you regarding the status of your application.
+
+
+
+
+</p></div> <span class="btn-arrow">Find out more</span></div></a> </div>        </div>
+
+    </div>
+</div>
+<div class="get-engaged">
+    <div class="container">
+    <div class="engaged-wrap">
+        <div class="engaged-left">
+                    <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/02/get-involved-CTA.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 900px; --smush-placeholder-aspect-ratio: 900/740;" />
+                </div>
+        <div class="engaged-right">
+                            <h2>Get involved with IEP through events, research and the media.</h2>
+                        <div class="buttons">
+                            <a class="box-arrow" href="https://www.economicsandpeace.org/reports/" target="_self">Reports</a>
+            
+                            <a class="box-arrow" href="https://www.economicsandpeace.org/events/" target="_self">Events</a>
+            
+                            <a class="box-arrow" href="https://www.economicsandpeace.org/news-media/" target="_self">Media</a>
+            
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+<div class="upcoming-events">
+    <div class="container">
+                <div class="title">
+            <h4>Upcoming Events</h4>
+        </div>
+        
+
+        <div class="upcoming-eventsWrap">
+                        <div class="upcoming-event">
+                <div class="top">
+                    <div class="date-cat">
+                        14 May, 2026                          
+                                                    <span>Presentation</span>
+                                            </div>
+                    <h4>The Shared Future – Interfaith Collaboration for Peace and Prosperity in NSW</h4>
+                </div>
+                <a href="https://www.economicsandpeace.org/event/the-shared-future-interfaith-collaboration-for-peace-and-prosperity-in-nsw/" class="btn-arrow">View event</a>
+            </div>
+                        <div class="upcoming-event">
+                <div class="top">
+                    <div class="date-cat">
+                        22 May, 2026                          
+                                                    <span>Forum</span>
+                                            </div>
+                    <h4>Sustaining Peace through the Tolerance, Peace and Security (TPS) Agenda</h4>
+                </div>
+                <a href="https://www.economicsandpeace.org/event/sustaining-peace-through-the-tolerance-peace-and-security-tps-agenda/" class="btn-arrow">View event</a>
+            </div>
+                        <div class="upcoming-event">
+                <div class="top">
+                    <div class="date-cat">
+                        1 June, 2026                          
+                                                    <span>Summit</span>
+                                            </div>
+                    <h4>Global Solutions Summit 2026</h4>
+                </div>
+                <a href="https://www.economicsandpeace.org/event/global-solutions-summit-2026/" class="btn-arrow">View event</a>
+            </div>
+                    </div>
+
+    </div>
+</div>
+<div class="our-partners">
+    <div class="container">
+        <div class="title">
+                            <sapn class="text">Our Partners</sapn>
+                        <div class="view-all">
+                                <div class="partner-nav">
+                    <div class="partner-prev">
+                        <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.875 26.25L13.125 17.5L21.875 8.75" stroke="#282828" stroke-width="4" />
+                        </svg>
+                    </div>
+                    <div class="partner-next">
+                        <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.125 8.75L21.875 17.5L13.125 26.25" stroke="#282828" stroke-width="4" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="partners-wrap">
+            <div class="partners-slider">
+                                                <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-UN.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 99px; --smush-placeholder-aspect-ratio: 99/97;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-world-vision.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 248px; --smush-placeholder-aspect-ratio: 248/51;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-oecd.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 219px; --smush-placeholder-aspect-ratio: 219/68;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-the-commonwealth.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 211px; --smush-placeholder-aspect-ratio: 211/98;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-australian-council-for-international-development.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 217px; --smush-placeholder-aspect-ratio: 217/93;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-tcf.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 141px; --smush-placeholder-aspect-ratio: 141/60;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-rotary.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 204px; --smush-placeholder-aspect-ratio: 204/76;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-alliance-for-peacebuilding.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 231px; --smush-placeholder-aspect-ratio: 231/84;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2026/01/the-nordic-centre-logo-1.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 800px; --smush-placeholder-aspect-ratio: 800/199;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-addis-ababa-university.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 250px; --smush-placeholder-aspect-ratio: 250/100;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-INCIPE.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 250px; --smush-placeholder-aspect-ratio: 250/100;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-gppac.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 98px; --smush-placeholder-aspect-ratio: 98/98;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-Uni-Syd.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 250px; --smush-placeholder-aspect-ratio: 250/100;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-IPU.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 250px; --smush-placeholder-aspect-ratio: 250/100;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-hiroshima-university-1.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 250px; --smush-placeholder-aspect-ratio: 250/100;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-ISD-1.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 250px; --smush-placeholder-aspect-ratio: 250/100;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-gcsp.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 219px; --smush-placeholder-aspect-ratio: 219/75;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-northeastern-university.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 234px; --smush-placeholder-aspect-ratio: 234/77;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-european-parliament.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 140px; --smush-placeholder-aspect-ratio: 140/98;" />
+                                            </a>
+                    </div>
+                                    <div class="item">
+                    <a target="_blank" href="javascript:void(0)">
+                                                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/01/partner-logo-250-100-religions-for-peace.png" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 247px; --smush-placeholder-aspect-ratio: 247/24;" />
+                                            </a>
+                    </div>
+                                           
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="report_blue">
+    <div class="container">
+        <div class="report_blueWrap">
+            
+
+            <div class="report_blueLeft">
+                <div class="title"> <h4>Global Terrorism Index 2026</h4> </div>
+                <div class="caption"></div>
+
+
+                                <a class="btn-arrow" href="https://www.economicsandpeace.org/wp-content/uploads/2026/03/Global-Terrorism-Index-2026-Report.pdf" target="_blank">Read the
+                    report</a>
+                
+                                
+            </div>
+            <div class="report_blueRight">
+
+                <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2026/03/VOH-homepage-download-thumbnail-global-terrorism-index-2026.jpg" alt="Global Terrorism Index 2026" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 400px; --smush-placeholder-aspect-ratio: 400/540;" />
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="bW_image">
+        <img data-src="https://www.economicsandpeace.org/wp-content/uploads/2024/04/feature-report-banner-9.jpg" alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 1559px; --smush-placeholder-aspect-ratio: 1559/387;" />
+    </div>
+<div class="subscribe">
+    <div class="container">
+        <div class="subscribe-wrap">
+        <div class="subscribe-left">
+            <div class="title">
+                                                                <span class="top-title">Subscribe to our newsletter</span>
+                                                <span class="bottom-title">Get the latest research, training, webinars and event updates from IEP.</span>
+
+                                                
+            </div>
+        </div>
+        <div class="subscribe-right">
+            <div class="subscribe-form">
+                <input type="text" placeholder="Enter your email">
+                <!-- <a href="#" data-fancybox data-src="#subscribe-popup" href="javascript:;">Subscribe</a> -->
+                <a href="#"  href="javascript:;">Subscribe</a>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- SUBSCRIPTION POPUP -->
+
+
+
+<div id="subscribe-popup" style="display: none;">
+    <!-- <div id="subscribe-popup"> -->
+    <div class="container">
+        <div class="shortcode-wrap">
+            <h3>Never miss a report, event or news update.</h3><p>Subscribe to our mailing list.</p>
+
+                <div class='gf_browser_chrome gform_wrapper gravity-theme gform-theme--no-framework' data-form-theme='gravity-theme' data-form-index='0' id='gform_wrapper_1' ><div id='gf_1' class='gform_anchor' tabindex='-1'></div><form method='post' enctype='multipart/form-data' target='gform_ajax_frame_1' id='gform_1'  action='/#gf_1' data-formid='1' novalidate>
+                        <div class='gform-body gform_body'><div id='gform_fields_1' class='gform_fields top_label form_sublabel_below description_below validation_below'><div id="field_1_1" class="gfield gfield--type-email gfield--input-type-email gfield_contains_required field_sublabel_below gfield--no-description field_description_below hidden_label field_validation_below gfield_visibility_visible"  ><label class='gfield_label gform-field-label' for='input_1_1'>Email*<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></label><div class='ginput_container ginput_container_email'>
+                            <input name='input_1' id='input_1_1' type='email' value='' class='medium'   placeholder='Email address*' aria-required="true" aria-invalid="false"  />
+                        </div></div><fieldset id="field_1_5" class="gfield gfield--type-checkbox gfield--type-choice gfield--input-type-checkbox gfield-list gfield_contains_required field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible"  ><legend class='gfield_label gform-field-label gfield_label_before_complex' >Which lists would you like to subscribe to?<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend><div class='ginput_container ginput_container_checkbox'><div class='gfield_checkbox ' id='input_1_5'><div class='gchoice gchoice_1_5_1'>
+								<input class='gfield-choice-input' name='input_5.1' type='checkbox'  value='IEP Newsletter (Monthly)' checked='checked' id='choice_1_5_1'   />
+								<label for='choice_1_5_1' id='label_1_5_1' class='gform-field-label gform-field-label--type-inline'>IEP Newsletter (Monthly)</label>
+							</div><div class='gchoice gchoice_1_5_2'>
+								<input class='gfield-choice-input' name='input_5.2' type='checkbox'  value='Future Trends (Weekly)' checked='checked' id='choice_1_5_2'   />
+								<label for='choice_1_5_2' id='label_1_5_2' class='gform-field-label gform-field-label--type-inline'>Future Trends (Weekly)</label>
+							</div><div class='gchoice gchoice_1_5_3'>
+								<input class='gfield-choice-input' name='input_5.3' type='checkbox'  value='Product Releases (Occasionally)' checked='checked' id='choice_1_5_3'   />
+								<label for='choice_1_5_3' id='label_1_5_3' class='gform-field-label gform-field-label--type-inline'>Product Releases (Occasionally)</label>
+							</div></div></div></fieldset><fieldset id="field_1_2" class="gfield gfield--type-consent gfield--type-choice gfield--input-type-consent gfield--width-full gfield_contains_required field_sublabel_below gfield--no-description field_description_below hidden_label field_validation_below gfield_visibility_visible"  ><legend class='gfield_label gform-field-label gfield_label_before_complex' >Consent<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></legend><div class='ginput_container ginput_container_consent'><input name='input_2.1' id='input_1_2_1' type='checkbox' value='1'   aria-required="true" aria-invalid="false"   /> <label class="gform-field-label gform-field-label--type-inline gfield_consent_label" for='input_1_2_1' >I understand this information will be used to contact me and agree to IEP's Terms & Conditions and Privacy Policy.<span class="gfield_required gfield_required_text">(Required)</span></label><input type='hidden' name='input_2.2' value='I understand this information will be used to contact me and agree to IEP&#039;s Terms &amp; Conditions and Privacy Policy.' class='gform_hidden' /><input type='hidden' name='input_2.3' value='1' class='gform_hidden' /></div></fieldset><div id="field_1_6" class="gfield gfield--type-captcha gfield--input-type-captcha gfield--width-full field_sublabel_below gfield--no-description field_description_above hidden_label field_validation_below gfield_visibility_visible"  ><label class='gfield_label gform-field-label' for='input_1_6'>Captcha</label><div id='input_1_6' class='ginput_container ginput_recaptcha' data-sitekey='6Lc_9KApAAAAAEFKrUAMsxHvHsd7GrSLjhP78MaF'  data-theme='light' data-tabindex='0'  data-badge=''></div></div></div></div>
+        <div class='gform-footer gform_footer top_label'> <input type='submit' id='gform_submit_button_1' class='gform_button button' onclick='gform.submission.handleButtonClick(this);' data-submission-type='submit' value='Sign Up'  /> <input type='hidden' name='gform_ajax' value='form_id=1&amp;title=&amp;description=&amp;tabindex=0&amp;theme=gravity-theme&amp;styles=[]&amp;hash=965b38be3fa951e814c0611e644328d8' />
+            <input type='hidden' class='gform_hidden' name='gform_submission_method' data-js='gform_submission_method_1' value='iframe' />
+            <input type='hidden' class='gform_hidden' name='gform_theme' data-js='gform_theme_1' id='gform_theme_1' value='gravity-theme' />
+            <input type='hidden' class='gform_hidden' name='gform_style_settings' data-js='gform_style_settings_1' id='gform_style_settings_1' value='[]' />
+            <input type='hidden' class='gform_hidden' name='is_submit_1' value='1' />
+            <input type='hidden' class='gform_hidden' name='gform_submit' value='1' />
+            
+            <input type='hidden' class='gform_hidden' name='gform_currency' data-currency='USD' value='pJLSw3rK3EYcNpS1Vd3WB3BKsNsbg2zKlYMjarJuazeg/fec9f20g8JT50fFv/3R7rO3UQLIlJvX/j/9IZUYpElJR/X7LMxYoTH2ClxXohNN6ow=' />
+            <input type='hidden' class='gform_hidden' name='gform_unique_id' value='' />
+            <input type='hidden' class='gform_hidden' name='state_1' value='WyJ7XCIyLjFcIjpcImExZDIwZjQ0Mzg1N2M0ZjdjMjllMjFlNDE1ZGFhNDIxXCIsXCIyLjJcIjpcIjAyZjg3YjkxYTIzOWRlM2QyMjg4ODMwNWFmYjUyNzk0XCIsXCIyLjNcIjpcImExZDIwZjQ0Mzg1N2M0ZjdjMjllMjFlNDE1ZGFhNDIxXCJ9IiwiOGMzMjljZGFiMzk4M2VmNjk1ODYyMjA3MDc5ZDNmYmMiXQ==' />
+            <input type='hidden' autocomplete='off' class='gform_hidden' name='gform_target_page_number_1' id='gform_target_page_number_1' value='0' />
+            <input type='hidden' autocomplete='off' class='gform_hidden' name='gform_source_page_number_1' id='gform_source_page_number_1' value='1' />
+            <input type='hidden' name='gform_field_values' value='' />
+            
+        </div>
+                        </form>
+                        </div>
+		                <iframe style='display:none;width:0px;height:0px;' src='about:blank' name='gform_ajax_frame_1' id='gform_ajax_frame_1' title='This iframe contains the logic required to handle Ajax powered Gravity Forms.'></iframe>
+		                <script>
+gform.initializeOnLoaded( function() {gformInitSpinner( 1, 'https://www.economicsandpeace.org/wp-content/plugins/gravityforms/images/spinner.svg', true );jQuery('#gform_ajax_frame_1').on('load',function(){var contents = jQuery(this).contents().find('*').html();var is_postback = contents.indexOf('GF_AJAX_POSTBACK') >= 0;if(!is_postback){return;}var form_content = jQuery(this).contents().find('#gform_wrapper_1');var is_confirmation = jQuery(this).contents().find('#gform_confirmation_wrapper_1').length > 0;var is_redirect = contents.indexOf('gformRedirect(){') >= 0;var is_form = form_content.length > 0 && ! is_redirect && ! is_confirmation;var mt = parseInt(jQuery('html').css('margin-top'), 10) + parseInt(jQuery('body').css('margin-top'), 10) + 100;if(is_form){jQuery('#gform_wrapper_1').html(form_content.html());if(form_content.hasClass('gform_validation_error')){jQuery('#gform_wrapper_1').addClass('gform_validation_error');} else {jQuery('#gform_wrapper_1').removeClass('gform_validation_error');}setTimeout( function() { /* delay the scroll by 50 milliseconds to fix a bug in chrome */ jQuery(document).scrollTop(jQuery('#gform_wrapper_1').offset().top - mt); }, 50 );if(window['gformInitDatepicker']) {gformInitDatepicker();}if(window['gformInitPriceFields']) {gformInitPriceFields();}var current_page = jQuery('#gform_source_page_number_1').val();gformInitSpinner( 1, 'https://www.economicsandpeace.org/wp-content/plugins/gravityforms/images/spinner.svg', true );jQuery(document).trigger('gform_page_loaded', [1, current_page]);window['gf_submitting_1'] = false;}else if(!is_redirect){var confirmation_content = jQuery(this).contents().find('.GF_AJAX_POSTBACK').html();if(!confirmation_content){confirmation_content = contents;}jQuery('#gform_wrapper_1').replaceWith(confirmation_content);jQuery(document).scrollTop(jQuery('#gf_1').offset().top - mt);jQuery(document).trigger('gform_confirmation_loaded', [1]);window['gf_submitting_1'] = false;wp.a11y.speak(jQuery('#gform_confirmation_message_1').text());}else{jQuery('#gform_1').append(contents);if(window['gformRedirect']) {gformRedirect();}}jQuery(document).trigger("gform_pre_post_render", [{ formId: "1", currentPage: "current_page", abort: function() { this.preventDefault(); } }]);        if (event && event.defaultPrevented) {                return;        }        const gformWrapperDiv = document.getElementById( "gform_wrapper_1" );        if ( gformWrapperDiv ) {            const visibilitySpan = document.createElement( "span" );            visibilitySpan.id = "gform_visibility_test_1";            gformWrapperDiv.insertAdjacentElement( "afterend", visibilitySpan );        }        const visibilityTestDiv = document.getElementById( "gform_visibility_test_1" );        let postRenderFired = false;        function triggerPostRender() {            if ( postRenderFired ) {                return;            }            postRenderFired = true;            gform.core.triggerPostRenderEvents( 1, current_page );            if ( visibilityTestDiv ) {                visibilityTestDiv.parentNode.removeChild( visibilityTestDiv );            }        }        function debounce( func, wait, immediate ) {            var timeout;            return function() {                var context = this, args = arguments;                var later = function() {                    timeout = null;                    if ( !immediate ) func.apply( context, args );                };                var callNow = immediate && !timeout;                clearTimeout( timeout );                timeout = setTimeout( later, wait );                if ( callNow ) func.apply( context, args );            };        }        const debouncedTriggerPostRender = debounce( function() {            triggerPostRender();        }, 200 );        if ( visibilityTestDiv && visibilityTestDiv.offsetParent === null ) {            const observer = new MutationObserver( ( mutations ) => {                mutations.forEach( ( mutation ) => {                    if ( mutation.type === 'attributes' && visibilityTestDiv.offsetParent !== null ) {                        debouncedTriggerPostRender();                        observer.disconnect();                    }                });            });            observer.observe( document.body, {                attributes: true,                childList: false,                subtree: true,                attributeFilter: [ 'style', 'class' ],            });        } else {            triggerPostRender();        }    } );} );
+</script>
+<div class="subscribe-tc"><a href="https://www.economicsandpeace.org/privacy-policy/" target="">Privacy Policy</a></div>        </div>
+    </div>
+</div>
+
+
+
+<div class="footer">
+    <div class="container">
+        <div class="footer-wrap">
+            <div class="footer-left">
+                <div class="logo-social">
+                    <a href="https://www.economicsandpeace.org/" class="custom-logo-link" rel="home" aria-current="page"><img width="166" height="65" data-src="https://www.economicsandpeace.org/wp-content/uploads/2023/09/IEP-combination-logo-white-1.png" class="custom-logo lazyload" alt="Institute for Economics &amp; Peace" decoding="async" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" style="--smush-placeholder-width: 166px; --smush-placeholder-aspect-ratio: 166/65;" /></a>                    <div class="social-link">
+                                                                                                <a href=" https://www.facebook.com/GlobalPeaceIndex">
+                            <img src="https://www.economicsandpeace.org/wp-content/themes/iep/assets/img/footer/facebook-logo 1.png"
+                                alt="logo">
+                        </a>
+                        
+                                                <a href="  https://x.com/GlobPeaceIndex">
+                            <img data-src="https://www.economicsandpeace.org/wp-content/themes/iep/assets/img/footer/twitter.png"
+                                alt="logo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 39px; --smush-placeholder-aspect-ratio: 39/39;">
+                        </a>
+                                                                        <a href="  https://www.linkedin.com/company/institute-for-economics-and-peace/">
+                            <img src="https://www.economicsandpeace.org/wp-content/themes/iep/assets/img/footer/linkedin-icon 3.png"
+                                alt="logo">
+                        </a>
+                                                                        <a href="  https://instagram.com/globalpeaceindex ">
+                            <img data-src="https://www.economicsandpeace.org/wp-content/themes/iep/assets/img/footer/insta.png"
+                                alt="logo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" class="lazyload" style="--smush-placeholder-width: 38px; --smush-placeholder-aspect-ratio: 38/38;">
+                        </a>
+                        
+                                                
+                    </div>
+                </div>
+                <div class="addresses">
+                                                            <div class="address">
+                                                <p><strong>Sydney</strong><br />
+<strong>(Head Office)</strong><br />
+<a href="https://maps.app.goo.gl/zBvLxroStkMzqnW96">Floor 7/100 Pacific Highway,</a><br />
+North Sydney NSW 2060</p>
+                                            </div>
+                                        <div class="address">
+                                                <p><strong>New York<br />
+</strong><a href="https://maps.app.goo.gl/rQCnzmk1UsLXHoF5A">17 State Street, 40th Floor</a><br />
+New York, NY 10004<br />
+United States<br />
+<a href="tel:+17867168758" target="_blank" rel="noopener noreferrer" data-auth="NotApplicable" data-linkindex="1">+1 786 716 8758</a></p>
+                                            </div>
+                                        <div class="address">
+                                                <p><strong>The Hague</strong><br />
+<a href="https://maps.app.goo.gl/qJN1pShsKpi1Yeqk8" target="_blank" rel="noopener">Fluwelen Burgwal 58<br />
+2511 CJ The Hague<br />
+The Netherlands</a></p>
+                                            </div>
+                                        <div class="address">
+                                                <p><strong>Nairobi<br />
+</strong><a href="https://maps.app.goo.gl/josoXi1GJXaeMVfKA">Nairobi Laiboni Center, 4th Floor,</a><br />
+Lenana Road, Kilimani<br />
+Nairobi, Kenya</p>
+                                            </div>
+                                        <div class="address">
+                                                <p><span data-olk-copy-source="MessageBody"><strong>Taguig</strong><br />
+</span><a href="https://maps.app.goo.gl/1E3JLJSBMgq5DnrG7"><span data-olk-copy-source="MessageBody">20F Cyber Sigma Bldg, Lawton Avenue, Fort Bonifacio<br />
+Taguig City 1630<br />
+Philippines</span></a></p>
+                                            </div>
+                                                        </div>
+            </div>
+            <div class="footer-right">
+                <div class="footer-menu">
+                    <ul id="menu-footer-menu" class="footer-menu"><li id="menu-item-202" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-202"><a href="https://www.economicsandpeace.org/about/">About Us</a></li>
+<li id="menu-item-2714" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2714"><a href="https://www.economicsandpeace.org/research/">Research</a></li>
+<li id="menu-item-160" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-160"><a href="https://www.economicsandpeace.org/reports/">Reports</a></li>
+<li id="menu-item-2715" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2715"><a href="https://www.economicsandpeace.org/consulting/">Consulting</a></li>
+<li id="menu-item-2717" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2717"><a href="https://www.economicsandpeace.org/contact-us/">Contact Us</a></li>
+<li id="menu-item-2716" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2716"><a href="https://www.economicsandpeace.org/training/">Training</a></li>
+<li id="menu-item-3074" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3074"><a href="https://www.economicsandpeace.org/terms-conditions/">Terms &amp; Conditions</a></li>
+<li id="menu-item-3073" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-3073"><a rel="privacy-policy" href="https://www.economicsandpeace.org/privacy-policy/">Privacy Policy</a></li>
+</ul>                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/iep/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script id="filter_ajax-js-extra">
+var mlObj = {"ajax_url":"https://www.economicsandpeace.org/wp-admin/admin-ajax.php","nonce":"9e0742ae89"};
+//# sourceURL=filter_ajax-js-extra
+</script>
+<script src="https://www.economicsandpeace.org/wp-content/themes/iep/assets/js/ajax_filter.js?ver=1778513571" id="filter_ajax-js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js?ver=1.8.7" id="select-js-js"></script>
+<script id="smush-lazy-load-js-before">
+var smushLazyLoadOptions = {"autoResizingEnabled":false,"autoResizeOptions":{"precision":5,"skipAutoWidth":true}};
+//# sourceURL=smush-lazy-load-js-before
+</script>
+<script src="https://www.economicsandpeace.org/wp-content/plugins/wp-smushit/app/assets/js/smush-lazy-load.min.js?ver=4.0.3" id="smush-lazy-load-js"></script>
+<script id="gt_widget_script_70003793-js-before">
+window.gtranslateSettings = /* document.write */ window.gtranslateSettings || {};window.gtranslateSettings['70003793'] = {"default_language":"en","languages":["ar","zh-CN","en","fr","ru","es"],"url_structure":"none","wrapper_selector":"#gt-wrapper-70003793","select_language_label":"Select","horizontal_position":"inline","flags_location":"\/wp-content\/plugins\/gtranslate\/flags\/"};
+//# sourceURL=gt_widget_script_70003793-js-before
+</script><script src="https://www.economicsandpeace.org/wp-content/plugins/gtranslate/js/dropdown.js?ver=6.9.4" data-no-optimize="1" data-no-minify="1" data-gt-orig-url="/" data-gt-orig-domain="www.economicsandpeace.org" data-gt-widget-id="70003793" defer></script><script src="https://www.economicsandpeace.org/wp-includes/js/dist/dom-ready.min.js?ver=f77871ff7694fffea381" id="wp-dom-ready-js"></script>
+<script src="https://www.economicsandpeace.org/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script src="https://www.economicsandpeace.org/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script src="https://www.economicsandpeace.org/wp-includes/js/dist/a11y.min.js?ver=cb460b4676c94bd228ed" id="wp-a11y-js"></script>
+<script defer='defer' src="https://www.economicsandpeace.org/wp-content/plugins/gravityforms/js/jquery.json.min.js?ver=2.10.1" id="gform_json-js"></script>
+<script id="gform_gravityforms-js-extra">
+var gform_i18n = {"datepicker":{"days":{"monday":"Mo","tuesday":"Tu","wednesday":"We","thursday":"Th","friday":"Fr","saturday":"Sa","sunday":"Su"},"months":{"january":"January","february":"February","march":"March","april":"April","may":"May","june":"June","july":"July","august":"August","september":"September","october":"October","november":"November","december":"December"},"firstDay":1,"iconText":"Select date"}};
+var gf_legacy_multi = [];
+var gform_gravityforms = {"strings":{"invalid_file_extension":"This type of file is not allowed. Must be one of the following:","delete_file":"Delete this file","in_progress":"in progress","file_exceeds_limit":"File exceeds size limit","illegal_extension":"This type of file is not allowed.","max_reached":"Maximum number of files reached","unknown_error":"There was a problem while saving the file on the server","currently_uploading":"Please wait for the uploading to complete","cancel":"Cancel","cancel_upload":"Cancel this upload","cancelled":"Cancelled","error":"Error","message":"Message"},"vars":{"images_url":"https://www.economicsandpeace.org/wp-content/plugins/gravityforms/images"}};
+var gf_global = {"gf_currency_config":{"name":"U.S. Dollar","symbol_left":"$","symbol_right":"","symbol_padding":"","thousand_separator":",","decimal_separator":".","decimals":2,"code":"USD"},"base_url":"https://www.economicsandpeace.org/wp-content/plugins/gravityforms","number_formats":[],"spinnerUrl":"https://www.economicsandpeace.org/wp-content/plugins/gravityforms/images/spinner.svg","version_hash":"2bc349488da68bb5cf174fc86557db42","strings":{"newRowAdded":"New row added.","rowRemoved":"Row removed","formSaved":"The form has been saved.  The content contains the link to return and complete the form."}};
+//# sourceURL=gform_gravityforms-js-extra
+</script>
+<script defer='defer' src="https://www.economicsandpeace.org/wp-content/plugins/gravityforms/js/gravityforms.min.js?ver=2.10.1" id="gform_gravityforms-js"></script>
+<script defer='defer' src="https://www.google.com/recaptcha/api.js?hl=en&amp;ver=6.9.4#038;render=explicit" id="gform_recaptcha-js"></script>
+<script defer='defer' src="https://www.economicsandpeace.org/wp-content/plugins/gravityforms/js/placeholders.jquery.min.js?ver=2.10.1" id="gform_placeholder-js"></script>
+<script defer='defer' src="https://www.economicsandpeace.org/wp-content/plugins/gravityforms/assets/js/dist/utils.min.js?ver=3f278756f0a3032bed328ff6a9f6c01d" id="gform_gravityforms_utils-js"></script>
+<script defer='defer' src="https://www.economicsandpeace.org/wp-content/plugins/gravityforms/assets/js/dist/vendor-theme.min.js?ver=4f8b3915c1c1e1a6800825abd64b03cb" id="gform_gravityforms_theme_vendors-js"></script>
+<script id="gform_gravityforms_theme-js-extra">
+var gform_theme_config = {"common":{"form":{"honeypot":{"version_hash":"2bc349488da68bb5cf174fc86557db42"},"ajax":{"ajaxurl":"https://www.economicsandpeace.org/wp-admin/admin-ajax.php","ajax_submission_nonce":"5fe6fd54b9","i18n":{"step_announcement":"Step %1$s of %2$s, %3$s","unknown_error":"There was an unknown error processing your request. Please try again.","error_403":"The request was blocked (403 error) for unknown security reasons. Remove any code-like text (scripts or DB queries) and try again."}}}},"hmr_dev":"","public_path":"https://www.economicsandpeace.org/wp-content/plugins/gravityforms/assets/js/dist/","config_nonce":"c90b7c81da"};
+//# sourceURL=gform_gravityforms_theme-js-extra
+</script>
+<script defer='defer' src="https://www.economicsandpeace.org/wp-content/plugins/gravityforms/assets/js/dist/scripts-theme.min.js?ver=25ebbbc2c63c6c71b95c9eb867a9072b" id="gform_gravityforms_theme-js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://www.economicsandpeace.org/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://www.economicsandpeace.org/wp-includes/js/wp-emoji-loader.min.js
+</script>
+<script data-cfasync="false">
+  document.onreadystatechange = function () {
+    if (document.readyState == "complete") {
+      var logout_link = document.querySelectorAll('a[href*="wp-login.php?action=logout"]');
+      if (logout_link) {
+        for(var i=0; i < logout_link.length; i++) {
+          logout_link[i].addEventListener( "click", function() {
+            Intercom('shutdown');
+          });
+        }
+      }
+    }
+  };
+</script>
+<script data-cfasync="false">
+  window.intercomSettings = {"app_id":"ym1dbqu0","installation_type":"wordpress","installation_version":"3.0.2"};
+</script>
+<script data-cfasync="false">(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/ym1dbqu0';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script><script>
+gform.initializeOnLoaded( function() { jQuery(document).on('gform_post_render', function(event, formId, currentPage){if(formId == 1) {if(typeof Placeholders != 'undefined'){
+                        Placeholders.enable();
+                    }} } );jQuery(document).on('gform_post_conditional_logic', function(event, formId, fields, isInit){} ) } );
+</script>
+<script>
+gform.initializeOnLoaded( function() {jQuery(document).trigger("gform_pre_post_render", [{ formId: "1", currentPage: "1", abort: function() { this.preventDefault(); } }]);        if (event && event.defaultPrevented) {                return;        }        const gformWrapperDiv = document.getElementById( "gform_wrapper_1" );        if ( gformWrapperDiv ) {            const visibilitySpan = document.createElement( "span" );            visibilitySpan.id = "gform_visibility_test_1";            gformWrapperDiv.insertAdjacentElement( "afterend", visibilitySpan );        }        const visibilityTestDiv = document.getElementById( "gform_visibility_test_1" );        let postRenderFired = false;        function triggerPostRender() {            if ( postRenderFired ) {                return;            }            postRenderFired = true;            gform.core.triggerPostRenderEvents( 1, 1 );            if ( visibilityTestDiv ) {                visibilityTestDiv.parentNode.removeChild( visibilityTestDiv );            }        }        function debounce( func, wait, immediate ) {            var timeout;            return function() {                var context = this, args = arguments;                var later = function() {                    timeout = null;                    if ( !immediate ) func.apply( context, args );                };                var callNow = immediate && !timeout;                clearTimeout( timeout );                timeout = setTimeout( later, wait );                if ( callNow ) func.apply( context, args );            };        }        const debouncedTriggerPostRender = debounce( function() {            triggerPostRender();        }, 200 );        if ( visibilityTestDiv && visibilityTestDiv.offsetParent === null ) {            const observer = new MutationObserver( ( mutations ) => {                mutations.forEach( ( mutation ) => {                    if ( mutation.type === 'attributes' && visibilityTestDiv.offsetParent !== null ) {                        debouncedTriggerPostRender();                        observer.disconnect();                    }                });            });            observer.observe( document.body, {                attributes: true,                childList: false,                subtree: true,                attributeFilter: [ 'style', 'class' ],            });        } else {            triggerPostRender();        }    } );
+</script>
+</body>
+
+</html>
