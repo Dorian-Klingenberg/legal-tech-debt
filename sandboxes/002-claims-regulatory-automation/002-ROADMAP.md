@@ -1,6 +1,6 @@
 # Roadmap: Insurance Claims Regulatory Automation Platform
 
-Status note: this older roadmap is background only. Current Sandbox 002 work is narrowed to Kentucky homeowners insurance, not auto/no-fault/PIP, and the revised roadmap plus procurement guide should control near-term work.
+Status note: Historical background only. Do not use this older platform roadmap to set active Sandbox 002 scope. Current work is narrowed to Kentucky homeowners insurance and the five policy-layer smells in `002-five-policy-layer-phish.md`; the revised roadmap plus procurement guide control near-term work.
 
 ## Phase 1: Validation (Weeks 1–4)
 

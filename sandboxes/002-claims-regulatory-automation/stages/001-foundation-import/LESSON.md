@@ -4,7 +4,7 @@ Sandbox 001 proved that a small plain-Python probe can make legal debt visible. 
 
 That distinction matters.
 
-The useful move is to import the working primitive into Sandbox 002, then let homeowners insurance policy and claims smells reshape it. A dangling reference in 001 becomes the foundation for Broken Link / Null Reference Clause detection in 002. A matrix output in 001 becomes useful only when it explains which homeowners policy, claims workflow, rating spec, or compliance artifact is affected.
+The useful move is to import the working primitive into Sandbox 002, then let the five active homeowners policy-layer smells reshape it. A dangling reference in 001 becomes support for Regulatory Mapping Smells in 002. A matrix output in 001 becomes useful only when it explains which homeowners policy, endorsement, rating spec, or compliance artifact is affected.
 
 ## What We Learned From 001
 
@@ -29,10 +29,13 @@ In 001, success meant proving the primitive worked.
 
 In 002, success means finding high-value Kentucky homeowners insurance smells in a way a policy, claims, compliance, or product reviewer can understand.
 
-The first useful insurance adaptation should therefore focus on:
+The first useful insurance adaptation should therefore focus on the five active smells:
 
-- Broken Link / Null Reference Clause
-- Calculation Rule Drift
+- Overbroad / Non-deterministic Exclusions
+- Magic Number / Magic Valuation Terms
+- Coverage Inversion / Contradictory Conditions
+- Calculation Rule Drift / Unversioned Rate Reference
+- Regulatory Mapping Smells
 
 ## Boundary
 

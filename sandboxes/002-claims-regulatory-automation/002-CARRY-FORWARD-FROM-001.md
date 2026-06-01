@@ -5,21 +5,21 @@ Status: Active guidance for Sandbox 002
 
 ## Decision
 
-Sandbox 001 is complete as foundational research. Sandbox 002 is now the active lane for Kentucky homeowners insurance policy and claims legal tech debt experiments.
+Sandbox 001 is complete as foundational research. Sandbox 002 is now the active lane for Kentucky homeowners insurance policy-layer legal tech debt experiments.
 
-The goal is not to copy 001 wholesale. The goal is to carry forward the proven primitives that help validate high-value homeowners insurance smells quickly.
+The goal is not to copy 001 wholesale. The goal is to carry forward only the proven primitives that help validate the five active homeowners policy-layer smells quickly.
 
 Current scope note: avoid personal auto, motor vehicle, no-fault, and PIP work unless the user explicitly reopens that scope.
 
 ## Why 002 Takes Over
 
-Recent research shifted the project from general legal debt primitives to a sharper insurance focus:
+Recent research shifted the project from general legal debt primitives to a sharper Kentucky homeowners policy-layer smell focus:
 
-- insurance policy smells
-- insurance claims smells
-- real-world cost events
-- process maturity gaps
-- high-value defect classes with economic consequences
+1. Overbroad / Non-deterministic Exclusions
+2. Magic Number / Magic Valuation Terms
+3. Coverage Inversion / Contradictory Conditions
+4. Calculation Rule Drift / Unversioned Rate Reference
+5. Regulatory Mapping Smells
 
 That means the next experiments should be judged by insurance usefulness, not by whether they complete every interesting primitive from 001.
 
@@ -32,10 +32,10 @@ These 001 patterns should be reused early in 002.
 | Plain-Python probe shape | Fast, readable, dependency-light | Start detectors without infrastructure |
 | Markdown corpus layout | Easy fixtures and reviewable source text | Homeowners policy, claims, statute, regulation, bulletin, and filing samples |
 | Section extraction | Needed for clause-level analysis | Policy/claim manual section indexing |
-| Reference extraction | Foundation for null references and drift | Internal and external citation detection |
-| Dangling reference detector | Directly maps to Broken Link / Null Reference smells | First high-value detector |
-| Circular reference detector | Useful for circular definitions and coverage logic loops | Secondary structural detector |
-| Orphan definition detector | Useful for dead terms and stale definitions | Policy wording hygiene detector |
+| Reference extraction | Foundation for regulatory mapping and unversioned reference smells | Internal and external citation detection |
+| Dangling reference detector | Supports Regulatory Mapping Smells | Null or missing Kentucky references |
+| Circular reference detector | Useful for circular definitions and coverage logic loops | Support for Coverage Inversion / Contradictory Conditions |
+| Orphan definition detector | Useful for dead terms and stale definitions | Support for Magic Number / Magic Valuation Terms |
 | JSON findings | Machine-readable evidence | `findings.json` for 002 reports |
 | Markdown report | Human-readable evidence | Compliance/SME review report |
 | Matrix outputs | Useful for impact and reachability when small | Show affected downstream sections |
@@ -49,7 +49,7 @@ These should be adapted rather than copied directly.
 
 | 001 Concept | Adaptation Needed for 002 |
 |---|---|
-| Finding types | Rename around insurance smells: Broken Link, Calculation Rule Drift, Coverage Inversion, Magic Number Term, Regulatory Drift |
+| Finding types | Rename around the five active smells from `002-five-policy-layer-phish.md` |
 | Severity | Tie to review urgency and business/legal exposure, not only structural graph severity |
 | Edge types | Keep the idea, but use only types needed for the detector under test |
 | Dashboard labels | Use insurance policy/claims language, not generic graph language |
@@ -72,10 +72,13 @@ These are parked until a concrete 002 stage earns them.
 
 ## First 002 Implementation Target
 
-The first practical 002 implementation should be a small homeowners-focused dual-detector probe:
+The first practical 002 implementation should be a small homeowners-focused five-smell fixture and probe:
 
-1. Broken Link / Null Reference Clause
-2. Calculation Rule Drift
+1. Overbroad / Non-deterministic Exclusions
+2. Magic Number / Magic Valuation Terms
+3. Coverage Inversion / Contradictory Conditions
+4. Calculation Rule Drift / Unversioned Rate Reference
+5. Regulatory Mapping Smells
 
 Use the 001 probe style:
 
@@ -94,7 +97,7 @@ Future implementation stages should follow the same shape:
 
 ```text
 stages/
-  002-dual-detector-probe/
+  002-homeowners-policy-layer-smells/
     STAGE.md
     LESSON.md
     data/
@@ -104,7 +107,7 @@ stages/
 
 Suggested question:
 
-> Can the 001 legal debt primitives be adapted into a Kentucky homeowners insurance probe that detects broken/null references and one narrow calculation drift in a synthetic homeowners policy/claims fixture?
+> Can the 001 legal debt primitives be adapted into a Kentucky homeowners insurance probe that detects the five active policy-layer smells in a small source-traceable fixture?
 
 ## Success Criteria
 
@@ -113,8 +116,7 @@ The first 002 stage is successful if:
 - it runs locally without infrastructure
 - it reuses or mirrors the useful 001 probe structure
 - it emits findings a compliance/product/claims reviewer could understand
-- it demonstrates at least one Broken Link / Null Reference finding
-- it demonstrates at least one Calculation Rule Drift finding
+- it demonstrates at least one finding or seeded example for each active smell
 - it documents what still requires human review
 
 ## Carry-Forward Rule

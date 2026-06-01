@@ -8,7 +8,7 @@ Status: Imported foundation; refocused on homeowners fixtures
 
 Carry the useful Sandbox 001 probe into Sandbox 002 as a runnable starting point for Kentucky homeowners insurance.
 
-This stage is intentionally not a new detector yet. It preserves the known-good plain-Python probe shape so the next 002 stages can adapt it toward high-value homeowners policy and claims smells.
+This stage is intentionally not a new detector yet. It preserves the known-good plain-Python probe shape so the next 002 stages can adapt it toward the five active Kentucky homeowners policy-layer smells.
 
 ## Question
 
@@ -51,17 +51,19 @@ Expected outputs:
 
 ## What This Stage Does Not Claim
 
-- It does not yet detect homeowners-specific policy or claims smells.
-- It does not yet implement Calculation Rule Drift.
+- It does not yet detect the five active homeowners policy-layer smells.
 - It uses only a tiny synthetic homeowners-oriented fixture, not real Kentucky insurance material.
 - It does not include regulatory feed ingestion.
 - It does not introduce a database, service, or production architecture.
 
 ## Next Stage
 
-Create a narrow Kentucky homeowners fixture and adapt this imported probe into a dual-detector experiment:
+Create a narrow Kentucky homeowners fixture and adapt this imported probe toward the five active smells:
 
-1. Broken Link / Null Reference Clause
-2. Calculation Rule Drift
+1. Overbroad / Non-deterministic Exclusions
+2. Magic Number / Magic Valuation Terms
+3. Coverage Inversion / Contradictory Conditions
+4. Calculation Rule Drift / Unversioned Rate Reference
+5. Regulatory Mapping Smells
 
 That next stage should keep the same plain local execution style.

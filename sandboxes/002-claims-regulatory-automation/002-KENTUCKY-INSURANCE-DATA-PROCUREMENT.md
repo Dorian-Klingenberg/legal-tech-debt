@@ -9,12 +9,11 @@ This guide explains how to collect Kentucky homeowners insurance source material
 
 The goal is to gather enough public, reviewable homeowners material to build synthetic-but-realistic fixtures for policy and claims legal tech debt detectors:
 
-- Broken Link / Null Reference Clause
-- Calculation Rule Drift
-- Coverage Inversion
-- Magic Number Term
-- Non-deterministic Language
-- Regulatory Drift in Claim Handling
+- Overbroad / Non-deterministic Exclusions
+- Magic Number / Magic Valuation Terms
+- Coverage Inversion / Contradictory Conditions
+- Calculation Rule Drift / Unversioned Rate Reference
+- Regulatory Mapping Smells
 
 This is a research procurement guide, not legal advice.
 
@@ -25,6 +24,18 @@ Focus on Kentucky homeowners insurance.
 Do not procure personal auto, motor vehicle, no-fault, or PIP material for the active fixture. Those sources may appear nearby on Kentucky DOI pages, but they are out of scope unless the user explicitly reopens auto work.
 
 If a homeowners source cross-references another line, record the reference in the manifest as context and keep the fixture homeowners-centered.
+
+## Procurement Targets By Five-Smell Scope
+
+Use `002-five-policy-layer-phish.md` as the source of truth for what the fixture needs.
+
+| Active Smell | Source Material To Prioritize |
+|---|---|
+| Overbroad / Non-deterministic Exclusions | Homeowners exclusions, endorsements, ordinance-or-law provisions, virus/data/governmental-action language, and any "arising out of" or "directly or indirectly" wording. |
+| Magic Number / Magic Valuation Terms | Conditions, definitions, loss settlement provisions, actual cash value language, notice duties, prompt-payment references, and valuation manuals. |
+| Coverage Inversion / Contradictory Conditions | Complete homeowners packages with base form, mandatory endorsements, optional endorsements, sublimits, exceptions, and priority language. |
+| Calculation Rule Drift / Unversioned Rate Reference | Homeowners rate/rule filings, rating manuals, loss-cost references, premium factor pages, and ACV or replacement-cost calculation references. |
+| Regulatory Mapping Smells | Kentucky-specific schedules, cancellation/notice provisions, mandatory coverage provisions, DOI bulletins, KRS/KAR citations, and "as required by law" clauses. |
 
 ## Source Priority
 
@@ -51,11 +62,11 @@ Avoid secondary sources unless they are only being used to discover an official 
 
 ## What To Collect First
 
-For the first useful 002 fixture, collect only enough to support one narrow policy/claims lane.
+For the first useful 002 fixture, collect only enough to support the five active policy-layer smells.
 
 Recommended first lane:
 
-> Kentucky homeowners property coverage, with a small rate-rule or form-filing component.
+> One Kentucky homeowners program package, with enough form, endorsement, rule, and Kentucky citation material to seed all five active smells.
 
 Minimum bundle:
 
@@ -74,8 +85,9 @@ Minimum bundle:
    - P&C rate/rule/form filing schedules or transmittal instructions.
 
 4. SERFF public filing samples
-   - One approved homeowners form filing.
+   - One approved homeowners form filing or package with base form and endorsements.
    - One rate/rule filing or loss-cost-multiplier-related filing if publicly available.
+   - Any Kentucky-specific state amendatory endorsement, schedule, or cancellation/notice provision attached to the homeowners package.
    - Prefer filings with clear status, effective date, filing number, company name, line of business, and attached forms/rules.
 
 5. Open records backup
@@ -151,7 +163,7 @@ Use a raw/processed split.
 
 ```text
 stages/
-  002-dual-detector-probe/
+  002-homeowners-policy-layer-smells/
     data/
       raw/
         kentucky/
@@ -227,13 +239,15 @@ Before using a source in an experiment, confirm:
 
 ## First Procurement Checklist
 
-- [ ] Download or save links for KRS Chapter 304 and homeowners/property-specific sections discovered through official sources.
-- [ ] Download or save links for Title 806 KAR and 806 KAR 14:006.
-- [ ] Download the DOI homeowners/personal dwelling checklist or related P&C document.
-- [ ] Manually collect 1-2 recent SERFF filings for Kentucky homeowners.
-- [ ] Create `source_manifest.csv`.
-- [ ] Convert 5-10 short excerpts into Markdown fixtures.
-- [ ] Document any source gaps or open records requests.
+Current status as of 2026-06-01: the first real-document corpus has been downloaded under `corpus/`, with one directory per active smell. Use `corpus/_download_manifest.csv` before procuring more sources.
+
+- [x] Download or save links for KRS Chapter 304 and homeowners/property-specific sections discovered through official sources.
+- [x] Download or save links for Title 806 KAR and 806 KAR 14:006.
+- [x] Download the DOI homeowners/personal dwelling checklist or related P&C document.
+- [x] Create a corpus-level download manifest.
+- [x] Document source gaps and manual-access items in `corpus/KNOWN-GAPS.md`.
+- [ ] Convert 5-10 short excerpts into Markdown fixtures, with at least one excerpt or synthetic seed for each active smell.
+- [ ] Manually collect 1-2 recent SERFF filings for Kentucky homeowners only if the active fixture or detector needs missing current-state carrier evidence.
 
 ## Notes For Future Agents
 

@@ -1,6 +1,6 @@
 # 001 → 002 Overlap Analysis: What's Already Done
 
-Status note: Sandbox 001 is now closed as foundational research. Use this document as background analysis, and use [002-CARRY-FORWARD-FROM-001.md](002-CARRY-FORWARD-FROM-001.md) as the active carry-forward decision record.
+Status note: Background only. Sandbox 001 is now closed as foundational research. Do not use this document to set active Sandbox 002 scope. Current active work is Kentucky homeowners insurance and the five policy-layer smells in [002-five-policy-layer-phish.md](002-five-policy-layer-phish.md). Use [002-CARRY-FORWARD-FROM-001.md](002-CARRY-FORWARD-FROM-001.md) as the active carry-forward decision record.
 
 ## Executive Summary
 

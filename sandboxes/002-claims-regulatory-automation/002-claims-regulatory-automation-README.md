@@ -1,37 +1,54 @@
-# Sandbox 002: Insurance Claims Regulatory Automation
+# Sandbox 002: Kentucky Homeowners Policy-Layer Smell Experiments
 
-## Project Overview
+Status: Active sandbox
+Current controlling scope: `002-five-policy-layer-phish.md`
+Created: May 2026
 
-This sandbox explores the application of **legal tech debt detection and regulatory automation** specifically to Kentucky homeowners insurance policy and claims work. The goal is to build prototypes and validate feasibility of technologies that surface policy ambiguities, regulatory drift, and claim decision inconsistencies before they become litigation.
+## Purpose
 
-**Status**: Active sandbox. Sandbox 001 is complete as foundational research; this sandbox now carries forward useful 001 primitives into insurance policy and claims experiments.
+Sandbox 002 is the active proof-of-concept lane for Kentucky homeowners insurance legal tech debt experiments.
 
-See [002-CARRY-FORWARD-FROM-001.md](002-CARRY-FORWARD-FROM-001.md) for what to reuse, adapt, and leave parked.
+The work is intentionally narrow: build quick, clean, readable detectors and fixtures around the five policy-layer smells in the five-smell report. Sandbox 001 is complete and should be treated as a source of reusable primitives, not as a source of new scope.
 
-See [002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md](002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md) for how to collect Kentucky insurance source material for fixtures.
+## Active Scope
 
-**Current scope**: Kentucky homeowners insurance only. Do not start personal auto, motor vehicle, no-fault, or PIP work unless the user explicitly reopens that scope.
+Current focus:
 
----
+- Kentucky homeowners insurance.
+- Policy-layer and claim-adjacent policy interpretation defects.
+- Small public or synthetic fixtures.
+- Plain local scripts and reviewable Markdown/JSON/CSV outputs.
+- Human-readable evidence that a policy, claims, compliance, or product reviewer can understand.
 
-## Problem Statement
+Out of scope unless explicitly reopened:
 
-Kentucky homeowners policy and claims processing is the current high-value attack vector for legal tech innovation:
+- Personal auto, motor vehicle, no-fault, and PIP.
+- Broad claims platform work.
+- Live regulatory feeds.
+- PAS or carrier system integration.
+- Databases, services, schedulers, Docker, or production architecture.
+- LLM/NLP pipelines unless a later stage earns them with a concrete need.
 
-- **Regulatory Complexity**: 50+ state regimes + federal overlays (ACA, ERISA, FCRA)
-- **Policy Ambiguity**: Vague language ("reasonable," "customary") creates inconsistent claim decisions
-- **Regulatory Drift**: Changes to state law or NAIC guidance don't automatically propagate to internal claims logic
-- **Financial Exposure**: Ambiguous denials lead to litigation; one class-action suit can exceed $5M–50M
+## Five Active Smells
 
-**Core Insight**: Claims decisions all derive from the same fragile, un-versioned rule substrate (underwriting rules + coverage rules + exclusions + regulatory obligations).
+All Sandbox 002 documentation, plans, stages, and fixtures should align to these smells:
 
----
+| Smell | What We Are Looking For |
+|---|---|
+| Overbroad / Non-deterministic Exclusions | Exclusions with sweeping trigger language, broad subjects, or conflicts with the coverage grant. |
+| Magic Number / Magic Valuation Terms | Undefined timing, valuation, or calculation terms where a concrete number, formula, or version is needed. |
+| Coverage Inversion / Contradictory Conditions | Broad grants that are hollowed out by exclusions, endorsements, exceptions, or conflicting priority rules. |
+| Calculation Rule Drift / Unversioned Rate Reference | Rating or valuation rules that depend on unversioned manuals, current guidelines, or opaque formulas. |
+| Regulatory Mapping Smells | "Per state law" and similar null references with no Kentucky citation, schedule, parameter, or versioning. |
 
-## Relationship to Sandbox 001
+See `002-five-policy-layer-phish.md` for the controlling detection specs and Gherkin scenarios.
 
-Sandbox 001 proved the reusable foundation:
+## Relationship To Sandbox 001
 
-- lightweight section/reference extraction
+Sandbox 001 proved useful legal debt primitives:
+
+- section extraction
+- reference extraction
 - dangling/null reference detection
 - circular reference detection
 - orphan definition detection
@@ -39,151 +56,56 @@ Sandbox 001 proved the reusable foundation:
 - JSON, Markdown, CSV, and static dashboard evidence
 - staged proof-of-concept workflow
 
-Sandbox 002 should reuse those primitives only where they help insurance policy and claims smells. The active focus is not infrastructure; it is fast, readable proof-of-concept detectors for high-value insurance defects.
+Sandbox 002 should reuse those only where they help the five active homeowners policy-layer smells. The primitive is support equipment, not the mission.
 
-The first carry-forward stage is [stages/001-foundation-import](stages/001-foundation-import/STAGE.md).
+See `002-CARRY-FORWARD-FROM-001.md` for the carry-forward rules.
 
----
+## Current Documentation Map
 
-## High-ROI Solutions (MVP Candidates)
-
-### 1. **Broken Link Detector** (Foundational)
-- **Problem**: Policy wording references repealed or amended statutes
-- **Solution**: NLP + statute database = automated identification of dead references
-- **Impact**: Prevents litigation over invalid policy language
-- **Effort**: 2–4 weeks
-
-### 2. **Non-Determinism Detector** (Core)
-- **Problem**: Same claim type produces different outcomes across adjudicators
-- **Solution**: Semantic analysis of policy terms + claims history clustering
-- **Impact**: Makes claim decisions reproducible and defensible
-- **Effort**: 3–6 weeks
-
-### 3. **Regulatory Drift Map** (Ongoing)
-- **Problem**: New regulations contradict internal claims logic
-- **Solution**: Ingest public regulatory feeds + semantic diff against internal rules
-- **Impact**: Alerts compliance to regulatory surprises before they become problems
-- **Effort**: 4–6 weeks
-
-### 4. **Decision Audit Trail** (Credibility)
-- **Problem**: Can't prove claim denial was valid and consistent
-- **Solution**: Trace each decision to specific policy clauses, exclusions, regulatory citations
-- **Impact**: Dramatically reduces settlement amounts in disputes
-- **Effort**: 6–8 weeks (requires PAS integration)
-
-### 5. **Scope Creep Detector** (Profitability)
-- **Problem**: Coverage definitions silently expand over time
-- **Solution**: Graph-based scope tracking across policy corpus and claims history
-- **Impact**: Prevents coverage leakage
-- **Effort**: 4–6 weeks
-
----
-
-## Directory Structure
-
-```
-002-claims-regulatory-automation/
-├── README.md                          # This file
-├── ROADMAP.md                         # MVP phases and timeline
-├── 01-research/                       # Research and analysis
-│   ├── pain-points-taxonomy.md        # Detailed pain categorization
-│   ├── regulatory-landscape.md        # State + federal oversight summary
-│   └── technology-stack.md            # Tools and standards reference
-├── 02-prototypes/                     # MVP implementations
-│   ├── broken-link-detector/          # Proof of concept #1
-│   ├── non-determinism-analyzer/      # Proof of concept #2
-│   └── regulatory-drift-detector/     # Proof of concept #3
-├── 03-data/                           # Sample data for testing
-│   ├── sample-policies/               # Anonymized policy corpus
-│   ├── naic-model-laws/               # Public NAIC reference
-│   └── state-statutes/                # Public statute snapshots
-├── 04-architecture/                   # System design docs
-│   ├── data-pipeline.md               # NLP → Graph DB flow
-│   ├── api-design.md                  # Integration points
-│   └── ui-mockups/                    # Dashboard concepts
-└── 05-business/                       # Go-to-market materials
-    ├── pitch-deck.md                  # Investor pitch outline
-    ├── regulatory-positioning.md      # NAIC/RaC alignment
-    └── roi-calculator.md              # Business case metrics
-```
-
----
-
-## Technology Stack (Ready Today)
-
-| Component | Tool | Rationale |
-|---|---|---|
-| NLP/Embeddings | spaCy + Hugging Face | Clause extraction, semantic similarity |
-| Regulation Feeds | Federal Register, NAIC, State LegislativeAPIs | Automated regulatory change ingestion |
-| Citation Lookup | Cornell Law (Uscode), State statute databases | Free, public policy reference data |
-| Graph Database | Neo4j | Policy/clause/regulation dependency mapping |
-| Rules Engine | Drools or Camunda | Executable claim decision logic |
-| Version Control | Git | Policy evolution tracking |
-| LLM Assistance | OpenAI GPT-4 or Claude | Policy-to-code translation, impact analysis |
-
----
-
-## Quick Start (Week 1)
-
-1. **Validate Broken Link Detection**:
-   - Pick one Kentucky homeowners policy/form package plus relevant Kentucky homeowners/property statutes, regulations, and DOI filing materials
-   - Extract all statutory citations using NLP
-   - Check against live statute database (free APIs available)
-   - Time the process, measure accuracy
-   - **Goal**: Proof that it's fast + accurate enough for production
-
-2. **Build Dependency Graph**:
-   - Load policy text into Neo4j
-   - Model: Policy → Clause → Citation → Statute Section
-   - Query: "What internal documents break if this statute is repealed?"
-   - **Goal**: Demonstrate impact analysis feasibility
-
-3. **Non-Determinism Report**:
-   - Collect or synthesize a small set of homeowners claim decision examples
-   - Extract reasoning language
-   - Cluster by outcome (approved vs. denied)
-   - Find language that appears in both clusters (ambiguity signal)
-   - **Goal**: Show which terms need explicit thresholds
-
----
-
-## Business Case (ROI Justification)
-
-| Investment | Payback |
+| Document | Role |
 |---|---|
-| **Broken Link Detector**: $150–250k | 1 prevented class-action lawsuit ($5M–50M exposure) |
-| **Regulatory Drift Map**: $200–350k | 50% efficiency gain on compliance audit workload; prevents regulatory surprise |
-| **Decision Audit Trail**: $300–500k | Reduces settlement amounts in disputes by 20–30% |
-| **Full Platform**: $1M–2M | Claims adjudication cost reduction + litigation prevention; 12–18 month payback |
+| `002-five-policy-layer-phish.md` | Source of truth for active detector scope. |
+| `002-ROI-CASES-FIVE-SMELLS.md` | Smell-specific ROI cases, public cost anchors, service pricing, and buyer savings logic. |
+| `002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md` | How to collect Kentucky homeowners source material for the five smells. |
+| `002-CARRY-FORWARD-FROM-001.md` | What to reuse from Sandbox 001 and what to leave parked. |
+| `002-ROADMAP-revised.md` | Active implementation roadmap for Sandbox 002. |
+| `HANDOFF-2026-06-01.md` | Current handoff for future agents, including corpus state and next step. |
+| `corpus/_download_manifest.csv` | Real-document source manifest, downloaded paths, and smell mappings. |
+| `corpus/KNOWN-GAPS.md` | Known source gaps and rules for when to chase manual SERFF material. |
+| `002-PAIN-POINTS-TAXONOMY.md` | Background rationale only; do not use it to expand active scope. |
+| `001-vs-002-REUSE-ANALYSIS.md` | Background reuse analysis only; superseded by current carry-forward guidance. |
+| `002-ROADMAP.md` | Historical roadmap only; superseded by the revised roadmap. |
 
----
+## Current Stage
 
-## Regulatory Positioning
+`stages/001-foundation-import` imports the small Sandbox 001 probe shape and proves that it still runs against a tiny homeowners-oriented synthetic fixture.
 
-- **Academic**: "Computational Law" / "Legal Informatics" (Stanford CodeX, Harvard Berkman)
-- **Government**: "Rules as Code" initiative (OECD, NAIC, state commissioners)
-- **Industry**: "Regulatory Intelligence" / "RegTech" ($77–115B market by 2034, 17–20% CAGR)
+It is a bridge stage. It does not yet implement the five active smells.
 
-Early movers become **regulatory partners**, not vendors under suspicion.
+## Next Stage
 
----
+The next implementation stage should build a narrow Kentucky homeowners fixture for all five active smells:
 
-## Success Metrics
+```text
+stages/
+  002-homeowners-policy-layer-smells/
+    STAGE.md
+    LESSON.md
+    data/
+      raw/
+      processed/
+    src/
+    output/
+```
 
-**MVP Success Criteria**:
-1. ✅ Broken Link Detector finds real broken references in public policy corpus
-2. ✅ System processes 100 policies in < 5 minutes
-3. ✅ Decision Audit Trail captures and traces all claim reasoning
-4. ✅ Regulatory Drift Map catches 90%+ of relevant statutory changes
-5. ✅ ROI calculation validated by insurance compliance SME
+That stage should answer:
 
----
+> Can a small local probe detect the five policy-layer smells in a Kentucky homeowners fixture well enough to produce useful reviewer questions?
 
-## Next Phase: Prototype Development
+Each finding should also carry a lightweight ROI note using `002-ROI-CASES-FIVE-SMELLS.md`: cost pool, why it matters, reviewer question, and possible fix.
 
-See `ROADMAP.md` for phased implementation plan, resource requirements, and success gates.
+Before procuring more sources, inspect `corpus/_download_manifest.csv` and `corpus/KNOWN-GAPS.md`. The current corpus is sufficient to start fixture construction; known SERFF gaps should be chased only when an active experiment runs into them.
 
----
+## Working Rule
 
-*Last updated: May 2026*
-*Maintained by: Legal Tech Debt Research Initiative*
+Keep the sandbox small. A good result here is a clear fixture, clear detector logic, and clear evidence. Do not build infrastructure until a specific smell cannot be evaluated without it.

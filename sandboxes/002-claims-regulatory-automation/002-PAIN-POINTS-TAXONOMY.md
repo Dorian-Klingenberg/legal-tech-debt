@@ -1,5 +1,7 @@
 # Insurance Claims: Detailed Pain Points Taxonomy
 
+Status note: Background only. Do not use this taxonomy to expand active Sandbox 002 scope. Current active work is limited to Kentucky homeowners insurance and the five policy-layer smells in `002-five-policy-layer-phish.md`.
+
 ## Overview
 
 This document maps the complete landscape of pain points in insurance claims adjudication that can be addressed by legal tech debt detection and regulatory automation. Organized by defect class and impact.
