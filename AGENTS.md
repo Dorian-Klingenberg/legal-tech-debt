@@ -10,3 +10,4 @@ Key reminders:
 - This is currently sandbox proof-of-concept work, not infrastructure work.
 - Read the relevant project and sandbox documentation before starting changes.
 - Keep experiments quick, clean, readable, and well documented.
+- Before starting substantive work, read `SECRET_SCAN_REPORT.md` if it exists and remind the user to review or resolve any open secret-scan findings.
