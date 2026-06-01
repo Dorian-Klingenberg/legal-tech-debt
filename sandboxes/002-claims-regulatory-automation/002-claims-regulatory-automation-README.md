@@ -67,6 +67,7 @@ See `002-CARRY-FORWARD-FROM-001.md` for the carry-forward rules.
 | `002-five-policy-layer-phish.md` | Source of truth for active detector scope. |
 | `002-ROI-CASES-FIVE-SMELLS.md` | Smell-specific ROI cases, public cost anchors, service pricing, and buyer savings logic. |
 | `002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md` | How to collect Kentucky homeowners source material for the five smells. |
+| `002-RAG-INGESTION-RETRIEVAL-SPEC.md` | Draft engineering spec for local-first legal corpus ingestion, structure-aware chunking, citation extraction, graph-linked nodes, and retrieval bundles. |
 | `002-CARRY-FORWARD-FROM-001.md` | What to reuse from Sandbox 001 and what to leave parked. |
 | `002-ROADMAP-revised.md` | Active implementation roadmap for Sandbox 002. |
 | `HANDOFF-2026-06-01.md` | Current handoff for future agents, including corpus state and next step. |

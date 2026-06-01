@@ -1,0 +1,2 @@
+skill_name,status,repo_path,codex_install_path,source_of_truth,primary_scope,notes
+legal-rag-builder,draft,skills/legal-rag-builder,TBD,sandboxes/002-claims-regulatory-automation/002-RAG-INGESTION-RETRIEVAL-SPEC.md,Sandbox 002 legal document ingestion and retrieval,"Repo-visible draft skill exists. Proposal/source notes remain at skills/proposals/legal-rag-builder.md. Not installed into CODEX_HOME yet."

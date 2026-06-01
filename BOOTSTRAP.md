@@ -29,6 +29,18 @@ Before beginning any conversation or work:
 - Keep implementations quick, clean, readable, and easy to explain.
 - Prefer plain files, plain Python, static HTML, JSON/CSV/Markdown outputs, and small deterministic probes while the project is still learning what the right model is.
 
+## Project Skill Workbench
+
+- Project skills are tracked under `skills/`.
+- Skills are reusable agent workflows, similar to how sandboxes are reusable experiment containers.
+- The repository remains the source of truth. Codex-installed skills should point back to repo docs rather than becoming the only place where project knowledge lives.
+- For skill creation or updates, read:
+  - `skills/README.md`
+  - `skills/SKILL-DEVELOPMENT.md`
+  - `skills/registry.csv`
+- Keep skills applicable across Codex, GitHub Copilot, and Claude Code by updating shared repo documentation whenever a skill captures durable project knowledge.
+- Do not use skill creation as a reason to add production infrastructure. Skill work should follow the same quick, clean, readable proof-of-concept discipline as sandbox work.
+
 ## Documentation Map
 
 Start with these documents when orienting:
@@ -59,10 +71,11 @@ For Sandbox 002, read:
 4. `sandboxes/002-claims-regulatory-automation/002-ROADMAP-revised.md`
 5. `sandboxes/002-claims-regulatory-automation/002-CARRY-FORWARD-FROM-001.md`
 6. `sandboxes/002-claims-regulatory-automation/002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md`
-7. `sandboxes/002-claims-regulatory-automation/002-PAIN-POINTS-TAXONOMY.md`
-8. `sandboxes/002-claims-regulatory-automation/001-vs-002-REUSE-ANALYSIS.md`
-9. `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-01.md`
-10. `sandboxes/002-claims-regulatory-automation/corpus/KNOWN-GAPS.md`
+7. `sandboxes/002-claims-regulatory-automation/002-RAG-INGESTION-RETRIEVAL-SPEC.md` when doing RAG, ingestion, retrieval, chunking, citation extraction, or legal corpus indexing work.
+8. `sandboxes/002-claims-regulatory-automation/002-PAIN-POINTS-TAXONOMY.md`
+9. `sandboxes/002-claims-regulatory-automation/001-vs-002-REUSE-ANALYSIS.md`
+10. `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-01.md`
+11. `sandboxes/002-claims-regulatory-automation/corpus/KNOWN-GAPS.md`
 
 Current Sandbox 002 scope:
 
@@ -94,6 +107,7 @@ Every future agent working in this repository should do the following before mak
 4. For Sandbox 002 work, inspect the corpus manifest and known gaps before deciding that more source procurement is needed.
 5. Preserve decisions in shared files that Codex, Copilot, Claude Code, and future agents can all read. Do not store durable project knowledge in one assistant's private memory only.
 6. Add or update journal and handoff records at major pause points, scope changes, corpus changes, or stage transitions.
+7. For skill work, inspect `skills/README.md`, `skills/SKILL-DEVELOPMENT.md`, and `skills/registry.csv` before drafting or installing a skill.
 
 ## Current Sandbox 001 State
 
