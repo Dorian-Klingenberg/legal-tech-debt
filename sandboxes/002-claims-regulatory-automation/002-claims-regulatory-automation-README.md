@@ -87,4 +87,6 @@ The detailed sequencing and success gates are in [002-ROADMAP-revised.md](002-RO
 - [002-PAIN-POINTS-TAXONOMY.md](002-PAIN-POINTS-TAXONOMY.md) — smell taxonomy, impact framing, and phish mapping
 - [002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md](002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md) — KY fixture source strategy
 
+---
+
 *Last updated: June 2026*

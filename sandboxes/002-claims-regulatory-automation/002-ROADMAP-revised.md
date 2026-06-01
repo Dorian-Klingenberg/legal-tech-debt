@@ -104,6 +104,7 @@ This is the active Sandbox 002 roadmap. It narrows near-term execution to **Kent
 - ✅ Meaningful false-positive reduction on fixture re-runs
 - ✅ Detector behavior is stable across repeated runs
 - ✅ Next-step backlog is scoped as small prototype increments
+- ✅ Go/no-go: expand fixture breadth only if explainability and stability remain strong
 
 ---
 
