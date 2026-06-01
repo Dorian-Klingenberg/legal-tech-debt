@@ -10,3 +10,4 @@ Key reminders:
 - Avoid production infrastructure unless a stage explicitly evaluates it.
 - Read the relevant project and sandbox documentation before starting.
 - Keep outputs readable and document what each experiment teaches.
+- Before starting substantive work, read `SECRET_SCAN_REPORT.md` if it exists and remind the user to review or resolve any open secret-scan findings.
