@@ -239,13 +239,13 @@ Before using a source in an experiment, confirm:
 
 ## First Procurement Checklist
 
-Current status as of 2026-06-01: the first real-document corpus has been downloaded under `corpus/`, with one directory per active smell. Use `corpus/_download_manifest.csv` before procuring more sources.
+Current status as of 2026-06-01: the first real-document corpus has been downloaded under `corpus/`, with one directory per active smell. Use `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv` before procuring more sources.
 
 - [x] Download or save links for KRS Chapter 304 and homeowners/property-specific sections discovered through official sources.
 - [x] Download or save links for Title 806 KAR and 806 KAR 14:006.
 - [x] Download the DOI homeowners/personal dwelling checklist or related P&C document.
 - [x] Create a corpus-level download manifest.
-- [x] Document source gaps and manual-access items in `corpus/KNOWN-GAPS.md`.
+- [x] Document source gaps and manual-access items in `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`.
 - [ ] Convert 5-10 short excerpts into Markdown fixtures, with at least one excerpt or synthetic seed for each active smell.
 - [ ] Manually collect 1-2 recent SERFF filings for Kentucky homeowners only if the active fixture or detector needs missing current-state carrier evidence.
 
@@ -254,3 +254,4 @@ Current status as of 2026-06-01: the first real-document corpus has been downloa
 Keep this procurement work small. The project is still proving detector value, not building a Kentucky insurance data warehouse.
 
 When in doubt, collect one better source with excellent metadata instead of ten poorly tracked sources.
+

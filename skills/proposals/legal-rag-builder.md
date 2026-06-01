@@ -36,8 +36,8 @@ The skill should point to these repo documents:
 - `sandboxes/002-claims-regulatory-automation/002-claims-regulatory-automation-README.md`
 - `sandboxes/002-claims-regulatory-automation/002-five-policy-layer-phish.md`
 - `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-01.md`
-- `sandboxes/002-claims-regulatory-automation/corpus/_download_manifest.csv`
-- `sandboxes/002-claims-regulatory-automation/corpus/KNOWN-GAPS.md`
+- `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv`
+- `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`
 - `sandboxes/002-claims-regulatory-automation/002-RAG-INGESTION-RETRIEVAL-SPEC.md` once created
 
 ## Trigger Examples
@@ -851,3 +851,4 @@ prompts for Codex
 and a phased implementation checklist
 
 That would be the most useful artifact to hand directly to Codex.
+

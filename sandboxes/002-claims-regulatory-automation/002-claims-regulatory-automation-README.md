@@ -68,11 +68,15 @@ See `002-CARRY-FORWARD-FROM-001.md` for the carry-forward rules.
 | `002-ROI-CASES-FIVE-SMELLS.md` | Smell-specific ROI cases, public cost anchors, service pricing, and buyer savings logic. |
 | `002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md` | How to collect Kentucky homeowners source material for the five smells. |
 | `002-RAG-INGESTION-RETRIEVAL-SPEC.md` | Draft engineering spec for local-first legal corpus ingestion, structure-aware chunking, citation extraction, graph-linked nodes, and retrieval bundles. |
+| `002-RAG-SUBSYSTEM-PLAN.md` | Component plan for the RAG evidence substrate, including reuse from Sandbox 001 and layer boundaries. |
+| `002-RAG-PHASE-PLAN.md` | Phased build plan for file-backed ingestion, retrieval bundles, semantic retrieval evaluation, and store selection. |
+| `../../skills/legal-rag-builder/adr/ADR-001-rag-substrate-reuses-001-structure.md` | Skill architecture decision to reuse Sandbox 001 graph/data structures and keep findings downstream of RAG storage. |
+| `../../skills/legal-rag-builder/adr/ADR-002-semantic-vector-retrieval-deferred-not-dropped.md` | Skill architecture decision that semantic vector retrieval is expected but vector store selection is deferred until evaluation. |
 | `002-CARRY-FORWARD-FROM-001.md` | What to reuse from Sandbox 001 and what to leave parked. |
 | `002-ROADMAP-revised.md` | Active implementation roadmap for Sandbox 002. |
 | `HANDOFF-2026-06-01.md` | Current handoff for future agents, including corpus state and next step. |
-| `corpus/_download_manifest.csv` | Real-document source manifest, downloaded paths, and smell mappings. |
-| `corpus/KNOWN-GAPS.md` | Known source gaps and rules for when to chase manual SERFF material. |
+| `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv` | Real-document source manifest, downloaded paths, and smell mappings. |
+| `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md` | Known source gaps and rules for when to chase manual SERFF material. |
 | `002-PAIN-POINTS-TAXONOMY.md` | Background rationale only; do not use it to expand active scope. |
 | `001-vs-002-REUSE-ANALYSIS.md` | Background reuse analysis only; superseded by current carry-forward guidance. |
 | `002-ROADMAP.md` | Historical roadmap only; superseded by the revised roadmap. |
@@ -105,8 +109,9 @@ That stage should answer:
 
 Each finding should also carry a lightweight ROI note using `002-ROI-CASES-FIVE-SMELLS.md`: cost pool, why it matters, reviewer question, and possible fix.
 
-Before procuring more sources, inspect `corpus/_download_manifest.csv` and `corpus/KNOWN-GAPS.md`. The current corpus is sufficient to start fixture construction; known SERFF gaps should be chased only when an active experiment runs into them.
+Before procuring more sources, inspect `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv` and `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`. The current corpus is sufficient to start fixture construction; known SERFF gaps should be chased only when an active experiment runs into them.
 
 ## Working Rule
 
 Keep the sandbox small. A good result here is a clear fixture, clear detector logic, and clear evidence. Do not build infrastructure until a specific smell cannot be evaluated without it.
+

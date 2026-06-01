@@ -29,3 +29,4 @@ The current corpus is intentionally enough to begin proof-of-concept work. These
 
 The downloaded corpus gives us enough material to start Stage 002 fixture and detector work. The known gaps mainly affect confidence about current-state carrier practice. They should become active work only if a future experiment needs to prove that a pattern still appears in recent Kentucky homeowners filings.
 
+

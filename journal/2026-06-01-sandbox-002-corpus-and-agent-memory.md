@@ -24,7 +24,7 @@ Auto, motor vehicle, no-fault, PIP, broad claims-platform work, live feeds, PAS 
 
 ### 2. Built The Real-Document Corpus
 
-The new corpus report in `sandboxes/002-claims-regulatory-automation/corpus/` contained a manifest of directly downloadable Kentucky homeowners-related sources.
+The new corpus report in `corpus/kentucky-homeowners-policy-smells/` contained a manifest of directly downloadable Kentucky homeowners-related sources.
 
 Downloaded sources were organized into one directory per active smell:
 
@@ -53,10 +53,10 @@ The corpus now includes 42 smell-specific source copies representing 17 unique p
 
 The corpus now has explicit tracking records:
 
-- `corpus/_download_manifest.csv` records downloaded sources and their smell mappings.
-- `corpus/_download_errors.csv` records download failures. It is currently clear except for the header.
-- `corpus/_manual_or_skipped_sources.csv` records sources that were not directly downloaded.
-- `corpus/KNOWN-GAPS.md` records known missing evidence and when to chase it.
+- `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv` records downloaded sources and their smell mappings.
+- `corpus/kentucky-homeowners-policy-smells/_download_errors.csv` records download failures. It is currently clear except for the header.
+- `corpus/kentucky-homeowners-policy-smells/_manual_or_skipped_sources.csv` records sources that were not directly downloaded.
+- `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md` records known missing evidence and when to chase it.
 
 The KRS 304.44 mine-subsidence source originally pointed to a Justia URL that returned 403. It was replaced with the official Kentucky Legislative Research Commission chapter page:
 
@@ -121,4 +121,22 @@ sandboxes/002-claims-regulatory-automation/stages/002-homeowners-policy-layer-sm
 ```
 
 The stage should use the downloaded corpus to create a small fixture with at least one source-traceable example for each of the five smells. It should not chase SERFF gaps unless the downloaded corpus cannot support one of the five examples.
+
+## Update: Corpus Relocated
+
+The downloaded Kentucky homeowners corpus was moved out of Sandbox 002 into the shared project corpus area:
+
+```text
+corpus/kentucky-homeowners-policy-smells/
+```
+
+Reason:
+
+- `sources/` is for background research, papers, web captures, and how-to material.
+- `corpus/` is for primary source evidence used as analysis input.
+- `sandboxes/` are for experiments that consume corpus material.
+- `skills/` are for reusable workflows and should reference corpus files, not contain them.
+
+Updated manifests and shared docs now point to the top-level corpus path.
+
 

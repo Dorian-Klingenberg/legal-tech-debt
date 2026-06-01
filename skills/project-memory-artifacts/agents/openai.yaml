@@ -1,0 +1,4 @@
+display_name: Project Memory Artifacts
+short_description: Create handoffs, journals, lessons, and context notes.
+default_prompt: Use this skill to capture shared project memory as repo-visible handoffs, journals, lessons, or agent context updates.
+

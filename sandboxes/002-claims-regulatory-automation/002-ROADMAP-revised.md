@@ -1,6 +1,6 @@
 # Roadmap: Sandbox 002 Kentucky Homeowners Policy-Layer Smells
 
-Version: 3.0
+Version: 3.1
 Status: Active roadmap
 Controlling scope: `002-five-policy-layer-phish.md`
 
@@ -52,8 +52,8 @@ Build one small Kentucky homeowners fixture that contains realistic examples for
 
 Inputs:
 
-- selected Kentucky homeowners source excerpts from `corpus/_download_manifest.csv`
-- known source gaps from `corpus/KNOWN-GAPS.md`
+- selected Kentucky homeowners source excerpts from `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv`
+- known source gaps from `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`
 - a source manifest with access dates, URLs, filing metadata, and effective dates where available
 - synthetic defect copies that preserve source traceability without treating fixtures as legal advice
 
@@ -76,13 +76,47 @@ Success criteria:
 - manual SERFF gaps are not chased unless a fixture cannot be supported from the current corpus
 - the stage remains runnable and understandable on a laptop
 
-## Stage 003: Deterministic Pattern Detectors
+## Stage 003: Homeowners RAG Ingestion
 
 Status: Planned
 
 Objective:
 
-Adapt the imported probe into lightweight detectors for the five active smells.
+Build a file-backed legal RAG ingestion slice over a small real Kentucky homeowners corpus subset.
+
+Controlling documents:
+
+- `002-RAG-INGESTION-RETRIEVAL-SPEC.md`
+- `002-RAG-SUBSYSTEM-PLAN.md`
+- `002-RAG-PHASE-PLAN.md`
+- `../../skills/legal-rag-builder/adr/ADR-001-rag-substrate-reuses-001-structure.md`
+- `../../skills/legal-rag-builder/adr/ADR-002-semantic-vector-retrieval-deferred-not-dropped.md`
+
+Expected outputs:
+
+- `output/sources.jsonl`
+- `output/nodes.jsonl`
+- `output/citations.jsonl`
+- `output/edges.jsonl`
+- `output/parse_warnings.jsonl`
+- `output/retrieval_bundles.json`
+- `output/report.md`
+
+Success criteria:
+
+- real corpus files become legal-structure nodes with provenance
+- KRS/KAR and domain citations are extracted where present
+- graph edges preserve containment, order, citation, and reference relationships
+- exact/lexical retrieval plus graph expansion returns at least one useful evidence bundle
+- findings are not stored in the RAG substrate; they remain downstream detector outputs
+
+## Stage 004: Deterministic Pattern Detectors
+
+Status: Planned
+
+Objective:
+
+Adapt the imported probe and RAG evidence bundles into lightweight detectors for the five active smells.
 
 Detector approach:
 
@@ -106,7 +140,7 @@ Success criteria:
 - false-positive limitations are explicit
 - the code stays small enough for future agents to read quickly
 
-## Stage 004: Reviewer Report
+## Stage 005: Reviewer Report
 
 Status: Planned
 
@@ -128,13 +162,33 @@ Success criteria:
 - the report distinguishes detected text risk from legal conclusions
 - the report makes clear which findings need human review
 
-## Stage 005: Optional Visual Drill-Down
+## Stage 006: Optional Semantic Retrieval Experiment
+
+Status: Parked until retrieval evaluation earns it
+
+Objective:
+
+Evaluate whether embeddings improve recall for homeowners policy-layer smell research beyond exact, lexical, and graph-expanded retrieval.
+
+Allowed if earned:
+
+- local embeddings attached to RAG nodes
+- small gold-set comparison
+- Qdrant or Postgres plus pgvector experiment only after the evaluation question is explicit
+
+Success criteria:
+
+- semantic retrieval improves gold-set recall or reviewer usefulness
+- semantic hits still return source provenance and graph-expanded context
+- vector storage choice is documented in a follow-up ADR before implementation
+
+## Stage 007: Optional Visual Drill-Down
 
 Status: Parked until the report earns it
 
 Objective:
 
-Create a static, local visual drill-down only if Stage 004 shows that a visual surface would make the findings easier to review.
+Create a static, local visual drill-down only if Stage 005 shows that a visual surface would make the findings easier to review.
 
 Allowed if earned:
 
@@ -163,3 +217,4 @@ Before adding any new tool, stage, or detector, ask:
 > Does this directly help evaluate one of the five Kentucky homeowners policy-layer smells?
 
 If the answer is no, leave it parked.
+

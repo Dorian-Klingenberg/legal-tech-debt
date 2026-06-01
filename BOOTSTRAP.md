@@ -40,6 +40,9 @@ Before beginning any conversation or work:
   - `skills/registry.csv`
 - Keep skills applicable across Codex, GitHub Copilot, and Claude Code by updating shared repo documentation whenever a skill captures durable project knowledge.
 - Do not use skill creation as a reason to add production infrastructure. Skill work should follow the same quick, clean, readable proof-of-concept discipline as sandbox work.
+- Current draft project skills:
+  - `legal-rag-builder` for Sandbox 002 legal document ingestion and retrieval.
+  - `project-memory-artifacts` for shared handoffs, journals, lessons, and agent context updates.
 
 ## Documentation Map
 
@@ -52,7 +55,8 @@ Start with these documents when orienting:
 5. `Real-World Cost Events Mapped to Insurance Legal Code Smells.md` - evidence and cost examples.
 6. `Insurance Process Maturity Models  A Landscape Assessment for the Legal Tech Debt Platform.md` - maturity model landscape and gap.
 7. `sandboxes/README.md` - sandbox rules and index.
-8. `previous-chats/README.md` and `previous-chats/Legal Tech Debt & Legal Code Smells — ChatGPT Conversation Index.md` when historical context is needed.
+8. `corpus/README.md` - shared primary-document corpus rules.
+9. `previous-chats/README.md` and `previous-chats/Legal Tech Debt & Legal Code Smells — ChatGPT Conversation Index.md` when historical context is needed.
 
 For Sandbox 001, read:
 
@@ -72,10 +76,12 @@ For Sandbox 002, read:
 5. `sandboxes/002-claims-regulatory-automation/002-CARRY-FORWARD-FROM-001.md`
 6. `sandboxes/002-claims-regulatory-automation/002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md`
 7. `sandboxes/002-claims-regulatory-automation/002-RAG-INGESTION-RETRIEVAL-SPEC.md` when doing RAG, ingestion, retrieval, chunking, citation extraction, or legal corpus indexing work.
-8. `sandboxes/002-claims-regulatory-automation/002-PAIN-POINTS-TAXONOMY.md`
-9. `sandboxes/002-claims-regulatory-automation/001-vs-002-REUSE-ANALYSIS.md`
-10. `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-01.md`
-11. `sandboxes/002-claims-regulatory-automation/corpus/KNOWN-GAPS.md`
+8. `sandboxes/002-claims-regulatory-automation/002-RAG-SUBSYSTEM-PLAN.md` and `sandboxes/002-claims-regulatory-automation/002-RAG-PHASE-PLAN.md` when doing RAG implementation planning.
+9. `skills/legal-rag-builder/adr/` when doing Legal RAG Builder skill architecture work.
+10. `sandboxes/002-claims-regulatory-automation/002-PAIN-POINTS-TAXONOMY.md`
+11. `sandboxes/002-claims-regulatory-automation/001-vs-002-REUSE-ANALYSIS.md`
+12. `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-01.md`
+13. `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`
 
 Current Sandbox 002 scope:
 
@@ -90,9 +96,11 @@ Current Sandbox 002 scope:
 - If homeowners sources cross-reference auto or other P&C lines, record the reference as context only and keep the active fixture/detectors homeowners-centered.
 - Treat broad claims-platform, regulatory-feed, PAS, productization, and infrastructure references as background or parked unless a specific stage explicitly reopens them.
 - Attach smell-specific ROI notes from `002-ROI-CASES-FIVE-SMELLS.md` to fixture examples and findings when useful.
-- Use the corpus at `sandboxes/002-claims-regulatory-automation/corpus/` as the current real-document evidence base.
-- Treat `corpus/_download_manifest.csv` as the record of sources already downloaded and mapped by smell.
-- Treat `corpus/KNOWN-GAPS.md` and `corpus/_manual_or_skipped_sources.csv` as the record of known unknowns. Do not chase manual SERFF gaps unless an active experiment actually needs that evidence.
+- Use the corpus at `corpus/kentucky-homeowners-policy-smells/` as the current real-document evidence base.
+- Treat `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv` as the record of sources already downloaded and mapped by smell.
+- Treat `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md` and `corpus/kentucky-homeowners-policy-smells/_manual_or_skipped_sources.csv` as the record of known unknowns. Do not chase manual SERFF gaps unless an active experiment actually needs that evidence.
+- Keep primary source corpora under top-level `corpus/`, not inside `sandboxes/` or `skills/`.
+- Use `sources/` for background research, papers, web captures, and how-to/reference material.
 
 ## Cross-Agent Startup Automation
 
@@ -106,7 +114,7 @@ Every future agent working in this repository should do the following before mak
 3. Read the current sandbox README, controlling scope document, active roadmap, and latest handoff.
 4. For Sandbox 002 work, inspect the corpus manifest and known gaps before deciding that more source procurement is needed.
 5. Preserve decisions in shared files that Codex, Copilot, Claude Code, and future agents can all read. Do not store durable project knowledge in one assistant's private memory only.
-6. Add or update journal and handoff records at major pause points, scope changes, corpus changes, or stage transitions.
+6. Add or update journal, handoff, lesson, and context records at major pause points, scope changes, corpus changes, or stage transitions. Use `skills/project-memory-artifacts/SKILL.md` when creating these shared memory artifacts.
 7. For skill work, inspect `skills/README.md`, `skills/SKILL-DEVELOPMENT.md`, and `skills/registry.csv` before drafting or installing a skill.
 
 ## Current Sandbox 001 State
@@ -136,3 +144,4 @@ Sandbox 001 work should resume only when a specific 002 experiment needs one of 
 - Treat generated outputs as evidence when they explain an experiment.
 - Favor readable experiments over clever abstractions.
 - Human review is part of the product concept; do not frame automated findings as legal advice.
+

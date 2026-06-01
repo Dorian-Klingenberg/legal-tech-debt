@@ -4,6 +4,12 @@ Status: Draft engineering spec
 Scope: Sandbox 002 Kentucky homeowners corpus
 Created: 2026-06-01
 Source notes: `skills/proposals/legal-rag-builder.md`
+Planning docs:
+
+- `002-RAG-SUBSYSTEM-PLAN.md`
+- `002-RAG-PHASE-PLAN.md`
+- `../../skills/legal-rag-builder/adr/ADR-001-rag-substrate-reuses-001-structure.md`
+- `../../skills/legal-rag-builder/adr/ADR-002-semantic-vector-retrieval-deferred-not-dropped.md`
 
 ## Mission
 
@@ -34,8 +40,8 @@ The active domain remains Kentucky homeowners insurance and the five Sandbox 002
 
 Use the existing corpus:
 
-- `corpus/_download_manifest.csv`
-- `corpus/KNOWN-GAPS.md`
+- `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv`
+- `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`
 - one source directory per smell under `corpus/`
 
 Do not procure more SERFF material unless the active task runs into a documented known gap.
@@ -53,14 +59,18 @@ Do not procure more SERFF material unless the active task runs into a documented
 
 ## Recommended Stack
 
+The first implementation should reuse the proven Sandbox 001 representation style: local records, graph edges, missing/unresolved targets, matrices where useful, and JSON/CSV/Markdown evidence outputs.
+
 The target architecture may eventually use:
 
 - Parser: Docling
 - Chunk/index orchestration: LlamaIndex abstractions where useful
 - Citation extraction: Eyecite plus custom Kentucky and insurance filing extractors
-- Retrieval store: Qdrant or Postgres plus pgvector, depending on the experiment
+- Retrieval store: SQLite FTS5, Qdrant, or Postgres plus pgvector, depending on the experiment
 
-For the first implementation stage, use file-backed JSON/JSONL/CSV outputs before choosing Qdrant or pgvector. This preserves the sandbox rule against premature infrastructure while still shaping the code around later storage backends.
+For the first implementation stage, use file-backed JSON/JSONL/CSV outputs before choosing a retrieval store. This preserves the sandbox rule against premature infrastructure while still shaping the code around later storage backends.
+
+Semantic/vector retrieval remains expected, not dropped. It should be added after the node, citation, edge, and retrieval-bundle contracts are stable and a tiny gold set shows which semantic queries exact/lexical/graph retrieval cannot satisfy.
 
 ## Phased Build Plan
 
@@ -86,13 +96,13 @@ Goal:
 
 Inputs:
 
-- a small subset from `corpus/_download_manifest.csv`
+- a small subset from `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv`
 - 1-2 sources per active smell where practical
 
 Deliverables:
 
-- `stages/002-homeowners-rag-ingestion/STAGE.md`
-- `stages/002-homeowners-rag-ingestion/LESSON.md`
+- `stages/003-homeowners-rag-ingestion/STAGE.md`
+- `stages/003-homeowners-rag-ingestion/LESSON.md`
 - `data/source_manifest_subset.csv`
 - `output/sources.jsonl`
 - `output/nodes.jsonl`
@@ -156,13 +166,20 @@ Canonical intermediate concepts:
 - `Source`
 - `Document`
 - `Block`
+- `Node`
 - `PageRef`
 - `SectionPath`
 - `TableBlock`
 - `CitationCandidate`
 - `Segment`
+- `Citation`
+- `Reference`
+- `Edge`
+- `RetrievalBundle`
 
 Normalize only after preserving original text.
+
+Domain findings are not part of the RAG substrate. Findings, smell classifications, severity, ROI mapping, reviewer questions, and human-review state belong to downstream detector and reporting layers.
 
 ### Segment
 
@@ -445,7 +462,7 @@ storage:
 For the first stage, keep this under the stage directory rather than promoting to shared tooling too early:
 
 ```text
-stages/002-homeowners-rag-ingestion/
+stages/003-homeowners-rag-ingestion/
   STAGE.md
   LESSON.md
   data/
@@ -522,8 +539,9 @@ For each record, annotate:
 
 ## Open Decisions
 
-- When does Phase 1 earn Docling if plain text/HTML/PDF extraction is enough for the first source subset?
+- When does Phase 1 earn Docling if simple HTML/PDF extraction is enough for the first source subset?
 - When does retrieval quality justify embeddings?
-- If embeddings are justified, should the first vector experiment use local files, Qdrant, or pgvector?
+- If embeddings are justified, should the first vector experiment use local files, Qdrant, or Postgres plus pgvector?
 - Which source subset best covers all five smells without chasing known SERFF gaps?
+
 

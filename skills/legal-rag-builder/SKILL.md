@@ -10,8 +10,11 @@ description: Build or modify the Legal Tech Debt local-first legal RAG ingestion
 1. Read `BOOTSTRAP.md`.
 2. Read `skills/SKILL-DEVELOPMENT.md`.
 3. Read `sandboxes/002-claims-regulatory-automation/002-RAG-INGESTION-RETRIEVAL-SPEC.md`.
-4. Read `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-01.md`.
-5. Inspect `sandboxes/002-claims-regulatory-automation/corpus/_download_manifest.csv` and `sandboxes/002-claims-regulatory-automation/corpus/KNOWN-GAPS.md` before assuming more source collection is needed.
+4. Read `sandboxes/002-claims-regulatory-automation/002-RAG-SUBSYSTEM-PLAN.md` and `sandboxes/002-claims-regulatory-automation/002-RAG-PHASE-PLAN.md`.
+5. Read the RAG ADRs in `skills/legal-rag-builder/adr/`.
+6. Read `skills/legal-rag-builder/references/rag-substrate-boundary-lesson.md` when clarifying RAG layer boundaries, findings, or vector-store sequencing.
+7. Read `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-01.md`.
+8. Inspect `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv` and `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md` before assuming more source collection is needed.
 
 ## Workflow
 
@@ -22,7 +25,8 @@ description: Build or modify the Legal Tech Debt local-first legal RAG ingestion
 5. Extract citations and domain references into explicit records.
 6. Create graph edges for containment, order, citations, references, definitions, amendments, and overrides where detectable.
 7. Return retrieval bundles with source metadata, why-retrieved reasons, parent context, adjacent nodes, and citations.
-8. Validate with a tiny gold set before broadening the corpus or introducing infrastructure.
+8. Keep findings, smell classifications, severity, ROI mapping, and reviewer decisions in downstream detector/reporting layers, not in the core RAG substrate.
+9. Validate with a tiny gold set before broadening the corpus or introducing infrastructure.
 
 ## Guardrails
 
@@ -31,7 +35,8 @@ description: Build or modify the Legal Tech Debt local-first legal RAG ingestion
 - Do not rely on pure vector search alone.
 - Do not collapse ingestion, retrieval, and legal reasoning into one opaque prompt.
 - Do not add Qdrant, Postgres, pgvector, services, or APIs unless a stage explicitly earns that choice.
-- Do not chase manual SERFF gaps unless the active experiment needs missing evidence documented in `corpus/KNOWN-GAPS.md`.
+- Do not drop semantic/vector retrieval; defer vector storage until the legal node model and retrieval evaluation justify it.
+- Do not chase manual SERFF gaps unless the active experiment needs missing evidence documented in `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`.
 - Do not frame automated retrieval or findings as legal advice.
 
 ## First Implementation Bias
@@ -53,4 +58,5 @@ When finishing work, report:
 - what nodes, citations, edges, or retrieval bundles were produced
 - what validation passed
 - what remains a known gap or open decision
+
 
