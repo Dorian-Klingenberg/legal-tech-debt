@@ -72,6 +72,14 @@ For the first implementation stage, use file-backed JSON/JSONL/CSV outputs befor
 
 Semantic/vector retrieval remains expected, not dropped. It should be added after the node, citation, edge, and retrieval-bundle contracts are stable and a tiny gold set shows which semantic queries exact/lexical/graph retrieval cannot satisfy.
 
+### Local Docling Boundary
+
+Docling 2.93.0 and related Docling model packages were verified in the local Python environment on 2026-06-02. See `../../skills/legal-rag-builder/references/docling-local-stack-boundary.md`.
+
+Treat Docling as a parser or optional enrichment adapter. It can convert messy documents and may use local cached document models, OCR, table extraction, and VLM-style parsing/enrichment features. It does not replace the project-owned normalizer, legal metadata, citation extraction, typed graph, sparse/lexical indexes, vector store decision, retrieval bundles, smell detectors, or reviewer state.
+
+No general local LLM runtime or vector database was verified for this repo at that time. Future stages must re-verify and document any embedding library, local model runtime, or retrieval store they introduce.
+
 ## Phased Build Plan
 
 ### Phase 0: Spec and Skill

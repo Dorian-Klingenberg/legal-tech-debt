@@ -44,6 +44,7 @@ Current artifacts:
 - Source-of-truth spec: [../sandboxes/002-claims-regulatory-automation/002-RAG-INGESTION-RETRIEVAL-SPEC.md](../sandboxes/002-claims-regulatory-automation/002-RAG-INGESTION-RETRIEVAL-SPEC.md)
 - Architecture decisions: [legal-rag-builder/adr](legal-rag-builder/adr)
 - Boundary lesson: [legal-rag-builder/references/rag-substrate-boundary-lesson.md](legal-rag-builder/references/rag-substrate-boundary-lesson.md)
+- Docling/local stack boundary: [legal-rag-builder/references/docling-local-stack-boundary.md](legal-rag-builder/references/docling-local-stack-boundary.md)
 
 Do not install the skill into `$CODEX_HOME/skills` until it has been validated against a real or dry-run Sandbox 002 RAG task.
 

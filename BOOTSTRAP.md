@@ -78,10 +78,11 @@ For Sandbox 002, read:
 7. `sandboxes/002-claims-regulatory-automation/002-RAG-INGESTION-RETRIEVAL-SPEC.md` when doing RAG, ingestion, retrieval, chunking, citation extraction, or legal corpus indexing work.
 8. `sandboxes/002-claims-regulatory-automation/002-RAG-SUBSYSTEM-PLAN.md` and `sandboxes/002-claims-regulatory-automation/002-RAG-PHASE-PLAN.md` when doing RAG implementation planning.
 9. `skills/legal-rag-builder/adr/` when doing Legal RAG Builder skill architecture work.
-10. `sandboxes/002-claims-regulatory-automation/002-PAIN-POINTS-TAXONOMY.md`
-11. `sandboxes/002-claims-regulatory-automation/001-vs-002-REUSE-ANALYSIS.md`
-12. `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-01.md`
-13. `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`
+10. `skills/legal-rag-builder/references/docling-local-stack-boundary.md` when doing Docling, local parsing model, VLM enrichment, embedding, or retrieval-store work.
+11. `sandboxes/002-claims-regulatory-automation/002-PAIN-POINTS-TAXONOMY.md`
+12. `sandboxes/002-claims-regulatory-automation/001-vs-002-REUSE-ANALYSIS.md`
+13. `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-01.md`
+14. `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`
 
 Current Sandbox 002 scope:
 
@@ -99,6 +100,7 @@ Current Sandbox 002 scope:
 - Use the corpus at `corpus/kentucky-homeowners-policy-smells/` as the current real-document evidence base.
 - Treat `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv` as the record of sources already downloaded and mapped by smell.
 - Treat `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md` and `corpus/kentucky-homeowners-policy-smells/_manual_or_skipped_sources.csv` as the record of known unknowns. Do not chase manual SERFF gaps unless an active experiment actually needs that evidence.
+- For RAG parser work, Docling is a parser/enrichment adapter only. It may use local cached document models, but it is not the legal RAG store, a vector database, or a verified general local LLM runtime. See `skills/legal-rag-builder/references/docling-local-stack-boundary.md`.
 - Keep primary source corpora under top-level `corpus/`, not inside `sandboxes/` or `skills/`.
 - Use `sources/` for background research, papers, web captures, and how-to/reference material.
 

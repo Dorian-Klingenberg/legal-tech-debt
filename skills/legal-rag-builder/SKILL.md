@@ -13,8 +13,9 @@ description: Build or modify the Legal Tech Debt local-first legal RAG ingestion
 4. Read `sandboxes/002-claims-regulatory-automation/002-RAG-SUBSYSTEM-PLAN.md` and `sandboxes/002-claims-regulatory-automation/002-RAG-PHASE-PLAN.md`.
 5. Read the RAG ADRs in `skills/legal-rag-builder/adr/`.
 6. Read `skills/legal-rag-builder/references/rag-substrate-boundary-lesson.md` when clarifying RAG layer boundaries, findings, or vector-store sequencing.
-7. Read `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-01.md`.
-8. Inspect `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv` and `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md` before assuming more source collection is needed.
+7. Read `skills/legal-rag-builder/references/docling-local-stack-boundary.md` when working on Docling, local parsing models, VLM enrichment, embeddings, or retrieval-store assumptions.
+8. Read `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-01.md`.
+9. Inspect `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv` and `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md` before assuming more source collection is needed.
 
 ## Workflow
 
@@ -36,6 +37,7 @@ description: Build or modify the Legal Tech Debt local-first legal RAG ingestion
 - Do not collapse ingestion, retrieval, and legal reasoning into one opaque prompt.
 - Do not add Qdrant, Postgres, pgvector, services, or APIs unless a stage explicitly earns that choice.
 - Do not drop semantic/vector retrieval; defer vector storage until the legal node model and retrieval evaluation justify it.
+- Do not treat Docling, Docling VLM enrichment, or cached Docling model artifacts as a general local LLM or vector database.
 - Do not chase manual SERFF gaps unless the active experiment needs missing evidence documented in `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`.
 - Do not frame automated retrieval or findings as legal advice.
 
