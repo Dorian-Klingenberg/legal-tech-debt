@@ -69,7 +69,7 @@ See `002-CARRY-FORWARD-FROM-001.md` for the carry-forward rules.
 | `002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md` | How to collect Kentucky homeowners source material for the five smells. |
 | `002-RAG-INGESTION-RETRIEVAL-SPEC.md` | Draft engineering spec for local-first discovery-and-instrumentation, structure-aware chunking, citation/reference extraction, graph-linked nodes, parser diagnostics, candidate evidence, and retrieval bundles. |
 | `002-RAG-SUBSYSTEM-PLAN.md` | Component plan for the discovery/RAG evidence substrate, including parser instrumentation, reuse from Sandbox 001, and layer boundaries. |
-| `002-RAG-PHASE-PLAN.md` | Phased build plan for discovery-and-instrumentation, retrieval baselines, semantic retrieval evaluation, and store selection. |
+| `002-RAG-STAGE-PLAN.md` | Stage-by-stage build plan for discovery-and-instrumentation, retrieval baselines, semantic retrieval evaluation, detectors, and reviewer report. |
 | `adr/ADR-001-rag-substrate-reuses-001-structure.md` | Skill architecture decision to reuse Sandbox 001 graph/data structures and keep findings downstream of RAG storage. |
 | `adr/ADR-002-semantic-vector-retrieval-deferred-not-dropped.md` | Skill architecture decision that semantic vector retrieval is expected but vector store selection is deferred until evaluation. |
 | `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md` | Path decision: discovery-and-instrumentation comes before fixture detectors; parser/reference uncertainty is evidence. |

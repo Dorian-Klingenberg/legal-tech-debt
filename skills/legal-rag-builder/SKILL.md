@@ -10,7 +10,7 @@ description: Build or modify the Legal Tech Debt local-first legal discovery, in
 1. Read `BOOTSTRAP.md`.
 2. Read `skills/SKILL-DEVELOPMENT.md`.
 3. Read `sandboxes/002-claims-regulatory-automation/002-RAG-INGESTION-RETRIEVAL-SPEC.md`.
-4. Read `sandboxes/002-claims-regulatory-automation/002-RAG-SUBSYSTEM-PLAN.md` and `sandboxes/002-claims-regulatory-automation/002-RAG-PHASE-PLAN.md`.
+4. Read `sandboxes/002-claims-regulatory-automation/002-RAG-SUBSYSTEM-PLAN.md` and `sandboxes/002-claims-regulatory-automation/002-RAG-STAGE-PLAN.md`.
 5. Read the RAG ADRs in `sandboxes/002-claims-regulatory-automation/adr/`.
    - `ADR-003-discovery-instrumentation-before-fixture-detectors.md` controls the current Sandbox 002 path.
    - `ADR-004-schema-run-identity-and-id-stability.md` controls Stage 002 schema, run identity, and stable-ID requirements.

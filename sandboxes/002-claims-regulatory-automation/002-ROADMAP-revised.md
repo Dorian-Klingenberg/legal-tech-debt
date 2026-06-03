@@ -127,7 +127,7 @@ Controlling documents:
 
 - `002-RAG-INGESTION-RETRIEVAL-SPEC.md`
 - `002-RAG-SUBSYSTEM-PLAN.md`
-- `002-RAG-PHASE-PLAN.md`
+- `002-RAG-STAGE-PLAN.md`
 - `adr/ADR-001-rag-substrate-reuses-001-structure.md`
 - `adr/ADR-002-semantic-vector-retrieval-deferred-not-dropped.md`
 - `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
