@@ -2,8 +2,8 @@
 
 Stage: 002-homeowners-discovery-instrumentation
 Pipeline version: 002.1.0
-First run: 2026-06-03
-Run ID: caba8e20-e894-42a3-b782-5e988113832a
+First run: 2026-06-03 (run 996e36af, 7 sources, 251 nodes)
+Expanded run: 2026-06-03 (run 87283951, 28 sources, 353 nodes)
 
 ---
 
@@ -106,6 +106,28 @@ But they don't contain the smell-triggering language because statutes define req
 - The KAR HTML sources produced 11–16 nodes each, which is reasonable.
 
 **For Stage 003**: Consider whether paragraph-level nodes should also be created as separate retrieval targets rather than merged into heading nodes. This would increase node count and improve retrieval granularity.
+
+---
+
+## Lessons From The Corpus Expansion (2026-06-03)
+
+When the corpus expanded from 7 to 28 sources (adding 10 previously-downloaded statutory/regulatory sources and 11 KFBM SERFF filing documents), the detector behavior changed in instructive ways:
+
+### Source type matters more than source count for detector precision
+
+Adding 10 statutory/regulatory sources inflated Smell 2 (reasonable/valuation terms) from 13 to 44 findings — almost entirely false positives in KAR/KRS/DOI documents where "reasonable" is legal standard language. The fix was source-type filtering in the detector, not more data. **Lesson: detector heuristics calibrated on carrier filings will over-fire on regulatory sources without explicit source-type gates.**
+
+### SERFF procurement is straightforward but requires manual access
+
+Kentucky Farm Bureau Mutual filings were accessible through SERFF Filing Access (filingaccess.serff.com/sfa/home/KY) without credentials — just terms acceptance. Five filings yielded 11 useful PDFs after filtering out readability certs, actuarial memos, and shopper's guides. **Lesson: SERFF Filing Access is viable for corpus procurement; one search session yields a carrier's full filing history; filter by "Closed - Approved" for form filings and note that rate changes are often "Closed - Acknowledged."**
+
+### Second carrier reveals industry patterns, not just carrier quirks
+
+The KFBM 2026 KY amendatory endorsement (HO FB 01 07 26) gates general contractor overhead & profit on "reasonably likely" — the same undefined threshold that KNIC and the DOI are implicitly debating in Bulletin 2026-01 and AO 2023-08. Two carriers using the same undefined term in the same context is an industry pattern, not a filing error. **Lesson: cross-carrier comparison is where the most defensible findings come from.**
+
+### Zip file extraction requires Python zipfile, not shell unzip
+
+SERFF zip files use Windows-style backslash paths internally. Linux `unzip -j` with forward-slash paths fails silently. Python's `zipfile.ZipFile` handles both path styles correctly via `namelist()` inspection. **Lesson: always use Python zipfile for SERFF downloads; normalize paths with `.replace("/", "\\")`.**
 
 ---
 

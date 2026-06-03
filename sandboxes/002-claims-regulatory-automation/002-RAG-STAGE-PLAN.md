@@ -3,7 +3,7 @@
 Status: Active planning document
 Scope: Sandbox 002 Kentucky homeowners corpus
 Created: 2026-06-01
-Updated: 2026-06-03 (Stages 002–005 complete; renamed from 002-RAG-PHASE-PLAN.md)
+Updated: 2026-06-03 (corpus expanded to 28 sources; Smell 2 detector tightened; Sandbox 003 plan created)
 Path decision: `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
 Artifact contract: `adr/ADR-004-schema-run-identity-and-id-stability.md`
 
@@ -260,7 +260,11 @@ Question:
 - [x] Detector runner CLI — runs all detectors, writes `detector_findings.jsonl` and `detector_report.md`
 - [x] False positive risk documented per finding
 
-**Results (run 996e36af, 251 nodes):** 17 findings — Smell 2: 13 (MEDIUM), Smell 3: 3 (LOW), Smell 4: 1 (HIGH). Smells 1 and 5 return 0 findings honestly (no exclusion language; all KRS citations fully qualified).
+**Results (run 996e36af, 251 nodes, original corpus):** 17 findings — Smell 2: 13 (MEDIUM), Smell 3: 3 (LOW), Smell 4: 1 (HIGH).
+
+**Results (run 87283951, 353 nodes, 28-source corpus):** 23 findings after Smell 2 source-type filter — Smell 1: 1 (LOW), Smell 2: 17 (MEDIUM, carrier docs only), Smell 3: 4 (LOW), Smell 4: 1 (HIGH). Smell 5: 0 (detector needs work — see loose threads).
+
+**Detector improvement 2026-06-03:** H001/H003 heuristics in smell2.py now suppressed for `kar_regulation`, `krs_statute`, `doi_bulletin`, `doi_guidance` source types. "Reasonable" in regulatory docs is legal standard language, not a claim dispute gate. Detector runner enriches nodes with `source_type` from `source_by_id` before passing to detectors.
 
 **Success criteria**
 
@@ -294,12 +298,23 @@ Question:
 
 **Results (run 996e36af):** 17 findings, 47 candidate evidence items, 3 corpus gap tiers documented.
 
+**Results (run 87283951, 28-source corpus):** 23 findings, 121 candidate evidence items.
+
 **Success criteria**
 
 - [x] A reviewer unfamiliar with the pipeline can read the report and identify which nodes to inspect
 - [x] Every finding links back to source document and node
 - [x] Corpus gaps are clearly distinguished from confirmed findings
 - [x] Report does not claim legal conclusions — it surfaces patterns for human judgment
+
+---
+
+## Loose Threads (Open, Not Blocking)
+
+- [ ] **Smell 5 detector produces 0 findings** — Regulatory Mapping heuristics are not firing on the expanded corpus. The detector needs calibration against the new KFBM sources, particularly the DOI objection response and rate manual filings which should have KRS/KAR citation gaps.
+- [ ] **Gold set not re-evaluated against run 87283951** — goldset-002.2.json was validated on the original 7-source run. Node IDs should be stable (deterministic under fixed parsing strategy) but BM25 100% recall should be confirmed on the new run before claiming it still holds.
+- [ ] **Stage 005 re-open conditions partially met** — second carrier corpus (KFBM) is now present. Re-open requires also: paraphrase-style gold set queries, and at least one documented BM25 failure. Not worth doing until after Sandbox 003.
+- [ ] **EXT MISMATCH files** — KY-KRS-304-12-230 and KY-KRS-304-14 are named `.html` but contain PDF content (same issue as KY-KRS-304-13 which was renamed). Pipeline parses them with warnings. Low priority since they produce nodes, but should be renamed for cleanliness.
 
 ---
 
