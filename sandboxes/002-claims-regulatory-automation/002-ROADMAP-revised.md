@@ -3,8 +3,8 @@
 Version: 4.0
 Status: Active roadmap
 Controlling scope: `002-five-policy-layer-phish.md`
-Path decision: `../../skills/legal-rag-builder/adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
-Artifact contract: `../../skills/legal-rag-builder/adr/ADR-004-schema-run-identity-and-id-stability.md`
+Path decision: `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
+Artifact contract: `adr/ADR-004-schema-run-identity-and-id-stability.md`
 
 ## Current Scope
 
@@ -128,10 +128,10 @@ Controlling documents:
 - `002-RAG-INGESTION-RETRIEVAL-SPEC.md`
 - `002-RAG-SUBSYSTEM-PLAN.md`
 - `002-RAG-PHASE-PLAN.md`
-- `../../skills/legal-rag-builder/adr/ADR-001-rag-substrate-reuses-001-structure.md`
-- `../../skills/legal-rag-builder/adr/ADR-002-semantic-vector-retrieval-deferred-not-dropped.md`
-- `../../skills/legal-rag-builder/adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
-- `../../skills/legal-rag-builder/adr/ADR-004-schema-run-identity-and-id-stability.md`
+- `adr/ADR-001-rag-substrate-reuses-001-structure.md`
+- `adr/ADR-002-semantic-vector-retrieval-deferred-not-dropped.md`
+- `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
+- `adr/ADR-004-schema-run-identity-and-id-stability.md`
 
 Expected outputs:
 

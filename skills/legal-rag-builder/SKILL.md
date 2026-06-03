@@ -11,11 +11,11 @@ description: Build or modify the Legal Tech Debt local-first legal discovery, in
 2. Read `skills/SKILL-DEVELOPMENT.md`.
 3. Read `sandboxes/002-claims-regulatory-automation/002-RAG-INGESTION-RETRIEVAL-SPEC.md`.
 4. Read `sandboxes/002-claims-regulatory-automation/002-RAG-SUBSYSTEM-PLAN.md` and `sandboxes/002-claims-regulatory-automation/002-RAG-PHASE-PLAN.md`.
-5. Read the RAG ADRs in `skills/legal-rag-builder/adr/`.
+5. Read the RAG ADRs in `sandboxes/002-claims-regulatory-automation/adr/`.
    - `ADR-003-discovery-instrumentation-before-fixture-detectors.md` controls the current Sandbox 002 path.
    - `ADR-004-schema-run-identity-and-id-stability.md` controls Stage 002 schema, run identity, and stable-ID requirements.
-6. Read `skills/legal-rag-builder/references/rag-substrate-boundary-lesson.md` when clarifying RAG layer boundaries, findings, or vector-store sequencing.
-7. Read `skills/legal-rag-builder/references/docling-local-stack-boundary.md` when working on Docling, local parsing models, VLM enrichment, embeddings, or retrieval-store assumptions.
+6. Read `sandboxes/002-claims-regulatory-automation/references/rag-substrate-boundary-lesson.md` when clarifying RAG layer boundaries, findings, or vector-store sequencing.
+7. Read `sandboxes/002-claims-regulatory-automation/references/docling-local-stack-boundary.md` when working on Docling, local parsing models, VLM enrichment, embeddings, or retrieval-store assumptions.
 8. Read `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-01.md`.
 9. Inspect `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv` and `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md` before assuming more source collection is needed.
 

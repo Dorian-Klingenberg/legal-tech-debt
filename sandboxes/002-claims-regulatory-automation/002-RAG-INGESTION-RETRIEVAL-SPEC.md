@@ -9,10 +9,10 @@ Planning docs:
 
 - `002-RAG-SUBSYSTEM-PLAN.md`
 - `002-RAG-PHASE-PLAN.md`
-- `../../skills/legal-rag-builder/adr/ADR-001-rag-substrate-reuses-001-structure.md`
-- `../../skills/legal-rag-builder/adr/ADR-002-semantic-vector-retrieval-deferred-not-dropped.md`
-- `../../skills/legal-rag-builder/adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
-- `../../skills/legal-rag-builder/adr/ADR-004-schema-run-identity-and-id-stability.md`
+- `adr/ADR-001-rag-substrate-reuses-001-structure.md`
+- `adr/ADR-002-semantic-vector-retrieval-deferred-not-dropped.md`
+- `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
+- `adr/ADR-004-schema-run-identity-and-id-stability.md`
 
 ## Mission
 
@@ -82,7 +82,7 @@ Semantic/vector retrieval remains expected, not dropped. It should be added afte
 
 ### Local Docling Boundary
 
-Docling 2.93.0 and related Docling model packages were verified in the local Python environment on 2026-06-02. See `../../skills/legal-rag-builder/references/docling-local-stack-boundary.md`.
+Docling 2.93.0 and related Docling model packages were verified in the local Python environment on 2026-06-02. See `references/docling-local-stack-boundary.md`.
 
 Treat Docling as a parser or optional enrichment adapter. It can convert messy documents and may use local cached document models, OCR, table extraction, and VLM-style parsing/enrichment features. It does not replace the project-owned normalizer, legal metadata, citation extraction, typed graph, sparse/lexical indexes, vector store decision, retrieval bundles, smell detectors, or reviewer state.
 

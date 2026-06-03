@@ -2,7 +2,7 @@
 
 Status note: Background only. Do not use this taxonomy to expand active Sandbox 002 scope.
 
-This document intentionally maps a broad claims and regulatory-automation landscape. That broader landscape is not active work. Current active work is limited to Kentucky homeowners insurance and the five policy-layer smells in `002-five-policy-layer-phish.md`. The active path is Stage 002 discovery-and-instrumentation before detector findings, controlled by `002-ROADMAP-revised.md`, `../../skills/legal-rag-builder/adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`, and `../../skills/legal-rag-builder/adr/ADR-004-schema-run-identity-and-id-stability.md`.
+This document intentionally maps a broad claims and regulatory-automation landscape. That broader landscape is not active work. Current active work is limited to Kentucky homeowners insurance and the five policy-layer smells in `002-five-policy-layer-phish.md`. The active path is Stage 002 discovery-and-instrumentation before detector findings, controlled by `002-ROADMAP-revised.md`, `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`, and `adr/ADR-004-schema-run-identity-and-id-stability.md`.
 
 ## Overview
 

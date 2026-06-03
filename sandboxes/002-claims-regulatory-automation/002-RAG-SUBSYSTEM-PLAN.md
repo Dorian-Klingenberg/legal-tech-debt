@@ -5,8 +5,8 @@ Scope: Sandbox 002 Kentucky homeowners corpus
 Created: 2026-06-01
 Updated: 2026-06-03
 Related skill: `skills/legal-rag-builder/SKILL.md`
-Path decision: `../../skills/legal-rag-builder/adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
-Artifact contract: `../../skills/legal-rag-builder/adr/ADR-004-schema-run-identity-and-id-stability.md`
+Path decision: `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
+Artifact contract: `adr/ADR-004-schema-run-identity-and-id-stability.md`
 
 ## Purpose
 
