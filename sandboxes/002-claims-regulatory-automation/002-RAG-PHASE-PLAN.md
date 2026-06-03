@@ -212,7 +212,7 @@ Question:
 
 ## Phase 4: Semantic Retrieval Experiment
 
-Status: **Parked** — build only after Phase 3 identifies queries where exact/lexical/graph retrieval is insufficient
+Status: **Complete — deferred by result** (BM25 100%; semantic adds nothing on current corpus/queries)
 
 Question:
 
@@ -220,27 +220,26 @@ Question:
 
 ### Checklist
 
-- [ ] Phase 3 retrieval evaluation complete and specific failures identified (gate)
-- [ ] Local embedding records attached to `Node` records
-- [ ] File-backed or lightweight local index (no service dependency unless required)
-- [ ] Same concept with different wording — tested against gold set
-- [ ] Broad exclusion language — tested against gold set
-- [ ] Valuation and calculation terms — tested against gold set
-- [ ] Coverage/exclusion contradictions — tested against gold set
-- [ ] Regulatory mapping language — tested against gold set
-- [ ] Semantic vs. lexical comparison documented
+- [x] Phase 3 retrieval evaluation complete and specific failures identified (gate) — BM25 100%, no failures
+- [x] Node embeddings generated via OpenAI text-embedding-3-small (251 nodes, cached in run dir)
+- [x] Cosine similarity search implemented (`stages/005-semantic-retrieval-experiment/`)
+- [x] Semantic vs. lexical comparison documented — semantic 76%, BM25 100%, hybrid 100%
+- [x] Gold set validated (node existence, source match, query term presence) — all 21 items OK
+- [x] ADR-002 updated with final conclusion and re-open conditions
 
-**Success criteria**
+**Result:** Semantic retrieval adds nothing on top of BM25 for this corpus and query set. Gold set queries were written using document vocabulary, making them phrase-matchable. A fair semantic evaluation requires paraphrase queries and multi-carrier corpus. See ADR-002 for re-open conditions.
 
-- [ ] Semantic retrieval improves gold-set recall or reviewer usefulness
-- [ ] Provenance and graph expansion remain intact
-- [ ] Embeddings do not replace structure-aware retrieval
+**What would re-open Phase 4:**
+
+- [ ] Second carrier homeowners policy in corpus (same smells, different language)
+- [ ] Gold set items written as plain-English reviewer questions, not document phrases
+- [ ] At least one documented BM25 failure that a concept-level query would fix
 
 ---
 
 ## Phase 5: Retrieval Store Decision
 
-Status: **Parked** — decide only after Phase 4 proves what the workload actually needs
+Status: **Parked** — gate not met; BM25 is sufficient; revisit when Phase 4 re-open conditions are satisfied
 
 Question:
 

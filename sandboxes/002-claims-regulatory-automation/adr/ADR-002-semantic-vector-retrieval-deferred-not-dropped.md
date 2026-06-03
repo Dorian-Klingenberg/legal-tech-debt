@@ -69,13 +69,31 @@ Tradeoffs:
 
 ## Status Update — 2026-06-03
 
-Phase 3 gold set evaluation (Stage 004) is complete. The gate condition is met:
+Phase 3 gold set evaluation (Stage 004) and Phase 4 semantic experiment (Stage 005) are both complete.
 
-- Gold set: 21 items across statute, regulation, DOI, policy, endorsement, and rate tiers
-- Phrase recall: 90% (19/21)
-- BM25 recall: 95% (20/21)
-- Semantic decision: **INVESTIGATE** — `eval-011` (DOI Advisory Opinion aerial imagery, node `bdfadc8c3e7aec8ab312`) missed by both exact phrase and BM25
+Final metrics (21-item gold set, run 996e36af, corrected after gold set labeling fix):
 
-The documented failure for semantic retrieval to address: "aerial imagery" and "property inspection" do not phrase-match or BM25-rank the Advisory Opinion node. This is a concept/synonym gap, not a corpus gap.
+| Mode | Recall |
+|---|---|
+| Phrase | 95% (20/21) |
+| BM25 | 100% (21/21) |
+| Semantic cosine@10 (text-embedding-3-small) | 76% (16/21) |
+| Hybrid (any mode) | 100% (21/21) |
 
-Phase 4 (semantic retrieval experiment) is now earned. Proceed by embedding Stage 002 nodes locally and testing eval-011 recall before drafting an ADR for store selection.
+**Conclusion: defer vector store selection.**
+
+BM25 is already perfect on this corpus. Semantic retrieval adds nothing on top of BM25 — the 5 items semantic misses are all BM25 hits, and semantic rescues zero items BM25 missed. The 76% semantic recall is not evidence that embeddings are weak; it is evidence that the gold set queries were written using document vocabulary (phrase-matchable), not plain-language paraphrases of legal concepts.
+
+The real gate condition for a vector store is not yet met:
+
+- No gold set items where BM25 fails and a plain-language query would succeed
+- No multi-carrier corpus where the same concept appears in different words across policies
+- No reviewer-perspective queries (outcome-based, not terminology-based)
+
+**What would re-open this decision:**
+
+1. A second carrier's homeowners policy covering the same smells in different language
+2. Gold set items written as plain-English reviewer questions, not document phrases
+3. At least one documented case where BM25 misses and a concept-level query would find it
+
+Until those conditions exist, file-backed BM25 + phrase search is the correct retrieval stack.

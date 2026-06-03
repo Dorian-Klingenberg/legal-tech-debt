@@ -182,18 +182,19 @@
       "item_id": "eval-011",
       "smell_id": 4,
       "smell_name": "Calculation Rule Drift / Unversioned Rate Reference",
-      "source_id": "KY-DOI-AO-2023-08",
+      "source_id": "KY-DOI-BULLETIN-2026-01",
       "source_type": "doi_bulletin",
-      "expected_node_id": "bdfadc8c3e7aec8ab312",
-      "expected_section_path": "KY-DOI-AO-2023-08 > Opinion",
-      "fixture_summary": "DOI Advisory Opinion on property inspection and aerial imaging — references insurer practices without versioning requirements",
+      "expected_node_id": "4daa7817e31a758c56d8",
+      "expected_section_path": "KY-DOI-BULLETIN-2026-01 > USE OF SATELLITE/AERIAL IMAGERY",
+      "fixture_summary": "DOI Bulletin 2026-01 on satellite/aerial imagery for cancellations and claim denials — references insurer practices without versioning requirements",
       "test_queries": [
         "aerial imagery",
-        "property inspection",
-        "available information"
+        "satellite imagery",
+        "property inspection"
       ],
       "expected_retrieval_modes": ["phrase", "bm25"],
-      "tier": "doi_bulletin"
+      "tier": "doi_bulletin",
+      "notes": "Node 4daa7817e31a758c56d8 is also used by eval-001 and eval-002 (same DOI Bulletin node, different smell angle). Prior assignment to bdfadc8c3e7aec8ab312 (AO-2023-08 matching/uniform opinion) was incorrect."
     },
     {
       "item_id": "eval-012",

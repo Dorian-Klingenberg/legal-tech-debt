@@ -10,7 +10,7 @@ Key reminders:
 - This is currently sandbox proof-of-concept work, not infrastructure work.
 - Read the relevant project and sandbox documentation before starting changes.
 - For Sandbox 002, align active work to the five Kentucky homeowners policy-layer smells in `sandboxes/002-claims-regulatory-automation/002-five-policy-layer-phish.md`.
-- Sandbox 002 Stage sequence: Stage 002 (discovery/instrumentation), Stage 003 (retrieval baseline), and Stage 004 (gold set evaluation) are all complete. Phases 1–3 done. Current path: Phase 4 (semantic retrieval experiment, now earned) or corpus expansion for the remaining gold set tiers. Read `HANDOFF-2026-06-03b.md` for full state.
+- Sandbox 002 Stages 002–005 are all complete. BM25 retrieval is 100% on the gold set; semantic retrieval (Phase 4) was run and deferred — it adds nothing on top of BM25 for this corpus. Vector store selection is deferred until ADR-002 re-open conditions are met. Read `HANDOFF-2026-06-03c.md` for full state and next-step options.
 - Defer vector infrastructure, but design the evidence substrate as if hybrid retrieval will eventually exist. Treat parser/reference uncertainty as part of the evidence layer.
 - Stage 002 JSON/JSONL artifacts should carry schema version, run identity, creation timestamp, and stable source/node IDs under a fixed parsing strategy.
 - For Sandbox 002 corpus work, read `corpus/kentucky-homeowners-policy-smells/CORPUS-SOURCES.md` for the canonical source index and file locations. All unique source files live in `corpus/kentucky-homeowners-policy-smells/sources/` — do not reference smell subdirectory paths in pipeline code. Also read `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md` before procuring or assuming missing sources.
