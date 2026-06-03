@@ -46,7 +46,12 @@ SMELL_NAMES = {
 def run_detectors(run_dir: Path) -> list[Finding]:
     print(f"[detector-runner] Loading index from {run_dir}...")
     idx = RunIndex(run_dir)
-    nodes = idx.content_nodes
+    # Enrich nodes with source_type from the source registry so detectors can filter by document type.
+    source_type_by_id = {s["source_id"]: s.get("source_type", "") for s in idx.sources}
+    nodes = [
+        {**n, "source_type": source_type_by_id.get(n.get("source_id", ""), "")}
+        for n in idx.content_nodes
+    ]
     print(f"[detector-runner] {len(nodes)} content nodes")
 
     counter = [0]

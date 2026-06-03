@@ -20,7 +20,7 @@ The current corpus is intentionally enough to begin proof-of-concept work. These
 
 | Gap ID | Source | Why It Is Missing | Smells Affected | When To Chase It |
 |---|---|---|---|---|
-| KY-SERFF-KFBM-POST2018 | Kentucky Farm Bureau Mutual Insurance Company homeowners filings in SERFF Filing Access | Manual SFA search required; no direct static download URL in the manifest | 1, 2, 3, 4, 5 | Chase if we need a current Kentucky-focused carrier package, especially for anti-concurrent causation, water/mold/fungi exclusions, KY amendatory endorsements, or loss settlement language. |
+| ~~KY-SERFF-KFBM-POST2018~~ | ~~Kentucky Farm Bureau Mutual Insurance Company homeowners filings~~ | **RESOLVED 2026-06-03** — 11 files extracted from 5 SERFF filings (KNFB-133738601, 134503212, 134827992, 134870230, 134870729); added to corpus sources and manifest | — | — |
 | KY-SERFF-KGIC-POST2018 | Kentucky Growers Insurance Company homeowners or dwelling filings in SERFF Filing Access | Manual SFA search required; no direct static download URL in the manifest | 1, 2, 3, 4, 5 | Chase if we need rural, farmowners-adjacent, or Kentucky-specific homeowners/dwelling examples beyond the KNIC filing. |
 | KY-SERFF-KNIC-POST2018 | Kentucky National Insurance Company post-2018 homeowners filings in SERFF Filing Access | Manual SFA search required; no direct static download URL in the manifest | 2, 4 | Chase if the older KNIC-127064322 filing is not current enough for a rate/rule drift or valuation-term example. |
 | KY-DOI-OPEN-RECORDS-PAGE | Kentucky DOI open-records process | Not a smell-mapped source; it is a retrieval path for older filings | N/A | Use only if we need pre-November 2018 filings that are not available through SFA or another public pipeline. |

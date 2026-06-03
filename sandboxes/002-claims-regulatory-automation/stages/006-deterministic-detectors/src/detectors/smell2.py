@@ -46,6 +46,14 @@ _DEFINITION_ANCHOR = re.compile(
 
 _WINDOW = 300
 
+# H001 and H003 fire only on carrier documents where "reasonable" / valuation terms
+# are dispute gates, not regulatory/statutory language with established legal meaning.
+_CARRIER_SOURCE_TYPES = {
+    "serff_form_filing",
+    "serff_rate_rule_filing",
+    "serff_correspondence",
+}
+
 
 def _snippet(text: str, match: re.Match, context: int = 120) -> str:
     start = max(0, match.start() - context)
@@ -65,8 +73,12 @@ def detect(nodes: list[dict], run_id: str, counter: list[int]) -> Generator[Find
         if not text:
             continue
 
-        # H001: reasonable in valuation context
+        source_type = node.get("source_type", "")
+
+        # H001: reasonable in valuation context — carrier docs only
         for m in _H001_PATTERN.finditer(text):
+            if source_type not in _CARRIER_SOURCE_TYPES:
+                continue
             window = _window_around(text, m)
             if _VALUATION_CONTEXT.search(window):
                 yield make_finding(
@@ -122,9 +134,11 @@ def detect(nodes: list[dict], run_id: str, counter: list[int]) -> Generator[Find
                     finding_counter=counter,
                 )
 
-        # H003: valuation term without definition
+        # H003: valuation term without definition — carrier docs only
         seen_terms = set()
         for m in _H003_TERMS.finditer(text):
+            if source_type not in _CARRIER_SOURCE_TYPES:
+                continue
             term = m.group(0).lower()
             if term in seen_terms:
                 continue

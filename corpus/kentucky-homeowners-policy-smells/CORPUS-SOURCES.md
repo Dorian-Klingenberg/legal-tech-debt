@@ -23,22 +23,23 @@ All unique source files live in `sources/`. The smell subdirectories (`01-*/` th
 | KY-KRS-304-14 | krs_statute | 16 KB | 1,2,3,5 | KRS 304.14 — insurance contracts |
 | KY-KRS-304-20 | krs_statute | 27 KB | 1,2,5 | KRS 304.20 — claims practices |
 | KY-KRS-304-44 | krs_statute | 21 KB | 3,5 | KRS 304.44 — property insurance |
+| KY-SERFF-KFBM-134503212-HO-FORM | serff_form_filing | 25 KB | 1,2,3,5 | KFBM HO 04-93 homeowners form May 2025 (redacted). **Second carrier form source.** |
+| KY-SERFF-KFBM-134503212-HO-FORM-MARKUP | serff_form_filing | 210 KB | 1,2,3,5 | KFBM 2025 form with markups showing changes from prior version |
+| KY-SERFF-KFBM-133738601-HO-FORM-MARKUP | serff_form_filing | 216 KB | 1,2,3,5 | KFBM original 2012 HO form with markups; baseline for cross-version comparison |
+| KY-SERFF-KFBM-134827992-ENDORSEMENT | serff_form_filing | 20 KB | 1,3,5 | KFBM KY amendatory endorsement HO FB 01 07 26 (2026) |
+| KY-SERFF-KFBM-134870230-UW-MANUAL | serff_rate_rule_filing | 331 KB | 4,5 | KFBM underwriting manual pages HO-4.1; rating factors and underwriting guidelines |
+| KY-SERFF-KFBM-134870230-UW-MANUAL-CHANGES | serff_rate_rule_filing | 354 KB | 4 | KFBM underwriting manual change form; documents rule amendments |
+| KY-SERFF-KFBM-134870230-DOI-OBJECTION | serff_correspondence | 252 KB | 5 | DOI objection and KFBM carrier response; regulatory dialogue evidence |
+| KY-SERFF-KFBM-134870729-RATE-MANUAL-HOP1 | serff_rate_rule_filing | 137 KB | 4 | KFBM homeowner rate manual HOP-1; base rates and rating rules |
+| KY-SERFF-KFBM-134870729-RATE-MANUAL-HOP2 | serff_rate_rule_filing | 177 KB | 4 | KFBM homeowner rate manual HOP-2; rating factors and calculation rules |
+| KY-SERFF-KFBM-134870729-RATE-MANUAL-HOP2-1 | serff_rate_rule_filing | 133 KB | 4 | KFBM homeowner rate manual HOP-2.1; supplemental rating rules |
+| KY-SERFF-KFBM-134870729-RATE-MANUAL-HOP8 | serff_rate_rule_filing | 119 KB | 4 | KFBM homeowner rate manual HOP-8; endorsement rating factors |
 
-## Files Not Yet Parsed by the Pipeline
+## Pipeline Coverage
 
-The Stage 002 pipeline's `source_manifest_subset.csv` only covers 6 sources. Sources not yet included:
+All 28 sources are now included in `source_manifest_subset.csv` and will be parsed by Stage 002.
 
-- `KY-SERFF-KNIC-127064322.pdf` — **highest priority**; needed for smells 1, 3, 4, 5
-- `KY-KAR-806-12-095.pdf` — homeowners-specific regulation
-- `KY-KAR-806-13-110.html` — rate filing requirements
-- `KY-KAR-806-20-010.html` — unfair claims settlement practices
-- `KY-KRS-304-13.html` — rates statute
-- `KY-KRS-304-20.html` — claims practices statute
-- `KY-KRS-304-44.html` — property insurance statute
-- `KY-DOI-HO-CHECKLIST.pdf` — DOI form filing checklist
-- `KY-DOI-AO-2024-01.pdf` — advisory opinion 2024
-- `KY-DOI-SERFF-ACCESS.pdf` — SERFF access instructions
-- `KY-DOI-PC-DOCS-PAGE.html` — DOI P&C documents page
+**File note:** `KY-KRS-304-13` was originally saved as `.html` but is PDF content. Renamed to `KY-KRS-304-13.pdf` on 2026-06-03; manifest updated to match.
 
 ## Organization Note
 
