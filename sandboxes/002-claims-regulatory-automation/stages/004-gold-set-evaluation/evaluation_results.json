@@ -1,0 +1,796 @@
+{
+  "goldset_id": "goldset-002.2",
+  "run_id": "unknown",
+  "created_at": "2026-06-03T18:26:20.740268+00:00",
+  "items_evaluated": 11,
+  "corpus_gap_count": 3,
+  "item_results": [
+    {
+      "item_id": "eval-001",
+      "smell_id": 2,
+      "source_id": "KY-DOI-BULLETIN-2026-01",
+      "expected_node_id": "4daa7817e31a758c56d8",
+      "expected_section_path": "KY-DOI-BULLETIN-2026-01 > BULLETIN 2026-01",
+      "fixture_summary": "DOI requirement for 'reasonable investigation' — magic valuation term with no defined threshold",
+      "tier": "doi_bulletin",
+      "query_results": [
+        {
+          "query": "reasonable investigation",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "reasonable investigation",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "reasonable",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "reasonable",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "refuse to pay a claim",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "refuse to pay a claim",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        }
+      ],
+      "any_hit": false,
+      "best_rank": null,
+      "missed_by_phrase": true,
+      "missed_by_bm25": true,
+      "notes": [
+        "WARNING: expected_node_id 4daa7817e31a758c56d8 not found in index",
+        "Both modes missed — likely needs semantic retrieval or different query"
+      ]
+    },
+    {
+      "item_id": "eval-002",
+      "smell_id": 4,
+      "source_id": "KY-DOI-BULLETIN-2026-01",
+      "expected_node_id": "4daa7817e31a758c56d8",
+      "expected_section_path": "KY-DOI-BULLETIN-2026-01 > BULLETIN 2026-01",
+      "fixture_summary": "DOI reference to 'underwriting guidelines' without requiring those guidelines to be versioned or filed",
+      "tier": "doi_bulletin",
+      "query_results": [
+        {
+          "query": "underwriting guidelines",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "underwriting guidelines",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "guidelines",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "guidelines",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "nonrenewal",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "nonrenewal",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        }
+      ],
+      "any_hit": false,
+      "best_rank": null,
+      "missed_by_phrase": true,
+      "missed_by_bm25": true,
+      "notes": [
+        "WARNING: expected_node_id 4daa7817e31a758c56d8 not found in index",
+        "Both modes missed — likely needs semantic retrieval or different query"
+      ]
+    },
+    {
+      "item_id": "eval-003",
+      "smell_id": 2,
+      "source_id": "KY-KAR-806-13-150",
+      "expected_node_id": "f01b63bb04e71f0168cf",
+      "expected_section_path": "KY-KAR-806-13-150 > Section 6.",
+      "fixture_summary": "KAR filing requirement referencing replacement cost — the regulatory anchor for valuation terms",
+      "tier": "kar_regulation",
+      "query_results": [
+        {
+          "query": "replacement cost",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "replacement cost",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "actual cash value",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "actual cash value",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "replacement cost value",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "replacement cost value",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        }
+      ],
+      "any_hit": false,
+      "best_rank": null,
+      "missed_by_phrase": true,
+      "missed_by_bm25": true,
+      "notes": [
+        "WARNING: expected_node_id f01b63bb04e71f0168cf not found in index",
+        "Both modes missed — likely needs semantic retrieval or different query"
+      ]
+    },
+    {
+      "item_id": "eval-004",
+      "smell_id": 2,
+      "source_id": "KY-KAR-806-13-150",
+      "expected_node_id": "e3a5934b2e3ba1f9b4ae",
+      "expected_section_path": "KY-KAR-806-13-150 > Section 1. Definitions.",
+      "fixture_summary": "KAR definitions section — defines 'loss cost', 'rate', and filing terms; regulatory vocabulary anchor",
+      "tier": "kar_regulation",
+      "query_results": [
+        {
+          "query": "loss cost",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "loss cost",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "definitions",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "definitions",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "rate",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "rate",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        }
+      ],
+      "any_hit": false,
+      "best_rank": null,
+      "missed_by_phrase": true,
+      "missed_by_bm25": true,
+      "notes": [
+        "WARNING: expected_node_id e3a5934b2e3ba1f9b4ae not found in index",
+        "Both modes missed — likely needs semantic retrieval or different query"
+      ]
+    },
+    {
+      "item_id": "eval-005",
+      "smell_id": 5,
+      "source_id": "KY-KAR-806-13-150",
+      "expected_node_id": "a901b9d3ba6f3f6ec504",
+      "expected_section_path": "KY-KAR-806-13-150 > Section 12. Incorporation by Reference.",
+      "fixture_summary": "KAR incorporation by reference section — defines how regulatory anchors are established; the standard a carrier 'applicable law' reference should meet",
+      "tier": "kar_regulation",
+      "query_results": [
+        {
+          "query": "incorporation by reference",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "incorporation by reference",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "applicable law",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "applicable law",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "in accordance with applicable law",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "in accordance with applicable law",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        }
+      ],
+      "any_hit": false,
+      "best_rank": null,
+      "missed_by_phrase": true,
+      "missed_by_bm25": true,
+      "notes": [
+        "WARNING: expected_node_id a901b9d3ba6f3f6ec504 not found in index",
+        "Both modes missed — likely needs semantic retrieval or different query"
+      ]
+    },
+    {
+      "item_id": "eval-006",
+      "smell_id": 4,
+      "source_id": "KY-KAR-806-13-150",
+      "expected_node_id": "76b3bb9916c8e155fe14",
+      "expected_section_path": "KY-KAR-806-13-150 > Section 10.",
+      "fixture_summary": "KAR section on rate/loss cost filings — establishes what versioned rate references look like under regulation",
+      "tier": "kar_regulation",
+      "query_results": [
+        {
+          "query": "rate filing",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "rate filing",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "loss cost",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "loss cost",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "supplementary rating",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "supplementary rating",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        }
+      ],
+      "any_hit": false,
+      "best_rank": null,
+      "missed_by_phrase": true,
+      "missed_by_bm25": true,
+      "notes": [
+        "WARNING: expected_node_id 76b3bb9916c8e155fe14 not found in index",
+        "Both modes missed — likely needs semantic retrieval or different query"
+      ]
+    },
+    {
+      "item_id": "eval-007",
+      "smell_id": 2,
+      "source_id": "KY-KAR-806-14-006",
+      "expected_node_id": "6e567f744686f431d174",
+      "expected_section_path": "KY-KAR-806-14-006::meta::6fdb16291505b9feefbd",
+      "fixture_summary": "KAR statutory authority block — 'reasonable administrative regulations' without defining reasonableness",
+      "tier": "kar_regulation",
+      "query_results": [
+        {
+          "query": "reasonable administrative regulations",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "reasonable administrative regulations",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "reasonable",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "reasonable",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "commissioner",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "commissioner",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        }
+      ],
+      "any_hit": false,
+      "best_rank": null,
+      "missed_by_phrase": true,
+      "missed_by_bm25": true,
+      "notes": [
+        "WARNING: expected_node_id 6e567f744686f431d174 not found in index",
+        "Both modes missed — likely needs semantic retrieval or different query"
+      ]
+    },
+    {
+      "item_id": "eval-008",
+      "smell_id": 5,
+      "source_id": "KY-KAR-806-14-006",
+      "expected_node_id": "832d76b2d75deece7b0a",
+      "expected_section_path": "KY-KAR-806-14-006 > Section 3.",
+      "fixture_summary": "KAR Section 3 filing requirements — references applicable law; tests whether KRS citations are present",
+      "tier": "kar_regulation",
+      "query_results": [
+        {
+          "query": "applicable law",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "applicable law",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "filing requirements",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "filing requirements",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "KRS",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "KRS",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        }
+      ],
+      "any_hit": false,
+      "best_rank": null,
+      "missed_by_phrase": true,
+      "missed_by_bm25": true,
+      "notes": [
+        "WARNING: expected_node_id 832d76b2d75deece7b0a not found in index",
+        "Both modes missed — likely needs semantic retrieval or different query"
+      ]
+    },
+    {
+      "item_id": "eval-009",
+      "smell_id": 2,
+      "source_id": "KY-KRS-304-14",
+      "expected_node_id": "77855c73ea11759acde2",
+      "expected_section_path": "KY-KRS-304-14 > 304.14-120   Filing and approval of forms.",
+      "fixture_summary": "KRS form filing statute — 'reasonably to inform the insurer'; the statutory source of the reasonableness standard in claims communication",
+      "tier": "krs_statute",
+      "query_results": [
+        {
+          "query": "filing and approval",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "filing and approval",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "reasonably inform",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "reasonably inform",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "grounds therefor",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "grounds therefor",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        }
+      ],
+      "any_hit": false,
+      "best_rank": null,
+      "missed_by_phrase": true,
+      "missed_by_bm25": true,
+      "notes": [
+        "WARNING: expected_node_id 77855c73ea11759acde2 not found in index",
+        "Both modes missed — likely needs semantic retrieval or different query"
+      ]
+    },
+    {
+      "item_id": "eval-010",
+      "smell_id": 1,
+      "source_id": "KY-KRS-304-12-230",
+      "expected_node_id": "37be60fad2665fbfe5c5",
+      "expected_section_path": "12-010   Unfair competition -- Unfair, deceptive practices prohibited.",
+      "fixture_summary": "KRS unfair practices statute — lists prohibited practices; tests whether BM25 retrieves this for exclusion-related queries despite parser quality being medium (PDF-as-HTML source)",
+      "tier": "krs_statute",
+      "query_results": [
+        {
+          "query": "unfair deceptive practices",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "unfair deceptive practices",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "prohibited practices",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "prohibited practices",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "unfair competition",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "unfair competition",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        }
+      ],
+      "any_hit": false,
+      "best_rank": null,
+      "missed_by_phrase": true,
+      "missed_by_bm25": true,
+      "notes": [
+        "WARNING: expected_node_id 37be60fad2665fbfe5c5 not found in index",
+        "Both modes missed — likely needs semantic retrieval or different query"
+      ]
+    },
+    {
+      "item_id": "eval-011",
+      "smell_id": 4,
+      "source_id": "KY-DOI-AO-2023-08",
+      "expected_node_id": "bdfadc8c3e7aec8ab312",
+      "expected_section_path": "KY-DOI-AO-2023-08 > Opinion",
+      "fixture_summary": "DOI Advisory Opinion on property inspection and aerial imaging — references insurer practices without versioning requirements",
+      "tier": "doi_bulletin",
+      "query_results": [
+        {
+          "query": "aerial imagery",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "aerial imagery",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "property inspection",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "property inspection",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "available information",
+          "mode": "phrase",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        },
+        {
+          "query": "available information",
+          "mode": "bm25",
+          "hit": false,
+          "rank": null,
+          "top_node_ids": [],
+          "false_positives": []
+        }
+      ],
+      "any_hit": false,
+      "best_rank": null,
+      "missed_by_phrase": true,
+      "missed_by_bm25": true,
+      "notes": [
+        "WARNING: expected_node_id bdfadc8c3e7aec8ab312 not found in index",
+        "Both modes missed — likely needs semantic retrieval or different query"
+      ]
+    }
+  ],
+  "mode_stats": [
+    {
+      "mode": "phrase",
+      "items_evaluated": 11,
+      "items_hit": 0,
+      "recall": 0.0,
+      "avg_rank": null,
+      "missed_item_ids": [
+        "eval-001",
+        "eval-002",
+        "eval-003",
+        "eval-004",
+        "eval-005",
+        "eval-006",
+        "eval-007",
+        "eval-008",
+        "eval-009",
+        "eval-010",
+        "eval-011"
+      ]
+    },
+    {
+      "mode": "bm25",
+      "items_evaluated": 11,
+      "items_hit": 0,
+      "recall": 0.0,
+      "avg_rank": null,
+      "missed_item_ids": [
+        "eval-001",
+        "eval-002",
+        "eval-003",
+        "eval-004",
+        "eval-005",
+        "eval-006",
+        "eval-007",
+        "eval-008",
+        "eval-009",
+        "eval-010",
+        "eval-011"
+      ]
+    }
+  ],
+  "smell_recall": {
+    "1": 0.0,
+    "2": 0.0,
+    "4": 0.0,
+    "5": 0.0
+  },
+  "semantic_decision": "PURSUE — multiple items missed by both modes",
+  "semantic_rationale": "11 gold set items were missed by both exact-phrase and BM25 search. These represent queries where semantic similarity might bridge the vocabulary gap. Items missed: eval-001, eval-002, eval-003, eval-004, eval-005, eval-006, eval-007, eval-008, eval-009, eval-010, eval-011."
+}

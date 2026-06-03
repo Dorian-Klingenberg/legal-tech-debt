@@ -66,3 +66,16 @@ Tradeoffs:
 - Add a tiny retrieval gold set before embeddings.
 - Record exact/lexical/graph failures that semantic retrieval should address.
 - Evaluate Qdrant and Postgres plus pgvector only after semantic retrieval improves the measured workload.
+
+## Status Update — 2026-06-03
+
+Phase 3 gold set evaluation (Stage 004) is complete. The gate condition is met:
+
+- Gold set: 21 items across statute, regulation, DOI, policy, endorsement, and rate tiers
+- Phrase recall: 90% (19/21)
+- BM25 recall: 95% (20/21)
+- Semantic decision: **INVESTIGATE** — `eval-011` (DOI Advisory Opinion aerial imagery, node `bdfadc8c3e7aec8ab312`) missed by both exact phrase and BM25
+
+The documented failure for semantic retrieval to address: "aerial imagery" and "property inspection" do not phrase-match or BM25-rank the Advisory Opinion node. This is a concept/synonym gap, not a corpus gap.
+
+Phase 4 (semantic retrieval experiment) is now earned. Proceed by embedding Stage 002 nodes locally and testing eval-011 recall before drafting an ADR for store selection.

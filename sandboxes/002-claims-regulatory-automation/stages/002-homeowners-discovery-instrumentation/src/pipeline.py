@@ -41,9 +41,14 @@ def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
-def run(manifest_path: Path, output_dir: Path) -> None:
+def run(manifest_path: Path, output_base: Path) -> None:
     run_id = id_gen.run_id()
     now = _now()
+
+    # Each run gets its own timestamped subdirectory: output/YYYYMMDD_HHMMSS_<run_id[:8]>/
+    ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    output_dir = output_base / f"{ts}_{run_id[:8]}"
+
     print(f"[pipeline] run_id={run_id}")
     print(f"[pipeline] manifest={manifest_path}")
     print(f"[pipeline] output={output_dir}")
@@ -414,10 +419,10 @@ def main() -> None:
         "--output",
         type=Path,
         default=stage_root / "output",
-        help="Output directory",
+        help="Base output directory; each run creates a timestamped subdirectory inside it",
     )
     args = parser.parse_args()
-    run(args.manifest, args.output)
+    run(args.manifest, args.output)  # args.output is the base; run() creates the timestamped subfolder
 
 
 if __name__ == "__main__":

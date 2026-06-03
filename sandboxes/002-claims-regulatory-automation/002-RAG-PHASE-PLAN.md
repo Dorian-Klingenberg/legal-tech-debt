@@ -3,7 +3,7 @@
 Status: Active planning document
 Scope: Sandbox 002 Kentucky homeowners corpus
 Created: 2026-06-01
-Updated: 2026-06-03 (checklists added; ADR/references paths updated)
+Updated: 2026-06-03 (Phase 1 complete)
 Path decision: `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
 Artifact contract: `adr/ADR-004-schema-run-identity-and-id-stability.md`
 
@@ -41,7 +41,7 @@ Done when:
 
 ## Phase 1: File-Backed Discovery And Instrumentation
 
-Status: **Not started**
+Status: **Complete**
 
 Question:
 
@@ -57,82 +57,84 @@ stages/002-homeowners-discovery-instrumentation/
 
 **Setup**
 
-- [ ] Create `stages/002-homeowners-discovery-instrumentation/` directory
-- [ ] Choose 5–10 source files from `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv`
-- [ ] Create `data/source_manifest_subset.csv` listing selected sources with smell mappings
-- [ ] Create `STAGE.md` documenting scope, selected sources, and limitations
-- [ ] Create `data/heuristics.md` documenting heuristic rule IDs, purposes, and failure modes
+- [x] Create `stages/002-homeowners-discovery-instrumentation/` directory
+- [x] Choose 5–10 source files from `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv`
+- [x] Create `data/source_manifest_subset.csv` listing selected sources with smell mappings
+- [x] Create `STAGE.md` documenting scope, selected sources, and limitations
+- [x] Create `data/heuristics.md` documenting heuristic rule IDs, purposes, and failure modes
 
 **Schema**
 
-- [ ] Create `schema/` directory with JSON Schemas for every contract artifact:
-  - [ ] `schema/run_manifest.schema.json`
-  - [ ] `schema/source.schema.json`
-  - [ ] `schema/parser_run.schema.json`
-  - [ ] `schema/block.schema.json`
-  - [ ] `schema/block_stats.schema.json`
-  - [ ] `schema/node.schema.json`
-  - [ ] `schema/citation.schema.json`
-  - [ ] `schema/reference.schema.json`
-  - [ ] `schema/edge.schema.json`
-  - [ ] `schema/table_failure.schema.json`
-  - [ ] `schema/parse_warning.schema.json`
-  - [ ] `schema/candidate_evidence.schema.json`
-  - [ ] `schema/retrieval_bundle.schema.json`
+- [x] Create `schema/` directory with JSON Schemas for every contract artifact:
+  - [x] `schema/run_manifest.schema.json`
+  - [x] `schema/source.schema.json`
+  - [x] `schema/parser_run.schema.json`
+  - [x] `schema/block.schema.json`
+  - [x] `schema/block_stats.schema.json`
+  - [x] `schema/node.schema.json`
+  - [x] `schema/citation.schema.json`
+  - [x] `schema/reference.schema.json`
+  - [x] `schema/edge.schema.json`
+  - [x] `schema/table_failure.schema.json`
+  - [x] `schema/parse_warning.schema.json`
+  - [x] `schema/candidate_evidence.schema.json`
+  - [x] `schema/retrieval_bundle.schema.json`
 
 **Components**
 
-- [ ] Source registry — reads manifest rows, emits stable `Source` records with hash and metadata
-- [ ] Parser adapters — HTML parser (statute/regulation pages) and PDF parser (DOI bulletins, SERFF filing)
-- [ ] Parser instrumentation — emits block stats, table failures, parse warnings, and reading-order uncertainty
-- [ ] Normalizer — converts parser output to project-owned models (not leaking parser objects)
-- [ ] Structure-first segmenter — creates legal nodes from headings, sections, subsections, clauses, definitions, tables
-- [ ] Citation extractor — formal KRS and KAR citations into `citations.jsonl`
-- [ ] Reference extractor — DOI bulletins, SERFF tracking numbers, form IDs, endorsement IDs, manual references, generic law references into `references.jsonl`
-- [ ] Graph builder — typed edges: `contains`, `next`, `references`, `cites_statute`, `cites_regulation`, `cites_bulletin`, `defines_term`, `uses_defined_term`, `amends`, `overrides`, `unresolved_reference`
-- [ ] Candidate evidence scanner — exact and lexical scans for five active smells over nodes
-- [ ] JSONL writers — UTF-8 JSONL, one object per line, every record carries `schema_version`, `run_id`, `created_at`
+- [x] Source registry — reads manifest rows, emits stable `Source` records with hash and metadata
+- [x] Parser adapters — HTML parser (statute/regulation pages) and PDF parser (DOI bulletins, SERFF filing)
+- [x] Parser instrumentation — emits block stats, table failures, parse warnings, and reading-order uncertainty
+- [x] Normalizer — converts parser output to project-owned models (not leaking parser objects)
+- [x] Structure-first segmenter — creates legal nodes from headings, sections, subsections, clauses, definitions, tables
+- [x] Citation extractor — formal KRS and KAR citations into `citations.jsonl`
+- [x] Reference extractor — DOI bulletins, SERFF tracking numbers, form IDs, endorsement IDs, manual references, generic law references into `references.jsonl`
+- [x] Graph builder — typed edges: `contains`, `next`, `references`, `cites_statute`, `cites_regulation`, `cites_bulletin`, `defines_term`, `uses_defined_term`, `amends`, `overrides`, `unresolved_reference`
+- [x] Candidate evidence scanner — exact and lexical scans for five active smells over nodes
+- [x] JSONL writers — UTF-8 JSONL, one object per line, every record carries `schema_version`, `run_id`, `created_at`
 
 **Outputs**
 
-- [ ] `output/run_manifest.json`
-- [ ] `output/sources.jsonl`
-- [ ] `output/parser_runs.jsonl`
-- [ ] `output/blocks.jsonl`
-- [ ] `output/block_stats.jsonl`
-- [ ] `output/nodes.jsonl`
-- [ ] `output/citations.jsonl`
-- [ ] `output/references.jsonl`
-- [ ] `output/edges.jsonl`
-- [ ] `output/table_failures.jsonl`
-- [ ] `output/parse_warnings.jsonl`
-- [ ] `output/candidate_evidence.jsonl`
-- [ ] `output/retrieval_bundles.json`
-- [ ] `output/discovery_report.md`
-- [ ] `LESSON.md` documenting what the discovery pass taught
+- [x] `output/run_manifest.json`
+- [x] `output/sources.jsonl`
+- [x] `output/parser_runs.jsonl`
+- [x] `output/blocks.jsonl`
+- [x] `output/block_stats.jsonl`
+- [x] `output/nodes.jsonl`
+- [x] `output/citations.jsonl`
+- [x] `output/references.jsonl`
+- [x] `output/edges.jsonl`
+- [x] `output/table_failures.jsonl`
+- [x] `output/parse_warnings.jsonl`
+- [x] `output/candidate_evidence.jsonl`
+- [x] `output/retrieval_bundles.json`
+- [x] `output/discovery_report.md`
+- [x] `LESSON.md` documenting what the discovery pass taught
+- [x] `src/visualizer.py` — self-contained HTML report generator (Summary, Document Outline, Evidence Ledger, Citations, Warnings tabs)
+- [x] Timestamped run subdirectories (`output/YYYYMMDD_HHMMSS_<run_id[:8]>/`); `output/` gitignored
 
 **Success criteria**
 
-- [ ] All JSON/JSONL records carry `schema_version`, `run_id`, and `created_at`
-- [ ] `source_id` is stable; `node_id` is deterministic under a fixed parsing strategy
-- [ ] Source provenance survives every transformation
-- [ ] Page or source location is retained where available
-- [ ] Parser uncertainty is visible through block stats, table failures, and parse warnings
-- [ ] Section hierarchy is represented in nodes and `contains` edges
-- [ ] KRS and KAR references are extracted as formal citations
-- [ ] DOI, SERFF, form, endorsement, manual, current-guideline, and generic-law references are extracted separately from formal citations
-- [ ] Unresolved references are represented as visible targets
-- [ ] Graph edges are conservative and reviewable (no edge without explicit text or structural evidence)
-- [ ] Candidate evidence for the five active smells is emitted where the corpus supports it
-- [ ] Candidate evidence is not presented as final legal findings
-- [ ] No manual reviewer annotations written back into the substrate
-- [ ] No cross-document topic modeling or cluster-level edges
+- [x] All JSON/JSONL records carry `schema_version`, `run_id`, and `created_at`
+- [x] `source_id` is stable; `node_id` is deterministic under a fixed parsing strategy
+- [x] Source provenance survives every transformation
+- [x] Page or source location is retained where available
+- [x] Parser uncertainty is visible through block stats, table failures, and parse warnings
+- [x] Section hierarchy is represented in nodes and `contains` edges
+- [x] KRS and KAR references are extracted as formal citations
+- [x] DOI, SERFF, form, endorsement, manual, current-guideline, and generic-law references are extracted separately from formal citations
+- [x] Unresolved references are represented as visible targets
+- [x] Graph edges are conservative and reviewable (no edge without explicit text or structural evidence)
+- [x] Candidate evidence for the five active smells is emitted where the corpus supports it
+- [x] Candidate evidence is not presented as final legal findings
+- [x] No manual reviewer annotations written back into the substrate
+- [x] No cross-document topic modeling or cluster-level edges
 
 ---
 
 ## Phase 2: Retrieval Baseline And Fixture Curation
 
-Status: **Not started** — depends on Phase 1 outputs
+Status: **Complete**
 
 Question:
 
@@ -142,35 +144,37 @@ Question:
 
 **Components**
 
-- [ ] Exact phrase search over nodes
-- [ ] Simple lexical scoring (BM25 or equivalent over local JSONL)
-- [ ] Metadata filters (source type, smell mapping, effective date)
-- [ ] Parent/adjacent node expansion
-- [ ] Citation and authority expansion
-- [ ] Broader reference expansion
-- [ ] Retrieval bundle composer
+- [x] Exact phrase search over nodes
+- [x] Simple lexical scoring (BM25 or equivalent over local JSONL)
+- [x] Metadata filters (source type, smell mapping, effective date)
+- [x] Parent/adjacent node expansion
+- [x] Citation and authority expansion
+- [x] Broader reference expansion
+- [x] Retrieval bundle composer
 
 **Outputs**
 
-- [ ] `output/retrieval_bundles.json` — updated with retrieval signal metadata
-- [ ] `output/retrieval_report.md` — what retrieval modes return for each active smell
-- [ ] `data/goldsets/goldset-002.1.json` — versioned gold set from Stage 002 real snippets only
-- [ ] Curated fixture excerpts per active smell (or documented corpus limitation where missing)
+- [x] `output/retrieval_bundles.json` — updated with retrieval signal metadata (23 bundles)
+- [x] `output/retrieval_report.md` — what retrieval modes return for each active smell
+- [x] `data/goldsets/goldset-002.1.json` — versioned gold set from Stage 002 real snippets only
+- [x] Curated fixture excerpts per active smell (or documented corpus limitation where missing)
+- [x] `src/retrieval/` package — index, searcher, expander, composer modules
+- [x] `src/retrieval_runner.py` — CLI runner; smell-specific queries; corpus gap detection
 
 **Success criteria**
 
-- [ ] Query results include why-retrieved reasons
-- [ ] Bundles include parent section and adjacent nodes
-- [ ] Citation/reference expansion includes cited authorities or unresolved records
-- [ ] Bundles include parser diagnostics or uncertainty when relevant
-- [ ] Bundles are usable by a detector or reviewer without rereading the entire source
-- [ ] Every active smell has a candidate fixture example or a documented corpus limitation
+- [x] Query results include why-retrieved reasons
+- [x] Bundles include parent section and adjacent nodes
+- [x] Citation/reference expansion includes cited authorities or unresolved records
+- [x] Bundles include parser diagnostics or uncertainty when relevant
+- [x] Bundles are usable by a detector or reviewer without rereading the entire source
+- [x] Every active smell has a candidate fixture example or a documented corpus limitation
 
 ---
 
 ## Phase 3: Tiny Gold Set And Retrieval Evaluation
 
-Status: **Not started** — depends on Phase 2 gold set
+Status: **Complete** (statute/regulation/DOI + partial policy/endorsement/rate tiers from SERFF filing)
 
 Question:
 
@@ -180,26 +184,29 @@ Question:
 
 **Gold set construction**
 
-- [ ] 10 statute/regulation sections with expected node boundaries, citations, parent section, 3–5 test queries, and expected relevant nodes
-- [ ] 10 policy/manual clauses (same fields)
-- [ ] 5 endorsement or form fragments (same fields)
-- [ ] 5 rate/manual fragments (same fields)
-- [ ] Gold set versioned under `data/goldsets/`
+- [x] 11 statute/regulation/DOI items with expected node IDs, 3 test queries each (`goldset-002.2.json`)
+- [x] 4 policy/manual clauses — from KNIC SERFF filing (eval-015 to eval-018); 6 more blocked (needs base HO-3 form)
+- [x] 3 endorsement or form fragments — from KNIC SERFF filing (eval-019 to eval-021); 2 more blocked
+- [x] 3 rate/manual fragments — from KNIC SERFF filing (eval-012 to eval-014); 2 more blocked
+- [x] Gold set versioned under `data/goldsets/` — 21 items total
 
 **Retrieval comparison**
 
-- [ ] Exact phrase baseline measured
-- [ ] Lexical baseline measured
-- [ ] Graph-expanded retrieval measured
-- [ ] Failures and missed hits documented
-- [ ] Decision: does semantic retrieval have a concrete question to answer?
+- [x] Exact phrase baseline measured — 90% recall (19/21 items)
+- [x] Lexical baseline measured — 95% recall (20/21 items)
+- [x] Graph-expanded retrieval measured — bundles include parent + siblings + citations
+- [x] Failures and missed hits documented (`evaluation_report.md`)
+- [x] Decision: does semantic retrieval have a concrete question to answer? — **INVESTIGATE** (eval-011 aerial imagery missed by both modes)
+- [x] `src/evaluator.py` — evaluation runner with per-mode stats and semantic decision logic
+- [x] `output/evaluation_results.json` + `output/evaluation_report.md`
+- [x] Evaluation tab added to `report.html`
 
 **Success criteria**
 
-- [ ] Exact and lexical baselines measured before embeddings
-- [ ] Semantic retrieval is evaluated against a known need (not a general want)
-- [ ] False positives and missed hits are documented
-- [ ] Lexical under-recall treated as evidence for later semantic evaluation, not as proof the smell is absent
+- [x] Exact and lexical baselines measured before embeddings
+- [x] Semantic retrieval is evaluated against a known need (not a general want)
+- [x] False positives and missed hits are documented
+- [x] Lexical under-recall treated as evidence for later semantic evaluation, not as proof the smell is absent
 
 ---
 
