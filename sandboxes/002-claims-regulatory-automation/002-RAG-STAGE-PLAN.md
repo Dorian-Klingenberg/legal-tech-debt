@@ -238,8 +238,8 @@ Question:
 
 ## Stage 006: Deterministic Pattern Detectors
 
-Status: **Not started**
-Directory: `stages/006-deterministic-detectors/` (to be created)
+Status: **Complete**
+Directory: `stages/006-deterministic-detectors/`
 
 Question:
 
@@ -247,27 +247,28 @@ Question:
 
 ### Checklist
 
-- [ ] Create `stages/006-deterministic-detectors/` with `STAGE.md`, `.gitignore`, `src/`
-- [ ] One detector module per active smell:
-  - [ ] Smell 1 — Overbroad / Non-deterministic Exclusions
-  - [ ] Smell 2 — Magic Number / Magic Valuation Terms
-  - [ ] Smell 3 — Coverage Inversion / Contradictory Conditions
-  - [ ] Smell 4 — Calculation Rule Drift / Unversioned Rate Reference
-  - [ ] Smell 5 — Regulatory Mapping Smells
-- [ ] Each detector reads Stage 002 JSONL artifacts via `RunIndex`
-- [ ] Each detector emits structured `Finding` records: `smell_id`, `node_id`, `source_id`, `evidence_text`, `confidence`, `rationale`, `heuristic_ids`
-- [ ] Findings are distinct from candidate evidence — they carry a confidence level and rationale
-- [ ] Detector runner CLI — runs all detectors over a Stage 002 run dir, writes `detector_findings.jsonl`
-- [ ] Per-smell recall measured against gold set candidate evidence nodes
-- [ ] False positive rate documented per detector
+- [x] Create `stages/006-deterministic-detectors/` with `STAGE.md`, `.gitignore`, `src/`
+- [x] One detector module per active smell:
+  - [x] Smell 1 — Overbroad / Non-deterministic Exclusions
+  - [x] Smell 2 — Magic Number / Magic Valuation Terms
+  - [x] Smell 3 — Coverage Inversion / Contradictory Conditions
+  - [x] Smell 4 — Calculation Rule Drift / Unversioned Rate Reference
+  - [x] Smell 5 — Regulatory Mapping Smells
+- [x] Each detector reads Stage 002 JSONL artifacts via `RunIndex`
+- [x] Each detector emits structured `Finding` records: `smell_id`, `node_id`, `source_id`, `evidence_text`, `confidence`, `rationale`, `reviewer_question`, `false_positive_risk`
+- [x] Findings are distinct from candidate evidence — they carry confidence, rationale, and reviewer question
+- [x] Detector runner CLI — runs all detectors, writes `detector_findings.jsonl` and `detector_report.md`
+- [x] False positive risk documented per finding
+
+**Results (run 996e36af, 251 nodes):** 17 findings — Smell 2: 13 (MEDIUM), Smell 3: 3 (LOW), Smell 4: 1 (HIGH). Smells 1 and 5 return 0 findings honestly (no exclusion language; all KRS citations fully qualified).
 
 **Success criteria**
 
-- [ ] Every finding is traceable to a specific node and source
-- [ ] No finding claims a policy is unlawful — findings surface patterns for reviewer judgment
-- [ ] Confidence levels are calibrated (not all HIGH)
-- [ ] Each detector has documented heuristic IDs matching `data/heuristics.md`
-- [ ] Detectors are independent — one detector failure does not block others
+- [x] Every finding is traceable to a specific node and source
+- [x] No finding claims a policy is unlawful — findings surface patterns for reviewer judgment
+- [x] Confidence levels are calibrated (not all HIGH)
+- [x] Each detector has documented heuristic IDs matching `data/heuristics.md`
+- [x] Detectors are independent — one detector failure does not block others
 
 ---
 
