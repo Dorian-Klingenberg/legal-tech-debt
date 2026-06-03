@@ -1,6 +1,10 @@
 # 001 → 002 Overlap Analysis: What's Already Done
 
-Status note: Background only. Sandbox 001 is now closed as foundational research. Do not use this document to set active Sandbox 002 scope. Current active work is Kentucky homeowners insurance and the five policy-layer smells in [002-five-policy-layer-phish.md](002-five-policy-layer-phish.md). Use [002-CARRY-FORWARD-FROM-001.md](002-CARRY-FORWARD-FROM-001.md) as the active carry-forward decision record.
+Status note: Background only. Sandbox 001 is now closed as foundational research. Do not use this document to set active Sandbox 002 scope.
+
+This document contains older broad-scope language such as regulatory automation, claims workflows, PAS integration, and live regulatory feeds. Those ideas are not active unless the user explicitly reopens them.
+
+Current active work is Kentucky homeowners insurance and the five policy-layer smells in [002-five-policy-layer-phish.md](002-five-policy-layer-phish.md). The active path is Stage 002 discovery-and-instrumentation before detector findings, controlled by [002-ROADMAP-revised.md](002-ROADMAP-revised.md), [ADR-003](../../skills/legal-rag-builder/adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md), and [ADR-004](../../skills/legal-rag-builder/adr/ADR-004-schema-run-identity-and-id-stability.md). Use [002-CARRY-FORWARD-FROM-001.md](002-CARRY-FORWARD-FROM-001.md) as the active carry-forward decision record.
 
 ## Executive Summary
 

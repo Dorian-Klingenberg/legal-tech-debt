@@ -1,6 +1,8 @@
 # Roadmap: Insurance Claims Regulatory Automation Platform
 
-Status note: Historical background only. Do not use this older platform roadmap to set active Sandbox 002 scope. Current work is narrowed to Kentucky homeowners insurance and the five policy-layer smells in `002-five-policy-layer-phish.md`; the revised roadmap plus procurement guide control near-term work.
+Status note: Historical background only. Do not use this older platform roadmap to set active Sandbox 002 scope.
+
+Current work is narrowed to Kentucky homeowners insurance and the five policy-layer smells in `002-five-policy-layer-phish.md`. The active path is Stage 002 discovery-and-instrumentation before detector findings, controlled by `002-ROADMAP-revised.md` and `../../skills/legal-rag-builder/adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`.
 
 ## Phase 1: Validation (Weeks 1–4)
 

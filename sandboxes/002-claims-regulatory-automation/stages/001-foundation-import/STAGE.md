@@ -2,7 +2,7 @@
 
 Created: 2026-05-29
 Source: `../../001-legal-debt-primitives`
-Status: Imported foundation; refocused on homeowners fixtures
+Status: Imported foundation; refocused on homeowners discovery-and-instrumentation
 
 ## Purpose
 
@@ -58,7 +58,7 @@ Expected outputs:
 
 ## Next Stage
 
-Create a narrow Kentucky homeowners fixture and adapt this imported probe toward the five active smells:
+Create a narrow Kentucky homeowners discovery-and-instrumentation stage and adapt this imported probe style toward source-traceable candidate evidence for the five active smells:
 
 1. Overbroad / Non-deterministic Exclusions
 2. Magic Number / Magic Valuation Terms
@@ -66,4 +66,4 @@ Create a narrow Kentucky homeowners fixture and adapt this imported probe toward
 4. Calculation Rule Drift / Unversioned Rate Reference
 5. Regulatory Mapping Smells
 
-That next stage should keep the same plain local execution style.
+That next stage should keep the same plain local execution style and emit legal nodes, citations, broader references, conservative graph edges, parser diagnostics, retrieval bundles, and candidate evidence before promoting anything into detector findings.

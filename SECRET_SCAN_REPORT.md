@@ -6,11 +6,17 @@ _Date: 2026-06-01_
 
 A read-only secret scan triage was performed against this repository.
 
+## Review status
+
+**Complete. No action required.**
+
+On 2026-06-03, the repo owner reviewed the reported secret-scan findings and confirmed that they are false positives. The identified values are public client-side keys, public vendor/embed identifiers, or scanner matches from archived/source-captured third-party HTML under `sources/`, not this repository's operational secrets.
+
 ### Findings
 
 Several secret-like values were identified, primarily inside archived or source-captured third-party HTML files under `sources/`.
 
-These may include public frontend keys or third-party embed tokens rather than this organization's own operational secrets, but they still merit review.
+These were reviewed and classified as false positives: public frontend keys or third-party embed tokens from archived/source-captured third-party HTML, not this organization's own operational secrets.
 
 ### Notable examples
 
@@ -20,12 +26,8 @@ These may include public frontend keys or third-party embed tokens rather than t
 
 ## Action requested
 
-**For the next agent working in this repository:** please remind the repo owner to review and resolve the findings in this file before or during subsequent work.
+No follow-up action is requested. Future agents should not treat this report as an open blocker.
 
 ## Suggested next checks
 
-1. Manually review all key-like strings in `sources/` and classify them as real secret / public client key / false positive.
-2. Consider isolating archived third-party source dumps into a clearly documented path.
-3. Add secret-scanner allowlist rules for known-public values if appropriate.
-4. Review commit history for any non-public credentials that may have been committed and later removed.
-5. If desired, run a deeper secret scanning pass and produce a classification table.
+None required based on the owner's 2026-06-03 review.

@@ -3,6 +3,9 @@
 Status: Active planning document
 Scope: Sandbox 002 Kentucky homeowners corpus
 Created: 2026-06-01
+Updated: 2026-06-03
+Path decision: `../../skills/legal-rag-builder/adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
+Artifact contract: `../../skills/legal-rag-builder/adr/ADR-004-schema-run-identity-and-id-stability.md`
 
 ## Phase 0: Document The Architecture
 
@@ -21,17 +24,18 @@ Done when:
 - future agents can see the intended build order
 - RAG substrate boundaries are clear
 - vector retrieval is preserved as expected later work without becoming premature infrastructure
+- discovery-and-instrumentation is clearly the next implementation path
 
-## Phase 1: File-Backed Structural Ingestion
+## Phase 1: File-Backed Discovery And Instrumentation
 
 Question:
 
-> Can real Kentucky homeowners corpus files become legal-structure nodes with provenance, citations, references, and graph edges using local files only?
+> Can selected Kentucky homeowners corpus files become legal-structure nodes with provenance, parser diagnostics, citations, broader references, conservative graph edges, candidate evidence, and retrieval bundles using local files only?
 
 Suggested stage:
 
 ```text
-stages/003-homeowners-rag-ingestion/
+stages/002-homeowners-discovery-instrumentation/
 ```
 
 Inputs:
@@ -45,35 +49,55 @@ Components:
 
 - source registry
 - parser adapters
+- parser instrumentation
 - normalized models
 - structure-first segmenter
 - citation/reference extractor
 - graph builder
+- candidate evidence scanner
 - JSONL/CSV writers
 
 Outputs:
 
+- `schema/` JSON Schemas for every JSON/JSONL artifact type
+- `data/heuristics.md`
+- `output/run_manifest.json`
 - `output/sources.jsonl`
+- `output/parser_runs.jsonl`
+- `output/blocks.jsonl`
+- `output/block_stats.jsonl`
 - `output/nodes.jsonl`
 - `output/citations.jsonl`
+- `output/references.jsonl`
 - `output/edges.jsonl`
+- `output/table_failures.jsonl`
 - `output/parse_warnings.jsonl`
-- `output/report.md`
+- `output/candidate_evidence.jsonl`
+- `output/retrieval_bundles.json`
+- `output/discovery_report.md`
 
 Success criteria:
 
+- all JSON/JSONL records carry schema version, run identity, and creation timestamp
+- ID generation is deterministic under a fixed parsing strategy
 - source provenance survives every transformation
 - page or source location is retained where available
+- parser uncertainty is visible
 - section hierarchy is represented
 - KRS and KAR references are extracted
+- DOI, SERFF, form, endorsement, manual, current-guideline, and generic-law references are extracted separately from formal citations
 - unresolved references are represented as visible targets
 - graph edges are reviewable
+- candidate evidence for the five active smells is emitted where the selected corpus supports it
+- candidate evidence is not presented as final legal findings
+- no manual reviewer annotations are written back into the Stage 002 substrate
+- no cross-document topic modeling or cluster-level edges are created
 
-## Phase 2: Retrieval Bundle Prototype
+## Phase 2: Retrieval Baseline And Fixture Curation
 
 Question:
 
-> Can exact phrase, lexical search, and graph expansion return useful evidence bundles for the five homeowners policy-layer smells?
+> Can exact phrase, lexical search, reference/citation signals, metadata filters, and graph expansion return useful evidence bundles and fixture examples for the five homeowners policy-layer smells?
 
 Components:
 
@@ -82,19 +106,25 @@ Components:
 - metadata filters
 - parent/adjacent node expansion
 - citation and authority expansion
+- broader reference expansion
 - retrieval bundle composer
+- curated fixture examples
 
 Outputs:
 
 - `output/retrieval_bundles.json`
 - `output/retrieval_report.md`
+- `data/goldsets/goldset-002.1.json` or equivalent versioned gold set, created from Stage 002 outputs and real snippets only
+- curated fixture excerpts or clearly marked synthetic seeds where needed
 
 Success criteria:
 
 - query results include why-retrieved reasons
 - bundles include parent section and adjacent nodes
-- citation expansion includes cited authorities or unresolved citation records
+- citation/reference expansion includes cited authorities or unresolved records
+- bundles include parser diagnostics or uncertainty when relevant
 - bundles are usable by a detector or human reviewer without rereading the entire source
+- every active smell has a candidate fixture example or a documented corpus limitation
 
 ## Phase 3: Tiny Gold Set And Retrieval Evaluation
 
@@ -130,6 +160,7 @@ Success criteria:
 - exact and lexical baselines are measured before embeddings
 - semantic retrieval is evaluated against a known need
 - false positives and missed hits are documented
+- lexical under-recall is treated as expected evidence for later semantic evaluation, not as proof that the smell is absent
 
 ## Phase 4: Semantic Retrieval Experiment
 

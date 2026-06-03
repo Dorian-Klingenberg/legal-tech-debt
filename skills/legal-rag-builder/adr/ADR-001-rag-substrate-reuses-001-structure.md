@@ -66,7 +66,7 @@ Tradeoffs:
 
 ## Follow-Up
 
-- Build `stages/003-homeowners-rag-ingestion/`.
+- Build `stages/002-homeowners-discovery-instrumentation/` under the path decision in `ADR-003-discovery-instrumentation-before-fixture-detectors.md`.
 - Keep unresolved references visible as targets.
 - Add typed edge fields only where relationship meaning is supported by evidence.
 - Update downstream detector plans to consume retrieval bundles rather than raw chunks.

@@ -1,8 +1,8 @@
-# Lesson: RAG Is The Evidence Substrate, Not The Finding Layer
+# Lesson: Discovery And RAG Are The Evidence Substrate, Not The Finding Layer
 
 ## Problem
 
-It is easy to let a legal RAG plan drift into either a vector-store decision or a detector/reporting design.
+It is easy to let a legal RAG plan drift into either a vector-store decision, a parser-output-as-truth assumption, or a detector/reporting design.
 
 Both are premature if the system has not first proven a stable legal evidence substrate.
 
@@ -10,13 +10,14 @@ Both are premature if the system has not first proven a stable legal evidence su
 
 The Legal RAG Builder should first answer:
 
-> Can the corpus become source-traceable legal nodes, citations, references, typed edges, and retrieval bundles?
+> Can the corpus become source-traceable legal blocks, nodes, citations, broader references, typed edges, parser diagnostics, candidate evidence, and retrieval bundles?
 
 It should not first answer:
 
 - Which vector database should we use?
 - Which smell findings should we emit?
 - What UI should reviewers see?
+- Did the parser definitely get the legal structure right?
 
 Those questions matter later, but only after the substrate exists.
 
@@ -27,10 +28,15 @@ The RAG layer owns:
 - `Source`
 - `Document`
 - `Block`
+- `ParserRun`
+- `BlockStats`
 - `Node`
 - `Citation`
 - `Reference`
 - `Edge`
+- `TableFailure`
+- `ParseWarning`
+- `CandidateEvidence`
 - `RetrievalBundle`
 - parse warnings
 
@@ -42,6 +48,8 @@ The downstream detector/reporting layer owns:
 - ROI mapping
 - reviewer questions
 - human-review status
+
+Candidate evidence is allowed in the evidence substrate. It is not a final finding; it is a source-traceable signal with why-flagged reasons and machinery confidence.
 
 ## Reuse From Sandbox 001
 
@@ -64,7 +72,7 @@ Semantic retrieval is still expected.
 It should be added after:
 
 1. the node model is stable
-2. exact/lexical/graph retrieval has a baseline
+2. exact/lexical/reference/citation/graph retrieval has a baseline
 3. a tiny gold set shows where semantic retrieval helps
 
 This keeps vector search attached to legal structure and provenance instead of returning orphan chunks.
@@ -77,3 +85,8 @@ Before adding a retrieval store, ask:
 
 If the answer is not clear, stay file-backed or embedded-local for the current stage.
 
+Before trusting parser output, ask:
+
+> What parser, table, reading-order, or reference-normalization uncertainty should a reviewer see?
+
+If the answer is not visible in the outputs, add instrumentation before adding more retrieval power.

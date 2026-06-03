@@ -82,8 +82,9 @@ Use Docling as a parser or document enrichment adapter:
 ```text
 raw corpus file
   -> Docling conversion or extraction
+  -> parser run / block stats / table failures / parse warnings
   -> project-owned normalizer
-  -> Source / Document / Block / Node / Citation / Reference / Edge
+  -> Source / Document / Block / Node / Citation / Reference / Edge / CandidateEvidence
   -> exact, lexical, metadata, graph-expanded retrieval
   -> optional later semantic retrieval
   -> RetrievalBundle
@@ -111,9 +112,11 @@ Docling does not own:
 - legal smell findings
 - human reviewer state
 
+Docling output should be treated as parser evidence, not parser truth. Discovery-and-instrumentation stages should record parser provenance, parse warnings, reading-order uncertainty, and table failures instead of hiding them behind normalized nodes.
+
 ## Retrieval Implication
 
-The first RAG stage should stay file-backed and structural. Use Docling only if it improves extraction for the selected source subset.
+The first discovery/RAG stage should stay file-backed, structural, and instrumented. Use Docling only if it improves extraction for the selected source subset, and expose Docling-specific uncertainty in the output records.
 
 If semantic retrieval becomes necessary, verify the embedding library and storage choice in the stage that introduces it. Do not infer that Docling's VLM features or cached model artifacts are a vector database.
 
@@ -129,4 +132,3 @@ Get-Command ollama,lmstudio,lms,vllm -ErrorAction SilentlyContinue
 docling --help
 Get-ChildItem -LiteralPath $env:USERPROFILE\.cache\huggingface\hub -Directory -ErrorAction SilentlyContinue
 ```
-

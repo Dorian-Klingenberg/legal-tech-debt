@@ -43,7 +43,7 @@ For each smell, the useful ROI evidence is:
 
 ## Cost-Benefit Analysis
 
-The first Sandbox 002 cost-benefit question is not "Which detector can become a full product?" It is "Which smell is cheap enough to detect in a small homeowners fixture and valuable enough that a reviewer would care?"
+The first Sandbox 002 cost-benefit question is not "Which detector can become a full product?" It is "Which smell is cheap enough to surface as source-traceable candidate evidence and valuable enough that a reviewer would care?"
 
 Use this as a relative planning guide for the next stage.
 
@@ -76,7 +76,7 @@ Use this as a relative planning guide for the next stage.
 
 - Clarifies which public Kentucky homeowners sources are enough for meaningful detection.
 - Shows which smells can be detected with plain text and which require relationship graphs.
-- Produces reusable fixture patterns for future stages.
+- Produces reusable candidate-evidence and fixture patterns for future stages.
 - Prevents the project from drifting back into broad infrastructure or platform work.
 
 ## Cost Categories
@@ -92,7 +92,7 @@ Use this as a relative planning guide for the next stage.
 
 - SME or reviewer time to separate true concerns from harmless drafting conventions.
 - False-positive triage, especially for broad exclusions and coverage inversion.
-- Updating fixture examples as better source material is procured.
+- Updating candidate evidence and fixture examples as better source material is procured.
 
 ### Complexity costs
 
@@ -105,7 +105,7 @@ Use this as a relative planning guide for the next stage.
 1. **Magic Number / Magic Valuation Terms**
    - Lowest prototype cost.
    - Strong homeowners relevance.
-   - Easy to seed in a fixture and explain in a reviewer report.
+   - Easy to surface as candidate evidence and explain in a reviewer report.
 
 2. **Regulatory Mapping Smells**
    - Natural extension of citation/reference extraction from Sandbox 001.
@@ -339,7 +339,7 @@ Potential ROI path:
 
 ## What To Measure In The Next Stage
 
-For each fixture finding, capture a lightweight ROI note:
+For each candidate evidence item that may become a fixture or finding, capture a lightweight ROI note:
 
 ```text
 smell:
@@ -349,6 +349,7 @@ why_it_matters:
 reviewer_question:
 possible_fix:
 confidence:
+machinery_confidence:
 ```
 
 Example cost pools:
@@ -365,3 +366,5 @@ Example cost pools:
 ## Boundary
 
 Keep these ROI cases tied to the five active smells. Do not use this document to reopen broad claims-platform ROI, PAS integration ROI, live regulatory feed ROI, or generic RegTech market sizing.
+
+The discovery-and-instrumentation layer should attach ROI context only as candidate evidence. Final smell findings, severity, cleanup priority, and reviewer decisions belong to downstream detector and reporting layers.

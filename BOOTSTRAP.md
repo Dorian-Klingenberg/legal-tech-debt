@@ -75,14 +75,17 @@ For Sandbox 002, read:
 4. `sandboxes/002-claims-regulatory-automation/002-ROADMAP-revised.md`
 5. `sandboxes/002-claims-regulatory-automation/002-CARRY-FORWARD-FROM-001.md`
 6. `sandboxes/002-claims-regulatory-automation/002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md`
-7. `sandboxes/002-claims-regulatory-automation/002-RAG-INGESTION-RETRIEVAL-SPEC.md` when doing RAG, ingestion, retrieval, chunking, citation extraction, or legal corpus indexing work.
-8. `sandboxes/002-claims-regulatory-automation/002-RAG-SUBSYSTEM-PLAN.md` and `sandboxes/002-claims-regulatory-automation/002-RAG-PHASE-PLAN.md` when doing RAG implementation planning.
+7. `sandboxes/002-claims-regulatory-automation/002-RAG-INGESTION-RETRIEVAL-SPEC.md` when doing discovery, instrumentation, RAG, ingestion, retrieval, chunking, citation/reference extraction, or legal corpus indexing work.
+8. `sandboxes/002-claims-regulatory-automation/002-RAG-SUBSYSTEM-PLAN.md` and `sandboxes/002-claims-regulatory-automation/002-RAG-PHASE-PLAN.md` when doing discovery/RAG implementation planning.
 9. `skills/legal-rag-builder/adr/` when doing Legal RAG Builder skill architecture work.
-10. `skills/legal-rag-builder/references/docling-local-stack-boundary.md` when doing Docling, local parsing model, VLM enrichment, embedding, or retrieval-store work.
-11. `sandboxes/002-claims-regulatory-automation/002-PAIN-POINTS-TAXONOMY.md`
-12. `sandboxes/002-claims-regulatory-automation/001-vs-002-REUSE-ANALYSIS.md`
-13. `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-01.md`
-14. `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`
+10. `skills/legal-rag-builder/adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md` for the current Sandbox 002 path decision.
+11. `skills/legal-rag-builder/adr/ADR-004-schema-run-identity-and-id-stability.md` for Stage 002 schema, run identity, and stable-ID requirements.
+12. `skills/legal-rag-builder/references/docling-local-stack-boundary.md` when doing Docling, local parsing model, VLM enrichment, embedding, or retrieval-store work.
+13. `sandboxes/002-claims-regulatory-automation/002-PAIN-POINTS-TAXONOMY.md`
+14. `sandboxes/002-claims-regulatory-automation/001-vs-002-REUSE-ANALYSIS.md`
+15. `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-01.md`
+16. `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv`
+17. `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`
 
 Current Sandbox 002 scope:
 
@@ -94,13 +97,17 @@ Current Sandbox 002 scope:
   - Calculation Rule Drift / Unversioned Rate Reference
   - Regulatory Mapping Smells
 - Do not start auto, personal auto, motor vehicle, no-fault, or PIP work unless the user explicitly reopens that scope.
-- If homeowners sources cross-reference auto or other P&C lines, record the reference as context only and keep the active fixture/detectors homeowners-centered.
+- If homeowners sources cross-reference auto or other P&C lines, record the reference as context only and keep active discovery, fixtures, and detectors homeowners-centered.
 - Treat broad claims-platform, regulatory-feed, PAS, productization, and infrastructure references as background or parked unless a specific stage explicitly reopens them.
-- Attach smell-specific ROI notes from `002-ROI-CASES-FIVE-SMELLS.md` to fixture examples and findings when useful.
+- Current active path: build Stage 002 discovery-and-instrumentation before detector findings. Emit parser diagnostics, legal nodes, citations, broader references, conservative graph edges, retrieval bundles, and candidate evidence first.
+- Defer vector infrastructure, but design the evidence substrate as if hybrid retrieval will eventually exist.
+- Treat parser/reference uncertainty as part of the evidence layer, not as an implementation detail.
+- Stage 002 JSON/JSONL artifacts should carry schema version, run identity, creation timestamp, and stable source/node IDs under a fixed parsing strategy.
+- Attach smell-specific ROI notes from `002-ROI-CASES-FIVE-SMELLS.md` to candidate evidence, fixture examples, and findings when useful.
 - Use the corpus at `corpus/kentucky-homeowners-policy-smells/` as the current real-document evidence base.
 - Treat `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv` as the record of sources already downloaded and mapped by smell.
 - Treat `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md` and `corpus/kentucky-homeowners-policy-smells/_manual_or_skipped_sources.csv` as the record of known unknowns. Do not chase manual SERFF gaps unless an active experiment actually needs that evidence.
-- For RAG parser work, Docling is a parser/enrichment adapter only. It may use local cached document models, but it is not the legal RAG store, a vector database, or a verified general local LLM runtime. See `skills/legal-rag-builder/references/docling-local-stack-boundary.md`.
+- For RAG parser work, Docling is a parser/enrichment adapter only. It may use local cached document models, but it is not the legal RAG store, a vector database, parser truth, or a verified general local LLM runtime. See `skills/legal-rag-builder/references/docling-local-stack-boundary.md`.
 - Keep primary source corpora under top-level `corpus/`, not inside `sandboxes/` or `skills/`.
 - Use `sources/` for background research, papers, web captures, and how-to/reference material.
 
