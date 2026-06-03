@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "candidate_evidence.schema.json",
+  "title": "CandidateEvidence",
+  "description": "A node flagged as a candidate instance of one of the five active policy-layer smells. Not a final finding.",
+  "type": "object",
+  "required": ["schema_version", "run_id", "created_at", "evidence_id", "source_id", "node_id", "smell_id", "smell_name", "heuristic_id", "why_flagged", "evidence_text", "parser_confidence", "cost_pool", "reviewer_question"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "run_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "evidence_id": { "type": "string" },
+    "source_id": { "type": "string" },
+    "node_id": { "type": "string" },
+    "smell_id": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "smell_name": { "type": "string" },
+    "heuristic_id": { "type": "string" },
+    "why_flagged": { "type": "string" },
+    "evidence_text": { "type": "string" },
+    "evidence_span": { "type": ["array", "null"], "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
+    "parser_confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+    "cost_pool": { "type": "string" },
+    "reviewer_question": { "type": "string" }
+  }
+}

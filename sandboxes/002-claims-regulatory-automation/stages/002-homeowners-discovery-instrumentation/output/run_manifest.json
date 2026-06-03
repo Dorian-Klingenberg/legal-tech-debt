@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+  "created_at": "2026-06-03T16:46:34.594289+00:00",
+  "pipeline_version": "002.1.0",
+  "corpus_root": "D:\\Repos\\legal-tech-debt\\sandboxes\\002-claims-regulatory-automation\\stages\\002-homeowners-discovery-instrumentation\\corpus\\kentucky-homeowners-policy-smells",
+  "subset_manifest": "D:\\Repos\\legal-tech-debt\\sandboxes\\002-claims-regulatory-automation\\stages\\002-homeowners-discovery-instrumentation\\data\\source_manifest_subset.csv",
+  "source_ids": [
+    "KY-KRS-304-12-230",
+    "KY-KRS-304-14",
+    "KY-KAR-806-14-006",
+    "KY-KAR-806-13-150",
+    "KY-DOI-BULLETIN-2026-01",
+    "KY-DOI-AO-2023-08"
+  ],
+  "output_dir": "D:\\Repos\\legal-tech-debt\\sandboxes\\002-claims-regulatory-automation\\stages\\002-homeowners-discovery-instrumentation\\output",
+  "total_sources": 6
+}

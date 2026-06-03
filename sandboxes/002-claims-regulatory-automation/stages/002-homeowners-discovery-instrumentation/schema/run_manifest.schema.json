@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "run_manifest.schema.json",
+  "title": "RunManifest",
+  "description": "Top-level record describing a single pipeline run.",
+  "type": "object",
+  "required": ["schema_version", "run_id", "created_at", "pipeline_version", "source_ids", "output_dir"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "run_id": { "type": "string", "format": "uuid" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "pipeline_version": { "type": "string" },
+    "corpus_root": { "type": "string" },
+    "subset_manifest": { "type": "string" },
+    "source_ids": { "type": "array", "items": { "type": "string" } },
+    "output_dir": { "type": "string" },
+    "total_sources": { "type": "integer" }
+  }
+}

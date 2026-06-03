@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "edge.schema.json",
+  "title": "Edge",
+  "description": "A typed directed graph edge between two records.",
+  "type": "object",
+  "required": ["schema_version", "run_id", "created_at", "edge_id", "from_id", "from_type", "to_id", "to_type", "edge_type", "confidence"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "run_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "edge_id": { "type": "string" },
+    "from_id": { "type": "string" },
+    "from_type": { "type": "string", "enum": ["node", "citation", "reference"] },
+    "to_id": { "type": "string" },
+    "to_type": { "type": "string", "enum": ["node", "citation", "reference"] },
+    "edge_type": { "type": "string", "enum": ["contains", "next", "cites_statute", "cites_regulation", "cites_bulletin", "defines_term", "uses_defined_term", "amends", "overrides", "unresolved_reference", "references"] },
+    "evidence_text": { "type": ["string", "null"] },
+    "confidence": { "type": "string", "enum": ["high", "medium", "low"] }
+  }
+}

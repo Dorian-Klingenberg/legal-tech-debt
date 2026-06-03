@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "parser_run.schema.json",
+  "title": "ParserRun",
+  "description": "Provenance record for a single parser execution against a source.",
+  "type": "object",
+  "required": ["schema_version", "run_id", "created_at", "parser_run_id", "source_id", "parser_name", "status"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "run_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "parser_run_id": { "type": "string" },
+    "source_id": { "type": "string" },
+    "parser_name": { "type": "string" },
+    "status": { "type": "string", "enum": ["success", "partial", "failed"] },
+    "failure_reason": { "type": ["string", "null"] },
+    "duration_seconds": { "type": "number" },
+    "block_count": { "type": "integer" },
+    "warning_count": { "type": "integer" },
+    "table_failure_count": { "type": "integer" },
+    "reading_order_uncertain": { "type": "boolean" },
+    "notes": { "type": "string" }
+  }
+}

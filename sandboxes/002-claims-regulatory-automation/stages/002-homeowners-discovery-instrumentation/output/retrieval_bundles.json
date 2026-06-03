@@ -1,0 +1,172 @@
+[
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T16:47:58.897192+00:00",
+    "bundle_id": "bae11bfcbc029eccc653",
+    "query": "smell:2 heuristic:SMELL2-H001",
+    "hit_node_id": "77855c73ea11759acde2",
+    "source_id": "KY-KRS-304-14",
+    "source_title": "KRS Chapter 304 Subtitle 14 — The Insurance Contract",
+    "source_type": "",
+    "section_path": "KY-KRS-304-14 > 304.14-120   Filing and approval of forms.",
+    "why_retrieved": [
+      "\"Reasonable\" without a defined standard or formula is a magic valuation term",
+      "heuristic=SMELL2-H001"
+    ],
+    "hit_text": "304.14-120 Filing and approval of forms. (a) Except as otherwise provided in this section, a basic insurance policy or annuity contract form, or application form where written application is required and is to be made a part of the policy or contract, or printed rider or indorsement form or form of renewal certificate, shall not be delivered, or issued for delivery in this state, unless the form has been filed with and approved by the commissioner. (b) This subsection shall not apply to: Any rat",
+    "parent_node_id": "3f9da95d26691130be27",
+    "parent_text": "KRS Chapter 304 Subtitle 14 — The Insurance Contract",
+    "adjacent_node_ids": [],
+    "citation_ids": [
+      "506187362ba3e733488c",
+      "a69cc3de8c1222dbcecc",
+      "1da0fe5f4844a9ab9c51"
+    ],
+    "reference_ids": [],
+    "parser_run_id": "389ded7938f33530e4ca",
+    "parser_confidence": "medium",
+    "signal_scores": {
+      "lexical_candidate": 1.0
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T16:47:58.897192+00:00",
+    "bundle_id": "fb04f290179e33c99274",
+    "query": "smell:2 heuristic:SMELL2-H001",
+    "hit_node_id": "6e567f744686f431d174",
+    "source_id": "KY-KAR-806-14-006",
+    "source_title": "806 KAR 14:006 — P&C Insurance Form Filings",
+    "source_type": "",
+    "section_path": "KY-KAR-806-14-006::meta::6fdb16291505b9feefbd",
+    "why_retrieved": [
+      "\"Reasonable\" without a defined standard or formula is a magic valuation term",
+      "heuristic=SMELL2-H001"
+    ],
+    "hit_text": "NECESSITY, FUNCTION, AND CONFORMITY: KRS 304.2-110 authorizes the commissioner to promulgate reasonable administrative regulations necessary for or as an aid to the effectuation of any provision of the Kentucky Insurance Code as defined in KRS 304.1-010. KRS 304.14-120 authorizes the commissioner to approve, disapprove, or exempt insurance documents and forms prior to issuance for delivery in Kentucky. This administrative regulation provides form filing procedures for property, casualty, surety,",
+    "parent_node_id": "ef8fe78c277fd96e835c",
+    "parent_text": "806 KAR 14:006 — P&C Insurance Form Filings",
+    "adjacent_node_ids": [
+      "baec6d958650b2501eb5",
+      "acc5b4dd4f318a354d32"
+    ],
+    "citation_ids": [
+      "d0d52d11966fbc846fe8",
+      "80ef7642e669298105a8",
+      "67c9f1c3a68e753152ab"
+    ],
+    "reference_ids": [],
+    "parser_run_id": "5efdaf1b3977f73aa2a6",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "lexical_candidate": 1.0
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T16:47:58.897192+00:00",
+    "bundle_id": "17ff1d9d01a3d5d46188",
+    "query": "smell:2 heuristic:SMELL2-H001",
+    "hit_node_id": "4daa7817e31a758c56d8",
+    "source_id": "KY-DOI-BULLETIN-2026-01",
+    "source_title": "DOI Bulletin 2026-01 — Use of Satellite and Aerial Imagery for Cancellations and Claim Denials",
+    "source_type": "",
+    "section_path": "KY-DOI-BULLETIN-2026-01 > BULLETIN 2026-01",
+    "why_retrieved": [
+      "\"Reasonable\" without a defined standard or formula is a magic valuation term",
+      "heuristic=SMELL2-H001"
+    ],
+    "hit_text": "BULLETIN 2026-01 This Bulletin is to advise the reader of the current position of the Kentucky Department of Insurance (\"Department\"), on the specified issue. The Bulletin is not legally binding on either the Department or the reader. TO: ALLPROPERTY&CASUALTYINSURANCECOMPANIESAUTHORIZED TOTRANSACTBUSINESSINTHECOMMONWEALTHOFKENTUCKY FROM: SHARONP.CLARK,COMMISSIONER RE: USE OFSATELLITE/AERIALIMAGERYASBASISFORCANCELLATIONS, NONRENEWALS,AND CLAIM DENIALS DATE: March 11, 2026 The Kentucky Department ",
+    "parent_node_id": "861330bba197a49ac646",
+    "parent_text": "DOI Bulletin 2026-01 — Use of Satellite and Aerial Imagery for Cancellations and Claim Denials Andy Beshear GOVERNOR Jacqueline Coleman LIEUTENANT GOVERNOR",
+    "adjacent_node_ids": [
+      "273e86b67daace39cbbd",
+      "ab3e3add54e4113de943"
+    ],
+    "citation_ids": [
+      "2f22a2d2bb89dffe3026",
+      "f1bc9133b1a11c7dabcb",
+      "7543539c23273e46f140"
+    ],
+    "reference_ids": [
+      "65067de4cfa9f4a3a526"
+    ],
+    "parser_run_id": "b0c028e7357f33160129",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "lexical_candidate": 1.0
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T16:47:58.897192+00:00",
+    "bundle_id": "a087c73f16cd7435b1f2",
+    "query": "smell:4 heuristic:SMELL4-H003",
+    "hit_node_id": "4daa7817e31a758c56d8",
+    "source_id": "KY-DOI-BULLETIN-2026-01",
+    "source_title": "DOI Bulletin 2026-01 — Use of Satellite and Aerial Imagery for Cancellations and Claim Denials",
+    "source_type": "",
+    "section_path": "KY-DOI-BULLETIN-2026-01 > BULLETIN 2026-01",
+    "why_retrieved": [
+      "\"Guidelines\" reference without version or filing anchor — unversioned calculation dependency",
+      "heuristic=SMELL4-H003"
+    ],
+    "hit_text": "BULLETIN 2026-01 This Bulletin is to advise the reader of the current position of the Kentucky Department of Insurance (\"Department\"), on the specified issue. The Bulletin is not legally binding on either the Department or the reader. TO: ALLPROPERTY&CASUALTYINSURANCECOMPANIESAUTHORIZED TOTRANSACTBUSINESSINTHECOMMONWEALTHOFKENTUCKY FROM: SHARONP.CLARK,COMMISSIONER RE: USE OFSATELLITE/AERIALIMAGERYASBASISFORCANCELLATIONS, NONRENEWALS,AND CLAIM DENIALS DATE: March 11, 2026 The Kentucky Department ",
+    "parent_node_id": "861330bba197a49ac646",
+    "parent_text": "DOI Bulletin 2026-01 — Use of Satellite and Aerial Imagery for Cancellations and Claim Denials Andy Beshear GOVERNOR Jacqueline Coleman LIEUTENANT GOVERNOR",
+    "adjacent_node_ids": [
+      "273e86b67daace39cbbd",
+      "ab3e3add54e4113de943"
+    ],
+    "citation_ids": [
+      "2f22a2d2bb89dffe3026",
+      "f1bc9133b1a11c7dabcb",
+      "7543539c23273e46f140"
+    ],
+    "reference_ids": [
+      "65067de4cfa9f4a3a526"
+    ],
+    "parser_run_id": "b0c028e7357f33160129",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "lexical_candidate": 1.0
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T16:47:58.897192+00:00",
+    "bundle_id": "a0989820c9b0923220cd",
+    "query": "smell:2 heuristic:SMELL2-H001",
+    "hit_node_id": "bdfadc8c3e7aec8ab312",
+    "source_id": "KY-DOI-AO-2023-08",
+    "source_title": "Advisory Opinion 2023-08 — Matching in Property Loss Settlement",
+    "source_type": "",
+    "section_path": "KY-DOI-AO-2023-08 > Opinion",
+    "why_retrieved": [
+      "\"Reasonable\" without a defined standard or formula is a magic valuation term",
+      "heuristic=SMELL2-H001"
+    ],
+    "hit_text": "Opinion The purpose of this Advisory Opinion is to clarify the Department's interpretation of 806 KAR 12:095 Section 9(1)(b), which provides as follows: 'If a loss requires replacement of items and the replaced items do not reasonably match in quality, color, and size, the insurer shall replace all items in the area so as to conform to a reasonably uniform appearance. This applies to interior and exterior losses. The insured shall not bear any cost over the applicable deductible.' The intent of ",
+    "parent_node_id": "3d83dc824d75847eb951",
+    "parent_text": "Advisory Opinion 2023-08 — Matching in Property Loss Settlement Andy Beshear Governor Jacqueline Coleman Lieutenant Governor",
+    "adjacent_node_ids": [
+      "84492f7b6712efdf4b82",
+      "259a39df43cba12a0f7c"
+    ],
+    "citation_ids": [
+      "de6a430d6c4e0ee1e6cf",
+      "f7c813753cf59f363415"
+    ],
+    "reference_ids": [],
+    "parser_run_id": "14c1121a0b420947a203",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "lexical_candidate": 1.0
+    }
+  }
+]

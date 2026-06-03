@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "table_failure.schema.json",
+  "title": "TableFailure",
+  "description": "A table that could not be parsed or yielded no useful structure.",
+  "type": "object",
+  "required": ["schema_version", "run_id", "created_at", "failure_id", "source_id", "parser_run_id", "failure_type", "description"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "run_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "failure_id": { "type": "string" },
+    "source_id": { "type": "string" },
+    "parser_run_id": { "type": "string" },
+    "block_id": { "type": ["string", "null"] },
+    "failure_type": { "type": "string", "enum": ["parse_error", "empty_table", "single_cell", "header_only", "rendering_artefact"] },
+    "description": { "type": "string" },
+    "page_number": { "type": ["integer", "null"] }
+  }
+}

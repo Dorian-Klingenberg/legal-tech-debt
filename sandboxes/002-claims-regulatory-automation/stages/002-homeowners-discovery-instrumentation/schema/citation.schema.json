@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "citation.schema.json",
+  "title": "Citation",
+  "description": "A formal KRS statute or KAR regulation citation extracted from a node.",
+  "type": "object",
+  "required": ["schema_version", "run_id", "created_at", "citation_id", "source_id", "node_id", "citation_type", "raw_text", "resolved"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "run_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "citation_id": { "type": "string" },
+    "source_id": { "type": "string" },
+    "node_id": { "type": "string" },
+    "citation_type": { "type": "string", "enum": ["krs_statute", "kar_regulation"] },
+    "raw_text": { "type": "string" },
+    "normalized": { "type": ["string", "null"] },
+    "chapter": { "type": ["string", "null"] },
+    "subtitle": { "type": ["string", "null"] },
+    "section_number": { "type": ["string", "null"] },
+    "resolved": { "type": "boolean" }
+  }
+}

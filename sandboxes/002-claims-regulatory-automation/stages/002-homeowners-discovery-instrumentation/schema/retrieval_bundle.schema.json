@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "retrieval_bundle.schema.json",
+  "title": "RetrievalBundle",
+  "description": "An evidence bundle returned for a retrieval query. Designed for future lexical, graph, and semantic signal slots.",
+  "type": "object",
+  "required": ["schema_version", "run_id", "created_at", "bundle_id", "query", "hit_node_id", "source_id", "section_path", "why_retrieved", "hit_text"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "run_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "bundle_id": { "type": "string" },
+    "query": { "type": "string" },
+    "hit_node_id": { "type": "string" },
+    "source_id": { "type": "string" },
+    "source_title": { "type": "string" },
+    "source_type": { "type": "string" },
+    "section_path": { "type": "string" },
+    "why_retrieved": { "type": "array", "items": { "type": "string" } },
+    "hit_text": { "type": "string" },
+    "parent_node_id": { "type": ["string", "null"] },
+    "parent_text": { "type": ["string", "null"] },
+    "adjacent_node_ids": { "type": "array", "items": { "type": "string" } },
+    "citation_ids": { "type": "array", "items": { "type": "string" } },
+    "reference_ids": { "type": "array", "items": { "type": "string" } },
+    "parser_run_id": { "type": "string" },
+    "parser_confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+    "signal_scores": { "type": "object", "description": "Reserved for future lexical/semantic/graph signal scores" }
+  }
+}

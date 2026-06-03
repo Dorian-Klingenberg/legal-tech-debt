@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "block_stats.schema.json",
+  "title": "BlockStats",
+  "description": "Aggregate parser quality statistics for a single source.",
+  "type": "object",
+  "required": ["schema_version", "run_id", "created_at", "source_id", "parser_run_id", "total_blocks"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "run_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "source_id": { "type": "string" },
+    "parser_run_id": { "type": "string" },
+    "total_blocks": { "type": "integer" },
+    "heading_count": { "type": "integer" },
+    "paragraph_count": { "type": "integer" },
+    "list_item_count": { "type": "integer" },
+    "table_count": { "type": "integer" },
+    "table_failure_count": { "type": "integer" },
+    "empty_block_count": { "type": "integer" },
+    "total_chars": { "type": "integer" }
+  }
+}

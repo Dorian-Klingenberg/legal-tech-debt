@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "source.schema.json",
+  "title": "Source",
+  "description": "A single corpus source file with provenance metadata.",
+  "type": "object",
+  "required": ["schema_version", "run_id", "created_at", "source_id", "title", "source_type", "smell_ids", "downloaded_path", "source_hash", "detected_file_type"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "run_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "source_id": { "type": "string" },
+    "title": { "type": "string" },
+    "source_type": { "type": "string", "enum": ["krs_statute", "kar_regulation", "doi_bulletin", "doi_checklist", "doi_guidance", "serff_rate_rule_filing"] },
+    "smell_ids": { "type": "array", "items": { "type": "integer", "minimum": 1, "maximum": 5 } },
+    "url": { "type": "string" },
+    "downloaded_path": { "type": "string" },
+    "file_bytes": { "type": "integer" },
+    "downloaded_at": { "type": "string" },
+    "source_hash": { "type": "string", "description": "sha256 hex digest of file content" },
+    "detected_file_type": { "type": "string", "enum": ["html", "pdf", "unknown"] },
+    "extension_matches_type": { "type": "boolean" }
+  }
+}

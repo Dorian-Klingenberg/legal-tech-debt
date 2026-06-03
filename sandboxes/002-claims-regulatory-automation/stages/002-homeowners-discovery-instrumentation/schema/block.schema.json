@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "block.schema.json",
+  "title": "Block",
+  "description": "Raw parser output unit before segmentation into legal nodes.",
+  "type": "object",
+  "required": ["schema_version", "run_id", "created_at", "block_id", "source_id", "parser_run_id", "block_index", "block_type", "text"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "run_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "block_id": { "type": "string" },
+    "source_id": { "type": "string" },
+    "parser_run_id": { "type": "string" },
+    "block_index": { "type": "integer" },
+    "block_type": { "type": "string", "enum": ["heading", "paragraph", "list_item", "table", "caption", "metadata", "citation_header", "history", "unknown"] },
+    "level": { "type": ["integer", "null"] },
+    "text": { "type": "string" },
+    "page_number": { "type": ["integer", "null"] },
+    "element_ref": { "type": ["string", "null"] },
+    "reading_order_uncertain": { "type": "boolean" }
+  }
+}
