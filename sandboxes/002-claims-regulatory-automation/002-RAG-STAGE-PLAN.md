@@ -274,8 +274,8 @@ Question:
 
 ## Stage 007: Reviewer Report
 
-Status: **Not started**
-Directory: `stages/007-reviewer-report/` (to be created)
+Status: **Complete**
+Directory: `stages/007-reviewer-report/`
 
 Question:
 
@@ -283,21 +283,23 @@ Question:
 
 ### Checklist
 
-- [ ] Create `stages/007-reviewer-report/` with `STAGE.md`, `.gitignore`, `src/`
-- [ ] Report assembler reads Stage 002 JSONL + Stage 006 `detector_findings.jsonl`
-- [ ] Per-smell summary section: finding count, confidence distribution, top nodes
-- [ ] Per-finding detail: source, node path, evidence text, heuristic IDs, rationale
-- [ ] Corpus gap section: which smells have insufficient source coverage
-- [ ] Output: single-file HTML report (dark theme, consistent with Stage 002 visualizer)
-- [ ] Output: `reviewer_report.md` — plain-text version for diff and version control
-- [ ] Report written into the Stage 002 run directory
+- [x] Create `stages/007-reviewer-report/` with `STAGE.md`, `.gitignore`, `src/`
+- [x] Report assembler reads Stage 002 JSONL + Stage 006 `detector_findings.jsonl`
+- [x] Per-smell summary section: finding count, confidence distribution
+- [x] Per-finding detail: source, node ID, evidence text, heuristic ID, rationale, reviewer question, false positive risk
+- [x] Corpus gap section: three gap tiers with affected smells and impact
+- [x] Output: single-file dark-theme HTML with Summary, Findings, Corpus Gaps tabs
+- [x] Output: `reviewer_report.md` — plain-text version for diff and version control
+- [x] Report written into the Stage 002 run directory
+
+**Results (run 996e36af):** 17 findings, 47 candidate evidence items, 3 corpus gap tiers documented.
 
 **Success criteria**
 
-- [ ] A reviewer unfamiliar with the pipeline can read the report and identify which nodes to inspect
-- [ ] Every finding links back to source document and section
-- [ ] Corpus gaps are clearly distinguished from confirmed findings
-- [ ] Report does not claim legal conclusions — it surfaces patterns for human judgment
+- [x] A reviewer unfamiliar with the pipeline can read the report and identify which nodes to inspect
+- [x] Every finding links back to source document and node
+- [x] Corpus gaps are clearly distinguished from confirmed findings
+- [x] Report does not claim legal conclusions — it surfaces patterns for human judgment
 
 ---
 

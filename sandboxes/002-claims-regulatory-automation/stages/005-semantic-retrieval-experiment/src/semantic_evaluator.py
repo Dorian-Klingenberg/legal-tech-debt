@@ -31,6 +31,7 @@ from retrieval.index import RunIndex  # type: ignore  # noqa: E402
 
 from embedder import embed_run  # noqa: E402
 from semantic_searcher import cosine_search  # noqa: E402
+from paths import stage_output_dir  # type: ignore  # noqa: E402
 
 DEFAULT_GOLDSET = (
     Path(__file__).parent.parent.parent
@@ -140,7 +141,8 @@ def evaluate(run_dir: Path, goldset_path: Path, top_k: int = 10, model: str = "t
     )
 
     # Write JSON results
-    results_path = run_dir / "semantic_evaluation_results.json"
+    out_dir = stage_output_dir("005", run_dir)
+    results_path = out_dir / "semantic_evaluation_results.json"
     results_path.write_text(
         json.dumps(asdict(report), indent=2, default=str),
         encoding="utf-8",
@@ -148,8 +150,8 @@ def evaluate(run_dir: Path, goldset_path: Path, top_k: int = 10, model: str = "t
     print(f"[semantic-eval] Written results -> {results_path}")
 
     # Write markdown report
-    _write_report(report, run_dir / "semantic_evaluation_report.md", run_dir)
-    print(f"[semantic-eval] Written report -> {run_dir / 'semantic_evaluation_report.md'}")
+    _write_report(report, out_dir / "semantic_evaluation_report.md", run_dir)
+    print(f"[semantic-eval] Written report -> {out_dir / 'semantic_evaluation_report.md'}")
 
     return report
 

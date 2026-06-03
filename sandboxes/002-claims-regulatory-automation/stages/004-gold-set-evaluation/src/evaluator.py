@@ -29,6 +29,7 @@ if str(_STAGE_003_SRC) not in sys.path:
 
 from retrieval.index import RunIndex
 from retrieval.searcher import bm25_search, phrase_search
+from paths import stage_output_dir
 
 SMELL_NAMES = {
     1: "Overbroad / Non-deterministic Exclusions",
@@ -436,7 +437,8 @@ def main() -> None:
     ev = evaluate(args.run_dir, args.goldset)
 
     # Write JSON results
-    results_path = args.run_dir / "evaluation_results.json"
+    out_dir = stage_output_dir("004", args.run_dir)
+    results_path = out_dir / "evaluation_results.json"
     results_path.write_text(
         json.dumps(asdict(ev), ensure_ascii=False, indent=2),
         encoding="utf-8",
@@ -445,7 +447,7 @@ def main() -> None:
 
     # Write markdown report
     report = _build_report(ev)
-    report_path = args.run_dir / "evaluation_report.md"
+    report_path = out_dir / "evaluation_report.md"
     report_path.write_text(report, encoding="utf-8")
     print(f"[evaluator] Written report -> {report_path}")
 

@@ -41,6 +41,7 @@ if str(_STAGE_003_SRC) not in sys.path:
     sys.path.insert(0, str(_STAGE_003_SRC))
 
 from retrieval.index import RunIndex  # type: ignore  # noqa: E402
+from paths import stage_output_dir  # type: ignore  # noqa: E402
 
 EMBED_INDEX_FILE = "semantic_embed_index.json"
 EMBED_MATRIX_FILE = "semantic_embeddings.npy"
@@ -52,8 +53,9 @@ def _batched(items: list, size: int):
 
 
 def embed_run(run_dir: Path, model: str = "text-embedding-3-small", batch_size: int = 64) -> None:
-    index_path = run_dir / EMBED_INDEX_FILE
-    matrix_path = run_dir / EMBED_MATRIX_FILE
+    out_dir = stage_output_dir("005", run_dir)
+    index_path = out_dir / EMBED_INDEX_FILE
+    matrix_path = out_dir / EMBED_MATRIX_FILE
 
     if index_path.exists() and matrix_path.exists():
         print(f"[embedder] Cache exists — skipping. Delete {EMBED_INDEX_FILE} to re-embed.")
@@ -104,15 +106,16 @@ def embed_run(run_dir: Path, model: str = "text-embedding-3-small", batch_size: 
     }
     index_path.write_text(json.dumps(embed_index, indent=2), encoding="utf-8")
 
-    print(f"[embedder] Saved {len(node_ids)} embeddings ({matrix.shape}) -> {run_dir}")
+    print(f"[embedder] Saved {len(node_ids)} embeddings ({matrix.shape}) -> {out_dir}")
 
 
 def load_embeddings(run_dir: Path) -> tuple[list[str], np.ndarray]:
-    """Return (node_ids, matrix) from cached files."""
-    index_path = run_dir / EMBED_INDEX_FILE
-    matrix_path = run_dir / EMBED_MATRIX_FILE
+    """Return (node_ids, matrix) from cached files in the stage 005 output dir."""
+    out_dir = stage_output_dir("005", run_dir)
+    index_path = out_dir / EMBED_INDEX_FILE
+    matrix_path = out_dir / EMBED_MATRIX_FILE
     if not index_path.exists() or not matrix_path.exists():
-        raise FileNotFoundError(f"No embedding cache in {run_dir}. Run embedder.py first.")
+        raise FileNotFoundError(f"No embedding cache in {out_dir}. Run embedder.py first.")
     embed_index = json.loads(index_path.read_text(encoding="utf-8"))
     matrix = np.load(matrix_path)
     return embed_index["node_ids"], matrix

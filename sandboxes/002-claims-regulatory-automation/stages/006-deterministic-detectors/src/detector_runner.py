@@ -28,6 +28,7 @@ if str(_STAGE_006_SRC) not in sys.path:
     sys.path.insert(0, str(_STAGE_006_SRC))
 
 from retrieval.index import RunIndex  # type: ignore
+from paths import stage_output_dir  # type: ignore
 from models import Finding
 from detectors import smell1, smell2, smell3, smell4, smell5
 
@@ -63,13 +64,14 @@ def run_detectors(run_dir: Path) -> list[Finding]:
 
 
 def write_findings(findings: list[Finding], run_dir: Path) -> None:
-    out_path = run_dir / "detector_findings.jsonl"
+    out_path = stage_output_dir("006", run_dir) / "detector_findings.jsonl"
     lines = [json.dumps(f.to_dict(), ensure_ascii=False) for f in findings]
     out_path.write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
     print(f"[detector-runner] Written -> {out_path}")
 
 
 def write_report(findings: list[Finding], run_dir: Path, run_id: str) -> None:
+    out_dir = stage_output_dir("006", run_dir)
     by_smell: dict[int, list[Finding]] = defaultdict(list)
     for f in findings:
         by_smell[f.smell_id].append(f)
@@ -127,7 +129,7 @@ def write_report(findings: list[Finding], run_dir: Path, run_id: str) -> None:
                 "",
             ]
 
-    report_path = run_dir / "detector_report.md"
+    report_path = out_dir / "detector_report.md"
     report_path.write_text("\n".join(lines), encoding="utf-8")
     print(f"[detector-runner] Written -> {report_path}")
 

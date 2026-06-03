@@ -17,13 +17,14 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 
-_SRC = Path(__file__).parent
+_SRC = Path(__file__).resolve().parent
 if str(_SRC) not in sys.path:
     sys.path.insert(0, str(_SRC))
 
 from retrieval.composer import compose
 from retrieval.index import RunIndex
 from retrieval.searcher import SearchHit, bm25_search, phrase_search
+from paths import stage_output_dir
 
 # ---------------------------------------------------------------------------
 # Smell query definitions
@@ -174,7 +175,8 @@ def run(run_dir: Path) -> None:
             print(f"[retrieval_runner]   No hits.")
 
     # Write retrieval bundles
-    bundles_path = run_dir / "retrieval_bundles.json"
+    out_dir = stage_output_dir("003", run_dir)
+    bundles_path = out_dir / "retrieval_bundles.json"
     bundles_path.write_text(
         json.dumps(list(all_bundles.values()), ensure_ascii=False, indent=2),
         encoding="utf-8",
@@ -183,7 +185,7 @@ def run(run_dir: Path) -> None:
 
     # Write retrieval report
     report = _build_report(smell_results, corpus_gaps, index, run_id)
-    report_path = run_dir / "retrieval_report.md"
+    report_path = out_dir / "retrieval_report.md"
     report_path.write_text(report, encoding="utf-8")
     print(f"[retrieval_runner] Written report -> {report_path}")
 
