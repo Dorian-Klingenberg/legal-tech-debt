@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0.0",
+  "source": "sandboxes/002-claims-regulatory-automation/002-ROI-CASES-FIVE-SMELLS.md",
+  "notes": "Public cost examples mapped to confirmed smells. These are directional anchors from project research — not audited figures. Use to ground severity claims in the executive report.",
+  "smells": {
+    "2": {
+      "smell_name": "Magic Number / Magic Valuation Terms",
+      "cost_pool": "Claim disputes, bad-faith exposure, class-action remediation",
+      "anchors": [
+        {
+          "label": "Labor depreciation class-action wave",
+          "description": "A wave of class actions beginning around 2015 alleged that carriers were systematically depreciating labor costs when calculating actual cash value — a practice not disclosed or defined in policy language. One Trumbull/Hartford suit alone alleged more than $5 million in underpayments; industry-wide exposure has been estimated in the hundreds of millions.",
+          "dollar_figure": "$5M+ in one case; industry-wide hundreds of millions",
+          "relevance": "Directly tied to undefined ACV methodology — the same pattern flagged by SMELL2-H003."
+        },
+        {
+          "label": "State Farm ACV settlement",
+          "description": "State Farm reached a $15.6 million settlement in a dispute over how actual cash value was calculated on property claims — a direct consequence of undefined ACV methodology in policy language.",
+          "dollar_figure": "$15.6 million",
+          "relevance": "ACV undefined in loss settlement conditions — the core SMELL2-H003 finding."
+        },
+        {
+          "label": "Kentucky ambiguity and bad-faith exposure",
+          "description": "Project research (Pedicini example) shows that undefined payment terminology in Kentucky policy language has survived as the basis for bad-faith exposure. Kentucky courts treat policy ambiguity against the drafter.",
+          "dollar_figure": "Bad-faith multiplier exposure — no single figure; materially increases dispute value",
+          "relevance": "Kentucky-specific risk for carriers with undefined valuation terms in homeowners forms."
+        }
+      ]
+    },
+    "4": {
+      "smell_name": "Calculation Rule Drift / Unversioned Rate Reference",
+      "cost_pool": "Systematic underpayment, premium leakage, audit findings",
+      "anchors": [
+        {
+          "label": "Marshall Fire underinsurance",
+          "description": "A single home insured for $419,000 faced an $850,000 rebuild estimate after the Marshall Fire — a $431,000 gap driven by replacement cost estimates that were not synchronized with actual post-loss reconstruction pricing.",
+          "dollar_figure": "$431,000 gap on one home",
+          "relevance": "Unversioned rate or valuation reference that drifts from real-world cost — the SMELL4-H001 pattern."
+        },
+        {
+          "label": "Han v. State Farm",
+          "description": "Alleged systematic property underpayment from using lower new-construction pricing rather than reconstruction pricing. Pattern affects entire claim population, not individual cases.",
+          "dollar_figure": "Systematic underpayment — class exposure",
+          "relevance": "Filing cites an external manual without version — the filed promise and implemented method diverge."
+        }
+      ]
+    },
+    "5": {
+      "smell_name": "Regulatory Mapping Smells",
+      "cost_pool": "Market conduct fines, remediation, refiling, interest and penalties",
+      "anchors": [
+        {
+          "label": "Florida OIR hurricane market conduct exams",
+          "description": "Following post-hurricane market conduct examinations, Florida's OIR levied $2.575 million in fines across ten carriers. Findings included missing required notices, claim handling deadline failures, and payment timing violations — all traceable to regulatory mapping gaps in carrier filings.",
+          "dollar_figure": "$2.575 million across ten carriers",
+          "relevance": "Carriers with rate rules and mandatory coverage claims not anchored to regulatory authority are exposed to the same examination findings — the H004 and H005 patterns."
+        },
+        {
+          "label": "Louisiana hurricane market conduct exams",
+          "description": "Louisiana proposed nearly $1 million in fines following hurricane claims examinations — the same pattern as Florida, driven by missing state-specific regulatory compliance in carrier claim handling.",
+          "dollar_figure": "~$1 million proposed fines",
+          "relevance": "Regulatory mapping gap in carrier filings — directly analogous to SMELL5-H004."
+        },
+        {
+          "label": "South Dakota Farmers/Foremost market conduct exam",
+          "description": "A single property insurance market conduct examination produced a $750,000 penalty — establishing the low end of the documented fine range for regulatory mapping failures.",
+          "dollar_figure": "$750,000",
+          "relevance": "Low end of documented market conduct penalty range — establishes the floor for a single exam finding."
+        }
+      ]
+    }
+  },
+  "portfolio_framing": {
+    "description": "For a carrier with $1B+ in written premium, estimated annual impact ranges from the project's 10-year exposure analysis.",
+    "ranges": [
+      {
+        "category": "Semantic defects (Smells 1 and 2)",
+        "annual_estimate": "$20M–$200M",
+        "ten_year_range": "$200M–$2.0B"
+      },
+      {
+        "category": "Regulatory mapping (Smell 5)",
+        "annual_estimate": "$5M–$25M",
+        "ten_year_range": "$50M–$250M"
+      },
+      {
+        "category": "Calculation rule drift (Smell 4)",
+        "annual_estimate": "$10M–$100M",
+        "ten_year_range": "$100M–$1.0B"
+      }
+    ],
+    "conservative_pitch": "If the review has only a 10% chance of preventing a $1M remediation or litigation event, expected value is $100K. If the service costs $60K–$90K, the buyer has a plausible positive expected ROI before counting reviewer time savings or reputational risk."
+  }
+}
+

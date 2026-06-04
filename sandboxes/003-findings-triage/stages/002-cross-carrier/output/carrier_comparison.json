@@ -1,0 +1,274 @@
+{
+  "schema_version": "1.0.0",
+  "stage": "003-002-cross-carrier",
+  "run_at": "2026-06-04T18:01:41.809256+00:00",
+  "findings_source": "D:\\Repos\\legal-tech-debt\\sandboxes\\003-findings-triage\\stages\\001-llm-triage\\output\\enriched_findings.jsonl",
+  "review_verdicts_source": "D:\\Repos\\legal-tech-debt\\sandboxes\\003-findings-triage\\stages\\002-cross-carrier\\data\\review_verdicts.json",
+  "total_input_findings": 35,
+  "confirmed_findings": 25,
+  "smells": [
+    {
+      "smell_id": 2,
+      "smell_name": "Magic Number / Magic Valuation Terms",
+      "confirmed_findings": 16,
+      "industry_wide_patterns": 1,
+      "carrier_specific_patterns": 1,
+      "patterns": [
+        {
+          "heuristic_id": "SMELL2-H001",
+          "pattern_label": "carrier-specific",
+          "industry_wide": false,
+          "only_carrier": "KFBM",
+          "knic_count": 0,
+          "kfbm_count": 6,
+          "terms_flagged": [
+            "Reasonable"
+          ],
+          "knic_findings": [],
+          "kfbm_findings": [
+            {
+              "finding_id": "18b0dec5-s2-0008",
+              "section_path": "KY-SERFF-KFBM-134503212-HO-FORM > SECTION I - CONDITIONS",
+              "revised_severity": "MEDIUM",
+              "verdict": "Confirm finding, then escalate — high consequence if real."
+            },
+            {
+              "finding_id": "18b0dec5-s2-0009",
+              "section_path": "KY-SERFF-KFBM-134503212-HO-FORM > SECTION I - CONDITIONS",
+              "revised_severity": "MEDIUM",
+              "verdict": "Confirm finding, then escalate — high consequence if real."
+            },
+            {
+              "finding_id": "18b0dec5-s2-0013",
+              "section_path": "KY-SERFF-KFBM-134503212-HO-FORM-MARKUP > SECTION I - CONDITIONS",
+              "revised_severity": "MEDIUM",
+              "verdict": "Likely real and high risk — confirm detection and escalate for immediate policy review."
+            },
+            {
+              "finding_id": "18b0dec5-s2-0014",
+              "section_path": "KY-SERFF-KFBM-134503212-HO-FORM-MARKUP > SECTION I - CONDITIONS",
+              "revised_severity": "MEDIUM",
+              "verdict": "Confirm finding, then escalate — high consequence if real."
+            },
+            {
+              "finding_id": "18b0dec5-s2-0017",
+              "section_path": "KY-SERFF-KFBM-134827992-ENDORSEMENT > HO FB 01 07 26",
+              "revised_severity": "MEDIUM",
+              "verdict": "Likely real and high risk — escalate for immediate policy revision."
+            },
+            {
+              "finding_id": "18b0dec5-s2-0018",
+              "section_path": "KY-SERFF-KFBM-134827992-ENDORSEMENT > HO FB 01 07 26",
+              "revised_severity": "MEDIUM",
+              "verdict": "Confirm finding, then escalate — high consequence if real."
+            }
+          ]
+        },
+        {
+          "heuristic_id": "SMELL2-H003",
+          "pattern_label": "industry-wide",
+          "industry_wide": true,
+          "only_carrier": null,
+          "knic_count": 5,
+          "kfbm_count": 5,
+          "terms_flagged": [
+            "Actual Cash Value",
+            "REPLACEMENT COST",
+            "Replacement Cost",
+            "actual cash value",
+            "market value",
+            "replacement cost"
+          ],
+          "knic_findings": [
+            {
+              "finding_id": "18b0dec5-s2-0002",
+              "section_path": "KY-SERFF-KNIC-127064322 > B.    Physical Characteristics of Home",
+              "revised_severity": "LOW",
+              "verdict": "Likely real and moderate risk — assign for review."
+            },
+            {
+              "finding_id": "18b0dec5-s2-0004",
+              "section_path": "KY-SERFF-KNIC-127064322 > 403. PERSONAL PROPERTY (COVERAGE C) REPLACEMENT COST COVERAGE",
+              "revised_severity": "HIGH",
+              "verdict": "Confirm finding, then escalate — high consequence if real."
+            },
+            {
+              "finding_id": "18b0dec5-s2-0005",
+              "section_path": "KY-SERFF-KNIC-127064322 > 406. ADDITIONAL AMOUNTS OF INSURANCE FORM HO 00 03",
+              "revised_severity": "HIGH",
+              "verdict": "Confirm finding, then escalate — high consequence if real."
+            },
+            {
+              "finding_id": "18b0dec5-s2-0006",
+              "section_path": "KY-SERFF-KNIC-127064322 > 518. WATER BACK UP AND SUMP OVERFLOW",
+              "revised_severity": "HIGH",
+              "verdict": "Confirm finding, then escalate — high consequence if real."
+            },
+            {
+              "finding_id": "18b0dec5-s2-0007",
+              "section_path": "KY-SERFF-KNIC-127064322 > 907. RISK LEVEL > Comments:",
+              "revised_severity": "HIGH",
+              "verdict": "Confirm finding, then escalate — high consequence if real."
+            }
+          ],
+          "kfbm_findings": [
+            {
+              "finding_id": "18b0dec5-s2-0010",
+              "section_path": "KY-SERFF-KFBM-134503212-HO-FORM > SECTION I - CONDITIONS",
+              "revised_severity": "HIGH",
+              "verdict": "Confirm finding, then escalate — high consequence if real."
+            },
+            {
+              "finding_id": "18b0dec5-s2-0011",
+              "section_path": "KY-SERFF-KFBM-134503212-HO-FORM > SECTION I - CONDITIONS",
+              "revised_severity": "HIGH",
+              "verdict": "Confirm finding, then escalate — high consequence if real."
+            },
+            {
+              "finding_id": "18b0dec5-s2-0012",
+              "section_path": "KY-SERFF-KFBM-134503212-HO-FORM-MARKUP > Endorsements",
+              "revised_severity": "HIGH",
+              "verdict": "Likely real and high risk — assign for immediate review."
+            },
+            {
+              "finding_id": "18b0dec5-s2-0015",
+              "section_path": "KY-SERFF-KFBM-134503212-HO-FORM-MARKUP > SECTION I - CONDITIONS",
+              "revised_severity": "HIGH",
+              "verdict": "Confirm finding, then escalate — high consequence if real."
+            },
+            {
+              "finding_id": "18b0dec5-s2-0016",
+              "section_path": "KY-SERFF-KFBM-134503212-HO-FORM-MARKUP > SECTION I - CONDITIONS",
+              "revised_severity": "HIGH",
+              "verdict": "Likely real and high risk — prioritize immediate review and corrective action."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "smell_id": 4,
+      "smell_name": "Calculation Rule Drift / Unversioned Rate Reference",
+      "confirmed_findings": 1,
+      "industry_wide_patterns": 0,
+      "carrier_specific_patterns": 1,
+      "patterns": [
+        {
+          "heuristic_id": "SMELL4-H001",
+          "pattern_label": "carrier-specific",
+          "industry_wide": false,
+          "only_carrier": "KNIC",
+          "knic_count": 1,
+          "kfbm_count": 0,
+          "terms_flagged": [
+            "the Manual"
+          ],
+          "knic_findings": [
+            {
+              "finding_id": "18b0dec5-s4-0023",
+              "section_path": "KY-SERFF-KNIC-127064322 > 602. OTHER INSURED LOCATION OCCUPIED BY INSURED",
+              "revised_severity": "HIGH",
+              "verdict": "Confirm finding, then escalate — high consequence if real."
+            }
+          ],
+          "kfbm_findings": []
+        }
+      ]
+    },
+    {
+      "smell_id": 5,
+      "smell_name": "Regulatory Mapping Smells",
+      "confirmed_findings": 8,
+      "industry_wide_patterns": 2,
+      "carrier_specific_patterns": 1,
+      "patterns": [
+        {
+          "heuristic_id": "SMELL5-H004",
+          "pattern_label": "industry-wide",
+          "industry_wide": true,
+          "only_carrier": null,
+          "knic_count": 1,
+          "kfbm_count": 4,
+          "terms_flagged": [],
+          "knic_findings": [
+            {
+              "finding_id": "18b0dec5-s5-0024",
+              "section_path": "KY-SERFF-KNIC-127064322 > Rate Information",
+              "revised_severity": "HIGH",
+              "verdict": "Likely real and high risk — immediate review and action required."
+            }
+          ],
+          "kfbm_findings": [
+            {
+              "finding_id": "18b0dec5-s5-0025",
+              "section_path": "KY-SERFF-KFBM-134870230-UW-MANUAL > h. Homeowner Risk Factor",
+              "revised_severity": "HIGH",
+              "verdict": "Confirm finding, then escalate — high consequence if real."
+            },
+            {
+              "finding_id": "18b0dec5-s5-0026",
+              "section_path": "KY-SERFF-KFBM-134870729-RATE-MANUAL-HOP1 > SECTION I ADJUSTED BASE PREMIUM COMPUTATION",
+              "revised_severity": "HIGH",
+              "verdict": "Likely real and high risk — assign for urgent review."
+            },
+            {
+              "finding_id": "18b0dec5-s5-0027",
+              "section_path": "KY-SERFF-KFBM-134870729-RATE-MANUAL-HOP2-1 > Deductible Factor",
+              "revised_severity": "HIGH",
+              "verdict": "Confirm finding, then escalate — high consequence if real."
+            },
+            {
+              "finding_id": "18b0dec5-s5-0028",
+              "section_path": "KY-SERFF-KFBM-134870729-RATE-MANUAL-HOP8 > *ROOF RATING FACTOR",
+              "revised_severity": "HIGH",
+              "verdict": "Medium confidence but high stakes — verify and correct documentation to ensure compliance."
+            }
+          ]
+        },
+        {
+          "heuristic_id": "SMELL5-H005",
+          "pattern_label": "industry-wide",
+          "industry_wide": true,
+          "only_carrier": null,
+          "knic_count": 1,
+          "kfbm_count": 1,
+          "terms_flagged": [],
+          "knic_findings": [
+            {
+              "finding_id": "18b0dec5-s5-0029",
+              "section_path": "KY-SERFF-KNIC-127064322 > 105.   SECONDARY RESIDENCE PREMISES",
+              "revised_severity": "LOW",
+              "verdict": "Confirm finding, then escalate — high consequence if real."
+            }
+          ],
+          "kfbm_findings": [
+            {
+              "finding_id": "18b0dec5-s5-0030",
+              "section_path": "KY-SERFF-KFBM-134870729-RATE-MANUAL-HOP2-1 > 3.  INFLATION GUARD",
+              "revised_severity": "MEDIUM",
+              "verdict": "Confirm finding, then escalate — high consequence if real."
+            }
+          ]
+        },
+        {
+          "heuristic_id": "SMELL5-H006",
+          "pattern_label": "carrier-specific",
+          "industry_wide": false,
+          "only_carrier": "KFBM",
+          "knic_count": 0,
+          "kfbm_count": 1,
+          "terms_flagged": [],
+          "knic_findings": [],
+          "kfbm_findings": [
+            {
+              "finding_id": "18b0dec5-s5-0035",
+              "section_path": "KY-SERFF-KFBM-134870729-RATE-MANUAL-HOP2-1 > 3.  INFLATION GUARD",
+              "revised_severity": "MEDIUM",
+              "verdict": "Low confidence but high stakes — verify before filing."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

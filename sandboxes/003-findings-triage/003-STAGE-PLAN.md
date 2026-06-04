@@ -1,6 +1,6 @@
 # Sandbox 003: Findings Triage And Intelligence
 
-Status: **Planning — next active lane**
+Status: **Active — Stage 003 complete; pending next lane decision**
 Scope: Take structured findings from Sandbox 002 and make them business-actionable
 Created: 2026-06-03
 Depends on: Sandbox 002 repaired run `output/002/20260604_130606_18b0dec5/`, Stage 006 findings JSONL, and Stage 007 reviewer report
@@ -21,59 +21,92 @@ This sandbox turns findings into decisions.
 
 ---
 
-## Proposed Stages
+## Stages
 
-### Stage 001: LLM-Assisted Finding Triage
+### Stage 001: LLM-Assisted Finding Triage ✓ Complete
 
 **Question:** Can an LLM reliably explain each finding in plain English, assess its false positive risk, assign business severity, suggest a remediation direction, and propose a concrete next step — without inventing legal conclusions?
 
-**What it does:**
-- Takes each `Finding` record from Stage 006 output
-- Sends evidence text + rationale + reviewer question to Claude
-- Gets back:
-  - plain-English explanation of the issue
-  - dispute scenario (what goes wrong if this is not addressed)
-  - false positive assessment
-  - business severity signal — maps finding to claim frequency, litigation sensitivity, and regulatory exposure, not just technical confidence level
-  - remediation direction — concrete suggested next step (e.g., add a definition, anchor a version reference, replace open-ended timing language), not just a reviewer question
-- Writes enriched findings JSONL with LLM annotations alongside original fields
-- Human reviewer validates a sample — measure hallucination rate and false positive dismissal rate
+**Checklist:**
+- [x] Hybrid model design decided: gpt-4o-mini (Tier 1 mechanical) + gpt-4o (Tier 2 judgment)
+- [x] Dispute scenario audience confirmed: claims professional
+- [x] `triage_verdict` field added — synthesizes detector confidence and business severity into one-sentence action signal
+- [x] `response_format={"type": "json_object"}` enforced — eliminates markdown code-fence parse failures
+- [x] 5-finding sample run and reviewed — output quality validated
+- [x] Full 35-finding run complete: 35/35 enriched, 0 errors — `stages/001-llm-triage/output/enriched_findings.jsonl`
+- [x] Human review of all 35 findings complete — confirmed finding set documented in `stages/001-llm-triage/validation/human-review-notes.md`
 
-**Why this first:** The output of this stage feeds every other stage. Without plain-English explanations and business-severity framing, nothing downstream is accessible to a non-technical buyer.
+**Key outputs:**
+- `stages/001-llm-triage/output/enriched_findings.jsonl` — 35 enriched findings
+- `stages/001-llm-triage/validation/human-review-notes.md` — confirmed/rejected/downgraded findings with reasoning
+- `stages/001-llm-triage/output/run_manifest.json` — run metadata
+
+**Key findings from human review:**
+- ~20 of 35 confirmed; false positives concentrated in Smell 3 (all 4 — wrong source layer), thin H006 entries, and one Smell 1 notice provision
+- Statutory/regulatory corpus is reference layer only — detectors must not fire on KRS/KAR/DOI nodes (BACKLOG-010)
+- Most false positives trace to a shared root: detectors running on wrong node types — section headers, statutory text, filing instructions. Node-level context annotation (BACKLOG-006) would resolve this systematically
+- Seven new backlog items (BACKLOG-006 through BACKLOG-012) identified, all grounded in real corpus examples
 
 **Key constraint:** LLM output is annotation only — never overwrites the original finding. Original provenance and evidence text stay intact.
 
 ---
 
-### Stage 002: Cross-Carrier Pattern Analysis
+### Stage 002: Cross-Carrier Pattern Analysis ✓ Complete
 
 **Question:** Do the same smells appear in both KNIC and KFBM policy language? Where do they diverge?
 
-**What it does:**
-- Groups findings by smell and heuristic across carriers
-- Explicitly labels each pattern as **industry-wide** (appears in both KNIC and KFBM) or **carrier-specific** (one carrier only) — industry-wide patterns are the strongest signal for systemic risk and the most compelling evidence for a buyer
-- Flags cases where both carriers use the same undefined term (e.g., "actual cash value" without methodology)
-- Produces a carrier comparison table per smell
+**Checklist:**
+- [x] Stage 001 enriched findings available as input
+- [x] Confirmed finding set from human review available (`human-review-notes.md`)
+- [x] Human review verdicts encoded as `stages/002-cross-carrier/data/review_verdicts.json` — canonical record for downstream stages
+- [x] Group confirmed findings by smell and heuristic across carriers
+- [x] Label each pattern as **industry-wide** (both KNIC and KFBM) or **carrier-specific** (one carrier only)
+- [x] Flag cross-carrier term matches (ACV and replacement cost in both carriers)
+- [x] Produce carrier comparison table per smell
+- [x] Human review of cross-carrier output — approved
 
-**Why this matters:** A single carrier finding is a filing question. The same finding in two independently-filed carriers is an industry pattern. Industry patterns are what regulators and litigators care about, and what makes a sales conversation more than an anecdote.
+**Key findings:**
+- 25 of 35 confirmed after human review (10 excluded: 7 false positives, 2 duplicates, 1 downgraded to LOW)
+- **Smell 2 H003 (ACV / Replacement Cost)** — industry-wide: 5 KNIC + 5 KFBM findings. Strongest signal in confirmed set.
+- **Smell 2 H001 ("reasonable time")** — KFBM-specific: 6 findings. KNIC does not use this drafting pattern.
+- **Smell 5 H004 (rate nodes, no regulatory edge)** — industry-wide: KFBM carries heavier unanchored rate methodology (4 findings vs 1 KNIC)
+- **Smell 5 H005 (mandatory coverage claims)** — industry-wide: 1 KNIC + 1 KFBM
+- **Smell 4 H001 (unversioned manual reference)** — KNIC-specific: 1 clean finding
+
+**Output:** `stages/002-cross-carrier/output/carrier_comparison.json` + `carrier_comparison.md`
 
 ---
 
-### Stage 003: Executive Summary Report
+### Stage 003: Executive Summary Report ✓ Complete
 
 **Question:** Can we produce a one-page summary that a CEO or Chief Claims Officer can read in five minutes and understand what risk the findings represent?
 
-**What it does:**
-- Takes the enriched findings (Stage 001) and cross-carrier analysis (Stage 002)
-- Produces a short executive report framed around **decisions and actions**, not a findings list:
-  - top findings by business severity (claim frequency, litigation sensitivity, regulatory exposure)
-  - dollar anchors where available (e.g., ACV/RCV payment swings, published dispute settlements)
-  - industry-wide vs. carrier-specific pattern distinction
-  - recommended actions per finding — what a compliance team or filing lawyer should do next
-- Format: clean HTML + PDF-ready markdown; no technical jargon, no node IDs, no JSONL
-- Tone: written for a CEO or Chief Claims Officer who will hand it to a team, not read it themselves
+**Checklist:**
+- [x] Stage 001 and Stage 002 outputs available
+- [x] Draft report structure reviewed against reference prototypes
+- [x] Report written — framed around decisions and actions, not a findings list
+- [x] Dollar anchors included — `dollar_anchors.json` extracted from `002-ROI-CASES-FIVE-SMELLS.md`; wired into narrative prompts and Risk Context section
+- [x] Industry-wide vs. carrier-specific distinction surfaced prominently
+- [x] Findings table collapsed to 6 pattern-level rows (one per heuristic) — appropriate for CEO audience
+- [x] H004 narrative prompt corrected — now describes "rate-setting filings with no traceable citation to KRS/KAR/DOI authority"
+- [x] Markdown rendering fix — dollar signs removed from bold labels; format is `**Label** — description with figures in plain text`
+- [x] Human review of report output — approved
+- [x] Output: `stages/003-executive-report/output/executive_summary.md`
 
-**Output target:** Something you'd put in front of a potential client to demonstrate value before a sales conversation. The `business_owner_prospects_report.md` and `KNIC_real_world_examples_and_costs_report.md` in Sandbox 002 are reference prototypes for the tone and structure this report should achieve.
+**Key outputs:**
+- `stages/003-executive-report/output/executive_summary.md` — 125-line prospect-facing report
+- `stages/003-executive-report/data/dollar_anchors.json` — named cost anchors mapped per smell
+- `stages/003-executive-report/src/report_builder.py` — gpt-4o driven; deterministic Risk Context + findings table sections
+
+**Known gaps before prospect use (see BACKLOG):**
+- BACKLOG-013: Carrier name anonymization (`--anonymize` flag not yet built)
+- BACKLOG-014: Human editorial pass on LLM-generated prose required before external distribution
+
+**Tone:** Written for a CEO or Chief Claims Officer who will hand it to a team, not read it themselves.
+
+**Reference prototypes:** `sandboxes/002-claims-regulatory-automation/business_owner_prospects_report.md` and `KNIC_real_world_examples_and_costs_report.md`
+
+**Output target:** Something you'd put in front of a potential client to demonstrate value before a sales conversation.
 
 ---
 
@@ -84,17 +117,16 @@ This sandbox turns findings into decisions.
 - Does not automate regulatory filings
 - Does not expand the corpus (that stays in Sandbox 002)
 - Does not design workflow integration (dashboards, issue tracking, sign-off flows, document management hooks) — that is a product-design question for a later lane
+- Does not design UI or data views — different display formats (e.g., confidence vs. severity as separate axes, verdict-first layouts) will help communicate the distinction between detector confidence and business severity; that is a future lane after Stage 003 produces the report
 
 ---
 
-## Prerequisites Before Starting
+## Prerequisites Before Starting ✓ All Complete
 
 - [x] Sandbox 002 artifact contract repaired and revalidated on run `18b0dec5`
 - [x] Gold set re-evaluated on repaired expanded run — BM25 remains 21/21
 - [x] Sandbox 002 closure decision recorded in ADR-009
-- [x] Smell 5 calibrated — graph-based gap detector (H004-H006) produces 12 findings (7 MEDIUM, 5 LOW) across KNIC and KFBM. ADR-010 records the architectural decision. Five-smell completeness is now supportable with the caveat that H004-H006 heuristics are broad and human review is recommended.
-- [x] Perplexity/external LLM feedback on the current reviewer report reviewed and incorporated into Stage 003 design — key outputs: add business severity + remediation direction to Stage 001 annotations; label industry-wide vs. carrier-specific in Stage 002; frame Stage 003 report around decisions and actions with dollar anchors
-- [ ] Prompt design for LLM triage reviewed by a human before running at scale — use a hybrid model approach:
-  - **Smaller/faster model** for mechanical fields: plain-English explanation, dispute scenario, false positive assessment, output formatting. Tight schema, hard prohibition on inventing legal context, annotations must stay within the evidence text.
-  - **Larger model** for high-judgment fields: business severity signal and remediation direction. These require domain reasoning about insurance claims, regulatory exposure, and filing implications that a smaller model is likely to produce shallowly.
-  - Model selection within each tier is secondary — design the prompts and schema first, then validate output quality on a sample of findings before running at scale.
+- [x] Smell 5 calibrated — graph-based gap detector (H004-H006) produces 12 findings (7 MEDIUM, 5 LOW) across KNIC and KFBM. ADR-010 records the architectural decision.
+- [x] External business-prospect feedback reviewed and incorporated into Stage 003 design
+- [x] Hybrid LLM model design decided and built — gpt-4o-mini (Tier 1) + gpt-4o (Tier 2)
+- [x] Human review of Stage 001 output complete — confirmed finding set documented
