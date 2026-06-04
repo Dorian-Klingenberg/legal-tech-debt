@@ -164,4 +164,5 @@ Sandbox 001 work should resume only when a specific 002 experiment needs one of 
 - Favor readable experiments over clever abstractions.
 - Prefer small deterministic probes, explicit local files, schema-aware artifacts, and focused validation before new abstractions or tools.
 - Human review is part of the product concept; do not frame automated findings as legal advice.
+- When you update a specification, stage plan, roadmap, or architecture document, capture what changed and why in the end-of-session journal entry. Decision tracking — knowing when, why, and what changed — is the goal. ADRs are reserved for architectural choices between named alternatives, not routine plan updates. Silent plan edits with no session record are not acceptable.
 
