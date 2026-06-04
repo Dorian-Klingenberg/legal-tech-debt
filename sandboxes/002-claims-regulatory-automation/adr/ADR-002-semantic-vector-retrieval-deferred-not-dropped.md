@@ -97,3 +97,14 @@ The real gate condition for a vector store is not yet met:
 3. At least one documented case where BM25 misses and a concept-level query would find it
 
 Until those conditions exist, file-backed BM25 + phrase search is the correct retrieval stack.
+
+## Status Update — 2026-06-03 (Evening)
+
+Re-open condition 1 is now partially met: Kentucky Farm Bureau Mutual Insurance Company (KFBM) homeowners filings have been added to the corpus (11 documents, 28-source manifest). Stage 002 re-run produced 353 nodes across two carriers.
+
+However, conditions 2 and 3 remain unmet:
+
+- The gold set (goldset-002.2.json) still uses document-vocabulary queries, not plain-English paraphrases. A query like "refer to the Manual for that state" is phrase-matchable; BM25 finds it trivially. A fair semantic evaluation needs queries like "unversioned rate reference in multi-state coverage" — which a reviewer would actually type.
+- No documented BM25 failure has been identified on the expanded corpus.
+
+**Revised status: deferred, re-open conditions 2 and 3 remain unmet.** Do not begin Stage 005 re-evaluation until both are addressed in Sandbox 003 or a later session.
