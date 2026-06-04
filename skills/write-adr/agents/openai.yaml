@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write ADR"
+  short_description: "Decision records for agents"
+  default_prompt: "Use this skill to write or update an architecture decision record."

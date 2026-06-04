@@ -4,6 +4,7 @@ Stage: 002-homeowners-discovery-instrumentation
 Pipeline version: 002.1.0
 First run: 2026-06-03 (run 996e36af, 7 sources, 251 nodes)
 Expanded run: 2026-06-03 (run 87283951, 28 sources, 353 nodes)
+Repaired contract run: 2026-06-04 (run 18b0dec5, 28 sources, 353 nodes)
 
 ---
 

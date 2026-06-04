@@ -218,7 +218,7 @@ _(See goldset-002.2.json for details)_
 | Exact phrase: high precision, moderate recall | Good for known legal terms; misses paraphrase |
 | BM25: moderate precision, higher recall | Catches co-occurrence but noisy on common words ("reasonable", "law") |
 | Graph expansion: adds context, not new hits | Valuable for reviewer bundles; doesn't change recall |
-| Corpus limited to regulatory sources | Carrier form smells (1, 3, 5) cannot be evaluated until SERFF filing added |
+| Corpus now includes carrier filings | Form/manual evidence is present; remaining risk is paraphrase-style reviewer queries and Smell 5 calibration |
 
 ---
 

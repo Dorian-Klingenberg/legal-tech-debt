@@ -1,0 +1,4 @@
+interface:
+  display_name: "Apply Implementation Defaults"
+  short_description: "Shared implementation defaults"
+  default_prompt: "Use this skill before implementing or reviewing code in a sandbox-style repository."

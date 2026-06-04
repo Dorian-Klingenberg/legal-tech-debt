@@ -1,18 +1,30 @@
-"""
-Validate goldset-002.2.json against the actual run output.
-For each item: node exists, source matches, at least one query term appears in node text.
-"""
-import json, sys, re
+"""Validate a gold set against a Stage 002 run output directory."""
+import argparse
+import json
+import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path("../003-retrieval-baseline/src")))
+_ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(_ROOT / "stages" / "003-retrieval-baseline" / "src"))
 from retrieval.index import RunIndex
 
-run_dir = Path("../002-homeowners-discovery-instrumentation/output/20260603_180716_996e36af")
-goldset_path = Path("../004-gold-set-evaluation/data/goldsets/goldset-002.2.json")
+parser = argparse.ArgumentParser(description="Validate a gold set against Stage 002 output")
+parser.add_argument(
+    "--run-dir",
+    type=Path,
+    default=_ROOT / "output" / "002" / "20260604_130606_18b0dec5",
+    help="Stage 002 run output directory",
+)
+parser.add_argument(
+    "--goldset",
+    type=Path,
+    default=_ROOT / "stages" / "004-gold-set-evaluation" / "data" / "goldsets" / "goldset-002.2.json",
+    help="Gold set JSON path",
+)
+args = parser.parse_args()
 
-idx = RunIndex(run_dir)
-goldset = json.loads(goldset_path.read_text(encoding="utf-8"))
+idx = RunIndex(args.run_dir)
+goldset = json.loads(args.goldset.read_text(encoding="utf-8"))
 
 issues = []
 print(f"Validating {len(goldset['items'])} items against run {idx.run_id[:8]}\n")

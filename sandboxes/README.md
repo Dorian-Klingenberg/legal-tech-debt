@@ -11,7 +11,8 @@ For shared agent startup instructions, read [../BOOTSTRAP.md](../BOOTSTRAP.md) b
 | Sandbox | Purpose | Status |
 |---|---|---|
 | [001-legal-debt-primitives](001-legal-debt-primitives/README.md) | Test basic legal debt detection primitives: citation extraction, dangling references, orphan definitions, circular references, unversioned external authorities, and dependency matrix closure. | Complete; preserved as foundation |
-| [002-claims-regulatory-automation](002-claims-regulatory-automation/002-claims-regulatory-automation-README.md) | Apply legal tech debt detection to high-value insurance policy and claims smells using the useful 001 primitives where they fit. | Active |
+| [002-claims-regulatory-automation](002-claims-regulatory-automation/002-claims-regulatory-automation-README.md) | Apply legal tech debt detection to high-value Kentucky homeowners policy-layer smells using the useful 001 primitives where they fit. | Complete; preserved as evidence substrate |
+| [003-findings-triage](003-findings-triage/003-STAGE-PLAN.md) | Turn Sandbox 002 structured findings into business-actionable triage, cross-carrier analysis, and executive-facing output. | Planning; next active lane |
 
 ## Working Rules
 

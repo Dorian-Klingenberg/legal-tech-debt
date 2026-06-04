@@ -1,0 +1,4 @@
+interface:
+  display_name: "Maintain Agent Context"
+  short_description: "Shared startup context files"
+  default_prompt: "Use this skill to update shared agent context and startup instruction files."

@@ -42,22 +42,22 @@ SMELL_COLORS = {1: "s1", 2: "s2", 3: "s3", 4: "s4", 5: "s5"}
 
 CORPUS_GAPS = [
     {
-        "tier": "policy_manual_clauses",
-        "smells": [2, 4],
-        "description": "Base HO-3 policy form not in corpus. Insuring agreement, exclusions, and conditions language needed.",
-        "impact": "Smells 2 and 4 detectors cannot evaluate carrier-drafted coverage language.",
+        "tier": "policy_form_coverage",
+        "smells": [1, 2, 3, 5],
+        "description": "Carrier form evidence is present through SERFF filings, but full unredacted base HO-3 coverage is still partial.",
+        "impact": "Policy-language detectors can run, but reviewer confidence still depends on checking whether the parsed forms represent the full operative form set.",
     },
     {
-        "tier": "endorsement_form_fragments",
-        "smells": [1, 3],
-        "description": "Only 3 of 5 target endorsement nodes available (Sinkhole, Fungi, Earthquake from SERFF filing).",
-        "impact": "Smells 1 and 3 have limited endorsement coverage.",
+        "tier": "manual_serff_sources",
+        "smells": [4, 5],
+        "description": "Several manual SERFF sources remain known gaps; they are not blockers unless an active experiment needs their exact pages.",
+        "impact": "Calculation-drift and regulatory-mapping review should treat missing manual attachments as coverage limits, not as negative evidence.",
     },
     {
-        "tier": "rate_manual_fragments",
-        "smells": [4],
-        "description": "Only 3 of 5 target rate manual nodes available. Additional manual pages in unparsed SERFF attachments.",
-        "impact": "Smell 4 rate-drift patterns are partially covered.",
+        "tier": "detector_calibration",
+        "smells": [5],
+        "description": "Smell 5 regulatory-mapping heuristics currently produce no findings on the expanded corpus.",
+        "impact": "The absence of Smell 5 findings is a detector-calibration gap, not evidence that the corpus lacks regulatory mapping risk.",
     },
 ]
 

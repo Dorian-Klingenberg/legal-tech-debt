@@ -3,9 +3,10 @@
 Status: Active planning document
 Scope: Sandbox 002 Kentucky homeowners corpus
 Created: 2026-06-01
-Updated: 2026-06-03 (corpus expanded to 28 sources; Smell 2 detector tightened; Sandbox 003 plan created)
+Updated: 2026-06-04 (Stage 002 artifact contract repaired; expanded-corpus run revalidated)
 Path decision: `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
 Artifact contract: `adr/ADR-004-schema-run-identity-and-id-stability.md`
+Contract repair: `adr/ADR-008-stage-002-artifact-contract-repair.md`
 
 Each entry maps 1:1 to a `stages/00N-*/` directory. "Stage" is the single unit of work throughout.
 
@@ -29,6 +30,7 @@ Question:
 - [x] `adr/ADR-002-semantic-vector-retrieval-deferred-not-dropped.md` — vector retrieval is expected but deferred
 - [x] `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md` — discovery-and-instrumentation comes before fixture detectors
 - [x] `adr/ADR-004-schema-run-identity-and-id-stability.md` — schema version, run identity, and stable-ID requirements
+- [x] `adr/ADR-008-stage-002-artifact-contract-repair.md` — repaired implementation drift back to the Stage 002 artifact contract
 - [x] `skills/legal-rag-builder/SKILL.md` — agent workflow skill pointing to sandbox 002 docs
 - [x] `references/docling-local-stack-boundary.md` — Docling as parser/enrichment adapter only; no vector DB
 - [x] `references/rag-substrate-boundary-lesson.md` — findings belong downstream; RAG owns evidence bundles
@@ -77,6 +79,17 @@ Question:
   - [x] `schema/parse_warning.schema.json`
   - [x] `schema/candidate_evidence.schema.json`
   - [x] `schema/retrieval_bundle.schema.json`
+
+**Contract repair**
+
+- [x] `source_hash` and `content_hash` separated in source records
+- [x] source-derived artifacts carry `source_id` and `source_hash`
+- [x] candidate evidence uses `candidate_id`
+- [x] run manifest carries parser list, schema versions, config snapshot, and parse statistics
+- [x] Stage 002 retrieval bundles use future-compatible `hits[]`
+- [x] retrieval hits reserve lexical, semantic, graph, citation/reference, metadata, parser penalty, diagnostics, and expanded-context fields
+- [x] Stage 003 retrieval bundles validated against the same retrieval-bundle schema
+- [x] Contract repair recorded in ADR-008
 
 **Components**
 
@@ -155,7 +168,7 @@ Question:
 
 **Outputs**
 
-- [x] `output/retrieval_bundles.json` — updated with retrieval signal metadata (23 bundles)
+- [x] `output/retrieval_bundles.json` — updated with retrieval signal metadata (39 bundles on run 18b0dec5)
 - [x] `output/retrieval_report.md` — what retrieval modes return for each active smell
 - [x] `data/goldsets/goldset-002.1.json` — versioned gold set from Stage 002 real snippets only
 - [x] Curated fixture excerpts per active smell (or documented corpus limitation where missing)
@@ -185,11 +198,12 @@ Question:
 **Gold set construction**
 
 - [x] 11 statute/regulation/DOI items with expected node IDs, 3 test queries each (`goldset-002.2.json`)
-- [x] 4 policy/manual clauses — from KNIC SERFF filing (eval-015 to eval-018); 6 more blocked (needs base HO-3 form)
-- [x] 3 endorsement or form fragments — from KNIC SERFF filing (eval-019 to eval-021); 2 more blocked
-- [x] 3 rate/manual fragments — from KNIC SERFF filing (eval-012 to eval-014); 2 more blocked
+- [x] 4 policy/manual clauses — from KNIC SERFF filing (eval-015 to eval-018); additional planned clauses deferred pending broader gold-set expansion against the KFBM/KNIC corpus
+- [x] 3 endorsement or form fragments — from KNIC SERFF filing (eval-019 to eval-021); additional planned fragments deferred
+- [x] 3 rate/manual fragments — from KNIC SERFF filing (eval-012 to eval-014); additional planned fragments deferred
 - [x] Gold set versioned under `data/goldsets/` — 21 items total
 - [x] Gold set validator (`stages/005-semantic-retrieval-experiment/data/validate_goldset.py`) — run before any gold set edit
+- [x] Gold set validator accepts explicit `--run-dir` and `--goldset`; validated all 21 items against repaired run 18b0dec5
 
 **Retrieval evaluation**
 
@@ -199,6 +213,7 @@ Question:
 - [x] Failures and missed hits documented (`evaluation_report.md`)
 - [x] `src/evaluator.py` — evaluation runner with per-mode stats and semantic decision logic
 - [x] `output/evaluation_results.json` + `output/evaluation_report.md`
+- [x] Re-evaluated on expanded repaired run 18b0dec5 — phrase 20/21 (95%), BM25 21/21 (100%)
 
 **Success criteria**
 
@@ -262,7 +277,7 @@ Question:
 
 **Results (run 996e36af, 251 nodes, original corpus):** 17 findings — Smell 2: 13 (MEDIUM), Smell 3: 3 (LOW), Smell 4: 1 (HIGH).
 
-**Results (run 87283951, 353 nodes, 28-source corpus):** 23 findings after Smell 2 source-type filter — Smell 1: 1 (LOW), Smell 2: 17 (MEDIUM, carrier docs only), Smell 3: 4 (LOW), Smell 4: 1 (HIGH). Smell 5: 0 (detector needs work — see loose threads).
+**Results (run 18b0dec5, repaired Stage 002 contract, 353 nodes, 28-source corpus):** 23 findings — Smell 1: 1 (LOW), Smell 2: 17 (MEDIUM, carrier docs only), Smell 3: 4 (LOW), Smell 4: 1 (HIGH), Smell 5: 0.
 
 **Detector improvement 2026-06-03:** H001/H003 heuristics in smell2.py now suppressed for `kar_regulation`, `krs_statute`, `doi_bulletin`, `doi_guidance` source types. "Reasonable" in regulatory docs is legal standard language, not a claim dispute gate. Detector runner enriches nodes with `source_type` from `source_by_id` before passing to detectors.
 
@@ -298,7 +313,7 @@ Question:
 
 **Results (run 996e36af):** 17 findings, 47 candidate evidence items, 3 corpus gap tiers documented.
 
-**Results (run 87283951, 28-source corpus):** 23 findings, 121 candidate evidence items.
+**Results (run 18b0dec5, repaired Stage 002 contract):** 23 findings, 121 candidate evidence items, reviewer report regenerated under `output/007/20260604_130606_18b0dec5/`.
 
 **Success criteria**
 
@@ -312,7 +327,7 @@ Question:
 ## Loose Threads (Open, Not Blocking)
 
 - [ ] **Smell 5 detector produces 0 findings** — Regulatory Mapping heuristics are not firing on the expanded corpus. The detector needs calibration against the new KFBM sources, particularly the DOI objection response and rate manual filings which should have KRS/KAR citation gaps.
-- [ ] **Gold set not re-evaluated against run 87283951** — goldset-002.2.json was validated on the original 7-source run. Node IDs should be stable (deterministic under fixed parsing strategy) but BM25 100% recall should be confirmed on the new run before claiming it still holds.
+- [x] **Gold set re-evaluated against repaired expanded run 18b0dec5** — phrase 20/21 (95%), BM25 21/21 (100%); semantic remains deferred.
 - [ ] **Stage 005 re-open conditions partially met** — second carrier corpus (KFBM) is now present. Re-open requires also: paraphrase-style gold set queries, and at least one documented BM25 failure. Not worth doing until after Sandbox 003.
 - [ ] **EXT MISMATCH files** — KY-KRS-304-12-230 and KY-KRS-304-14 are named `.html` but contain PDF content (same issue as KY-KRS-304-13 which was renamed). Pipeline parses them with warnings. Low priority since they produce nodes, but should be renamed for cleanliness.
 

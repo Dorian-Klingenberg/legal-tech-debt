@@ -12,6 +12,46 @@ These constraints are mandatory, non-negotiable, and always in force unless expl
   3. Existing repository instructions
 - Default Action: `Do Not Act` unless explicitly authorized
 
+## 0) REPOSITORY STARTUP AND MEMORY-TASK EXCEPTIONS
+
+These exceptions exist so Claude Code can obey the repository startup contract without uncontrolled exploration.
+
+### 0.1 Pre-Authorized Read-Only Startup Paths
+When operating in this repository, Claude Code may read these exact files for startup and context alignment:
+
+- `CLAUDE_CONSTRAINTS.md`
+- `CLAUDE.md`
+- `BOOTSTRAP.md`
+- `AGENT_CONTEXT.json`
+- `AGENTS.md`
+- `.github/copilot-instructions.md`
+- `SECRET_SCAN_REPORT.md`
+- `skills/README.md`
+- `skills/SKILL-DEVELOPMENT.md`
+- `skills/registry.csv`
+- `skills/project-coding-preferences/SKILL.md`
+- `skills/project-memory-artifacts/SKILL.md`
+- `skills/legal-rag-builder/SKILL.md`
+- `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-03d.md`
+
+These reads are allowed even if the current user prompt does not list every path individually. Prefer batched reads where the tool supports them.
+
+### 0.2 Bootstrap-Named Task Context
+After reading the startup paths, Claude Code may read additional files only when they are both:
+
+- named by `BOOTSTRAP.md`, `AGENT_CONTEXT.json`, an active skill, or the user; and
+- relevant to the user's current task.
+
+If relevance is unclear, stop and ask for the exact file list.
+
+### 0.3 Explicit Memory Review Tasks
+If the user explicitly asks to review or update agent instructions, shared memory, skills, handoffs, journals, or context records, Claude Code may enumerate repo-visible Markdown, CSV, and JSON documentation outside `sources/` and `output/` to identify relevant files.
+
+Edits remain limited to the user-requested memory/instruction/skill artifacts or exact paths approved after the scan.
+
+### 0.4 Tool Budget For Startup And Memory Tasks
+The 3-tool and 60-second kill-switch applies to ordinary implementation tasks. Startup alignment and explicit memory-review tasks may exceed it only while following the scoped rules above and while making concise progress. If the task expands beyond the requested memory/context scope, stop and ask for human instruction.
+
 ## 1) CRITICAL BEHAVIOR BOUNDARIES
 
 ### 1.1 Autonomous Tool Loops: PROHIBITED
@@ -23,11 +63,13 @@ These constraints are mandatory, non-negotiable, and always in force unless expl
 - Recursive directory discovery is forbidden unless explicitly requested in the active prompt.
 - Broad file enumeration (`scan all`, `find everything`, `search whole repo`) is forbidden unless explicitly requested.
 - Passive exploration behavior is disallowed.
+- Exception: Section 0.3 allows bounded documentation enumeration for explicit memory-review tasks.
 
 ### 1.3 Unprompted File Reads: PROHIBITED
 - The agent must not open or read files that are not explicitly named by the user.
 - The agent must not infer additional files to read "for context" without explicit permission.
 - If required context is missing, the agent must ask for exact file authorization before reading.
+- Exception: Sections 0.1 and 0.2 define pre-authorized startup and bootstrap-named context reads.
 
 ## 2) FILE-SYSTEM DISCIPLINE
 
@@ -74,6 +116,7 @@ These constraints are mandatory, non-negotiable, and always in force unless expl
 The agent must immediately stop execution and request human intervention if either condition is met:
 - Elapsed active task time exceeds 60 seconds.
 - Tool execution count exceeds 3 for a single task.
+- Exception: Section 0.4 defines the only allowed overage for startup alignment and explicit memory-review tasks.
 
 ### 4.2 Mandatory Kill-Switch Message
 When triggered, output exactly:

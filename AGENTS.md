@@ -7,10 +7,12 @@ Before doing any work, read `BOOTSTRAP.md` and follow its startup contract. Thes
 Key reminders:
 
 - The user uses Codex, GitHub Copilot, and Claude Code. Durable memory must be visible to all of them.
+- Read `AGENT_CONTEXT.json` after `BOOTSTRAP.md` when it exists; it is the compact current-state context for constrained agents and fast startup.
 - This is currently sandbox proof-of-concept work, not infrastructure work.
 - Read the relevant project and sandbox documentation before starting changes.
+- Before substantive code changes or reviews, read `skills/project-coding-preferences/SKILL.md` and apply its shared implementation defaults.
 - For Sandbox 002, align active work to the five Kentucky homeowners policy-layer smells in `sandboxes/002-claims-regulatory-automation/002-five-policy-layer-phish.md`.
-- Sandbox 002 Stages 002–007 are all complete. Corpus expanded to 28 sources (added KFBM SERFF filings + 10 unparsed KY sources). Active run: `output/002/20260603_210315_87283951/` (353 nodes, 23 findings). Smell 2 detector tightened: H001/H003 suppressed for regulatory source types. Read `HANDOFF-2026-06-03d.md` for full state. Loose threads: Smell 5 detector, gold set re-eval on new run. Next: Sandbox 003 (`sandboxes/003-findings-triage/`).
+- Sandbox 002 is closed as a discovery/retrieval/detector/reviewer-report proof of concept. Preserved repaired run: `output/002/20260604_130606_18b0dec5/` (353 nodes, 121 candidate evidence items, 39 Stage 003 retrieval bundles, 23 findings). Contract repair and closure are recorded in `sandboxes/002-claims-regulatory-automation/adr/ADR-008-stage-002-artifact-contract-repair.md` and `sandboxes/002-claims-regulatory-automation/adr/ADR-009-close-sandbox-002-with-smell-5-limitation.md`; latest handoff is `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-04.md`. Smell 5 detector calibration is a known limitation, not a Sandbox 003 blocker. Active lane: Sandbox 003 (`sandboxes/003-findings-triage/`).
 - Defer vector infrastructure, but design the evidence substrate as if hybrid retrieval will eventually exist. Treat parser/reference uncertainty as part of the evidence layer.
 - Stage 002 JSON/JSONL artifacts should carry schema version, run identity, creation timestamp, and stable source/node IDs under a fixed parsing strategy.
 - For Sandbox 002 corpus work, read `corpus/kentucky-homeowners-policy-smells/CORPUS-SOURCES.md` for the canonical source index and file locations. All unique source files live in `corpus/kentucky-homeowners-policy-smells/sources/` — do not reference smell subdirectory paths in pipeline code. Also read `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md` before procuring or assuming missing sources.

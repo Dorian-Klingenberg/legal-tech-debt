@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write Journal Entry"
+  short_description: "Session journals for agents"
+  default_prompt: "Use this skill to write a dated project journal entry from completed work."

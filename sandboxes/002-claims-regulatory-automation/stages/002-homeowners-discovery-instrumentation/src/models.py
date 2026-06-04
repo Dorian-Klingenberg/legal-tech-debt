@@ -22,6 +22,10 @@ class RunManifest:
     source_ids: list[str]
     output_dir: str
     total_sources: int
+    parsers_used: list[str]
+    schema_versions: dict[str, str]
+    config_snapshot: dict
+    parse_stats: dict
 
 
 @dataclass
@@ -38,6 +42,7 @@ class Source:
     file_bytes: int
     downloaded_at: str
     source_hash: str
+    content_hash: str
     detected_file_type: str  # "html" | "pdf" | "unknown"
     extension_matches_type: bool
 
@@ -49,6 +54,7 @@ class ParserRun:
     created_at: str
     parser_run_id: str
     source_id: str
+    source_hash: str
     parser_name: str
     status: str  # "success" | "partial" | "failed"
     failure_reason: str | None
@@ -67,6 +73,7 @@ class Block:
     created_at: str
     block_id: str
     source_id: str
+    source_hash: str
     parser_run_id: str
     block_index: int
     block_type: str  # "heading"|"paragraph"|"list_item"|"table"|"metadata"|"citation_header"|"history"|"unknown"
@@ -83,6 +90,7 @@ class BlockStats:
     run_id: str
     created_at: str
     source_id: str
+    source_hash: str
     parser_run_id: str
     total_blocks: int
     heading_count: int
@@ -101,6 +109,7 @@ class Node:
     created_at: str
     node_id: str
     source_id: str
+    source_hash: str
     node_type: str  # "document"|"section"|"subsection"|"clause"|"list_item"|"definition"|"table"|"metadata_block"
     section_path: str
     title: str | None
@@ -120,6 +129,7 @@ class Citation:
     created_at: str
     citation_id: str
     source_id: str
+    source_hash: str
     node_id: str
     citation_type: str  # "krs_statute" | "kar_regulation"
     raw_text: str
@@ -137,6 +147,7 @@ class Reference:
     created_at: str
     reference_id: str
     source_id: str
+    source_hash: str
     node_id: str
     reference_type: str
     raw_text: str
@@ -151,6 +162,8 @@ class Edge:
     run_id: str
     created_at: str
     edge_id: str
+    source_id: str
+    source_hash: str
     from_id: str
     from_type: str  # "node" | "citation" | "reference"
     to_id: str
@@ -167,6 +180,7 @@ class TableFailure:
     created_at: str
     failure_id: str
     source_id: str
+    source_hash: str
     parser_run_id: str
     block_id: str | None
     failure_type: str
@@ -181,6 +195,7 @@ class ParseWarning:
     created_at: str
     warning_id: str
     source_id: str
+    source_hash: str
     parser_run_id: str
     warning_type: str
     description: str
@@ -192,8 +207,9 @@ class CandidateEvidence:
     schema_version: str
     run_id: str
     created_at: str
-    evidence_id: str
+    candidate_id: str
     source_id: str
+    source_hash: str
     node_id: str
     smell_id: int
     smell_name: str
@@ -212,19 +228,7 @@ class RetrievalBundle:
     run_id: str
     created_at: str
     bundle_id: str
-    query: str
-    hit_node_id: str
-    source_id: str
-    source_title: str
-    source_type: str
-    section_path: str
-    why_retrieved: list[str]
-    hit_text: str
-    parent_node_id: str | None
-    parent_text: str | None
-    adjacent_node_ids: list[str]
-    citation_ids: list[str]
-    reference_ids: list[str]
-    parser_run_id: str
-    parser_confidence: str
-    signal_scores: dict
+    query_text: str
+    task_description: str
+    filters: dict
+    hits: list[dict]

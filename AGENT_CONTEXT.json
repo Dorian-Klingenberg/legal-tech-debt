@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-06-04T09:21:28-04:00",
+  "project": {
+    "name": "legal-tech-debt",
+    "mode": "sandbox research and proof-of-concept development",
+    "north_star": "Build inspectable legal tech debt probes that turn insurance legal and regulatory text into source-traceable evidence, candidate smells, findings, and human-reviewable reports."
+  },
+  "startup_order": [
+    "CLAUDE_CONSTRAINTS.md first when the active agent is Claude Code",
+    "BOOTSTRAP.md",
+    "AGENT_CONTEXT.json",
+    "tool-specific entry file: AGENTS.md, CLAUDE.md, or .github/copilot-instructions.md",
+    "SECRET_SCAN_REPORT.md if present",
+    "skills/project-coding-preferences/SKILL.md before substantive code changes",
+    "active sandbox README, roadmap, ADRs, and latest handoff"
+  ],
+  "secret_scan": {
+    "path": "SECRET_SCAN_REPORT.md",
+    "status": "complete_no_action_required",
+    "note": "Repo owner confirmed reported findings were false positives on 2026-06-03."
+  },
+  "current_focus": {
+    "active_sandbox": "sandboxes/003-findings-triage",
+    "next_sandbox": "sandboxes/003-findings-triage",
+    "source_evidence_sandbox": "sandboxes/002-claims-regulatory-automation",
+    "source_evidence_run": "output/002/20260604_130606_18b0dec5/",
+    "run_summary": "Sandbox 002 closed with 28 sources, 353 nodes, 121 candidate evidence items, 39 Stage 003 retrieval bundles, and 23 detector findings after Stage 002 artifact contract repair",
+    "latest_handoff": "sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-04.md",
+    "latest_memory_journal": "journal/2026-06-04-sandbox-002-artifact-contract-repair.md"
+  },
+  "active_scope": [
+    "Kentucky homeowners insurance",
+    "Five policy-layer smells from sandboxes/002-claims-regulatory-automation/002-five-policy-layer-phish.md",
+    "Findings triage and intelligence over Sandbox 002 outputs",
+    "Human-reviewable outputs, not legal advice"
+  ],
+  "out_of_scope_by_default": [
+    "Personal auto, no-fault, PIP, and broad claims-platform work",
+    "Production infrastructure, services, databases, queues, schedulers, Docker, and deployment scaffolding",
+    "Vector infrastructure until retrieval evaluation earns it",
+    "Automated legal conclusions"
+  ],
+  "implementation_preferences": [
+    "Prefer small readable local Python over abstractions or infrastructure.",
+    "Prefer deterministic JSON/JSONL/CSV/Markdown artifacts with schemas where downstream stages consume them.",
+    "Preserve provenance, source text, source_type, run_id, schema_version, created_at, and stable IDs.",
+    "Treat parser/reference uncertainty as evidence.",
+    "Separate candidate evidence, detector findings, LLM annotations, and reviewer reports.",
+    "Use source-type-aware heuristics; regulatory documents and carrier filings need different false-positive handling.",
+    "Run focused validation and report concrete counts, run IDs, and unvalidated gaps."
+  ],
+  "open_threads": [
+    "Smell 5 detector produces 0 findings and is carried as a known limitation, not a blocker to starting Sandbox 003.",
+    "Gold set re-evaluation on run 18b0dec5 preserved BM25 100% recall; future semantic evaluation still needs paraphrase queries.",
+    "Stage 005 semantic retrieval is only partially reopened by the second carrier corpus; defer until paraphrase queries and a BM25 failure exist.",
+    "KY-KRS-304-12-230 and KY-KRS-304-14 are named .html but contain PDF content; low-priority cleanup."
+  ],
+  "shared_skills": [
+    "skills/apply-implementation-defaults/SKILL.md",
+    "skills/write-adr/SKILL.md",
+    "skills/write-journal-entry/SKILL.md",
+    "skills/write-lesson/SKILL.md",
+    "skills/write-handoff/SKILL.md",
+    "skills/maintain-agent-context/SKILL.md",
+    "skills/project-coding-preferences/SKILL.md",
+    "skills/legal-rag-builder/SKILL.md",
+    "skills/project-memory-artifacts/SKILL.md"
+  ],
+  "mechanism_boundaries": {
+    "skills": "Reusable procedures and agent behavior.",
+    "context_json": "Compact current state and startup hints.",
+    "startup_docs": "Cross-agent startup contract.",
+    "adrs": "Accepted decisions and rejected alternatives.",
+    "journals": "Chronological point-in-time session memory.",
+    "lessons": "Reusable learning and patterns.",
+    "handoffs": "Resume points and next-agent instructions."
+  },
+  "cross_agent_rule": "Durable memory belongs in repo-visible files that Codex, Claude Code, GitHub Copilot, and future agents can all read."
+}

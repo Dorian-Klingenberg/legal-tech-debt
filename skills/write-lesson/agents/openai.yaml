@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write Lesson"
+  short_description: "Reusable lessons for agents"
+  default_prompt: "Use this skill to capture a reusable project lesson from an experiment or implementation."

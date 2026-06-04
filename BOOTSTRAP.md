@@ -16,6 +16,7 @@ Before beginning any conversation or work:
 
 - The user works with multiple agents: Codex, GitHub Copilot, and Claude Code.
 - Project memory must be written where all agents can read it, not only into Claude-specific, Codex-specific, or current-session memory.
+- `AGENT_CONTEXT.json` is the compact current-state context for constrained agents and fast startup. Read it after this file when present, then use canonical Markdown docs for details.
 - When adding durable instructions, update the shared bootstrap/config files as appropriate:
   - `BOOTSTRAP.md` for cross-agent project memory
   - `AGENTS.md` for Codex and general agent entry
@@ -44,11 +45,14 @@ Before beginning any conversation or work:
 - Current draft project skills:
   - `legal-rag-builder` for Sandbox 002 legal document ingestion and retrieval.
   - `project-memory-artifacts` for shared handoffs, journals, lessons, and agent context updates.
+  - `project-coding-preferences` for shared implementation defaults, validation habits, and constrained-agent handoff behavior.
+  - Granular portable skills: `apply-implementation-defaults`, `write-adr`, `write-journal-entry`, `write-lesson`, `write-handoff`, and `maintain-agent-context`.
 
 ## Documentation Map
 
 Start with these documents when orienting:
 
+0. `AGENT_CONTEXT.json` - compact current-state context, active scope, open threads, and implementation preferences.
 1. `path.md` - current project path and north star.
 2. `legal_tech_debt_report.md` - research synthesis and strategic frame.
 3. `legal_code_smell_taxonomy.md` - core smell taxonomy and RAII defect classes.
@@ -81,12 +85,15 @@ For Sandbox 002, read:
 9. `sandboxes/002-claims-regulatory-automation/adr/` when doing Legal RAG Builder skill architecture work.
 10. `sandboxes/002-claims-regulatory-automation/adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md` for the current Sandbox 002 path decision.
 11. `sandboxes/002-claims-regulatory-automation/adr/ADR-004-schema-run-identity-and-id-stability.md` for Stage 002 schema, run identity, and stable-ID requirements.
-12. `sandboxes/002-claims-regulatory-automation/references/docling-local-stack-boundary.md` when doing Docling, local parsing model, VLM enrichment, embedding, or retrieval-store work.
-13. `sandboxes/002-claims-regulatory-automation/002-PAIN-POINTS-TAXONOMY.md`
-14. `sandboxes/002-claims-regulatory-automation/001-vs-002-REUSE-ANALYSIS.md`
-15. `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-01.md`
-16. `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv`
-17. `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`
+12. `sandboxes/002-claims-regulatory-automation/adr/ADR-008-stage-002-artifact-contract-repair.md` for the 2026-06-04 repair of Stage 002 implementation drift back to the artifact contract.
+13. `sandboxes/002-claims-regulatory-automation/adr/ADR-009-close-sandbox-002-with-smell-5-limitation.md` for the Sandbox 002 closure decision and Smell 5 limitation.
+14. `sandboxes/002-claims-regulatory-automation/CLOSURE.md`
+15. `sandboxes/002-claims-regulatory-automation/references/docling-local-stack-boundary.md` when doing Docling, local parsing model, VLM enrichment, embedding, or retrieval-store work.
+16. `sandboxes/002-claims-regulatory-automation/002-PAIN-POINTS-TAXONOMY.md`
+17. `sandboxes/002-claims-regulatory-automation/001-vs-002-REUSE-ANALYSIS.md`
+18. `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-04.md`
+19. `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv`
+20. `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`
 
 Current Sandbox 002 scope:
 
@@ -100,7 +107,7 @@ Current Sandbox 002 scope:
 - Do not start auto, personal auto, motor vehicle, no-fault, or PIP work unless the user explicitly reopens that scope.
 - If homeowners sources cross-reference auto or other P&C lines, record the reference as context only and keep active discovery, fixtures, and detectors homeowners-centered.
 - Treat broad claims-platform, regulatory-feed, PAS, productization, and infrastructure references as background or parked unless a specific stage explicitly reopens them.
-- Current active path: build Stage 002 discovery-and-instrumentation before detector findings. Emit parser diagnostics, legal nodes, citations, broader references, conservative graph edges, retrieval bundles, and candidate evidence first.
+- Sandbox 002 is closed as a discovery/retrieval/detector/reviewer-report proof of concept. Preserved repaired run: `output/002/20260604_130606_18b0dec5/` (28 sources, 353 nodes, 121 candidate evidence items, 39 Stage 003 retrieval bundles, 23 findings). Next active lane is Sandbox 003 findings triage unless the user reopens Sandbox 002.
 - Defer vector infrastructure, but design the evidence substrate as if hybrid retrieval will eventually exist.
 - Treat parser/reference uncertainty as part of the evidence layer, not as an implementation detail.
 - Stage 002 JSON/JSONL artifacts should carry schema version, run identity, creation timestamp, and stable source/node IDs under a fixed parsing strategy.
@@ -126,7 +133,8 @@ Every future agent working in this repository should do the following before mak
 5. For Sandbox 002 work, inspect the corpus manifest and known gaps before deciding that more source procurement is needed.
 6. Preserve decisions in shared files that Codex, Copilot, Claude Code, and future agents can all read. Do not store durable project knowledge in one assistant's private memory only.
 7. Add or update journal, handoff, lesson, and context records at major pause points, scope changes, corpus changes, or stage transitions. Use `skills/project-memory-artifacts/SKILL.md` when creating these shared memory artifacts.
-8. For skill work, inspect `skills/README.md`, `skills/SKILL-DEVELOPMENT.md`, and `skills/registry.csv` before drafting or installing a skill.
+8. For substantive code changes or code review, read `skills/project-coding-preferences/SKILL.md` so implementation defaults are shared across agents.
+9. For skill work, inspect `skills/README.md`, `skills/SKILL-DEVELOPMENT.md`, and `skills/registry.csv` before drafting or installing a skill.
 
 ## Current Sandbox 001 State
 
@@ -143,7 +151,7 @@ Sandbox 001 is complete as foundational research. It proved the basic legal debt
 
 The conceptual bottleneck it discovered is semantic edge typing. Stage 004 completed the 46-edge seed labeling pass and paused in Phase 2: refine the edge taxonomy before implementing typed matrices or dashboard edge filtering.
 
-Do not use 001 as the default active work lane. Use it as preserved evidence and reusable foundation. The active lane is now Sandbox 002: Kentucky homeowners insurance policy and claims legal tech debt.
+Do not use 001 as the default active work lane. Use it as preserved evidence and reusable foundation. Sandbox 002 is also preserved as the Kentucky homeowners evidence substrate. The active lane is now Sandbox 003: findings triage and intelligence over Sandbox 002 outputs.
 
 Sandbox 001 work should resume only when a specific 002 experiment needs one of its primitives or when the user explicitly asks to revisit 001.
 
@@ -154,5 +162,6 @@ Sandbox 001 work should resume only when a specific 002 experiment needs one of 
 - Record assumptions, surprises, failure modes, and lessons.
 - Treat generated outputs as evidence when they explain an experiment.
 - Favor readable experiments over clever abstractions.
+- Prefer small deterministic probes, explicit local files, schema-aware artifacts, and focused validation before new abstractions or tools.
 - Human review is part of the product concept; do not frame automated findings as legal advice.
 

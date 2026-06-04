@@ -9,12 +9,22 @@ from pathlib import Path
 from models import SCHEMA_VERSION, Source
 
 
-def _sha256(path: Path) -> str:
+def _file_sha256(path: Path) -> str:
     h = hashlib.sha256()
     with open(path, "rb") as f:
         for chunk in iter(lambda: f.read(65536), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def _identity_hash(row: dict) -> str:
+    parts = [
+        row.get("source_id", "").strip(),
+        row.get("source_type", "").strip(),
+        row.get("title", "").strip(),
+        row.get("url", "").strip(),
+    ]
+    return hashlib.sha256("::".join(parts).encode("utf-8")).hexdigest()
 
 
 def _detect_file_type(path: Path) -> str:
@@ -47,6 +57,7 @@ def load_sources(manifest_path: Path, run_id: str) -> list[Source]:
             ext_type = "pdf" if ext == "pdf" else "html" if ext in ("html", "htm") else "unknown"
             extension_matches = detected == ext_type or (detected == "unknown" and ext_type == "unknown")
 
+            content_hash = _file_sha256(downloaded_path)
             sources.append(Source(
                 schema_version=SCHEMA_VERSION,
                 run_id=run_id,
@@ -59,7 +70,8 @@ def load_sources(manifest_path: Path, run_id: str) -> list[Source]:
                 downloaded_path=str(downloaded_path),
                 file_bytes=int(row["file_bytes"].strip()),
                 downloaded_at=row["downloaded_at"].strip(),
-                source_hash=_sha256(downloaded_path),
+                source_hash=_identity_hash(row),
+                content_hash=content_hash,
                 detected_file_type=detected,
                 extension_matches_type=extension_matches,
             ))

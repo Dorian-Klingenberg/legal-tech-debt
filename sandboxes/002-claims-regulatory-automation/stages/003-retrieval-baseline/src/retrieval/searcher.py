@@ -15,6 +15,7 @@ class SearchHit:
     match_type: str        # "phrase" | "bm25"
     matched_query: str
     context_snippet: str   # ~160 chars around the match
+    rank: int = 1
 
 
 def phrase_search(
@@ -39,6 +40,7 @@ def phrase_search(
                 match_type="phrase",
                 matched_query=query,
                 context_snippet=text[start:end].strip(),
+                rank=len(hits) + 1,
             ))
     return hits
 
@@ -84,6 +86,7 @@ def bm25_search(
             match_type="bm25",
             matched_query=query,
             context_snippet=text[:160].strip(),
+            rank=len(hits) + 1,
         ))
         if len(hits) >= top_k:
             break

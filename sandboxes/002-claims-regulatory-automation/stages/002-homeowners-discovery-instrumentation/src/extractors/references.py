@@ -98,6 +98,7 @@ def extract_references(nodes: list[Node], run_id: str) -> list[Reference]:
                     created_at=now,
                     reference_id=rid,
                     source_id=node.source_id,
+                    source_hash=node.source_hash,
                     node_id=node.node_id,
                     reference_type=ref_type,
                     raw_text=raw,

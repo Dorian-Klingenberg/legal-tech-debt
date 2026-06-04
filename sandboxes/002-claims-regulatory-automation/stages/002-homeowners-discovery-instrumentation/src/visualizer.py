@@ -597,8 +597,12 @@ function renderBundles() {{
   // Group by smell_id extracted from why_retrieved
   const bySmell = {{}};
   bundles.forEach(b => {{
-    const smellMatch = (b.why_retrieved || []).join(" ").match(/smell_id=([0-9])/);
-    const sid = smellMatch ? parseInt(smellMatch[1]) : 0;
+    const firstHit = (b.hits && b.hits[0]) || b;
+    const why = firstHit.why_retrieved || b.why_retrieved || [];
+    const filters = b.filters || {{}};
+    const smellMatch = (why || []).join(" ").match(/smell_id=([0-9])/);
+    const filterSmell = filters.smell_id ? parseInt(filters.smell_id) : 0;
+    const sid = filterSmell || (smellMatch ? parseInt(smellMatch[1]) : 0);
     if (!bySmell[sid]) bySmell[sid] = [];
     bySmell[sid].push(b);
   }});
@@ -620,25 +624,32 @@ function renderBundles() {{
       </div>`;
 
     items.forEach(b => {{
-      const shortSection = (b.section_path || "").split(" > ").slice(-1)[0] || b.hit_node_id;
-      const signalStr = Object.entries(b.signal_scores || {{}})
+      const firstHit = (b.hits && b.hits[0]) || b;
+      const source = firstHit.source || {{}};
+      const diagnostics = firstHit.parser_diagnostics || {{}};
+      const context = firstHit.expanded_context || {{}};
+      const parent = context.parent_section || {{}};
+      const citationIds = context.citations || b.citation_ids || [];
+      const why = firstHit.why_retrieved || b.why_retrieved || [];
+      const shortSection = (firstHit.section_path || b.section_path || "").split(" > ").slice(-1)[0] || firstHit.node_id || b.hit_node_id;
+      const signalStr = Object.entries(firstHit.signal_scores || b.signal_scores || {{}})
         .map(([k,v]) => `${{k}}=${{v}}`).join(", ");
       html += `<div class="src-card" style="margin-bottom:8px">
         <div class="src-header">
-          <span class="src-id" style="font-size:12px">${{b.source_id}}</span>
-          ${{badge("b-type", b.source_type || "?")}}
-          ${{confBadge(b.parser_confidence)}}
-          ${{b.citation_ids && b.citation_ids.length ? badge("b-krs", b.citation_ids.length + " cite(s)") : ""}}
+          <span class="src-id" style="font-size:12px">${{source.source_id || b.source_id || ""}}</span>
+          ${{badge("b-type", source.source_type || b.source_type || "?")}}
+          ${{diagnostics.reading_order_confidence !== undefined ? badge("b-type", "parser " + diagnostics.reading_order_confidence) : confBadge(b.parser_confidence)}}
+          ${{citationIds.length ? badge("b-krs", citationIds.length + " cite(s)") : ""}}
         </div>
         <div style="font-size:12px;color:var(--muted);margin:4px 0">${{shortSection}}</div>
         <div style="font-size:11px;color:var(--muted);margin-bottom:6px">
-          Query: <code>${{b.query}}</code> &nbsp;·&nbsp; signals: ${{signalStr}}
+          Query: <code>${{b.query_text || b.query || ""}}</code> &nbsp;·&nbsp; signals: ${{signalStr}}
         </div>
-        <div class="ev-snippet">${{(b.hit_text || "").substring(0,300)}}</div>
-        ${{(b.why_retrieved || []).length ? `<div style="margin-top:6px;font-size:11px;color:var(--muted)">
-          Why: ${{b.why_retrieved.map(w => `<span style="display:inline-block;margin-right:8px">• ${{w}}</span>`).join("")}}
+        <div class="ev-snippet">${{(firstHit.text || b.hit_text || "").substring(0,300)}}</div>
+        ${{why.length ? `<div style="margin-top:6px;font-size:11px;color:var(--muted)">
+          Why: ${{why.map(w => `<span style="display:inline-block;margin-right:8px">• ${{w}}</span>`).join("")}}
         </div>` : ""}}
-        ${{b.parent_text ? `<div style="margin-top:6px;font-size:11px;color:var(--muted)">Parent: <em>${{b.parent_text.substring(0,120)}}</em></div>` : ""}}
+        ${{parent.text ? `<div style="margin-top:6px;font-size:11px;color:var(--muted)">Parent: <em>${{parent.text.substring(0,120)}}</em></div>` : ""}}
       </div>`;
     }});
     html += `</div>`;

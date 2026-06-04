@@ -38,7 +38,7 @@ Positive:
 - No new infrastructure required; Sandbox 003 reads Sandbox 002 output files directly
 
 Tradeoffs:
-- Sandbox 003 depends on Sandbox 002 loose threads being resolved first (Smell 5, gold set re-eval)
+- Sandbox 003 depends on the remaining Sandbox 002 detector-calibration thread being understood first (Smell 5 currently produces 0 findings)
 - LLM triage quality depends on prompt design — a bad prompt produces hallucinated legal conclusions, which is worse than no annotation
 - The executive report format should be informed by the Perplexity CEO-angle feedback before Stage 003 of Sandbox 003 is designed
 
@@ -47,7 +47,7 @@ Tradeoffs:
 Sandbox 003 should not start until:
 
 - [ ] Smell 5 detector calibrated on 28-source corpus (currently 0 findings, which is implausible given the corpus content)
-- [ ] Gold set re-evaluated on run 87283951 to confirm BM25 still 100%
+- [x] Gold set re-evaluated on repaired expanded run 18b0dec5 — BM25 still 100% (21/21)
 - [ ] Perplexity/external LLM feedback on reviewer report reviewed by user
 - [ ] Decision made on Claude model for Stage 001 triage (Sonnet vs. Opus; cost vs. quality)
 

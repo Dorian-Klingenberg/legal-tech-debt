@@ -87,11 +87,11 @@ SMELL_NAMES = {
 
 # Expected source types that carry each smell (for corpus gap documentation)
 SMELL_SOURCE_TYPES = {
-    1: ["homeowners_form", "endorsement"],
-    2: ["homeowners_form", "endorsement", "doi_bulletin", "kar_regulation"],
-    3: ["homeowners_form", "endorsement"],
-    4: ["homeowners_form", "serff_filing", "rate_manual"],
-    5: ["homeowners_form", "endorsement", "serff_filing"],
+    1: ["serff_form_filing"],
+    2: ["serff_form_filing", "serff_rate_rule_filing", "doi_bulletin", "kar_regulation"],
+    3: ["serff_form_filing"],
+    4: ["serff_rate_rule_filing"],
+    5: ["serff_form_filing", "serff_correspondence", "serff_rate_rule_filing"],
 }
 
 
@@ -155,21 +155,23 @@ def run(run_dir: Path) -> None:
 
                 bd = dataclasses.asdict(bundle)
                 all_bundles[bundle.bundle_id] = bd
+                first_hit = bundle.hits[0] if bundle.hits else {}
+                source = first_hit.get("source", {})
                 smell_results[smell_id].append({
                     "bundle_id": bundle.bundle_id,
                     "query": query,
                     "mode": mode,
-                    "source_id": bundle.source_id,
-                    "source_type": bundle.source_type,
-                    "section_path": bundle.section_path,
-                    "parser_confidence": bundle.parser_confidence,
-                    "hit_text_excerpt": (bundle.hit_text or "")[:200],
-                    "why_retrieved": bundle.why_retrieved,
-                    "citation_count": len(bundle.citation_ids),
-                    "reference_count": len(bundle.reference_ids),
+                    "source_id": source.get("source_id", ""),
+                    "source_type": source.get("source_type", ""),
+                    "section_path": first_hit.get("section_path", ""),
+                    "parser_confidence": first_hit.get("parser_diagnostics", {}).get("reading_order_confidence", ""),
+                    "hit_text_excerpt": (first_hit.get("text") or "")[:200],
+                    "why_retrieved": first_hit.get("why_retrieved", []),
+                    "citation_count": len(first_hit.get("expanded_context", {}).get("citations", [])),
+                    "reference_count": len(first_hit.get("expanded_context", {}).get("references", [])),
                 })
-                print(f"[retrieval_runner]   [{mode}] {query!r} -> {bundle.source_id} / "
-                      f"{bundle.section_path.split(' > ')[-1][:60]}")
+                print(f"[retrieval_runner]   [{mode}] {query!r} -> {source.get('source_id', '')} / "
+                      f"{first_hit.get('section_path', '').split(' > ')[-1][:60]}")
 
         if not smell_results[smell_id]:
             print(f"[retrieval_runner]   No hits.")

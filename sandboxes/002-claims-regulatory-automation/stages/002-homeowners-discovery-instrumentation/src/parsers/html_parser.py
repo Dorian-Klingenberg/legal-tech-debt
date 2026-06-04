@@ -31,6 +31,7 @@ PARSER_NAME = "html_bs4_kar_v1"
 
 def parse(
     source_id: str,
+    source_hash: str,
     path: Path,
     run_id: str,
 ) -> tuple[ParserRun, list[Block], BlockStats, list[TableFailure], list[ParseWarning]]:
@@ -52,6 +53,7 @@ def parse(
             created_at=now,
             block_id=id_gen.block_id(source_id, block_index),
             source_id=source_id,
+            source_hash=source_hash,
             parser_run_id=prun_id,
             block_index=block_index,
             block_type=block_type,
@@ -71,6 +73,7 @@ def parse(
             created_at=now,
             warning_id=id_gen.warning_id(source_id, warning_type, len(warnings)),
             source_id=source_id,
+            source_hash=source_hash,
             parser_run_id=prun_id,
             warning_type=warning_type,
             description=description,
@@ -88,6 +91,7 @@ def parse(
             created_at=now,
             parser_run_id=prun_id,
             source_id=source_id,
+            source_hash=source_hash,
             parser_name=PARSER_NAME,
             status="failed",
             failure_reason=str(e),
@@ -98,7 +102,7 @@ def parse(
             reading_order_uncertain=False,
             notes="",
         )
-        return pr, [], _empty_stats(source_id, prun_id, run_id, now), [], []
+        return pr, [], _empty_stats(source_id, source_hash, prun_id, run_id, now), [], []
 
     soup = BeautifulSoup(html, "html.parser")
 
@@ -181,6 +185,7 @@ def parse(
         run_id=run_id,
         created_at=now,
         source_id=source_id,
+        source_hash=source_hash,
         parser_run_id=prun_id,
         total_blocks=len(blocks),
         heading_count=heading_count,
@@ -200,6 +205,7 @@ def parse(
         created_at=now,
         parser_run_id=prun_id,
         source_id=source_id,
+        source_hash=source_hash,
         parser_name=PARSER_NAME,
         status=status,
         failure_reason=None,
@@ -213,12 +219,13 @@ def parse(
     return pr, blocks, stats, table_failures, warnings
 
 
-def _empty_stats(source_id: str, prun_id: str, run_id: str, now: str) -> BlockStats:
+def _empty_stats(source_id: str, source_hash: str, prun_id: str, run_id: str, now: str) -> BlockStats:
     return BlockStats(
         schema_version=SCHEMA_VERSION,
         run_id=run_id,
         created_at=now,
         source_id=source_id,
+        source_hash=source_hash,
         parser_run_id=prun_id,
         total_blocks=0,
         heading_count=0,

@@ -1,9 +1,9 @@
 # Sandbox 003: Findings Triage And Intelligence
 
-Status: **Planning — not started**
+Status: **Planning — next active lane**
 Scope: Take structured findings from Sandbox 002 and make them business-actionable
 Created: 2026-06-03
-Depends on: Sandbox 002 Stage 006 findings JSONL + Stage 007 reviewer report
+Depends on: Sandbox 002 repaired run `output/002/20260604_130606_18b0dec5/`, Stage 006 findings JSONL, and Stage 007 reviewer report
 
 ---
 
@@ -78,7 +78,10 @@ This sandbox turns findings into decisions.
 
 ## Prerequisites Before Starting
 
-- [ ] Sandbox 002 loose threads resolved (Smell 5 detector, gold set re-evaluation on run 87283951)
+- [x] Sandbox 002 artifact contract repaired and revalidated on run `18b0dec5`
+- [x] Gold set re-evaluated on repaired expanded run — BM25 remains 21/21
+- [x] Sandbox 002 closure decision recorded in ADR-009
+- [ ] Treat Smell 5 as a known detector-calibration limitation; calibrate before claiming five-smell completeness
 - [ ] Perplexity/external LLM feedback on the current reviewer report reviewed and incorporated into Stage 003 design
 - [ ] Decision on which Claude model to use for Stage 001 triage (Sonnet vs. Opus; cost vs. quality tradeoff)
 - [ ] Prompt design for LLM triage reviewed by a human before running at scale

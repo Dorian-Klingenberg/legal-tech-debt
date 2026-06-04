@@ -81,11 +81,11 @@ def run(manifest_path: Path, output_base: Path) -> None:
         print(f"\n[pipeline] Parsing {source.source_id} ({ftype}, {'ext ok' if ext_ok else 'EXT MISMATCH'})...")
 
         if ftype == "html":
-            pr, blocks, stats, tfs, warns = html_parser.parse(source.source_id, path, run_id)
+            pr, blocks, stats, tfs, warns = html_parser.parse(source.source_id, source.source_hash, path, run_id)
         else:
             # pdf or unknown — route to Docling
             pr, blocks, stats, tfs, warns = pdf_parser.parse(
-                source.source_id, path, run_id, extension_mismatch=not ext_ok
+                source.source_id, source.source_hash, path, run_id, extension_mismatch=not ext_ok
             )
 
         print(f"[pipeline]   {pr.status}: {pr.block_count} blocks, {pr.warning_count} warnings, {pr.table_failure_count} table failures ({pr.duration_seconds:.1f}s)")
@@ -97,7 +97,7 @@ def run(manifest_path: Path, output_base: Path) -> None:
         all_parse_warnings.extend(warns)
 
         # Build nodes
-        nodes = build_nodes(source.source_id, source.title, blocks, run_id)
+        nodes = build_nodes(source.source_id, source.source_hash, source.title, blocks, run_id)
         print(f"[pipeline]   {len(nodes)} nodes")
         all_nodes.extend(nodes)
 
@@ -126,7 +126,7 @@ def run(manifest_path: Path, output_base: Path) -> None:
 
     # --- Retrieval bundles ---
     print("\n[pipeline] Building retrieval bundles...")
-    bundles = _build_bundles(evidence, all_nodes, all_citations, all_references, all_parser_runs, run_id)
+    bundles = _build_bundles(evidence, all_nodes, all_citations, all_references, all_parser_runs, sources, run_id)
     print(f"[pipeline] {len(bundles)} retrieval bundles")
 
     # --- Run manifest ---
@@ -135,11 +135,45 @@ def run(manifest_path: Path, output_base: Path) -> None:
         run_id=run_id,
         created_at=now,
         pipeline_version=PIPELINE_VERSION,
-        corpus_root=str(manifest_path.parent.parent / "corpus" / "kentucky-homeowners-policy-smells"),
+        corpus_root=str(Path("corpus") / "kentucky-homeowners-policy-smells"),
         subset_manifest=str(manifest_path),
         source_ids=[s.source_id for s in sources],
         output_dir=str(output_dir),
         total_sources=len(sources),
+        parsers_used=sorted({pr.parser_name for pr in all_parser_runs}),
+        schema_versions={
+            "run_manifest": SCHEMA_VERSION,
+            "source": SCHEMA_VERSION,
+            "parser_run": SCHEMA_VERSION,
+            "block": SCHEMA_VERSION,
+            "block_stats": SCHEMA_VERSION,
+            "node": SCHEMA_VERSION,
+            "citation": SCHEMA_VERSION,
+            "reference": SCHEMA_VERSION,
+            "edge": SCHEMA_VERSION,
+            "table_failure": SCHEMA_VERSION,
+            "parse_warning": SCHEMA_VERSION,
+            "candidate_evidence": SCHEMA_VERSION,
+            "retrieval_bundle": SCHEMA_VERSION,
+        },
+        config_snapshot={
+            "storage_backend": "files",
+            "semantic_split_enabled": False,
+            "llm_boundary_adjudication": False,
+            "graph_expand_depth": 1,
+            "parser_strategy": "html_bs4_kar_v1 for HTML; docling_2.93.0 for PDF or unknown/PDF-magic files",
+        },
+        parse_stats={
+            "blocks_count": len(all_blocks),
+            "nodes_count": len(all_nodes),
+            "citations_count": len(all_citations),
+            "references_count": len(all_references),
+            "edges_count": len(all_edges),
+            "table_failures_count": len(all_table_failures),
+            "parse_warnings_count": len(all_parse_warnings),
+            "partial_parser_runs_count": sum(1 for pr in all_parser_runs if pr.status == "partial"),
+            "failed_parser_runs_count": sum(1 for pr in all_parser_runs if pr.status == "failed"),
+        },
     )
 
     # --- Write outputs ---
@@ -189,6 +223,7 @@ def _build_bundles(
     citations,
     references,
     parser_runs,
+    sources,
     run_id: str,
 ) -> list[RetrievalBundle]:
     """Build one retrieval bundle per candidate evidence item."""
@@ -201,6 +236,7 @@ def _build_bundles(
     for r in references:
         refs_by_node.setdefault(r.node_id, []).append(r.reference_id)
     pr_by_source = {pr.source_id: pr for pr in parser_runs}
+    source_by_id = {s.source_id: s for s in sources}
 
     bundles: list[RetrievalBundle] = []
     seen_bundles: set[str] = set()
@@ -229,39 +265,65 @@ def _build_bundles(
         pr = pr_by_source.get(node.source_id)
         pconf = "high" if (pr and pr.status == "success") else ("medium" if pr else "low")
 
-        source_by_id_local = {}
-        for n in nodes:
-            if n.node_id == nid:
-                source_by_id_local[n.source_id] = n
-                break
-
-        from source_registry import load_sources as _ls
-        # We don't have source title here easily; use source_id as fallback
-        # (sources are already written; we store title in node.text for doc node)
         doc_nodes = {n.source_id: n for n in nodes if n.node_type == "document"}
         doc = doc_nodes.get(node.source_id)
+        source = source_by_id.get(node.source_id)
+
+        signal_scores = {
+            "exact": 0.0,
+            "lexical": 1.0,
+            "graph": 1.0 if (parent or siblings) else 0.0,
+            "citation": 1.0 if cites_by_node.get(nid) else 0.0,
+            "reference": 1.0 if refs_by_node.get(nid) else 0.0,
+            "metadata": 1.0 if source else 0.0,
+            "semantic": None,
+            "parser_penalty": 0.0 if pconf == "high" else 0.25 if pconf == "medium" else 0.5,
+        }
+
+        hit = {
+            "node_id": nid,
+            "rank": 1,
+            "score": 1.0,
+            "node_type": node.node_type,
+            "text": node.retrievable_text[:500],
+            "source": {
+                "source_id": node.source_id,
+                "source_hash": node.source_hash,
+                "title": source.title if source else (doc.title if doc else node.source_id),
+                "source_type": source.source_type if source else "",
+                "url": source.url if source else "",
+            },
+            "section_path": node.section_path,
+            "pages": [node.page_number] if node.page_number is not None else [],
+            "why_retrieved": [ev.why_flagged, f"heuristic={ev.heuristic_id}"],
+            "candidate_ids": [ev.candidate_id],
+            "signal_scores": signal_scores,
+            "parser_diagnostics": {
+                "parser_run_id": pr.parser_run_id if pr else "",
+                "reading_order_confidence": 0.75 if (pr and pr.reading_order_uncertain) else 1.0,
+                "warnings": [],
+            },
+            "expanded_context": {
+                "parent_section": {
+                    "node_id": parent.node_id,
+                    "text": parent.retrievable_text[:300],
+                } if parent else None,
+                "adjacent_nodes": siblings,
+                "citations": cites_by_node.get(nid, []),
+                "references": refs_by_node.get(nid, []),
+                "overrides": [],
+            },
+        }
 
         bundles.append(RetrievalBundle(
             schema_version=SCHEMA_VERSION,
             run_id=run_id,
             created_at=now,
             bundle_id=bid,
-            query=query,
-            hit_node_id=nid,
-            source_id=node.source_id,
-            source_title=doc.title if doc else node.source_id,
-            source_type="",
-            section_path=node.section_path,
-            why_retrieved=[ev.why_flagged, f"heuristic={ev.heuristic_id}"],
-            hit_text=node.retrievable_text[:500],
-            parent_node_id=node.parent_node_id,
-            parent_text=parent.retrievable_text[:300] if parent else None,
-            adjacent_node_ids=siblings,
-            citation_ids=cites_by_node.get(nid, []),
-            reference_ids=refs_by_node.get(nid, []),
-            parser_run_id=pr.parser_run_id if pr else "",
-            parser_confidence=pconf,
-            signal_scores={"lexical_candidate": 1.0},
+            query_text=query,
+            task_description="Stage 002 candidate-evidence retrieval bundle",
+            filters={"smell_id": ev.smell_id, "heuristic_id": ev.heuristic_id},
+            hits=[hit],
         ))
 
     return bundles

@@ -13,6 +13,16 @@ description: Create or update shared project memory artifacts. Use when the user
 4. Inspect `git status --short` and, when useful, focused diffs/logs to separate completed work from unrelated pending changes.
 5. If the user references the Grannies memory style, read `references/grannies-memory-patterns.md`.
 
+## Granular Skill Routing
+
+Use a narrower skill when the artifact type is clear:
+
+- `skills/write-adr/SKILL.md` for ADRs and context-freeze ADRs.
+- `skills/write-journal-entry/SKILL.md` for chronological journals.
+- `skills/write-lesson/SKILL.md` for reusable lessons.
+- `skills/write-handoff/SKILL.md` for handoffs and next-agent briefs.
+- `skills/maintain-agent-context/SKILL.md` for startup docs, compact context files, and registries.
+
 ## Decision Rules
 
 - Create a **journal** when capturing what happened in a session, day, research pass, implementation pass, or experiment.
