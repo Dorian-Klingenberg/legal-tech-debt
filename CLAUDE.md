@@ -4,6 +4,13 @@ This repository uses shared cross-agent project memory.
 
 Before doing any work, read `BOOTSTRAP.md` and follow its startup contract. Do not rely only on Claude-specific memory; project instructions must stay visible to Codex, GitHub Copilot, and other future agents too.
 
+## Mandatory Runtime Constraint Profile
+
+- Read `CLAUDE_CONSTRAINTS.md` before any exploration, file reads, planning, or tool use.
+- Treat `CLAUDE_CONSTRAINTS.md` as an active, hard constraint profile for the full session.
+- If `CLAUDE_CONSTRAINTS.md` is unavailable, unreadable, or conflicts cannot be resolved, stop immediately and ask for human instruction.
+- Do not proceed under inferred policy.
+
 Key reminders:
 
 - The current work is sandbox research and proof-of-concept experimentation.

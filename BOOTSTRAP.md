@@ -6,6 +6,7 @@ This file is the shared memory and startup contract for every AI assistant worki
 
 Before beginning any conversation or work:
 
+0. If the active agent is Claude Code, read `CLAUDE_CONSTRAINTS.md` first and treat it as a mandatory runtime policy. If it cannot be read, stop and request human instruction.
 1. Read the project documentation listed in the Documentation Map and establish a full understanding of where the project currently stands.
 2. Read the sandbox documentation for the sandbox being touched.
 3. If the work touches Sandbox 001, read `sandboxes/001-legal-debt-primitives/README.md`, `STAGING.md`, `NEXT_STAGES.md`, and the active stage status docs before changing files.
@@ -120,11 +121,12 @@ Every future agent working in this repository should do the following before mak
    - `AGENTS.md` for Codex and general coding agents.
    - `CLAUDE.md` for Claude Code.
    - `.github/copilot-instructions.md` for GitHub Copilot.
-3. Read the current sandbox README, controlling scope document, active roadmap, and latest handoff.
-4. For Sandbox 002 work, inspect the corpus manifest and known gaps before deciding that more source procurement is needed.
-5. Preserve decisions in shared files that Codex, Copilot, Claude Code, and future agents can all read. Do not store durable project knowledge in one assistant's private memory only.
-6. Add or update journal, handoff, lesson, and context records at major pause points, scope changes, corpus changes, or stage transitions. Use `skills/project-memory-artifacts/SKILL.md` when creating these shared memory artifacts.
-7. For skill work, inspect `skills/README.md`, `skills/SKILL-DEVELOPMENT.md`, and `skills/registry.csv` before drafting or installing a skill.
+3. If the active agent is Claude Code, load `CLAUDE_CONSTRAINTS.md` as a hard constraint profile before any exploration, reads, edits, or tool usage. If `CLAUDE_CONSTRAINTS.md` is unavailable or conflicts are unresolved, stop and ask the user which policy has priority.
+4. Read the current sandbox README, controlling scope document, active roadmap, and latest handoff.
+5. For Sandbox 002 work, inspect the corpus manifest and known gaps before deciding that more source procurement is needed.
+6. Preserve decisions in shared files that Codex, Copilot, Claude Code, and future agents can all read. Do not store durable project knowledge in one assistant's private memory only.
+7. Add or update journal, handoff, lesson, and context records at major pause points, scope changes, corpus changes, or stage transitions. Use `skills/project-memory-artifacts/SKILL.md` when creating these shared memory artifacts.
+8. For skill work, inspect `skills/README.md`, `skills/SKILL-DEVELOPMENT.md`, and `skills/registry.csv` before drafting or installing a skill.
 
 ## Current Sandbox 001 State
 
