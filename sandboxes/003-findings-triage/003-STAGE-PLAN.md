@@ -92,7 +92,9 @@ This sandbox turns findings into decisions.
 - [x] Sandbox 002 artifact contract repaired and revalidated on run `18b0dec5`
 - [x] Gold set re-evaluated on repaired expanded run — BM25 remains 21/21
 - [x] Sandbox 002 closure decision recorded in ADR-009
-- [ ] Treat Smell 5 as a known detector-calibration limitation; calibrate before claiming five-smell completeness
+- [x] Smell 5 calibrated — graph-based gap detector (H004-H006) produces 12 findings (7 MEDIUM, 5 LOW) across KNIC and KFBM. ADR-010 records the architectural decision. Five-smell completeness is now supportable with the caveat that H004-H006 heuristics are broad and human review is recommended.
 - [x] Perplexity/external LLM feedback on the current reviewer report reviewed and incorporated into Stage 003 design — key outputs: add business severity + remediation direction to Stage 001 annotations; label industry-wide vs. carrier-specific in Stage 002; frame Stage 003 report around decisions and actions with dollar anchors
-- [ ] Decision on which Claude model to use for Stage 001 triage (Sonnet vs. Opus; cost vs. quality tradeoff)
-- [ ] Prompt design for LLM triage reviewed by a human before running at scale
+- [ ] Prompt design for LLM triage reviewed by a human before running at scale — use a hybrid model approach:
+  - **Smaller/faster model** for mechanical fields: plain-English explanation, dispute scenario, false positive assessment, output formatting. Tight schema, hard prohibition on inventing legal context, annotations must stay within the evidence text.
+  - **Larger model** for high-judgment fields: business severity signal and remediation direction. These require domain reasoning about insurance claims, regulatory exposure, and filing implications that a smaller model is likely to produce shallowly.
+  - Model selection within each tier is secondary — design the prompts and schema first, then validate output quality on a sample of findings before running at scale.

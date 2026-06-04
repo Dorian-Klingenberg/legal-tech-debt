@@ -108,3 +108,30 @@ However, conditions 2 and 3 remain unmet:
 - No documented BM25 failure has been identified on the expanded corpus.
 
 **Revised status: deferred, re-open conditions 2 and 3 remain unmet.** Do not begin Stage 005 re-evaluation until both are addressed in Sandbox 003 or a later session.
+
+## Status Update — 2026-06-04
+
+All three re-open conditions are now met. Stage 005 is formally reopened.
+
+**Condition 2 — documented BM25 failure:** Smell 5 (Regulatory Mapping) produces zero findings across the entire 353-node corpus. Investigation confirmed that the failure is not a filtering bug — the H001/H002/H003 regex patterns produce zero raw matches. Carrier policy forms and rate manuals do not use "as required by state law" type language; they either cite a specific KRS section directly or don't reference law at all. Lexical/deterministic methods cannot surface regulatory-mapping smell in carrier-form language. This is the BM25 miss that earns semantic retrieval.
+
+**Condition 3 — paraphrase-style gold set queries:** The following reviewer-perspective queries have been approved for addition to the Smell 5 gold set tier:
+
+1. "Does this policy tell me which specific law or regulation requires this provision?"
+2. "Which regulatory filing or approval number governs this rate or rule?"
+3. "If I needed to verify this against a Kentucky statute, where would I look?"
+4. "Does this endorsement explain what regulatory authority permits it to limit coverage this way?"
+5. "Is there a traceable link between this policy condition and a filed, approved rule?"
+
+These are example queries representing the reviewer register — outcome-oriented, plain-language — not exhaustive. Each must be paired with an expected node from run `18b0dec5` before the gold set items are finalized.
+
+**Stage 005 re-run completed 2026-06-04. Results:**
+
+- 325 nodes embedded with `text-embedding-3-small`; evaluated against 26-item gold set (21 original + 5 Smell 5 paraphrase items)
+- Overall semantic recall: 14/26 (54%) → Decision: PURSUE
+- Smell 5 paraphrase items (eval-022 through eval-026): 0/5 hits with both `text-embedding-3-small` and `text-embedding-3-large`
+- Model diagnostic confirmed the miss is architectural, not model capability: both models correctly retrieve regulatory source nodes (KAR/KRS) but cannot retrieve carrier policy nodes based on what they *lack*
+
+**Conclusion:** Vector similarity is the wrong tool for gap-detection smells. Smell 5 requires graph-based gap detection — identifying carrier nodes that make regulatory-sounding claims but have no outbound edges to regulatory source nodes. See ADR-010 for the architectural decision.
+
+Vector retrieval remains appropriate for cross-carrier paraphrase matching (future use case) and general evidence retrieval. The vector store selection question is deferred until that use case is active.

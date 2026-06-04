@@ -3,9 +3,9 @@
   "goldset_id": "goldset-002.2",
   "created_at": "2026-06-03",
   "pipeline_version": "002.1.0",
-  "corpus_scope": "Stage 002 Kentucky homeowners — 7 sources including KNIC SERFF rate/rule filing (KY-SERFF-KNIC-127064322)",
-  "purpose": "Retrieval evaluation gold set. Each item has expected_node_id, test_queries, and expected retrieval modes. Used by evaluator.py to measure phrase and BM25 recall, false positives, and missed hits.",
-  "notes": "All three blocked tiers (policy_manual_clauses, endorsement_form_fragments, rate_manual_fragments) were filled from KNIC SERFF filing nodes. Run 996e36af was the original reference run; repaired expanded run 18b0dec5 revalidated BM25 at 21/21 on 2026-06-04.",
+  "corpus_scope": "Stage 002 Kentucky homeowners — 28 sources including KNIC and KFBM SERFF filings, KRS statutes, KAR regulations, and DOI bulletins (repaired run 18b0dec5)",
+  "purpose": "Retrieval evaluation gold set. Each item has expected_node_id, test_queries, and expected retrieval modes. Used by evaluator.py to measure phrase, BM25, and semantic recall, false positives, and missed hits.",
+  "notes": "eval-001 through eval-021 use document-vocabulary queries (phrase/BM25 matchable). eval-022 through eval-026 are Smell 5 paraphrase items added 2026-06-04 using reviewer-perspective plain-language queries; expected_retrieval_modes is [semantic] to test whether embeddings surface nodes that BM25 misses. Run 996e36af was the original reference run; repaired expanded run 18b0dec5 revalidated BM25 at 21/21 on 2026-06-04.",
 
   "items": [
     {
@@ -364,6 +364,83 @@
       ],
       "expected_retrieval_modes": ["phrase", "bm25"],
       "tier": "endorsement_form_fragments"
+    },
+    {
+      "item_id": "eval-022",
+      "smell_id": 5,
+      "smell_name": "Regulatory Mapping Smells",
+      "source_id": "KY-SERFF-KNIC-127064322",
+      "source_type": "serff_rate_rule_filing",
+      "expected_node_id": "176e1f63ad696b0a8166",
+      "expected_section_path": "KY-SERFF-KNIC-127064322 > 210. SPECIAL STATE REQUIREMENTS",
+      "fixture_summary": "Special State Requirements mandates specific endorsements on all policies without citing which law or regulation requires them — paraphrase query tests semantic retrieval for regulatory-obligation-without-citation pattern",
+      "test_queries": [
+        "Does this policy tell me which specific law or regulation requires this provision?"
+      ],
+      "expected_retrieval_modes": ["semantic"],
+      "tier": "smell5_paraphrase",
+      "notes": "Same node as eval-018 (Smell 4, document-vocabulary queries). This item tests the same node with a reviewer-perspective paraphrase query to evaluate semantic recall."
+    },
+    {
+      "item_id": "eval-023",
+      "smell_id": 5,
+      "smell_name": "Regulatory Mapping Smells",
+      "source_id": "KY-SERFF-KNIC-127064322",
+      "source_type": "serff_rate_rule_filing",
+      "expected_node_id": "615cdc5d11be8d20f6a2",
+      "expected_section_path": "KY-SERFF-KNIC-127064322 > 204. MANUAL PREMIUM REVISION",
+      "fixture_summary": "Manual Premium Revision: 'revision shall be made in accordance with...as announced' — no SERFF filing number or effective date anchor; paraphrase query tests semantic retrieval for unanchored rate-rule reference",
+      "test_queries": [
+        "Which regulatory filing or approval number governs this rate or rule?"
+      ],
+      "expected_retrieval_modes": ["semantic"],
+      "tier": "smell5_paraphrase",
+      "notes": "Same node as eval-012 (Smell 4, document-vocabulary queries). This item tests the same node with a reviewer-perspective paraphrase query."
+    },
+    {
+      "item_id": "eval-024",
+      "smell_id": 5,
+      "smell_name": "Regulatory Mapping Smells",
+      "source_id": "KY-SERFF-KNIC-127064322",
+      "source_type": "serff_rate_rule_filing",
+      "expected_node_id": "86f5d845167490e38f55",
+      "expected_section_path": "KY-SERFF-KNIC-127064322 > 203. CHANGES OR CANCELLATIONS",
+      "fixture_summary": "Changes or Cancellations asserts 'mandatory coverages' as a cancellation constraint without citing which KRS provision establishes them as mandatory — paraphrase query tests semantic retrieval for implied statutory obligation",
+      "test_queries": [
+        "If I needed to verify this against a Kentucky statute, where would I look?"
+      ],
+      "expected_retrieval_modes": ["semantic"],
+      "tier": "smell5_paraphrase"
+    },
+    {
+      "item_id": "eval-025",
+      "smell_id": 5,
+      "smell_name": "Regulatory Mapping Smells",
+      "source_id": "KY-SERFF-KFBM-134503212-HO-FORM",
+      "source_type": "serff_form_filing",
+      "expected_node_id": "f68f6a64438a142fa351",
+      "expected_section_path": "KY-SERFF-KFBM-134503212-HO-FORM > SECTION I - CONDITIONS",
+      "fixture_summary": "KFBM roof surfacing ACV endorsement limits replacement cost to ACV for windstorm/hail losses without citing the regulatory authority that permits this coverage limitation — paraphrase query tests semantic retrieval for permission-without-citation pattern",
+      "test_queries": [
+        "Does this endorsement explain what regulatory authority permits it to limit coverage this way?"
+      ],
+      "expected_retrieval_modes": ["semantic"],
+      "tier": "smell5_paraphrase"
+    },
+    {
+      "item_id": "eval-026",
+      "smell_id": 5,
+      "smell_name": "Regulatory Mapping Smells",
+      "source_id": "KY-SERFF-KFBM-134870729-RATE-MANUAL-HOP2-1",
+      "source_type": "serff_rate_rule_filing",
+      "expected_node_id": "edd9e1e74c8a3f4843e9",
+      "expected_section_path": "KY-SERFF-KFBM-134870729-RATE-MANUAL-HOP2-1 > 3. INFLATION GUARD",
+      "fixture_summary": "KFBM Inflation Guard references 'an index of construction costs' as the basis for annual limit increases without naming the index or citing the filed rule that governs the percentage — paraphrase query tests semantic retrieval for unanchored rating rule",
+      "test_queries": [
+        "Is there a traceable link between this policy condition and a filed, approved rule?"
+      ],
+      "expected_retrieval_modes": ["semantic"],
+      "tier": "smell5_paraphrase"
     }
   ],
 

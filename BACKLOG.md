@@ -10,7 +10,7 @@ This file tracks open questions, deferred tasks, and homeless backlog items — 
 
 ## Open Items
 
-### [ ] BACKLOG-001: Smell 5 Detector Calibration
+### [x] BACKLOG-001: Smell 5 Detector Calibration — RESOLVED 2026-06-04
 
 **Status:** Open — no sandbox assigned  
 **Affects:** Sandbox 002 Stage 006; Sandbox 003 five-smell completeness claim  
@@ -23,7 +23,11 @@ The Regulatory Mapping smell detector (Smell 5) produces zero findings on the ex
 - ADR-009 formally records this as a known limitation and a non-blocker to starting Sandbox 003.
 - Sandbox 003 must not claim five-smell completeness until this is resolved.
 
-**Next action:** Inspect KFBM DOI objection response and rate manual nodes from run `18b0dec5`; identify why Smell 5 heuristics are not triggering; patch and rerun detector.
+**Diagnosis (2026-06-04):** Zero raw pattern matches across all 353 nodes — not a filtering bug. Carrier policy forms don't use "as required by state law" language; the smell requires semantic retrieval to surface. This is the documented BM25 failure that earns Stage 005 re-evaluation. Stage 005 formally reopened.
+
+**Architecture decision (ADR-010, 2026-06-04):** Vector similarity cannot detect absence. Smell 5 requires graph-based gap detection — identify carrier nodes making regulatory-sounding claims, then check for missing outbound edges to KRS/KAR/DOI/SERFF nodes. See `adr/ADR-010-smell5-retrieval-architecture-gap-detection.md`.
+
+**Resolution:** Detector rebuilt as two-tier (H001-H003 lexical + H004-H006 graph gap). H004-H006 emit one consolidated finding per source with supporting_nodes. Detectors rerun: 12 Smell 5 findings (7 MEDIUM, 5 LOW) across KNIC and KFBM. Stage 007 report regenerated: 35 total findings. Five-smell coverage is now complete for the current corpus.
 
 ---
 
@@ -60,7 +64,7 @@ A third file with the same issue (`KY-KRS-304-13`) was already renamed. The pipe
 
 ---
 
-### [ ] BACKLOG-004: Stage 005 Semantic Retrieval Re-open Conditions
+### [x] BACKLOG-004: Stage 005 Semantic Retrieval Re-open Conditions — RESOLVED 2026-06-04
 
 **Status:** Open — one of three gates met  
 **Affects:** Sandbox 002 Stage 005; ADR-002; vector store selection (ADR-005)
@@ -75,7 +79,21 @@ Re-opening semantic retrieval requires all three conditions:
 - Semantic retrieval scored 76% on the same queries — not because embeddings are weak, but because the queries are phrase-matchable.
 - A fair evaluation needs reviewer-style paraphrase queries and a real BM25 miss.
 
-**Next action:** Defer until after Sandbox 003. At that point, draft 3–5 paraphrase-style reviewer questions (e.g., "does this policy explain how the company decides what something is worth?") and check whether BM25 misses them.
+**Resolution:** All three conditions met 2026-06-04. Five Smell 5 paraphrase queries approved. Stage 005 formally reopened. See BACKLOG-001 for next steps.
+
+---
+
+### [ ] BACKLOG-005: Project Graduation And Agile V Framework Integration
+
+**Status:** Open — not yet time; placeholder for future discussion  
+**Priority:** Low — revisit after Sandbox 003 produces a client-ready output
+
+At some point the sandbox research phase ends and this becomes a real project with a real delivery framework. Two questions to answer when that time comes:
+
+1. **Project graduation** — what criteria signal that the sandbox phase is over and a proper project structure (scope, milestones, resourcing, client commitments) is warranted?
+2. **Agile V integration** — how and when does the Agile V framework get layered onto this project's workflow?
+
+**Next action:** Revisit after Sandbox 003 Stage 003 (executive summary report) is complete and there is a client-facing artifact to evaluate. That output will be the clearest signal of whether the concept is ready to graduate.
 
 ---
 

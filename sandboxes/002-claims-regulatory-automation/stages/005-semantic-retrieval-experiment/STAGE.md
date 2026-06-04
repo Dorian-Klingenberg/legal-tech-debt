@@ -66,3 +66,18 @@ Outputs are written into the Stage 002 run directory:
 The 76% semantic recall reflects gold set queries written in document vocabulary (phrase-matchable),
 not plain-language paraphrases. A fair semantic evaluation needs paraphrase queries and multi-carrier corpus.
 See ADR-002 for re-open conditions.
+
+## Re-open Decision — 2026-06-04
+
+Stage 005 is formally reopened. All three re-open conditions are met:
+
+1. ✅ Second carrier corpus (KFBM, 11 documents) — met 2026-06-03
+2. ✅ Documented BM25 failure — Smell 5 detector produces zero findings across 353 nodes; regex/lexical cannot surface regulatory-mapping smell in carrier policy language
+3. ✅ Paraphrase-style gold set queries approved — five reviewer-perspective Smell 5 queries ready for gold set pairing
+
+**Next steps:**
+- [ ] Pair the five Smell 5 paraphrase queries with expected nodes from run `18b0dec5`; add as new gold set items to `goldset-002.2.json`
+- [ ] Re-embed 353 nodes from run `18b0dec5` (prior cache was 251 nodes on run `996e36af`)
+- [ ] Re-run semantic evaluator against updated gold set
+- [ ] Record whether semantic retrieval surfaces Smell 5 candidate nodes that BM25 misses
+- [ ] Update ADR-005 (vector store selection) based on result

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-06-04T09:21:28-04:00",
+  "updated_at": "2026-06-04T18:00:00-04:00",
   "project": {
     "name": "legal-tech-debt",
     "mode": "sandbox research and proof-of-concept development",
@@ -25,9 +25,9 @@
     "next_sandbox": "sandboxes/003-findings-triage",
     "source_evidence_sandbox": "sandboxes/002-claims-regulatory-automation",
     "source_evidence_run": "output/002/20260604_130606_18b0dec5/",
-    "run_summary": "Sandbox 002 closed with 28 sources, 353 nodes, 121 candidate evidence items, 39 Stage 003 retrieval bundles, and 23 detector findings after Stage 002 artifact contract repair",
-    "latest_handoff": "sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-04.md",
-    "latest_memory_journal": "journal/2026-06-04-sandbox-002-artifact-contract-repair.md"
+    "run_summary": "Sandbox 002 closed with 28 sources, 353 nodes, 121 candidate evidence items, 39 Stage 003 retrieval bundles, and 35 detector findings (five smells fully calibrated including Smell 5 graph-gap detection)",
+    "latest_handoff": "sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-04b.md",
+    "latest_memory_journal": "journal/2026-06-04-sandbox-003-planning-smell5-resolution.md"
   },
   "active_scope": [
     "Kentucky homeowners insurance",
@@ -38,7 +38,7 @@
   "out_of_scope_by_default": [
     "Personal auto, no-fault, PIP, and broad claims-platform work",
     "Production infrastructure, services, databases, queues, schedulers, Docker, and deployment scaffolding",
-    "Vector infrastructure until retrieval evaluation earns it",
+    "Vector infrastructure — deferred; vector retrieval earns a future role in cross-carrier paraphrase matching but not in gap detection (see ADR-010)",
     "Automated legal conclusions"
   ],
   "implementation_preferences": [
@@ -48,13 +48,16 @@
     "Treat parser/reference uncertainty as evidence.",
     "Separate candidate evidence, detector findings, LLM annotations, and reviewer reports.",
     "Use source-type-aware heuristics; regulatory documents and carrier filings need different false-positive handling.",
-    "Run focused validation and report concrete counts, run IDs, and unvalidated gaps."
+    "Run focused validation and report concrete counts, run IDs, and unvalidated gaps.",
+    "Gap detection smells (Smell 5) require graph traversal over the edge substrate, not vector similarity — absence cannot be embedded."
   ],
   "open_threads": [
-    "Smell 5 detector produces 0 findings and is carried as a known limitation, not a blocker to starting Sandbox 003.",
-    "Gold set re-evaluation on run 18b0dec5 preserved BM25 100% recall; future semantic evaluation still needs paraphrase queries.",
-    "Stage 005 semantic retrieval is only partially reopened by the second carrier corpus; defer until paraphrase queries and a BM25 failure exist.",
-    "KY-KRS-304-12-230 and KY-KRS-304-14 are named .html but contain PDF content; low-priority cleanup."
+    "Sandbox 003 Stage 001 prompt design not yet reviewed by human — required gate before running LLM triage at scale.",
+    "Sandbox 003 Stage 001 uses hybrid LLM model design: smaller model for mechanical annotation, larger model for business severity and remediation direction.",
+    "Kentucky Growers SERFF search incomplete — SERFF site was down on 2026-06-04 recheck (BACKLOG-003).",
+    "KY-KRS-304-12-230 and KY-KRS-304-14 are named .html but contain PDF content — low-priority cleanup (BACKLOG-002).",
+    "Smell 5 H004-H006 heuristic patterns are broad — human review of Smell 5 findings recommended before treating as confirmed.",
+    "Project graduation and Agile V framework integration discussion deferred to after Sandbox 003 Stage 003 (BACKLOG-005)."
   ],
   "shared_skills": [
     "skills/apply-implementation-defaults/SKILL.md",
@@ -74,7 +77,8 @@
     "adrs": "Accepted decisions and rejected alternatives.",
     "journals": "Chronological point-in-time session memory.",
     "lessons": "Reusable learning and patterns.",
-    "handoffs": "Resume points and next-agent instructions."
+    "handoffs": "Resume points and next-agent instructions.",
+    "backlog": "BACKLOG.md at repo root — cross-sandbox homeless items, open questions, and deferred work."
   },
   "cross_agent_rule": "Durable memory belongs in repo-visible files that Codex, Claude Code, GitHub Copilot, and future agents can all read."
 }

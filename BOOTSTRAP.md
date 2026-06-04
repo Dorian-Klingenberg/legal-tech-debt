@@ -91,7 +91,7 @@ For Sandbox 002, read:
 15. `sandboxes/002-claims-regulatory-automation/references/docling-local-stack-boundary.md` when doing Docling, local parsing model, VLM enrichment, embedding, or retrieval-store work.
 16. `sandboxes/002-claims-regulatory-automation/002-PAIN-POINTS-TAXONOMY.md`
 17. `sandboxes/002-claims-regulatory-automation/001-vs-002-REUSE-ANALYSIS.md`
-18. `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-04.md`
+18. `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-04b.md`
 19. `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv`
 20. `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`
 
@@ -107,7 +107,7 @@ Current Sandbox 002 scope:
 - Do not start auto, personal auto, motor vehicle, no-fault, or PIP work unless the user explicitly reopens that scope.
 - If homeowners sources cross-reference auto or other P&C lines, record the reference as context only and keep active discovery, fixtures, and detectors homeowners-centered.
 - Treat broad claims-platform, regulatory-feed, PAS, productization, and infrastructure references as background or parked unless a specific stage explicitly reopens them.
-- Sandbox 002 is closed as a discovery/retrieval/detector/reviewer-report proof of concept. Preserved repaired run: `output/002/20260604_130606_18b0dec5/` (28 sources, 353 nodes, 121 candidate evidence items, 39 Stage 003 retrieval bundles, 23 findings). Next active lane is Sandbox 003 findings triage unless the user reopens Sandbox 002.
+- Sandbox 002 is closed as a discovery/retrieval/detector/reviewer-report proof of concept. Preserved repaired run: `output/002/20260604_130606_18b0dec5/` (28 sources, 353 nodes, 121 candidate evidence items, 39 Stage 003 retrieval bundles, 35 findings across all five smells). Smell 5 resolved via graph-based gap detection (ADR-010). Latest handoff: `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-04b.md`. Next active lane is Sandbox 003 findings triage unless the user reopens Sandbox 002.
 - Defer vector infrastructure, but design the evidence substrate as if hybrid retrieval will eventually exist.
 - Treat parser/reference uncertainty as part of the evidence layer, not as an implementation detail.
 - Stage 002 JSON/JSONL artifacts should carry schema version, run identity, creation timestamp, and stable source/node IDs under a fixed parsing strategy.

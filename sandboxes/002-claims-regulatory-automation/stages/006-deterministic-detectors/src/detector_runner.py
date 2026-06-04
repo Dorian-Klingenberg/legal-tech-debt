@@ -59,8 +59,12 @@ def run_detectors(run_dir: Path) -> list[Finding]:
 
     for detector in DETECTORS:
         smell_id = detector.SMELL_ID
-        before = len(all_findings)
-        findings = list(detector.detect(nodes, idx.run_id, counter))
+        import inspect
+        sig = inspect.signature(detector.detect)
+        if "idx" in sig.parameters:
+            findings = list(detector.detect(nodes, idx.run_id, counter, idx=idx))
+        else:
+            findings = list(detector.detect(nodes, idx.run_id, counter))
         all_findings.extend(findings)
         print(f"[detector-runner]   Smell {smell_id}: {len(findings)} findings")
 

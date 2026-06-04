@@ -225,7 +225,7 @@ Question:
 
 ## Stage 005: Semantic Retrieval Experiment
 
-Status: **Complete — deferred by result**
+Status: **Complete — architectural finding 2026-06-04**
 Directory: `stages/005-semantic-retrieval-experiment/`
 
 Question:
@@ -243,11 +243,13 @@ Question:
 
 **Result:** BM25 is already perfect. Semantic adds nothing on top of BM25 — it rescues zero BM25 misses. The 76% semantic recall reflects gold set queries written in document vocabulary (phrase-matchable), not plain-language paraphrases. A fair semantic evaluation needs paraphrase queries and a multi-carrier corpus. Vector store selection deferred. See ADR-002.
 
-**What would re-open Stage 005:**
+**Re-open conditions — all met 2026-06-04:**
 
-- [ ] Second carrier homeowners policy in corpus (same smells, different language)
-- [ ] Gold set items written as plain-English reviewer questions, not document phrases
-- [ ] At least one documented BM25 failure that a concept-level query would fix
+- [x] Second carrier homeowners policy in corpus (KFBM, met 2026-06-03)
+- [x] Gold set items written as plain-English reviewer questions — five Smell 5 paraphrase queries approved
+- [x] Documented BM25 failure — Smell 5 produces zero findings; lexical cannot surface regulatory-mapping smell in carrier policy language
+
+**Final result:** 14/26 hits (54% recall), Decision: PURSUE. Smell 5 paraphrase items: 0/5 hits with both text-embedding-3-small and text-embedding-3-large. Architectural conclusion: vector similarity cannot detect absence. Smell 5 requires graph-based gap detection. See ADR-010. Vector store selection remains deferred; vector retrieval earns a future role in cross-carrier paraphrase matching.
 
 ---
 
@@ -277,7 +279,7 @@ Question:
 
 **Results (run 996e36af, 251 nodes, original corpus):** 17 findings — Smell 2: 13 (MEDIUM), Smell 3: 3 (LOW), Smell 4: 1 (HIGH).
 
-**Results (run 18b0dec5, repaired Stage 002 contract, 353 nodes, 28-source corpus):** 23 findings — Smell 1: 1 (LOW), Smell 2: 17 (MEDIUM, carrier docs only), Smell 3: 4 (LOW), Smell 4: 1 (HIGH), Smell 5: 0.
+**Results (run 18b0dec5, repaired Stage 002 contract, 353 nodes, 28-source corpus, Smell 5 redesigned):** 35 findings — Smell 1: 1 (LOW), Smell 2: 17 (MEDIUM), Smell 3: 4 (LOW), Smell 4: 1 (HIGH), Smell 5: 12 (7 MEDIUM, 5 LOW, graph-gap detection).
 
 **Detector improvement 2026-06-03:** H001/H003 heuristics in smell2.py now suppressed for `kar_regulation`, `krs_statute`, `doi_bulletin`, `doi_guidance` source types. "Reasonable" in regulatory docs is legal standard language, not a claim dispute gate. Detector runner enriches nodes with `source_type` from `source_by_id` before passing to detectors.
 
@@ -328,7 +330,7 @@ Question:
 
 - [ ] **Smell 5 detector produces 0 findings** — Regulatory Mapping heuristics are not firing on the expanded corpus. The detector needs calibration against the new KFBM sources, particularly the DOI objection response and rate manual filings which should have KRS/KAR citation gaps.
 - [x] **Gold set re-evaluated against repaired expanded run 18b0dec5** — phrase 20/21 (95%), BM25 21/21 (100%); semantic remains deferred.
-- [ ] **Stage 005 re-open conditions partially met** — second carrier corpus (KFBM) is now present. Re-open requires also: paraphrase-style gold set queries, and at least one documented BM25 failure. Not worth doing until after Sandbox 003.
+- [x] **Stage 005 reopened 2026-06-04** — all three re-open conditions met. See Stage 005 STAGE.md and ADR-002 for next steps.
 - [ ] **EXT MISMATCH files** — KY-KRS-304-12-230 and KY-KRS-304-14 are named `.html` but contain PDF content (same issue as KY-KRS-304-13 which was renamed). Pipeline parses them with warnings. Low priority since they produce nodes, but should be renamed for cleanliness.
 
 ---

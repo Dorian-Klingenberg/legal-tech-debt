@@ -28,9 +28,13 @@ class Finding:
     rationale: str          # why this pattern is a smell in this context
     reviewer_question: str  # specific question for a human reviewer
     false_positive_risk: str  # known reasons this might be benign
+    supporting_nodes: list[dict] = field(default_factory=list)
+    # Each entry: {node_id, section_path, evidence_text}
+    # Populated when a finding consolidates multiple triggering nodes into one
+    # source-level finding (e.g. Smell 5 H004-H006 graph-gap deduplication).
 
     def to_dict(self) -> dict:
-        return {
+        d = {
             "schema_version": self.schema_version,
             "run_id": self.run_id,
             "created_at": self.created_at,
@@ -49,6 +53,9 @@ class Finding:
             "reviewer_question": self.reviewer_question,
             "false_positive_risk": self.false_positive_risk,
         }
+        if self.supporting_nodes:
+            d["supporting_nodes"] = self.supporting_nodes
+        return d
 
 
 def make_finding(
@@ -63,6 +70,7 @@ def make_finding(
     reviewer_question: str,
     false_positive_risk: str,
     finding_counter: list[int],
+    supporting_nodes: list[dict] | None = None,
 ) -> Finding:
     finding_counter[0] += 1
     return Finding(
@@ -83,4 +91,5 @@ def make_finding(
         rationale=rationale,
         reviewer_question=reviewer_question,
         false_positive_risk=false_positive_risk,
+        supporting_nodes=supporting_nodes or [],
     )
