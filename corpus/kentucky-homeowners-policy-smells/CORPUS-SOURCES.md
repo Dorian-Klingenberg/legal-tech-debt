@@ -34,12 +34,23 @@ All unique source files live in `sources/`. The smell subdirectories (`01-*/` th
 | KY-SERFF-KFBM-134870729-RATE-MANUAL-HOP2 | serff_rate_rule_filing | 177 KB | 4 | KFBM homeowner rate manual HOP-2; rating factors and calculation rules |
 | KY-SERFF-KFBM-134870729-RATE-MANUAL-HOP2-1 | serff_rate_rule_filing | 133 KB | 4 | KFBM homeowner rate manual HOP-2.1; supplemental rating rules |
 | KY-SERFF-KFBM-134870729-RATE-MANUAL-HOP8 | serff_rate_rule_filing | 119 KB | 4 | KFBM homeowner rate manual HOP-8; endorsement rating factors |
+| KY-SERFF-KNIC-132500003-HO-04-95 | serff_form_filing | 67 KB | — | KNIC endorsement filing: HO 04 95 Limited Water Backup/Sump Coverage. Found during ISO base form search (BACKLOG-018). Not a base form — low smell relevance. |
+| KY-SERFF-KNIC-132500003-EXPLANATION | serff_form_filing | 94 KB | — | KNIC explanation of changes to approved forms (supporting doc for KNIC-132500003). Low smell relevance. |
+| KY-SERFF-KNIC-133829383-NONRENEWAL-NOTICE | serff_form_filing | 158 KB | — | KNIC KY homeowners non-renewal notice. Found during ISO base form search. Not a base form — low smell relevance. |
 
 ## Pipeline Coverage
 
 All 28 sources are now included in `source_manifest_subset.csv` and will be parsed by Stage 002.
 
 **File note:** `KY-KRS-304-13` was originally saved as `.html` but is PDF content. Renamed to `KY-KRS-304-13.pdf` on 2026-06-03; manifest updated to match.
+
+## Procurement URLs
+
+| Resource | URL | Notes |
+|---|---|---|
+| SERFF Filing Access — Kentucky partition | `https://filingaccess.serff.com/sfa/home/KY` | Direct link to KY state home; avoids defaulting to wrong state |
+| SERFF Filing Search — Kentucky | `https://filingaccess.serff.com/sfa/search/filingSearch.xhtml` (navigate from KY home) | Search form; must arrive via KY home or state defaults to last-used state |
+| Kentucky DOI public portal | `https://insurance.ky.gov` | Market conduct, bulletins, advisory opinions |
 
 ## Organization Note
 

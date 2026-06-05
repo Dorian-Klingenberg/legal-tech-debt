@@ -138,11 +138,11 @@ The same issue applies to other common insurance terms flagged by Smell 2 heuris
 
 ---
 
-### [ ] BACKLOG-008: Smell 2 / Smell 4 Miscategorization — External Valuation References
+### [x] BACKLOG-008: Smell 2 / Smell 4 Miscategorization — External Valuation References — RESOLVED 2026-06-04 (ADR-011)
 
-**Status:** Open — no sandbox assigned  
-**Affects:** Sandbox 002 Stage 006 Smell 2 findings; Stage 003 report framing  
-**Priority:** Low — findings are real, but the category affects the remediation advice
+**Status:** Resolved — see ADR-011  
+**Affects:** Sandbox 002 Stage 006 H003 findings; Sandbox 004 drill-down report framing  
+**Resolution:** H003 findings reclassified to Smell 4. The finding is not "ACV is undefined" — it is "the ACV calculation methodology (whether labor is depreciated, which tool or index is used) is not disclosed in the filing." This framing survives professional scrutiny; the "undefined term" framing does not. See ADR-011 for full decision record.
 
 **What we know:**
 During Sandbox 003 Stage 001 human review, "replacement cost" findings were assessed as real but potentially miscategorized. Replacement cost is often calculated using an external tool (e.g., Xactimate, CoreLogic, Marshall & Swift) at time of policy issuance. If the carrier uses such a tool but does not cite it in the filing, the term is not undefined — it is externally defined but untraceable from the filing. That is a Smell 4 pattern (Calculation Rule Drift / Unversioned Rate Reference), not a Smell 2 pattern (undefined magic term).
@@ -296,11 +296,11 @@ The current fix lives in the data. The right fix is also in the code.
 
 ---
 
-### [ ] BACKLOG-017: Expert Drill-Down Report — Finding-Level Technical Brief with Suggested Fixes
+### [x] BACKLOG-017: Expert Drill-Down Report — Finding-Level Technical Brief with Suggested Fixes — RESOLVED 2026-06-04
 
-**Status:** Open — new sandbox candidate; requires proof-of-concept and iteration  
-**Affects:** New output layer on top of Sandbox 002/003 findings; likely Sandbox 004 or a new stage in Sandbox 003  
-**Priority:** CRITICAL — this is the product being sold, not a supporting artifact
+**Status:** PoC complete — Sandbox 004  
+**Affects:** New output layer on top of Sandbox 002/003 findings  
+**Priority:** CRITICAL — resolved
 
 **Strategic framing:**
 The executive summary is the sales instrument — it gets a CEO or CCO to the table. The drill-down report is the service itself — the deliverable a carrier pays for. The distinction matters for how we build it: the executive summary can be generated once and reused as a prospect hook; the drill-down must be carrier-specific, finding-specific, and actionable enough that an expert can hand it to a policy revision team and get a concrete result.
@@ -350,6 +350,78 @@ Start with the three highest-severity confirmed findings (SMELL2-H003, SMELL4-H0
 
 ---
 
+### [x] BACKLOG-018: Procure ISO HO 00 03 and HO 00 05 Base Policy Forms — CLOSED 2026-06-04
+
+**Status:** Closed — ISO base forms treated as implicit gold standard; procurement not required  
+**Affects:** Corpus completeness; ADR-011 evidentiary completeness  
+**Priority:** Resolved
+
+**What we need:**
+
+The base ISO homeowners policy forms for the carriers in our corpus:
+- **ISO HO 00 03** — Homeowners 3 Special Form (the most common; covers all-risk dwelling + named-peril personal property)
+- **ISO HO 00 05** — Homeowners 5 Comprehensive Form (all-risk on both dwelling and personal property)
+
+These forms contain the definitions section where ACV is defined, and the base coverage structure that all endorsements amend.
+
+**Why this is no longer a blocker (decided 2026-06-04):** The H003 finding per ADR-011 is "undisclosed ACV calculation methodology," not "undefined ACV term." ISO HO 00 03 defines ACV — that is established industry and litigation fact that does not require us to hold a copy. The finding survives regardless: nowhere in the filed policy package does the carrier disclose *how depreciation is calculated* (specifically, whether labor can be depreciated). For KFBM, HO 04 93 is already in corpus and can be verified directly. For KNIC, we can accurately state that ISO HO 00 03 defines ACV but does not specify depreciation methodology — a gap documented in years of class action litigation — without holding the document. ISO forms are needed only if we want to do a verbatim corpus comparison, which is a nice-to-have, not required for the drill-down report.
+
+**Progress:**
+
+- [x] SERFF/KNIC — searched form filings KNIC-132500003 and KNIC-133829383 (2026-06-04). Neither contains HO 00 03 or HO 00 05. KNIC-132500003 is an endorsement filing (HO 04 95 water backup); KNIC-133829383 is a non-renewal notice. KNIC licenses ISO forms by reference — they are not independently filed. Files added to corpus as low-relevance entries.
+- [ ] SERFF/KFBM — search KFBM form filings for any "base form" or "HO 00" attachment
+- [ ] Kentucky DOI public portal — `https://insurance.ky.gov` form database
+- [ ] ISO directly — subscription service; HO 00 03 (ed. 10 05) and HO 00 05 (ed. 10 05)
+
+**Where to look (remaining, in priority order):**
+
+1. **SERFF/KFBM** — search KFBM form filings, TOI 04.0/04.1, filing type "New" or "Adoption." KFBM may have filed base forms separately.
+2. **Kentucky DOI public rate/form portal** — check `https://insurance.ky.gov` for a public forms database.
+3. **ISO directly** — ISO forms are copyrighted but available to subscribers.
+
+**What to do when found:**
+- Add to `corpus/kentucky-homeowners-policy-smells/sources/` following existing naming conventions
+- Update `_download_manifest.csv`
+- Update `KNOWN-GAPS.md` — close gap ISO-HO-BASE-FORMS
+- Re-inspect the definitions sections for ACV, replacement cost, and actual cash value language
+- If methodology is disclosed in the base form, note it in ADR-011 as confirming evidence and update the H003 drill-down entry framing accordingly
+
+---
+
+### [ ] BACKLOG-019: Missing State Amendatory Detector
+
+**Status:** Open — new gap type identified 2026-06-04 (strategic input: Jem)
+**Priority:** HIGH — binary finding, near-zero false positives, massive regulatory exposure
+**Affects:** Sandbox 002 Stage 006 detectors; Sandbox 004 drill-down report
+
+Multi-state master policy jackets filed in a specific state without the required state amendatory endorsement represent one of the highest-value, most-detectable gap types in the filing package. The finding is binary: either the state amendatory is present in the attachment list or it is not. No linguistic ambiguity. No false-positive risk. Massive regulatory exposure for the carrier.
+
+**What to build:**
+- Detector that inspects a filing package's form schedule/attachment list for the presence of a state-specific amendatory endorsement when the base form appears to be a multi-state master jacket
+- Signal: base form references multiple states in its text, or form number follows a multi-state naming convention, without a corresponding `[STATE] Amendatory` or `[STATE] Special Provisions` endorsement in the attachment list
+- Cross-reference against known required amendatories for Kentucky (806 KAR 14:006 governs form filing requirements)
+
+**Relationship to existing work:**
+Smell 5 graph-gap detection (ADR-010) already traverses the node graph for missing referenced forms. This detector extends that approach to the specific case of multi-state master jackets.
+
+---
+
+### [ ] BACKLOG-020: Tighten Broken Definitions Loop Detector
+
+**Status:** Open — current Smell 2 H003 is a partial implementation
+**Priority:** MEDIUM — current findings are valid; this improves precision
+**Affects:** Sandbox 002 Stage 006 Smell 2 detectors
+
+Current H003 detector identifies valuation terms (ACV, replacement cost, market value) used without adjacent methodology disclosure. The more precise formulation: detect when a term is used in bold or quotation marks in policy text (signaling it is a defined term) but the Definitions Section does not contain a matching entry. Also detect when an amendment deletes a definition without inserting replacement text.
+
+**What to build:**
+- Extract all bolded/quoted terms from policy body nodes
+- Cross-reference against Definitions Section nodes for the same source
+- Flag terms present in body but absent in Definitions
+- Flag amendment nodes that remove definition text without a corresponding insertion
+
+---
+
 ### [ ] BACKLOG-005: Phase A Entry — Agile V Framework Integration and SE Expert Configuration
 
 **Status:** Open — actively approaching; blocked on two owner-lane prerequisites  
@@ -366,6 +438,7 @@ The sandbox research phase is substantively complete. The detection pipeline wor
    - IEEE: 15288 (system lifecycle), 12207 (software lifecycle), 29148 (requirements engineering), and related standards
    - Possibly DAU/DoD materials depending on the Agile V framework interpretation in use
    This corpus turns the AI assistant into an SE-grounded collaborator for Phase A work rather than a general-knowledge approximation.
+3. **Gherkin / BDD specification language** — owner to learn Gherkin before Phase A begins. Gherkin is the specification language for all code behavior in this project going forward. Given-When-Then syntax produces human-readable acceptance criteria that map cleanly onto Agile V test levels (unit, integration, system, acceptance). Gherkin specs will be the bridge between SE requirements and implementation — requirements trace to scenarios; scenarios drive tests. Tools: Behave (Python), Cucumber (multi-language). The SE RAG corpus should include BDD/Gherkin reference material alongside the NASA/INCOSE/IEEE standards.
 
 **Sandboxes during this period:**
 Sandbox work continues in parallel. Discovery, proof-of-concept experiments, and the drill-down report (BACKLOG-017) all feed the product decisions that Phase A will formalize. Do not pause sandbox work to wait for Phase A to start.

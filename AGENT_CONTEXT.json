@@ -21,8 +21,9 @@
     "note": "Repo owner confirmed reported findings were false positives on 2026-06-03."
   },
   "current_focus": {
-    "active_sandbox": "sandboxes/003-findings-triage",
-    "next_sandbox": "Sandbox 004 — expert drill-down report (BACKLOG-017)",
+    "active_sandbox": "sandboxes/004-expert-drilldown",
+    "sandbox_004_status": "PoC complete — three entries (S4-H001, S5-H004, S4-H003), static HTML built",
+    "next_priority": "BACKLOG-019 Missing State Amendatory detector OR BACKLOG-015 case library",
     "source_evidence_sandbox": "sandboxes/002-claims-regulatory-automation",
     "source_evidence_run": "output/002/20260604_130606_18b0dec5/",
     "run_summary": "Sandbox 002 closed with 28 sources, 353 nodes, 121 candidate evidence items, 39 Stage 003 retrieval bundles, and 35 detector findings (five smells fully calibrated including Smell 5 graph-gap detection)",
@@ -53,7 +54,10 @@
   ],
   "open_threads": [
     "PHASE TRANSITION (owner lane): Phase A (formal SE lifecycle) is the next major milestone but has not started. Blocked on owner completing SE coursework (MIT) and configuring SE expert RAG corpus (NASA NPR 7120.5/SE Handbook, INCOSE SE Handbook, IEEE 15288/12207/29148). Sandboxes remain open and active during this preparation period — do not defer sandbox discovery work on the grounds that Phase A has not started. Product direction is not yet fixed; sandbox outputs are the primary input to the product decision.",
-    "BACKLOG-017 (CRITICAL — this is the product): expert drill-down report with finding-level detail, regulatory grounding, and suggested fixes for three reader roles (compliance/attorney, claims professional, policy designer). Sandbox 004. PoC: hand-build one entry each for SMELL2-H003, SMELL4-H001, SMELL5-H004. Static HTML for sandbox phase.",
+    "BACKLOG-018 (HIGH — blocks H003 drill-down): procure ISO HO 00 03 and HO 00 05 base policy forms. Check SERFF for KNIC/KFBM form filings, Kentucky DOI public portal, NAIC. Required before H003 Sandbox 004 entries can be finalized. See KNOWN-GAPS.md gap ISO-HO-BASE-FORMS.",
+    "BACKLOG-017 (COMPLETE): expert drill-down report PoC. Three entries built: S4-H001 (KNIC unversioned manual ref), S5-H004 (KFBM+KNIC rate methodology), S4-H003 (KFBM+KNIC ACV methodology). Static HTML at sandboxes/004-expert-drilldown/output/drilldown_report.html.",
+    "BACKLOG-019 (HIGH — new): Missing State Amendatory detector. Binary finding, near-zero false positives. Multi-state master jacket filed without required state amendatory. Jem framework 2026-06-04.",
+    "BACKLOG-020 (MEDIUM — new): Tighten Broken Definitions Loop. Detect defined-term bolding/quoting in policy body without matching Definitions Section entry.",
     "BACKLOG-015 (HIGH — sales): heuristic-specific case and bad-faith closure library. One public case per heuristic matched to the exact language gap. Feeds into BACKLOG-017 claims exposure section.",
     "BACKLOG-006: node language context annotation (LLM pass during ingestion; resolves 006/010/011/012 together). ADR candidate when designed.",
     "executive_summary_anon.md not yet generated — run: python report_builder.py --anonymize",
