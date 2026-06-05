@@ -16,6 +16,8 @@ Key reminders:
 - The current work is sandbox research and proof-of-concept experimentation.
 - Read `AGENT_CONTEXT.json` after `BOOTSTRAP.md` when it exists; it is the compact current-state context intended to reduce broad exploratory reads.
 - Read `AGENT_OPERATING_MODEL.md` after `BOOTSTRAP.md` and `AGENT_CONTEXT.json` so the shared role split and drift rules stay in view.
+- Always read the `latest_handoff` and `latest_backlog_plan` paths named in `AGENT_CONTEXT.json` before implementing backlog work. If either path is missing or unreadable, stop and ask for human instruction instead of proceeding from memory.
+- Claude has broad read access during startup for repo-visible planning, instruction, source-code, schema, and memory files. This does not grant broad write access: edits remain limited to the active task's explicit file allowlist, user-named paths, or paths named by the current handoff/backlog plan.
 - Avoid production infrastructure unless a stage explicitly evaluates it.
 - Read the relevant project and sandbox documentation before starting.
 - Before substantive code changes or reviews, read `skills/project-coding-preferences/SKILL.md` and apply its shared implementation defaults.

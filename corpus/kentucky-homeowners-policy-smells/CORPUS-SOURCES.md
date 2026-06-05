@@ -23,7 +23,8 @@ All unique source files live in `sources/`. The smell subdirectories (`01-*/` th
 | KY-KRS-304-14 | krs_statute | 16 KB | 1,2,3,5 | KRS 304.14 — insurance contracts |
 | KY-KRS-304-20 | krs_statute | 27 KB | 1,2,5 | KRS 304.20 — claims practices |
 | KY-KRS-304-44 | krs_statute | 21 KB | 3,5 | KRS 304.44 — property insurance |
-| KY-SERFF-KFBM-134503212-HO-FORM | serff_form_filing | 25 KB | 1,2,3,5 | KFBM HO 04-93 homeowners form May 2025 (redacted). **Second carrier form source.** |
+| KY-SERFF-KFBM-134503212-HO-FORM | serff_form_filing | 25 KB | 1,2,3,5 | KFBM HO 04-93 homeowners form May 2025 **(redacted — form text stripped in SFA public view)**. Previously described as "second carrier form source" but confirmed 2026-06-05: ISO HO 04 93 is a standard endorsement form (Actual Cash Value Loss Settlement — Windstorm/Hail Roof Surfacing), not a policy jacket. KFBM's actual base policy jacket has an unidentified form number. See BACKLOG-021 and KNOWN-GAPS KY-KFBM-BASE-FORM-UNREDACTED. |
+| ISO-HO-04-93-1000-ROOF-ACV-ENDORSEMENT | iso_endorsement | 49 KB | 2,4 | **ISO HO 04 93 10 00** — Actual Cash Value Loss Settlement: Windstorm or Hail Losses to Roof Surfacing (Copyright ISO 1999). 2-page endorsement applicable to HO 00 02, HO 00 03, HO 00 06, HO 00 08. Confirms HO 04 XX = endorsements in ISO convention. Verbatim language matches H003 drill-down finding. Added 2026-06-05. Note: ISO holds copyright on this form. |
 | KY-SERFF-KFBM-134503212-HO-FORM-MARKUP | serff_form_filing | 210 KB | 1,2,3,5 | KFBM 2025 form with markups showing changes from prior version |
 | KY-SERFF-KFBM-133738601-HO-FORM-MARKUP | serff_form_filing | 216 KB | 1,2,3,5 | KFBM original 2012 HO form with markups; baseline for cross-version comparison |
 | KY-SERFF-KFBM-134827992-ENDORSEMENT | serff_form_filing | 20 KB | 1,3,5 | KFBM KY amendatory endorsement HO FB 01 07 26 (2026) |
@@ -40,7 +41,7 @@ All unique source files live in `sources/`. The smell subdirectories (`01-*/` th
 
 ## Pipeline Coverage
 
-All 28 sources are now included in `source_manifest_subset.csv` and will be parsed by Stage 002.
+29 sources as of 2026-06-05. All are included in `_download_manifest.csv`. Note: Stage 002 has not been rerun since ISO-HO-04-93-1000 was added — its nodes are not yet in the current preserved run.
 
 **File note:** `KY-KRS-304-13` was originally saved as `.html` but is PDF content. Renamed to `KY-KRS-304-13.pdf` on 2026-06-03; manifest updated to match.
 
@@ -51,6 +52,9 @@ All 28 sources are now included in `source_manifest_subset.csv` and will be pars
 | SERFF Filing Access — Kentucky partition | `https://filingaccess.serff.com/sfa/home/KY` | Direct link to KY state home; avoids defaulting to wrong state |
 | SERFF Filing Search — Kentucky | `https://filingaccess.serff.com/sfa/search/filingSearch.xhtml` (navigate from KY home) | Search form; must arrive via KY home or state defaults to last-used state |
 | Kentucky DOI public portal | `https://insurance.ky.gov` | Market conduct, bulletins, advisory opinions |
+| Kentucky DOI open records requests | 502-564-3630 | Required for form filings predating SFA cutoff (November 1, 2018). SFA only covers filings submitted after that date. KY is strict prior-approval — every approved form exists at DOI. |
+| ISO bureau filings in SERFF | Company name: "Insurance Services Office, Inc." · NAIC CoCode 98007 · Tracking prefix: ISOF- · TOI: 04.0 Homeowners · Filing type: Form | ISO files per-state. ISO form text is often redacted in SFA public view. Workarounds: Nevada DOI public portal (full HO 00 03 05 11 text), III sample HO 3 form. |
+| Nevada DOI — ISO HO 00 03 public text | https://doi.nv.gov (search homeowners forms) | Nevada has published full ISO HO 00 03 05 11 form text as a public document. Use if Phase 2 needs ISO base form text without a subscription. |
 
 ## Organization Note
 

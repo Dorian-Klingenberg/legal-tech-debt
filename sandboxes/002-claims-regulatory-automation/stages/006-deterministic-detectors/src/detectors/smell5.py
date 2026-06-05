@@ -103,6 +103,28 @@ _H006_PATTERN = re.compile(
 
 _WINDOW = 300
 
+# --- H007 patterns (source-level missing Kentucky amendatory) ---
+
+# Cues that a filing uses a multi-state master jacket or state-variable structure.
+_H007_MULTISTATE_PATTERN = re.compile(
+    r"\b(state\s+amendatory|all\s+states?|"
+    r"state\s+exceptions?|state\s+special\s+provisions?|"
+    r"amendatory\s+endorsement|"
+    r"[a-z]{2,}\s+amendatory|"
+    r"state\s+variations?|"
+    r"applicable\s+state\s+endorsements?)\b",
+    re.IGNORECASE,
+)
+
+# Indicators that a Kentucky amendatory or special-provisions form IS present in the package.
+_H007_KY_PRESENT_PATTERN = re.compile(
+    r"\b(kentucky\s+amendatory|ky\s+amendatory|"
+    r"kentucky\s+special\s+provisions?|"
+    r"special\s+provisions?\s*[-–—]\s*kentucky|"
+    r"amendatory\s*[-–—]\s*kentucky)\b",
+    re.IGNORECASE,
+)
+
 
 def _snippet(text: str, match: re.Match, context: int = 120) -> str:
     start = max(0, match.start() - context)
@@ -265,6 +287,75 @@ def detect(
                 finding_counter=counter,
                 supporting_nodes=supporting,
             )
+
+    # --- H007: source-level missing Kentucky amendatory check ---
+    # Single scan over carrier nodes:
+    #   - Collect multi-state cue hits grouped by source_id.
+    #   - Track which source_ids contain Kentucky amendatory text.
+    # Emit one consolidated finding per source where multi-state cues are present
+    # but no Kentucky amendatory/special-provisions text is found in the package.
+    # No edge graph required — purely text-presence detection.
+    _multistate_by_source: dict[str, list[tuple[dict, str]]] = defaultdict(list)
+    _ky_sources: set[str] = set()
+
+    for node in nodes:
+        if node.get("node_type") == "document":
+            continue
+        if node.get("source_type", "") not in _CARRIER_TYPES:
+            continue
+        text = node.get("text") or ""
+        if not text:
+            continue
+        source_id = node.get("source_id", "")
+        if _H007_KY_PRESENT_PATTERN.search(text):
+            _ky_sources.add(source_id)
+        m = _H007_MULTISTATE_PATTERN.search(text)
+        if m:
+            _multistate_by_source[source_id].append((node, _snippet(text, m)))
+
+    for source_id, node_snippets in _multistate_by_source.items():
+        if source_id in _ky_sources:
+            continue
+        rep_node, rep_snippet = node_snippets[0]
+        supporting = [
+            {
+                "node_id": n["node_id"],
+                "section_path": n.get("section_path", ""),
+                "evidence_text": s,
+            }
+            for n, s in node_snippets
+        ]
+        yield make_finding(
+            run_id=run_id,
+            smell_id=SMELL_ID,
+            smell_name=SMELL_NAME,
+            heuristic_id="SMELL5-H007",
+            node=rep_node,
+            evidence_text=rep_snippet,
+            confidence="MEDIUM",
+            rationale=(
+                "This carrier filing package contains language suggesting a multi-state "
+                "master jacket or state-variable endorsement structure, but no Kentucky "
+                "amendatory or Kentucky special provisions form was found in the package. "
+                f"({len(node_snippets)} multi-state cue node(s) detected.)"
+            ),
+            reviewer_question=(
+                "Is there a Kentucky Amendatory Endorsement or Kentucky Special Provisions "
+                "form in this filing package or in a related SERFF attachment list? "
+                "If this is a multi-state master jacket, 806 KAR 14:006 may require a "
+                "state-specific amendatory endorsement for Kentucky. If the base form is "
+                "proprietary and Kentucky-only, that should be documented explicitly in the filing."
+            ),
+            false_positive_risk=(
+                "Kentucky-specific provisions may be embedded in a proprietary base form "
+                "(e.g., KFBM HO 04 93) that does not use the 'Amendatory' or 'Special Provisions' "
+                "label. They may also appear in a separate SERFF filing not present in the current "
+                "corpus. Treat as a package-completeness lead requiring manual review, not a "
+                "confirmed regulatory gap."
+            ),
+            finding_counter=counter,
+            supporting_nodes=supporting,
+        )
 
     # --- Tier 1: lexical (all source types, per-node as before) ---
     for node in nodes:

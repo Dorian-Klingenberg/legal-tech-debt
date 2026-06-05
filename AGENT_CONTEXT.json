@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-06-05T11:15:00-04:00",
+  "updated_at": "2026-06-05T13:45:00-04:00",
   "project": {
     "name": "legal-tech-debt",
     "mode": "sandbox research and proof-of-concept development",
@@ -12,6 +12,7 @@
     "AGENT_CONTEXT.json",
     "AGENT_OPERATING_MODEL.md",
     "tool-specific entry file: AGENTS.md, CLAUDE.md, or .github/copilot-instructions.md",
+    "latest_handoff and latest_backlog_plan named in AGENT_CONTEXT.json",
     "SECRET_SCAN_REPORT.md if present",
     "skills/project-coding-preferences/SKILL.md before substantive code changes",
     "active sandbox README, roadmap, ADRs, and latest handoff"
@@ -22,15 +23,15 @@
     "note": "Repo owner confirmed reported findings were false positives on 2026-06-03."
   },
   "current_focus": {
-    "active_lane": "Choose BACKLOG-019 Missing State Amendatory detector or BACKLOG-015 case library",
+    "active_lane": "Backlog implementation — BACKLOG-023 (per-carrier pipeline) and BACKLOG-022 (copyright sanitization) are next priorities",
     "active_sandbox": null,
-    "sandbox_004_status": "Complete — three-entry expert drill-down PoC built (S4-H001, S5-H004, S4-H003), static HTML preserved",
-    "next_priority": "BACKLOG-019 Missing State Amendatory detector OR BACKLOG-015 heuristic-specific case library",
+    "sandbox_004_status": "Complete — three-entry expert drill-down PoC built (S4-H001, S5-H004, S4-H003), static HTML preserved. case_library.json added with 3 Kentucky cases.",
+    "next_priority": "BACKLOG-023 (per-carrier --carrier filter) then BACKLOG-022 (copyright sanitization paraphrased_evidence)",
     "source_evidence_sandbox": "sandboxes/002-claims-regulatory-automation",
     "source_evidence_run": "sandboxes/002-claims-regulatory-automation/output/002/20260604_130606_18b0dec5/",
-    "run_summary": "Sandbox 002 closed with 28 sources, 353 nodes, 121 candidate evidence items, 39 Stage 003 retrieval bundles, and 35 detector findings (five smells fully calibrated including Smell 5 graph-gap detection)",
-    "latest_handoff": "HANDOFF-2026-06-05-backlog-planning.md",
-    "latest_memory_journal": "journal/2026-06-05-backlog-planning-closeout.md",
+    "run_summary": "29 sources, 353 nodes, 143 carrier nodes after filters, 31 detector findings (HIGH:1, MEDIUM:24, LOW:6). H007 and H004 fire zero times — corpus gap, correct.",
+    "latest_handoff": "HANDOFF-2026-06-05-session-b.md",
+    "latest_memory_journal": "journal/2026-06-05-backlog-implementation-session-b.md",
     "latest_backlog_plan": "BACKLOG-IMPLEMENTATION-PLAN.md"
   },
   "active_scope": [
@@ -56,16 +57,15 @@
     "Gap detection smells (Smell 5) require graph traversal over the edge substrate, not vector similarity — absence cannot be embedded."
   ],
   "open_threads": [
-    "PHASE TRANSITION (owner lane): Phase A (formal SE lifecycle) is the next major milestone but has not started. Blocked on owner completing SE coursework (MIT) and configuring SE expert RAG corpus (NASA NPR 7120.5/SE Handbook, INCOSE SE Handbook, IEEE 15288/12207/29148). Sandboxes remain open and active during this preparation period — do not defer sandbox discovery work on the grounds that Phase A has not started. Product direction is not yet fixed; sandbox outputs are the primary input to the product decision.",
-    "BACKLOG-017 (COMPLETE): expert drill-down report PoC. Three entries built: S4-H001 (KNIC unversioned manual ref), S5-H004 (KFBM+KNIC rate methodology), S4-H003 (KFBM+KNIC ACV methodology). Static HTML at sandboxes/004-expert-drilldown/output/drilldown_report.html.",
-    "BACKLOG-018 (CLOSED): ISO HO 00 03/HO 00 05 base forms are no longer required for Phase 1; SERFF searches logged and ADR-011 records ISO as implicit gold standard.",
-    "BACKLOG-019 (HIGH — new): Missing State Amendatory detector. Binary finding, near-zero false positives. Multi-state master jacket filed without required state amendatory. Jem framework 2026-06-04.",
-    "BACKLOG-020 (MEDIUM — new): Tighten Broken Definitions Loop. Detect defined-term bolding/quoting in policy body without matching Definitions Section entry.",
-    "BACKLOG-015 (HIGH — sales): heuristic-specific case and bad-faith closure library. One public case per heuristic matched to the exact language gap. Feeds into BACKLOG-017 claims exposure section.",
-    "BACKLOG-006: node language context annotation (LLM pass during ingestion; resolves 006/010/011/012 together). ADR candidate when designed.",
-    "executive_summary_anon.md not yet generated — run: python report_builder.py --anonymize",
-    "Kentucky Growers SERFF search incomplete — SERFF site was down on 2026-06-04 recheck (BACKLOG-003).",
-    "KY-KRS-304-12-230 and KY-KRS-304-14 are named .html but contain PDF content — low-priority cleanup (BACKLOG-002)."
+    "PHASE TRANSITION (owner lane): Phase A (formal SE lifecycle) is the next major milestone but has not started. Blocked on owner completing SE coursework (MIT) and configuring SE expert RAG corpus (NASA NPR 7120.5/SE Handbook, INCOSE SE Handbook, IEEE 15288/12207/29148). Sandboxes remain open and active during this preparation period. Product direction is not yet fixed; sandbox outputs are the primary input to the product decision.",
+    "BACKLOG-023 (HIGH — next): Per-carrier report pipeline. --carrier filter on detector_runner.py (source_id prefix KY-SERFF-KFBM- / KY-SERFF-KNIC-) + per-carrier mode on report_builder.py. Product model: pitch report (combined anon) + two product reports (per-carrier named).",
+    "BACKLOG-022 (HIGH): Commercial report copyright sanitization. Carrier/ISO forms copyrighted — verbatim text cannot appear in commercial output. Add paraphrased_evidence field to drill-down entry schema + --sanitize flag on renderer.",
+    "BACKLOG-015 (partial): Case library at sandboxes/004-expert-drilldown/data/case_library.json. 3 Kentucky cases entered (CL-001 Hicks/6th Cir 2020, CL-002 Schoening/6th Cir 2026, CL-003 FB Ins/Ky 1993). H004/H005/H006 gap sentinels open. Full holding text [VERIFY] — Justia/CourtListener 403 during session.",
+    "BACKLOG-021 (owner lane): KFBM base policy jacket procurement. Two steps: (1) identify JAC form number from SERFF markup filings, (2) open records request KY DOI 502-564-3630. Prerequisite for H004 to fire on KFBM.",
+    "BACKLOG-006: node language context annotation (LLM pass during ingestion; resolves 006/012 together). ADR candidate when designed.",
+    "CORPUS PROCUREMENT STRATEGY: Data procurement risk is not a project blocker by default. Target current new-business policy repairability, not historical filing reconstruction. See corpus/PROCUREMENT-STRATEGY.md.",
+    "OWNER LANE: Document accessibility research — deep research on KY DOI open records process, ISO form access, one-batch procurement strategy. Prerequisite for BACKLOG-021.",
+    "Kentucky Growers SERFF search incomplete — SERFF site was down on 2026-06-04 recheck (BACKLOG-003)."
   ],
   "shared_skills": [
     "skills/apply-implementation-defaults/SKILL.md",

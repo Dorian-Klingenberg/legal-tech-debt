@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "generated": "2026-06-05",
+  "description": "Heuristic-matched case and regulatory enforcement library. Primary sources only: court opinions, DOI enforcement orders, market conduct exam findings, filed class actions, and regulatory settlements. No secondary sources, articles, or opinions. Full holding text is verbatim public domain and safe for internal use; use relevance_note in commercial output. dollar_anchor_id cross-references entries in dollar_anchors.json.",
+  "source_types": [
+    "court_opinion",
+    "doi_enforcement_order",
+    "market_conduct_exam",
+    "class_action_filing",
+    "regulatory_settlement",
+    "naic_exam"
+  ],
+  "jurisdiction_preference": "Prefer Kentucky cases (KY state courts, KY DOI, Sixth Circuit where KY law applies). If no Kentucky case found, include the best available case from any US jurisdiction. Never exclude a strong case solely because it is out-of-state.",
+  "case_schema": {
+    "case_id": "CL-NNN — stable identifier, never reused",
+    "heuristic_ids": ["list — a case may support multiple heuristics"],
+    "dollar_anchor_id": "cross-reference to dollar_anchors.json entry, or null",
+    "case_name": "official case name or enforcement action identifier",
+    "citation": "formal legal citation or docket number",
+    "jurisdiction": "court name or state DOI",
+    "state": "two-letter state code, e.g. KY",
+    "is_local": "true if Kentucky jurisdiction (KY state court, KY DOI, Sixth Circuit applying KY law); false otherwise",
+    "year": "year of decision or order",
+    "source_type": "one of the source_types values above",
+    "source_url": "CourtListener URL, DOI portal URL, or PACER docket reference",
+    "full_holding_text": "verbatim — public domain only — internal use. NOTE: entries marked [VERIFY] need verbatim text pulled from the primary opinion. Summary-sourced language is used as placeholder.",
+    "language_gap": "the specific policy language gap that drove the dispute — our language",
+    "outcome": "settlement amount, fine, order to refile, bad-faith verdict, etc.",
+    "relevance_note": "one sentence connecting to the heuristic — our language — commercial-safe"
+  },
+  "cases": [
+    {
+      "case_id": "CL-001",
+      "heuristic_ids": ["SMELL2-H003"],
+      "dollar_anchor_id": "DA-S2-001",
+      "case_name": "Hicks v. State Farm Fire & Casualty Co.",
+      "citation": "965 F.3d 452 (6th Cir. 2020), No. 19-5719",
+      "jurisdiction": "U.S. Court of Appeals, Sixth Circuit (applying Kentucky law)",
+      "state": "KY",
+      "is_local": true,
+      "year": 2020,
+      "source_type": "class_action_filing",
+      "source_url": "https://law.justia.com/cases/federal/appellate-courts/ca6/19-5719/19-5719-2020-07-10.html",
+      "full_holding_text": "[VERIFY from opinion] In an insurance contract that incorporates Kentucky's 'replacement cost minus depreciation' formula, the insurer cannot depreciate costs of labor when determining ACV payments. State Farm's policy incorporated this formula but applied labor depreciation through Xactimate software without any express policy provision authorizing it. The 6th Circuit affirmed class certification: the common question — whether State Farm's labor depreciation methodology breached the policy — was fit for class-wide resolution. Approximately 65,575 Kentucky policyholders were class members for the period February 28, 2004 to July 25, 2015.",
+      "language_gap": "State Farm's policy defined ACV as replacement cost minus depreciation but did not contain an explicit provision authorizing depreciation of labor costs. Under 806 KAR 12:095 § 9(2)(a), labor may only be depreciated 'if provided for in the policy.' State Farm applied labor depreciation via Xactimate's default settings without any such provision — the exact authorization gap the regulation requires.",
+      "outcome": "6th Circuit affirmed class certification of 65,575 Kentucky policyholders. Individual underpayments ranged from thousands to over $60,000. Case remanded for damages determination.",
+      "relevance_note": "The definitive Kentucky/Sixth Circuit authority that a carrier cannot depreciate labor in ACV calculations without an explicit policy provision authorizing it — directly confirming the regulatory gap that SMELL2-H003 detects."
+    },
+    {
+      "case_id": "CL-002",
+      "heuristic_ids": ["SMELL2-H003"],
+      "dollar_anchor_id": "DA-S2-001",
+      "case_name": "Schoening Investment LP v. Cincinnati Casualty Co.",
+      "citation": "No. 25-3273 (6th Cir. 2026), decided March 25, 2026",
+      "jurisdiction": "U.S. Court of Appeals, Sixth Circuit (applying Kentucky law)",
+      "state": "KY",
+      "is_local": true,
+      "year": 2026,
+      "source_type": "court_opinion",
+      "source_url": "https://storage.courtlistener.com/pdf/2026/03/25/schoening_investment_lp_v._cincinnati_casualty_company.pdf",
+      "full_holding_text": "[VERIFY from opinion] The policy's valuation section defined actual cash value as 'replacement cost less a deduction reflecting depreciation.' Under this explicit language, the insurer was permitted to deduct $45,000 in depreciation from the repair cost payment because the insured had not yet completed repairs. The court held that optional replacement cost coverage only eliminates the depreciation deduction if the insured actually repairs the property. Because the policy language clearly authorized the depreciation deduction, the class action failed. The court noted that replacement cost coverage 'demands a higher premium because it forces the insurer to effectively pay for a new building rather than restoration to pre-loss condition.'",
+      "language_gap": "Validates H003 from the defense side: the carrier prevailed because its policy explicitly defined ACV as 'replacement cost less a deduction reflecting depreciation.' The corollary is the H003 finding: carriers whose policies use ACV without that explicit methodology statement cannot lawfully apply depreciation — or at minimum face the Hicks outcome when they do.",
+      "outcome": "Class action dismissed. Insurer prevailed because policy language explicitly authorized depreciation deduction. Decision recommended for publication.",
+      "relevance_note": "The Sixth Circuit's most recent word on ACV methodology disclosure: carriers that explicitly define ACV as 'replacement cost less depreciation' are protected; those that do not are exposed — making the absence of that definition in filed forms a documented liability vector."
+    },
+    {
+      "case_id": "CL-003",
+      "heuristic_ids": ["SMELL2-H001"],
+      "dollar_anchor_id": "DA-S2-003",
+      "case_name": "FB Ins. Co. v. Jones",
+      "citation": "864 S.W.2d 926 (Ky. Ct. App. 1993), No. 92-CA-001832-MR",
+      "jurisdiction": "Kentucky Court of Appeals",
+      "state": "KY",
+      "is_local": true,
+      "year": 1993,
+      "source_type": "court_opinion",
+      "source_url": "https://law.justia.com/cases/kentucky/court-of-appeals/1993/92-ca-001832-mr-1.html",
+      "full_holding_text": "[VERIFY from opinion] Where a homeowner asserts a claim for replacement cost within 180 days of loss, the policy is properly read to give the insured a reasonable time in which to rebuild, and the insured need not rebuild before receiving payment for the actual cash value of the loss. Where litigation is required to collect ACV, the homeowner may reasonably wait until rights have been judicially determined before undertaking rebuilding obligations. The court held that the insurer could not use the policy's 'reasonable time' standard to deny or withhold replacement cost benefits on the grounds that the insured had not yet rebuilt.",
+      "language_gap": "The policy conditioned replacement cost payment on completion of repairs within a 'reasonable time' but did not define what 'reasonable time' meant. Both carrier and insured had competing interpretations. The ambiguity forced litigation to establish when the insured's rebuilding obligation triggered and when the carrier's RCV payment obligation arose.",
+      "outcome": "Judgment for homeowners. Kentucky Court of Appeals held the insurer could not weaponize undefined 'reasonable time' language to deny RCV payment pending the insured's litigation over ACV.",
+      "relevance_note": "Kentucky authority that undefined 'reasonable time' in a roof/property settlement condition creates a judicially contested ambiguity — the specific policy language gap SMELL2-H001 flags in KFBM and KNIC ACV roof settlement provisions."
+    }
+  ],
+  "gap_sentinels": [
+    {
+      "heuristic_id": "SMELL2-H001",
+      "searched": "2026-06-05",
+      "search_sources": ["Google/WebSearch — Kentucky homeowners reasonable time ACV court", "propertyinsurancecoveragelaw.com"],
+      "note": "CL-003 (FB Ins. Co. v. Jones, Ky. Ct. App. 1993) partially covers this heuristic — undefined 'reasonable time' forced Kentucky litigation. No case found specifically where a carrier underpaid an active roof/windstorm ACV-to-RCV transition by exploiting an undefined timing threshold. Continue search on CourtListener for more recent KY cases."
+    },
+    {
+      "heuristic_id": "SMELL2-H003",
+      "searched": "2026-06-05",
+      "search_sources": ["Google/WebSearch", "uphelp.org", "claimsjournal.com", "insurancejournal.com", "vlex.com"],
+      "note": "Covered by CL-001 (Hicks, 6th Cir. 2020) and CL-002 (Schoening, 6th Cir. 2026). Both are Kentucky-applying Sixth Circuit authority. No additional cases needed unless a KY state court opinion is found directly on point."
+    },
+    {
+      "heuristic_id": "SMELL4-H001",
+      "searched": "2026-06-05",
+      "search_sources": ["Google/WebSearch — rate manual unfiled unapproved DOI consent order", "insurancejournal.com", "propertyinsurancecoveragelaw.com"],
+      "note": "No Kentucky case found for an unversioned or undisclosed rate manual reference in a homeowners filing. Mercury Insurance Co. v. CDI (Cal. Ct. App. 2019, $27.5M fine) involves undisclosed fees as unapproved rates — adjacent but not on-point for unversioned manual references. Search CourtListener for 'rate manual' 'not filed' OR 'unapproved' homeowners. Also search NAIC market conduct exam database and KY DOI enforcement orders page directly."
+    },
+    {
+      "heuristic_id": "SMELL5-H004",
+      "searched": "2026-06-05",
+      "search_sources": ["Google/WebSearch — KY DOI market conduct exam rate methodology regulatory", "insurance.ky.gov"],
+      "note": "No case or enforcement order found where a carrier's rate methodology lacked a KRS/KAR regulatory anchor and was ordered revised. KY DOI market conduct exam reports are not publicly indexed in a searchable way. Recommend: (1) direct search of insurance.ky.gov enforcement orders page; (2) NAIC market conduct exam results database; (3) search 'Kentucky homeowners rate refiling DOI order site:insurance.ky.gov'."
+    },
+    {
+      "heuristic_id": "SMELL5-H005",
+      "searched": "2026-06-05",
+      "search_sources": ["Google/WebSearch — Kentucky mandatory coverage regulatory citation denial bad faith court"],
+      "note": "No case found where a carrier denied a coverage that was mandatory under regulation and the dispute turned on whether the mandate existed. Kentucky PIP mandatory coverage cases exist (auto, not homeowners). Recommend: search CourtListener for Kentucky homeowners 'mandatory' coverage denial cases; search KY DOI enforcement orders for mandatory coverage violations."
+    },
+    {
+      "heuristic_id": "SMELL5-H006",
+      "searched": "2026-06-05",
+      "search_sources": ["Google/WebSearch — loss settlement methodology regulatory violation enforcement homeowners property"],
+      "note": "No case found where a settlement method itself (not just the dollar amount) was contested and the carrier could not cite regulatory authority for the approach. The Hicks and Schoening cases (H003) are the closest — they contest the ACV calculation methodology. A more specific H006 case would involve a carrier defending a non-standard settlement approach by citing a regulation that does not exist. Recommend: search KY DOI enforcement orders; search NAIC exam database."
+    }
+  ]
+}

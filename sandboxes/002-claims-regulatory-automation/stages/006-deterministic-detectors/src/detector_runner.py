@@ -39,11 +39,38 @@ DETECTORS = [smell1, smell2, smell3, smell4, smell5]
 # not filings that need remediation.  BACKLOG-010.
 _REGULATORY_PREFIXES = ("KY-KRS-", "KY-KAR-", "KY-DOI-")
 
+# BACKLOG-011: minimum substantive character count after stripping the section title.
+# Nodes below this threshold are section headers, table-of-contents entries, or document
+# title nodes with no policy language to analyse.  Conservative — only pure headers are
+# removed; short but substantive provisions (50+ chars after the title) are preserved.
+_MIN_SUBSTANTIVE_CHARS = 50
+
 
 def _is_carrier_node(node: dict) -> bool:
     """Return True if the node belongs to a carrier filing (not the regulatory reference corpus)."""
     source_id: str = node.get("source_id", "")
     return not source_id.startswith(_REGULATORY_PREFIXES)
+
+
+def _has_substantive_text(node: dict) -> bool:
+    """Return True if the node contains enough non-title text to warrant smell detection.
+
+    Strips the last segment of the section_path (the node's own heading) from the
+    start of the text, then checks whether the remainder meets the minimum threshold.
+    This filters out nodes whose entire content is their own section header.
+    BACKLOG-011.
+    """
+    text = (node.get("text") or "").strip()
+    if not text:
+        return False
+    section_path: str = node.get("section_path") or ""
+    # Extract the node's own heading — the last segment after the final " > "
+    heading = section_path.split(">")[-1].strip() if ">" in section_path else section_path.strip()
+    # Strip heading from the start of text (case-insensitive) to get substantive remainder
+    remainder = text
+    if heading and text.lower().startswith(heading.lower()):
+        remainder = text[len(heading):].strip()
+    return len(remainder) >= _MIN_SUBSTANTIVE_CHARS
 
 SMELL_NAMES = {
     1: "Overbroad / Non-deterministic Exclusions",
@@ -71,6 +98,13 @@ def run_detectors(run_dir: Path) -> list[Finding]:
     if skipped:
         print(f"[detector-runner] Skipped {skipped} regulatory corpus nodes (KY-KRS-*, KY-KAR-*, KY-DOI-*)")
     nodes = carrier_nodes
+
+    # BACKLOG-011: skip section headers, table-of-contents entries, and document-title-only nodes.
+    substantive_nodes = [n for n in nodes if _has_substantive_text(n)]
+    header_skipped = len(nodes) - len(substantive_nodes)
+    if header_skipped:
+        print(f"[detector-runner] Skipped {header_skipped} structure/header nodes (<{_MIN_SUBSTANTIVE_CHARS} substantive chars)")
+    nodes = substantive_nodes
     print(f"[detector-runner] {len(nodes)} carrier filing nodes passed to detectors")
 
     counter = [0]

@@ -16,28 +16,26 @@ These constraints are mandatory, non-negotiable, and always in force unless expl
 
 These exceptions exist so Claude Code can obey the repository startup contract without uncontrolled exploration.
 
-### 0.1 Pre-Authorized Read-Only Startup Paths
-When operating in this repository, Claude Code may read these exact files for startup and context alignment:
+### 0.1 Pre-Authorized Broad Read-Only Startup Access
+When operating in this repository, Claude Code has broad read-only access during startup and context alignment for repo-visible planning, instruction, source-code, schema, and memory files.
 
-- `CLAUDE_CONSTRAINTS.md`
-- `CLAUDE.md`
-- `BOOTSTRAP.md`
-- `AGENT_CONTEXT.json`
-- `AGENTS.md`
-- `.github/copilot-instructions.md`
-- `SECRET_SCAN_REPORT.md`
-- `skills/README.md`
-- `skills/SKILL-DEVELOPMENT.md`
-- `skills/registry.csv`
-- `skills/project-coding-preferences/SKILL.md`
-- `skills/project-memory-artifacts/SKILL.md`
-- `skills/legal-rag-builder/SKILL.md`
-- `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-03d.md`
+This includes:
 
-These reads are allowed even if the current user prompt does not list every path individually. Prefer batched reads where the tool supports them.
+- root startup and agent files (`BOOTSTRAP.md`, `AGENT_CONTEXT.json`, `AGENT_OPERATING_MODEL.md`, `AGENTS.md`, `CLAUDE.md`, `CLAUDE_CONSTRAINTS.md`, `.github/copilot-instructions.md`)
+- root planning and memory files (`BACKLOG.md`, `BACKLOG-IMPLEMENTATION-PLAN.md`, root `HANDOFF-*.md`, top-level `journal/*.md`)
+- project skills and skill registries under `skills/`
+- sandbox README, ADR, handoff, closure, stage-plan, lesson, and source-code files
+- corpus indexes and manifests under `corpus/`
+- schemas, deterministic pipeline code, and focused test/validation files relevant to the active task
+
+This read access does not authorize broad write access. Edits remain limited to the active task's explicit file allowlist, user-named paths, or paths named by the current handoff/backlog plan for the item being implemented.
+
+Avoid bulk-reading large generated outputs, `sources/`, PDFs, binary files, or full corpus content during startup unless a current handoff, backlog item, or user prompt explicitly names them.
 
 ### 0.2 Bootstrap-Named Task Context
-After reading the startup paths, Claude Code may read additional files only when they are both:
+After reading the startup context, Claude Code must read the current `latest_handoff` and `latest_backlog_plan` named in `AGENT_CONTEXT.json` when those fields are present and relevant to the active task. These files are part of startup alignment, not optional background reading.
+
+After that startup alignment, Claude Code may read additional files only when they are both:
 
 - named by `BOOTSTRAP.md`, `AGENT_CONTEXT.json`, an active skill, or the user; and
 - relevant to the user's current task.
@@ -59,16 +57,17 @@ The 3-tool and 60-second kill-switch applies to ordinary implementation tasks. S
 - The agent must not retry tools beyond one controlled retry without human approval.
 - The agent must not continue tool execution chains after uncertainty is detected.
 
-### 1.2 Directory Scanning: PROHIBITED
-- Recursive directory discovery is forbidden unless explicitly requested in the active prompt.
-- Broad file enumeration (`scan all`, `find everything`, `search whole repo`) is forbidden unless explicitly requested.
-- Passive exploration behavior is disallowed.
+### 1.2 Directory Scanning: LIMITED
+- Broad recursive exploration is forbidden during implementation unless explicitly requested in the active prompt.
+- During startup/context alignment, bounded repository searches and file enumeration are allowed when limited to repo-visible planning, instruction, source-code, schema, memory, and task-relevant files.
+- Avoid bulk enumeration of `sources/`, generated `output/`, binary assets, PDFs, vendored files, and archived captures unless explicitly named by the user, current handoff, or current backlog plan.
+- Passive exploration behavior is disallowed after startup alignment. Implementation should follow the active task's exact file allowlist.
 - Exception: Section 0.3 allows bounded documentation enumeration for explicit memory-review tasks.
 
-### 1.3 Unprompted File Reads: PROHIBITED
-- The agent must not open or read files that are not explicitly named by the user.
-- The agent must not infer additional files to read "for context" without explicit permission.
-- If required context is missing, the agent must ask for exact file authorization before reading.
+### 1.3 Unprompted File Reads: LIMITED
+- During startup/context alignment, Claude Code may read repo-visible planning, instruction, source-code, schema, and memory files needed to understand the active task.
+- During implementation, the agent must not open unrelated files that are outside the active task's file allowlist unless the user, current handoff, current backlog plan, or relevant startup docs name them.
+- If required context is missing and not covered by startup access or the task plan, ask for exact file authorization before reading.
 - Exception: Sections 0.1 and 0.2 define pre-authorized startup and bootstrap-named context reads.
 
 ## 2) FILE-SYSTEM DISCIPLINE

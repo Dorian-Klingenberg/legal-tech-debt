@@ -33,7 +33,7 @@ The Regulatory Mapping smell detector (Smell 5) produces zero findings on the ex
 
 ---
 
-### [ ] BACKLOG-002: Corpus File Extension Mismatches
+### [x] BACKLOG-002: Corpus File Extension Mismatches — RESOLVED 2026-06-05
 
 **Status:** Open — low priority  
 **Affects:** Corpus parsing warnings; no stage is currently blocked
@@ -44,7 +44,7 @@ Two corpus files are named `.html` but contain PDF content:
 
 A third file with the same issue (`KY-KRS-304-13`) was already renamed. The pipeline parses these with warnings and does produce nodes, so nothing is blocked.
 
-**Next action:** Rename both files to `.pdf`, update `_download_manifest.csv`, rerun Stage 002 to confirm warnings clear.
+**Resolution (2026-06-05):** Both files renamed to `.pdf` in `corpus/kentucky-homeowners-policy-smells/sources/`. All manifest rows updated (replace_all — files appear under multiple smell directories). Stage 002 rerun to confirm warnings clear is deferred to next pipeline run.
 
 ---
 
@@ -123,7 +123,7 @@ The immediate cause is that `source_type` is blank for all statutory/regulatory 
 
 ---
 
-### [ ] BACKLOG-007: KRS/KAR Definitional Cross-Reference Check
+### [x] BACKLOG-007: KRS/KAR Definitional Cross-Reference Check — RESOLVED 2026-06-05 (audit phase)
 
 **Status:** Open — no sandbox assigned  
 **Affects:** Sandbox 002 Stage 006 detectors (Smell 2 specifically); Stage 003 severity ratings  
@@ -136,7 +136,7 @@ The same issue applies to other common insurance terms flagged by Smell 2 heuris
 
 **What the fix is:** Build a reference lookup during Stage 006 detection (or as a post-detection enrichment step) that checks whether a flagged term appears in the Kentucky statutory/regulatory corpus already in the graph. If a definitional edge exists in the corpus from a statutory node, the finding confidence and severity should be downweighted accordingly.
 
-**Next action:** Audit the existing corpus for KRS/KAR definitional sections. Check whether "reasonable time," "actual cash value," and "replacement cost" are defined anywhere in the statutory nodes. If so, wire that as a graph-lookup enrichment on Smell 2 findings. Assign to a new Sandbox 002 or 003 stage when ready.
+**Audit result (2026-06-05):** Zero terms formally defined in KRS/KAR corpus. Key finding: 806 KAR 12:095 Section 9(2)(a) establishes a mandatory ACV calculation standard ("replacement cost minus depreciation") and requires explicit policy authorization for labor depreciation. This STRENGTHENS H003 findings — not weakens them. Full audit: `sandboxes/002-claims-regulatory-automation/stages/006-deterministic-detectors/KRS-KAR-DEFINITIONAL-AUDIT.md`. No severity downgrades warranted. Graph-lookup enrichment (Stage 007) deferred — design when ready.
 
 ---
 
@@ -172,7 +172,7 @@ This belongs in the smell taxonomy as a candidate new class: **Non-Deterministic
 
 ---
 
-### [ ] BACKLOG-011: Filter Section Headers and Document Structure Nodes Before Smell Detection
+### [x] BACKLOG-011: Filter Section Headers and Document Structure Nodes Before Smell Detection — RESOLVED 2026-06-05
 
 **Status:** Open — Sandbox 002 Stage 006 fix  
 **Affects:** All smell detectors; produces noise findings with no actionable content  
@@ -181,9 +181,7 @@ This belongs in the smell taxonomy as a candidate new class: **Non-Deterministic
 **What we know:**
 Several findings have evidence text that is purely structural — a section header ("Roof Surface Loss Settlement"), a table-of-contents entry, or a document title. These nodes contain no substantive policy language. Running smell detectors on them produces findings with no meaningful evidence text and no actionable remediation.
 
-**Fix:** Before running any detector, filter out nodes where the substantive text content (excluding the section title/path) falls below a minimum meaningful length — approximately 50–75 characters of non-title text. This eliminates header-only nodes without suppressing legitimate short provisions.
-
-**Next action:** Add a minimum text length pre-filter to the Stage 006 detector runner. Re-run and measure false positive reduction.
+**Fix applied:** `_has_substantive_text()` helper and `_MIN_SUBSTANTIVE_CHARS = 50` constant added to `detector_runner.py`. Strips section heading from node text, checks remainder >= 50 chars. 109 structure/header nodes now skipped (252 → 143 carrier nodes passed to detectors). Total findings unchanged at 31; 0 short-evidence findings (previously 2). HIGH finding SMELL4-H001 confirmed intact. Two consolidated Smell 5 findings now show substantive evidence text instead of section headers.
 
 ---
 
@@ -275,7 +273,21 @@ For each heuristic, a structured entry suitable for inclusion in `dollar_anchors
 
 **Scope constraint:** Public records only. No confidential claim data. No invented or synthesized cases. If a heuristic has no documented case yet, record that explicitly — a known gap in the case library is still useful signal.
 
-**Next action:** Assign to a research stage (Sandbox 003 Stage 004, or a new Sandbox 004 research lane). When cases are found, update `dollar_anchors.json` and add a heuristic-matched subsection to the Risk Context section of the executive report.
+**Progress (2026-06-05):**
+- `sandboxes/004-expert-drilldown/data/case_library.json` created — schema v1.0, flat array, dollar_anchor_id cross-reference, `is_local` flag, jurisdiction_preference policy.
+- Source types: court_opinion, doi_enforcement_order, market_conduct_exam, class_action_filing, regulatory_settlement, naic_exam — NO secondary sources.
+- **CL-001** (H003, LOCAL): Hicks v. State Farm Fire & Casualty Co., 965 F.3d 452 (6th Cir. 2020) — 65,575 Kentucky policyholders, labor depreciation impermissible without explicit policy authorization. Class certified. Individual underpayments to $60K+.
+- **CL-002** (H003, LOCAL): Schoening Investment LP v. Cincinnati Casualty Co., No. 25-3273 (6th Cir. 2026) — insurer prevailed because policy *explicitly* defined ACV as RC minus depreciation. Validates H003 from the defense side: without that language, carriers face the Hicks outcome.
+- **CL-003** (H001, LOCAL): FB Ins. Co. v. Jones, 864 S.W.2d 926 (Ky. Ct. App. 1993) — undefined "reasonable time" in rebuild condition forced litigation; court held insurer could not use undefined timing to deny RCV payment.
+- **Gap sentinels** recorded with search notes for H004, H005, H006, and partial H001.
+- **Full holding text** on CL-001, CL-002, CL-003 marked [VERIFY] — sourced from summary reporting; verbatim opinion text to be pulled from Justia/CourtListener when accessed.
+- **dollar_anchor_id** fields populated null — needs cross-reference pass against dollar_anchors.json when cases are linked to risk context section.
+
+**Next actions:**
+- Pull verbatim holding text for CL-001 and CL-002 from Justia/CourtListener (access was blocked during research session).
+- Add dollar_anchor_id cross-references after reviewing dollar_anchors.json.
+- Continue search for H004/H005/H006 cases: KY DOI enforcement orders page, NAIC market conduct exam database, CourtListener KY homeowners.
+- When cases are found, update `dollar_anchors.json` and add a heuristic-matched subsection to the Risk Context section of the executive report.
 
 ---
 
@@ -390,37 +402,175 @@ These forms contain the definitions section where ACV is defined, and the base c
 
 ---
 
-### [ ] BACKLOG-019: Missing State Amendatory Detector
+### [x] BACKLOG-019: Missing State Amendatory Detector — RESOLVED 2026-06-05
 
-**Status:** Open — new gap type identified 2026-06-04 (strategic input: Jem)
+**Status:** Resolved — SMELL5-H007 implemented in Stage 006 `smell5.py`
 **Priority:** HIGH — binary finding, near-zero false positives, massive regulatory exposure
 **Affects:** Sandbox 002 Stage 006 detectors; Sandbox 004 drill-down report
 
 Multi-state master policy jackets filed in a specific state without the required state amendatory endorsement represent one of the highest-value, most-detectable gap types in the filing package. The finding is binary: either the state amendatory is present in the attachment list or it is not. No linguistic ambiguity. No false-positive risk. Massive regulatory exposure for the carrier.
 
-**What to build:**
-- Detector that inspects a filing package's form schedule/attachment list for the presence of a state-specific amendatory endorsement when the base form appears to be a multi-state master jacket
-- Signal: base form references multiple states in its text, or form number follows a multi-state naming convention, without a corresponding `[STATE] Amendatory` or `[STATE] Special Provisions` endorsement in the attachment list
-- Cross-reference against known required amendatories for Kentucky (806 KAR 14:006 governs form filing requirements)
+**What was built:**
+- `SMELL5-H007` added to `smell5.py` as a source-level check (not per-node).
+- Single scan over carrier nodes: collects multi-state cue hits by source (`state amendatory`, `all states`, `amendatory endorsement`, `[state] amendatory`, etc.) and tracks which sources contain Kentucky amendatory/special-provisions text.
+- Emits one consolidated MEDIUM finding per source where multi-state cues are present but no Kentucky amendatory text is found.
+- No edge graph required — purely text-presence detection. Acceptance criteria all met.
+
+**Run result (18b0dec5, 2026-06-05):** H007 fired **zero times**. Confirmed correct: current corpus (KFBM HO 04 93 proprietary + KNIC ISO-by-reference) contains no multi-state jacket language. H007 will fire if a multi-state master jacket filing is added to the corpus.
 
 **Relationship to existing work:**
-Smell 5 graph-gap detection (ADR-010) already traverses the node graph for missing referenced forms. This detector extends that approach to the specific case of multi-state master jackets.
+Extends the source-level pattern established by H004-H006 graph-gap detection (ADR-010).
 
 ---
 
-### [ ] BACKLOG-020: Tighten Broken Definitions Loop Detector
+### [x] BACKLOG-020: Tighten Broken Definitions Loop Detector — RESOLVED 2026-06-05
 
-**Status:** Open — current Smell 2 H003 is a partial implementation
+**Status:** Resolved — SMELL2-H004 implemented in Stage 006 `smell2.py`
 **Priority:** MEDIUM — current findings are valid; this improves precision
 **Affects:** Sandbox 002 Stage 006 Smell 2 detectors
 
-Current H003 detector identifies valuation terms (ACV, replacement cost, market value) used without adjacent methodology disclosure. The more precise formulation: detect when a term is used in bold or quotation marks in policy text (signaling it is a defined term) but the Definitions Section does not contain a matching entry. Also detect when an amendment deletes a definition without inserting replacement text.
+**What was built:**
+- `SMELL2-H004` added to `smell2.py` as a source-level pre-pass.
+- Scans carrier nodes once: identifies Definitions Section nodes (by `section_path` keyword or opening text), extracts quoted defined terms per source; collects quoted terms from body nodes.
+- Emits one LOW-confidence finding per (source, term) where a quoted term appears in the policy body but has no matching entry in the same source's Definitions Section.
+- Guards: only fires when a Definitions Section is found AND at least one term was extracted (avoids empty-Definitions false positives).
+- Amendment-deletion detection deferred (requires richer structural metadata).
 
-**What to build:**
-- Extract all bolded/quoted terms from policy body nodes
-- Cross-reference against Definitions Section nodes for the same source
-- Flag terms present in body but absent in Definitions
-- Flag amendment nodes that remove definition text without a corresponding insertion
+**Run result (18b0dec5, 2026-06-05):** H004 fired **zero times**. Confirmed correct: current corpus contains only 4 nodes matching "definitions" in section path or opening text — all are rate manual construction/zone definitions, not insurance policy Definitions Sections. Only 7 carrier nodes contain any double-quote characters (rate table entries). Base policy forms with properly formatted Definitions Sections are not in the current corpus. H004 will fire when those forms are added.
+
+---
+
+### [ ] BACKLOG-021: KFBM Base Policy Jacket Confidence Limitation
+
+**Status:** Open — optional corpus confidence limitation identified 2026-06-05
+**Priority:** LOW — do not block higher-value package-level or cross-document work
+**Affects:** Sandbox 002 Stage 006 SMELL2-H004; future drill-down entries for KFBM
+
+**What this is:**
+KFBM's current new-business base policy form would contain the carrier's Definitions Section. That text could help confirm or refute SMELL2-H004 findings about defined terms used in endorsements or amendments. But this is a lower-value product lane than cross-document, package-completeness, regulatory-mapping, and calculation-drift issues.
+
+**Why KFBM only (not ISO):**
+ISO-adopting carriers (e.g., KNIC) outsource their definition domain to ISO HO 00 03. Missing definitions in a KNIC endorsement are almost certainly covered by ISO by reference — KNIC is already a lower-value prospect. Proprietary-base-form carriers (KFBM) OWN their definition domain: every term used in an endorsement or amendment must be defined somewhere in their own filing package or it is a genuine gap. No ISO fallback. This is the core value of H004.
+
+**Current corpus status (updated 2026-06-05):**
+`KY-SERFF-KFBM-134503212-HO-FORM` is in the corpus but redacted (25 KB). More critically: ISO HO 04 93 has been confirmed as an **endorsement** form — "Actual Cash Value Loss Settlement: Windstorm or Hail Losses to Roof Surfacing" (ISO copyright 1999, 2 pages). HO 04 XX = ISO endorsements by definition. Therefore `KY-SERFF-KFBM-134503212-HO-FORM` is KFBM's version of this endorsement, NOT their base policy jacket. KFBM's actual base policy jacket has an **unknown form number**. The ISO HO 04 93 standard form has been added to the corpus (ISO-HO-04-93-1000) as H003 evidentiary support.
+
+**Current product-value decision:**
+Do not treat unredacted proprietary base-form procurement as a required corpus milestone. A redacted base jacket or filing reference is enough to support a limitation note: definition-domain review cannot be completed from public text. It is not enough to confirm that a term is missing from the Definitions Section.
+
+**Optional resolution path if this becomes high value later:**
+
+Step 1 — Identify KFBM's base policy jacket form number:
+- In SERFF Filing Access (KY, TOI 04.0), search KFBM form filings
+- Look for a JAC-type (Policy Jacket) form in the Form Schedule
+- Prefer current/new-business filing evidence. The base jacket may have originated before SFA's November 2018 cutoff, but pre-2018 material is not the target unless needed to identify or obtain the current jacket.
+- If not in SFA, the form number may appear in KFBM's markup filings (the 210 KB / 216 KB versions already in corpus show diffs — the form numbers being revised should be visible there)
+
+Step 2 — Procure unredacted text:
+- Kentucky is strict prior-approval; the approved form exists at KY DOI
+- Open records request: 502-564-3630
+- Reference the form number from Step 1 and carrier "Kentucky Farm Bureau Mutual"
+
+**Acceptance criteria:**
+- Reports and detector outputs treat missing/redacted KFBM base-jacket text as a limitation, not a confirmed defect
+- No high-value work is blocked on unredacted proprietary base-form procurement
+- If the current base jacket is later obtained, add it to `corpus/kentucky-homeowners-policy-smells/sources/` and rerun Stage 002/006 only if a specific detector/report needs it
+- `CORPUS-SOURCES.md` and `KNOWN-GAPS.md` updated
+
+---
+
+### [ ] BACKLOG-022: Commercial Report Output — Copyright-Safe Sanitization Pass
+
+**Status:** Open — design constraint identified 2026-06-05
+**Priority:** HIGH — blocks commercial distribution of any report containing carrier or ISO policy text
+**Affects:** `sandboxes/004-expert-drilldown/output/drilldown_report.html`; any future commercial report pipeline; `stages/003-executive-report/src/report_builder.py`
+
+**What the problem is:**
+All carrier policy forms (KFBM, KNIC) and ISO forms (HO 00 03, HO 04 93, etc.) are copyrighted. Verbatim reproduction of their text in a report sold to another party constitutes copyright infringement — regardless of whether the text appears as evidence, quotation, or illustration. The internal research layer (findings JSONL, drill-down entries JSON, KRS-KAR audit markdown) can and must retain verbatim `evidence_text` for analysis. The commercial output layer cannot.
+
+**Copyright exposure map:**
+
+| Content type | Copyrighted? | Commercial report safe? |
+|---|---|---|
+| Carrier policy forms (KFBM, KNIC) | Yes — carrier | ❌ No verbatim text |
+| ISO forms (HO 00 03, HO 04 93, etc.) | Yes — ISO | ❌ No verbatim text |
+| KRS / KAR regulatory text | Public domain | ✅ |
+| Court opinions / case law (US) | Public domain | ✅ Full text fine |
+| Our own findings/analysis language | We own it | ✅ |
+
+**What the fix is:**
+A sanitization render pass in the commercial output pipeline that:
+1. Replaces verbatim carrier/ISO evidence snippets with **paraphrased descriptions** that describe the problem without quoting the protected text — e.g., "the policy provides for ACV settlement of roof losses after 7 years without disclosing the depreciation calculation methodology" rather than the verbatim clause.
+2. Cites **section path and page location** rather than quoting.
+3. Can freely include regulatory text (KRS/KAR) and case holdings (public domain).
+4. Preserves the internal `evidence_text` field untouched — the sanitization is output-only.
+
+**Design note:**
+The two-layer separation already exists: the raw findings JSONL and drill-down JSON hold verbatim evidence for internal analysis. The commercial render pass needs a `paraphrased_evidence` field (or derives it at render time from the existing `rationale` field, which is already our own language and safe to reproduce). The simplest approach: add a `paraphrased_evidence` field to each drill-down entry alongside `verbatim_evidence`, and use `paraphrased_evidence` in the commercial render path.
+
+**Relationship to BACKLOG-015:**
+Case law text (CourtListener, court opinions) is US public domain — full case text retrieval is safe. The copyright constraint applies only to carrier/ISO forms.
+
+**Next action:**
+Before building the commercial report pipeline, define the `paraphrased_evidence` field in the drill-down entry schema. For current PoC entries (S4-H001, S4-H004, S4-H003), draft paraphrased versions of the evidence text. Add a `--sanitize` flag to the commercial report renderer analogous to the existing `--anonymize` flag.
+
+---
+
+### [ ] BACKLOG-023: Per-Carrier Report Pipeline — Pitch Report vs. Product Report Split
+
+**Status:** Open — architecture decided 2026-06-05
+**Priority:** HIGH — required before any commercial delivery
+**Affects:** `stages/003-executive-report/src/report_builder.py`; `stages/006-deterministic-detectors/src/detector_runner.py`; `sandboxes/004-expert-drilldown/output/drilldown_report.html`
+
+**The product model (decided 2026-06-05):**
+
+Three distinct report artifacts, one pipeline:
+
+| Artifact | Audience | Carrier scope | Existing status |
+|---|---|---|---|
+| **Pitch report** | Prospect — any carrier | Anonymized multi-carrier benchmark | Mostly exists: `--anonymize` run of `report_builder.py` |
+| **Product report — KFBM** | KFBM (paying client) | KFBM findings only, named | Not yet wired |
+| **Product report — KNIC** | KNIC (paying client) | KNIC findings only, named | Not yet wired |
+
+The pitch report is the sales hook: "We scanned the Kentucky homeowners market and found these patterns across Carrier A and Carrier B." The prospect buys to find out which is them and get the full findings with remediation guidance. The product report is the deliverable they pay for.
+
+The current combined corpus run is the **benchmark artifact** (pitch report). A per-carrier filtered run is the **product artifact**.
+
+**What needs to be built:**
+
+1. **`--carrier` filter flag on `detector_runner.py`** (or passed to report_builder):
+   - Accept a carrier identifier (e.g., `KFBM`, `KNIC`) and filter corpus nodes to that carrier's source_ids before running detectors.
+   - Source_id prefixes: KFBM sources start with `KY-SERFF-KFBM-`; KNIC sources start with `KY-SERFF-KNIC-`.
+   - Output: per-carrier `detector_findings_KFBM.jsonl` and `detector_findings_KNIC.jsonl` alongside the combined run.
+
+2. **Per-carrier executive report**:
+   - `report_builder.py --carrier KFBM` generates a report scoped to KFBM findings only, with KFBM named explicitly (not anonymized — this is their report).
+   - `report_builder.py --carrier KNIC` same for KNIC.
+   - `report_builder.py --anonymize` remains the pitch report (combined, anonymized).
+   - The carrier comparison section is suppressed or reframed ("your filing package") in per-carrier mode.
+
+3. **Per-carrier drill-down HTML**:
+   - `sandboxes/004-expert-drilldown/output/drilldown_report.html` currently shows all entries. A `--carrier` flag on the report generator filters to that carrier's entries.
+   - Alternatively: separate output files `drilldown_KFBM.html` and `drilldown_KNIC.html`.
+
+4. **Copyright sanitization** (see BACKLOG-022):
+   - Per-carrier product reports are commercial deliverables — must use `paraphrased_evidence` not `verbatim_evidence`.
+   - Pitch report (benchmark) uses only our own analysis language — already clean.
+
+**What is already done:**
+- [x] Combined corpus run with findings — `detector_findings.jsonl` — exists
+- [x] `--anonymize` flag on `report_builder.py` — pitch report mode exists
+- [x] Source_id prefixes are stable and carrier-distinguishable
+- [ ] `--carrier` filter on detector runner
+- [ ] Per-carrier report builder mode
+- [ ] Per-carrier drill-down output
+- [ ] Copyright sanitization pass (BACKLOG-022)
+
+**Acceptance criteria:**
+- `python detector_runner.py --carrier KFBM` produces a findings file containing only KFBM-source findings
+- `python report_builder.py --carrier KFBM` produces a named, per-carrier executive report
+- `python report_builder.py --anonymize` (no `--carrier`) continues to produce the combined benchmark/pitch report
+- Both per-carrier and combined runs are reproducible from the same corpus without re-parsing
 
 ---
 
