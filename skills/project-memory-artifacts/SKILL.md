@@ -37,7 +37,7 @@ Use more than one artifact when the event has more than one purpose. For example
 
 1. Identify the artifact purpose before writing.
 2. Gather evidence from current docs, changed files, user decisions, validation output, and known gaps.
-3. Choose the repo-visible location that matches existing conventions.
+3. Choose the repo-visible location that matches existing conventions. Chronological journal entries always go under the top-level `journal/` folder; do not create new `JOURNAL-*.md` files inside sandbox folders.
 4. Write concise, dated Markdown with concrete file paths, scope boundaries, validation performed, and open questions.
 5. Preserve the difference between canonical truth and point-in-time notes.
 6. Update discovery surfaces so all agents can find the artifact.
@@ -45,7 +45,7 @@ Use more than one artifact when the event has more than one purpose. For example
 
 ## Expected Shapes
 
-For a **journal**, prefer:
+For a **journal**, write the file under top-level `journal/` and prefer:
 
 - title with date and scope
 - summary

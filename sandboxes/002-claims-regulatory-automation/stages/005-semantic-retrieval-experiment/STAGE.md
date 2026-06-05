@@ -1,15 +1,19 @@
 # Stage 005: Semantic Retrieval Experiment
 
 Phase: 4 — Semantic Retrieval Experiment
-Status: In progress
+Status: Complete — architectural result recorded in ADR-010
 Depends on: Stage 002 pipeline run output, Stage 003 retrieval package, Stage 004 gold set
 
 ## Purpose
 
-Test whether OpenAI embeddings improve recall for the one item that phrase and BM25 both miss:
-`eval-011` — DOI Advisory Opinion aerial imagery (`bdfadc8c3e7aec8ab312`).
+Test whether OpenAI embeddings improve recall for homeowners policy-layer smell research enough to justify vector infrastructure.
 
-Gate condition (from ADR-002): tiny gold set exists + documented lexical failures exist. Both are met.
+This stage ran twice:
+
+1. Initial document-vocabulary gold set: BM25 already hit 21/21, so vector store selection was deferred.
+2. Reopened Smell 5 paraphrase test: five reviewer-style regulatory-mapping queries were added, and both `text-embedding-3-small` and `text-embedding-3-large` failed to surface the expected carrier gap nodes in the top 10.
+
+Final conclusion: vector similarity is the wrong tool for gap-detection smells because absence cannot be embedded. Smell 5 requires graph-based gap detection over the Stage 002 edge substrate. See ADR-010.
 
 ## Usage
 
@@ -75,9 +79,11 @@ Stage 005 is formally reopened. All three re-open conditions are met:
 2. ✅ Documented BM25 failure — Smell 5 detector produces zero findings across 353 nodes; regex/lexical cannot surface regulatory-mapping smell in carrier policy language
 3. ✅ Paraphrase-style gold set queries approved — five reviewer-perspective Smell 5 queries ready for gold set pairing
 
-**Next steps:**
-- [ ] Pair the five Smell 5 paraphrase queries with expected nodes from run `18b0dec5`; add as new gold set items to `goldset-002.2.json`
-- [ ] Re-embed 353 nodes from run `18b0dec5` (prior cache was 251 nodes on run `996e36af`)
-- [ ] Re-run semantic evaluator against updated gold set
-- [ ] Record whether semantic retrieval surfaces Smell 5 candidate nodes that BM25 misses
-- [ ] Update ADR-005 (vector store selection) based on result
+**Completed follow-up:**
+- [x] Pair the five Smell 5 paraphrase queries with expected nodes from run `18b0dec5`; add as new gold set items to `goldset-002.2.json`
+- [x] Re-embed nodes from run `18b0dec5`
+- [x] Re-run semantic evaluator against updated 26-item gold set
+- [x] Run model diagnostic against `text-embedding-3-small` and `text-embedding-3-large`
+- [x] Record architectural result in ADR-010
+
+**Final result:** semantic retrieval hit 14/26 overall and 0/5 Smell 5 paraphrase items. The models retrieved regulatory source documents rather than carrier nodes missing regulatory links. This confirmed that Smell 5 should be implemented as graph-based gap detection, not vector similarity.

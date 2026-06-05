@@ -1,9 +1,11 @@
 # Stage 002: Homeowners Discovery And Instrumentation
 
-Status: In progress
+Status: Complete; preserved as first discovery-and-instrumentation stage
 Location: `stages/002-homeowners-discovery-instrumentation/`
 Sandbox: 002 — Kentucky homeowners insurance
 Created: 2026-06-03
+
+> Current Sandbox 002 state is summarized in `../../CLOSURE.md` and `../../HANDOFF-2026-06-04b.md`. This stage document records the original Stage 002 slice and should not be read as the current active work item.
 
 ## Objective
 

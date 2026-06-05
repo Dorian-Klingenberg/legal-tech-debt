@@ -279,7 +279,7 @@ Question:
 
 **Results (run 996e36af, 251 nodes, original corpus):** 17 findings — Smell 2: 13 (MEDIUM), Smell 3: 3 (LOW), Smell 4: 1 (HIGH).
 
-**Results (run 18b0dec5, repaired Stage 002 contract, 353 nodes, 28-source corpus, Smell 5 redesigned):** 35 findings — Smell 1: 1 (LOW), Smell 2: 17 (MEDIUM), Smell 3: 4 (LOW), Smell 4: 1 (HIGH), Smell 5: 12 (7 MEDIUM, 5 LOW, graph-gap detection).
+**Results (run 18b0dec5, repaired Stage 002 contract, 353 nodes, 28-source corpus, Smell 5 redesigned):** 35 findings — Smell 1: 1 (LOW), Smell 2: 17 (MEDIUM), Smell 3: 4 (LOW), Smell 4: 1 (HIGH), Smell 5: 12 (7 MEDIUM, 5 LOW, graph-gap detection). ADR-010 records the Smell 5 architecture decision.
 
 **Detector improvement 2026-06-03:** H001/H003 heuristics in smell2.py now suppressed for `kar_regulation`, `krs_statute`, `doi_bulletin`, `doi_guidance` source types. "Reasonable" in regulatory docs is legal standard language, not a claim dispute gate. Detector runner enriches nodes with `source_type` from `source_by_id` before passing to detectors.
 
@@ -315,7 +315,7 @@ Question:
 
 **Results (run 996e36af):** 17 findings, 47 candidate evidence items, 3 corpus gap tiers documented.
 
-**Results (run 18b0dec5, repaired Stage 002 contract):** 23 findings, 121 candidate evidence items, reviewer report regenerated under `output/007/20260604_130606_18b0dec5/`.
+**Results (run 18b0dec5, repaired Stage 002 contract, after Smell 5 redesign):** 35 findings, 121 candidate evidence items, reviewer report regenerated under `output/007/20260604_130606_18b0dec5/`.
 
 **Success criteria**
 
@@ -328,7 +328,7 @@ Question:
 
 ## Loose Threads (Open, Not Blocking)
 
-- [ ] **Smell 5 detector produces 0 findings** — Regulatory Mapping heuristics are not firing on the expanded corpus. The detector needs calibration against the new KFBM sources, particularly the DOI objection response and rate manual filings which should have KRS/KAR citation gaps.
+- [x] **Smell 5 detector recalibrated** — ADR-010 established graph-based gap detection; H004-H006 now produce 12 Smell 5 findings on run 18b0dec5.
 - [x] **Gold set re-evaluated against repaired expanded run 18b0dec5** — phrase 20/21 (95%), BM25 21/21 (100%); semantic remains deferred.
 - [x] **Stage 005 reopened 2026-06-04** — all three re-open conditions met. See Stage 005 STAGE.md and ADR-002 for next steps.
 - [ ] **EXT MISMATCH files** — KY-KRS-304-12-230 and KY-KRS-304-14 are named `.html` but contain PDF content (same issue as KY-KRS-304-13 which was renamed). Pipeline parses them with warnings. Low priority since they produce nodes, but should be renamed for cleanliness.
@@ -337,7 +337,7 @@ Question:
 
 ## Parked Until Earned
 
-- [ ] Retrieval store selection (ADR-005) — gate: Stage 005 re-open conditions met
+- [ ] Retrieval store selection — deferred; ADR-010 shows vector similarity is not appropriate for gap-detection smells, but may still earn a future role for cross-carrier paraphrase matching
 - [ ] Chatbot interface
 - [ ] Production API
 - [ ] Background ingestion service

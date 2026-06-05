@@ -1,11 +1,13 @@
 # Carry Forward from Sandbox 001
 
 Created: 2026-05-29
-Status: Active guidance for Sandbox 002
+Status: Historical carry-forward guidance for Sandbox 002
+
+> Historical note: Sandbox 002 has since closed as a discovery/retrieval/detector/reviewer-report proof of concept. Keep this file as a record of the original carry-forward assumptions, not as current operating guidance.
 
 ## Decision
 
-Sandbox 001 is complete as foundational research. Sandbox 002 is now the active lane for Kentucky homeowners insurance policy-layer legal tech debt experiments.
+Sandbox 001 is complete as foundational research. Sandbox 002 became the active lane for Kentucky homeowners insurance policy-layer legal tech debt experiments.
 
 The goal is not to copy 001 wholesale. The goal is to carry forward only the proven primitives that help validate the five active homeowners policy-layer smells quickly.
 

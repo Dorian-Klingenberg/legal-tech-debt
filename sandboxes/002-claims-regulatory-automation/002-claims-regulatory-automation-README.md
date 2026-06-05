@@ -4,7 +4,7 @@ Status: Complete; preserved as evidence substrate
 Current controlling scope: `002-five-policy-layer-phish.md`
 Created: May 2026
 
-> Current resume point: read `CLOSURE.md`, `HANDOFF-2026-06-04.md`, `adr/ADR-008-stage-002-artifact-contract-repair.md`, and `adr/ADR-009-close-sandbox-002-with-smell-5-limitation.md`. The active repaired run is `output/002/20260604_130606_18b0dec5/`. New forward work should start in `sandboxes/003-findings-triage/` unless the user explicitly reopens Sandbox 002.
+> Current resume point: read `CLOSURE.md`, `HANDOFF-2026-06-04b.md`, `adr/ADR-008-stage-002-artifact-contract-repair.md`, `adr/ADR-010-smell5-retrieval-architecture-gap-detection.md`, and `adr/ADR-011-h003-reclassification-methodology-gap-not-undefined-term.md`. The preserved repaired run is `output/002/20260604_130606_18b0dec5/`. Sandbox 003 and Sandbox 004 are complete; new forward work should use `BACKLOG.md` unless the user explicitly reopens Sandbox 002.
 
 ## Purpose
 
@@ -77,11 +77,13 @@ See `002-CARRY-FORWARD-FROM-001.md` for the carry-forward rules.
 | `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md` | Path decision: discovery-and-instrumentation comes before fixture detectors; parser/reference uncertainty is evidence. |
 | `adr/ADR-004-schema-run-identity-and-id-stability.md` | Artifact contract decision: schema versions, run identity, run manifest, and stable IDs are required for Stage 002 outputs. |
 | `adr/ADR-008-stage-002-artifact-contract-repair.md` | Repair decision: Stage 002 implementation drift was restored to the artifact contract. |
-| `adr/ADR-009-close-sandbox-002-with-smell-5-limitation.md` | Closure decision: Sandbox 002 closes with Smell 5 as a carried limitation, not a Sandbox 003 blocker. |
+| `adr/ADR-009-close-sandbox-002-with-smell-5-limitation.md` | Historical closure decision before Smell 5 was recalibrated. Superseded for Smell 5 state by ADR-010. |
+| `adr/ADR-010-smell5-retrieval-architecture-gap-detection.md` | Smell 5 architecture decision: graph-based gap detection, not vector similarity. |
+| `adr/ADR-011-h003-reclassification-methodology-gap-not-undefined-term.md` | H003 framing decision: undisclosed methodology is Smell 4, not undefined term. |
 | `CLOSURE.md` | Closure record and final validated state for Sandbox 002. |
 | `002-CARRY-FORWARD-FROM-001.md` | What to reuse from Sandbox 001 and what to leave parked. |
 | `002-ROADMAP-revised.md` | Active implementation roadmap for Sandbox 002. |
-| `HANDOFF-2026-06-04.md` | Current handoff for future agents, including repaired run state and next step. |
+| `HANDOFF-2026-06-04b.md` | Current handoff for future agents, including Smell 5 resolution and 35-finding state. |
 | `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv` | Real-document source manifest, downloaded paths, and smell mappings. |
 | `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md` | Known source gaps and rules for when to chase manual SERFF material. |
 | `002-PAIN-POINTS-TAXONOMY.md` | Background rationale only; do not use it to expand active scope. |
@@ -101,14 +103,14 @@ Final validated outputs include:
 - candidate evidence for policy-layer smells
 - retrieval bundles shaped for future hybrid retrieval
 - gold-set evaluation with BM25 21/21
-- deterministic detector findings
+- deterministic detector findings across all five smells
 - reviewer HTML and Markdown reports
 
 ## Next Lane
 
-New forward work should move to `sandboxes/003-findings-triage/`.
+Sandbox 003 consumed these outputs and is complete. Sandbox 004 built the expert drill-down report proof of concept and is also complete.
 
-Sandbox 003 should consume Sandbox 002 outputs rather than mutate the evidence substrate. Smell 5 detector calibration remains a known limitation; downstream work must not claim five-smell completeness unless that detector is calibrated first.
+New forward work should use `BACKLOG.md`, especially BACKLOG-019 (Missing State Amendatory detector) or BACKLOG-015 (heuristic-specific case library), unless the user explicitly reopens Sandbox 002.
 
 ## Working Rule
 

@@ -1,6 +1,6 @@
 # Sandbox 003: Findings Triage And Intelligence
 
-Status: **Active — Stage 003 complete; pending next lane decision**
+Status: **Complete — sales instrument built and hardened**
 Scope: Take structured findings from Sandbox 002 and make them business-actionable
 Created: 2026-06-03
 Depends on: Sandbox 002 repaired run `output/002/20260604_130606_18b0dec5/`, Stage 006 findings JSONL, and Stage 007 reviewer report
@@ -35,7 +35,6 @@ This sandbox turns findings into decisions.
 - [x] 5-finding sample run and reviewed — output quality validated
 - [x] Full 35-finding run complete: 35/35 enriched, 0 errors — `stages/001-llm-triage/output/enriched_findings.jsonl`
 - [x] Human review of all 35 findings complete — confirmed finding set documented in `stages/001-llm-triage/validation/human-review-notes.md`
- I think I see that there was this little notification over the files, but it didn't say what file there was a problem with. Now that's gone because I did this thing. 
 **Key outputs:**
 - `stages/001-llm-triage/output/enriched_findings.jsonl` — 35 enriched findings
 - `stages/001-llm-triage/validation/human-review-notes.md` — confirmed/rejected/downgraded findings with reasoning
@@ -91,6 +90,10 @@ This sandbox turns findings into decisions.
 - [x] H004 narrative prompt corrected — now describes "rate-setting filings with no traceable citation to KRS/KAR/DOI authority"
 - [x] Markdown rendering fix — dollar signs removed from bold labels; format is `**Label** — description with figures in plain text`
 - [x] Human review of report output — approved
+- [x] Regulatory-source false positives filtered at Stage 006 runner level before downstream report use
+- [x] `--anonymize` flag added to report builder for prospect-facing carrier labels
+- [x] Editorial pass applied to executive summary prose
+- [x] Dollar-sign markdown rendering issue fixed in source data and report builder
 - [x] Output: `stages/003-executive-report/output/executive_summary.md`
 
 **Key outputs:**
@@ -99,14 +102,14 @@ This sandbox turns findings into decisions.
 - `stages/003-executive-report/src/report_builder.py` — gpt-4o driven; deterministic Risk Context + findings table sections
 
 **Known gaps before prospect use (see BACKLOG):**
-- BACKLOG-013: Carrier name anonymization (`--anonymize` flag not yet built)
-- BACKLOG-014: Human editorial pass on LLM-generated prose required before external distribution
+- Final human read still recommended before any external distribution
+- Anonymized report can be generated with `python report_builder.py --anonymize`
 
 **Tone:** Written for a CEO or Chief Claims Officer who will hand it to a team, not read it themselves.
 
 **Reference prototypes:** `sandboxes/002-claims-regulatory-automation/business_owner_prospects_report.md` and `KNIC_real_world_examples_and_costs_report.md`
 
-**Output target:** Something you'd put in front of a potential client to demonstrate value before a sales conversation.
+**Output target:** Sales instrument to get a CEO or Chief Claims Officer to the table. The paid-service deliverable is the expert drill-down report prototyped in Sandbox 004.
 
 ---
 

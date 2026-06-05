@@ -26,6 +26,7 @@ Prefer:
 ## Rules
 
 - Write journals as narrative project memory, not canonical specs.
+- Write journal files under the top-level `journal/` folder. Do not create new `JOURNAL-*.md` files inside sandbox folders.
 - Include concrete paths, run IDs, output counts, and validation commands when available.
 - Record surprises, false starts, and what was intentionally left untouched.
 - Include checkboxes for next work when the entry creates follow-up.

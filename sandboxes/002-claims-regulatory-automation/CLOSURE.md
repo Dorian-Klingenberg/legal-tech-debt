@@ -7,7 +7,7 @@ Status: Complete as discovery, retrieval, detector, and reviewer-report proof of
 
 Sandbox 002 is complete for its current purpose. It should now be treated as a preserved evidence substrate and implementation record, not the active forward-development lane.
 
-The next active lane is `sandboxes/003-findings-triage/`, using the repaired Sandbox 002 run:
+The next lanes were completed in Sandbox 003 and Sandbox 004. Current forward work is tracked in `BACKLOG.md`, using the repaired Sandbox 002 run:
 
 `output/002/20260604_130606_18b0dec5/`
 
@@ -49,7 +49,7 @@ Active repaired run:
 - Candidate evidence: 121
 - Stage 002 discovery retrieval bundles: 41
 - Stage 003 retrieval bundles: 39
-- Stage 006 detector findings: 23
+- Stage 006 detector findings: 35
 
 Validation:
 
@@ -57,7 +57,7 @@ Validation:
 - Stage 003 retrieval bundles validated against the Stage 002 retrieval-bundle schema.
 - Stage 004 gold-set evaluation on run 18b0dec5: phrase 20/21, BM25 21/21.
 - Gold-set validator passed all 21 items against run 18b0dec5.
-- Stage 006 detectors emitted 23 findings.
+- Stage 006 detectors emitted 35 findings after Smell 5 graph-gap detection was added.
 - Stage 007 reviewer report regenerated.
 
 ## What 002 Proved
@@ -66,7 +66,7 @@ Validation:
 - Parser diagnostics and reference uncertainty belong in the evidence layer.
 - JSONL-first artifacts are enough for early discovery, retrieval, detector, and reporting stages.
 - Lexical/BM25 retrieval is strong enough for the current document-vocabulary gold set.
-- Vector infrastructure should remain deferred until paraphrase queries and a documented BM25 failure justify it.
+- Vector infrastructure should remain deferred for gap-detection smells; ADR-010 established that absence is detected through graph traversal, not vector similarity.
 - Deterministic findings are useful but not yet business-accessible enough for an executive audience.
 
 ## What Carries Forward To 003
@@ -77,15 +77,16 @@ Carry these forward:
 - Stage 006 findings under `output/006/20260604_130606_18b0dec5/`
 - Stage 007 reviewer report under `output/007/20260604_130606_18b0dec5/`
 - ADR-008 artifact contract repair
-- ADR-009 Smell 5 limitation decision
+- ADR-010 Smell 5 graph-gap detection decision
+- ADR-011 H003 reclassification decision
 - human-review framing: findings are not legal conclusions
 - source provenance and original evidence text as immutable inputs to triage
 
-## Known Limitation Carried Forward
+## Smell 5 Resolution
 
-Smell 5 detector calibration remains open. The detector currently produces 0 findings, which should be treated as likely under-recall rather than a clean negative result.
+ADR-009 originally closed Sandbox 002 with Smell 5 as a carried limitation. Later on 2026-06-04, ADR-010 resolved that limitation by redesigning Smell 5 as graph-based gap detection. The final detector run produced 12 Smell 5 findings and 35 total findings across all five smells.
 
-Sandbox 003 may start with this limitation, but must not claim five-smell completeness unless Smell 5 is calibrated first.
+The important architectural lesson is preserved: regulatory-mapping gaps are absence patterns and should be detected through graph traversal over the evidence substrate, not vector similarity.
 
 ## Do Not Reopen By Default
 

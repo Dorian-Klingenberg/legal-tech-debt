@@ -6,4 +6,4 @@ Current session: (none — cleared after 2026-06-04 session 5)
 
 ---
 
-(empty — journal written to `sandboxes/004-expert-drilldown/JOURNAL-2026-06-04.md`)
+(empty — journal written to `journal/2026-06-04-sandbox-004-expert-drilldown.md`)
