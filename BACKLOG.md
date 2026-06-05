@@ -6,6 +6,8 @@ Last updated: 2026-06-04 (session 2)
 
 This file tracks open questions, deferred tasks, and homeless backlog items — things that are real enough to record but not yet assigned to a sandbox or stage. Items are checked off when resolved, not deleted, so the search history stays visible.
 
+Implementation brief: see `BACKLOG-IMPLEMENTATION-PLAN.md` for Claude-ready instructions, file allowlists, validation commands, and item-by-item acceptance criteria for currently unblocked backlog work.
+
 ---
 
 ## Open Items

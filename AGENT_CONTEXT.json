@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-06-05T10:45:00-04:00",
+  "updated_at": "2026-06-05T11:15:00-04:00",
   "project": {
     "name": "legal-tech-debt",
     "mode": "sandbox research and proof-of-concept development",
@@ -29,8 +29,9 @@
     "source_evidence_sandbox": "sandboxes/002-claims-regulatory-automation",
     "source_evidence_run": "sandboxes/002-claims-regulatory-automation/output/002/20260604_130606_18b0dec5/",
     "run_summary": "Sandbox 002 closed with 28 sources, 353 nodes, 121 candidate evidence items, 39 Stage 003 retrieval bundles, and 35 detector findings (five smells fully calibrated including Smell 5 graph-gap detection)",
-    "latest_handoff": "sandboxes/004-expert-drilldown/HANDOFF-2026-06-04.md",
-    "latest_memory_journal": "journal/2026-06-05-mini-cleanup-and-day-planning.md"
+    "latest_handoff": "HANDOFF-2026-06-05-backlog-planning.md",
+    "latest_memory_journal": "journal/2026-06-05-backlog-planning-closeout.md",
+    "latest_backlog_plan": "BACKLOG-IMPLEMENTATION-PLAN.md"
   },
   "active_scope": [
     "Kentucky homeowners insurance",
