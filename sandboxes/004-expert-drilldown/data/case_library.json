@@ -79,8 +79,7 @@
       "language_gap": "The policy conditioned replacement cost payment on completion of repairs within a 'reasonable time' but did not define what 'reasonable time' meant. Both carrier and insured had competing interpretations. The ambiguity forced litigation to establish when the insured's rebuilding obligation triggered and when the carrier's RCV payment obligation arose.",
       "outcome": "Judgment for homeowners. Kentucky Court of Appeals held the insurer could not weaponize undefined 'reasonable time' language to deny RCV payment pending the insured's litigation over ACV.",
       "relevance_note": "Kentucky authority that undefined 'reasonable time' in a roof/property settlement condition creates a judicially contested ambiguity — the specific policy language gap SMELL2-H001 flags in KFBM and KNIC ACV roof settlement provisions."
-    }
-  ],
+    },
     {
       "case_id": "CL-004",
       "heuristic_ids": ["SMELL4-H001"],
@@ -122,7 +121,7 @@
       "heuristic_id": "SMELL5-H004",
       "searched": "2026-06-05",
       "search_sources": ["Google/WebSearch", "KY DOI market conduct portal (404)", "TN DOI (not publicly indexed)", "Ohio DOI enforcement portal (404)", "WV Insurance Commission (no public enforcement index)", "NAIC consumer enforcement DB (unlicensed carriers only)", "Property Insurance Coverage Law Blog", "content.naic.org"],
-      "note": "No specific enforcement action found in KY, TN, OH, or WV naming this pattern. Public record confirms the enforcement mechanism exists and produces findings: FL OIR post-hurricane exams levied $2.575M across ten carriers (DA-S5-001), LA DOI proposed ~$1M (DA-S5-002), and SD Farmers/Foremost paid $750K on a single exam (DA-S5-003) — all for regulatory mapping gaps in carrier filings. KY DOI's own website states violations are 'outlined in a Market Conduct Examination Report,' confirming the process exists. Specific KY/TN/OH/WV findings on rate methodology without a KRS/KAR anchor are not publicly indexed — exam reports in this region are behind FOIA walls. To close with a named enforcement action: open records request to KY DOI (502-564-3630). Framing for current use: enforcement mechanism is documented at $750K–$2.5M range; specific regional examples pending FOIA."
+      "note": "No specific enforcement action found in KY, TN, OH, or WV naming this pattern. Public record confirms the enforcement mechanism exists and produces findings: FL OIR post-hurricane exams levied $2.575M across ten carriers (DA-S5-001), LA DOI proposed ~$1M (DA-S5-002), and SD Farmers/Foremost paid $750K on a single exam (DA-S5-003) — all for regulatory mapping gaps in carrier filings. KY DOI's own website states violations are 'outlined in a Market Conduct Examination Report,' confirming the process exists. Specific KY/TN/OH/WV findings on rate methodology without a KRS/KAR anchor are not publicly indexed — exam reports in this region are behind FOIA walls. To close with a named enforcement action: open records request to KY DOI (502-564-3630) for market conduct exam reports on KFBM and KNIC. Note: BACKLOG-021 (KFBM base jacket procurement) is now closed — this open records call is for exam findings only, not form procurement. Framing for current use: enforcement mechanism is documented at $750K–$2.5M range; specific regional examples pending FOIA."
     },
     {
       "heuristic_id": "SMELL5-H005",

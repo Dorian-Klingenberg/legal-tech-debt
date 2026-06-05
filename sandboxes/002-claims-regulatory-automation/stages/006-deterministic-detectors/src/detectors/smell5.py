@@ -80,14 +80,17 @@ _H004_PATTERN = re.compile(
 )
 
 # H005: mandatory coverage / mandatory endorsement claims
+# NOTE: "is not mandatory" removed — it fires on filing instructions that explicitly
+# say a coverage is optional (e.g., "Section II Coverage is not mandatory for the
+# secondary residence policy"). Negation context is a filing instruction, not a
+# regulatory mandate claim. See ADR-013 for language_context annotation design.
 _H005_PATTERN = re.compile(
     r"\b(mandatory\s+coverage|mandatory\s+endorsement|"
     r"special\s+state\s+requirements?|"
     r"use\s+this\s+endorsement\s+with\s+all|"
     r"required\s+endorsement|"
     r"it\s+shall\s+not\s+be\s+permissible|"
-    r"must\s+be\s+endorsed|"
-    r"is\s+not\s+mandatory)\b",
+    r"must\s+be\s+endorsed)\b",
     re.IGNORECASE,
 )
 
@@ -233,8 +236,16 @@ def detect(
         "Can each requirement be traced to a specific KRS section, KAR provision, or DOI bulletin?"
     )
     _H005_FP = (
-        "Some endorsements are made mandatory by carrier underwriting policy rather than statute. "
-        "The smell is strongest when language implies a state regulatory mandate rather than a carrier choice."
+        "Two distinct contexts produce mandatory-coverage language: "
+        "(1) a statement of provision — a policy clause asserting a coverage or endorsement is required "
+        "(real smell if no regulatory citation is present); "
+        "(2) a filing instruction — a rate manual or underwriting guideline telling agents or underwriters "
+        "how to structure a policy (e.g., 'use this endorsement with all new-business policies'). "
+        "The heuristic cannot reliably distinguish these without node-level language context annotation "
+        "(see ADR-013). Terms 'special state requirements,' 'use this endorsement with all,' and "
+        "'must be endorsed' frequently appear in filing-instruction context — verify the node is a "
+        "policy provision, not a rate manual instruction, before escalating. "
+        "The smell is strongest when language explicitly implies a state statutory or regulatory mandate."
     )
 
     _H006_RATIONALE = (

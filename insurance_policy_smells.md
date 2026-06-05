@@ -49,6 +49,7 @@ requirements time, spec review, configurator build, and pre-filing audit.
 | **Order-Sensitive Rating** | Premium changes depending on which discount/surcharge fires first — no explicit sequence defined | Non-reproducible quotes |
 | **Orphan Underwriting Guideline** | A guideline references a form or class code that no longer exists | Underwriters applying a rule to a ghost |
 | **Implicit Underwriting Default** | "If not otherwise specified, standard terms apply" — but "standard" is not defined | Inconsistent decisions across UWs |
+| **Non-Deterministic Underwriting Criteria** | Eligibility rule uses vague, unmeasurable language ("stable or improving area," "favorable impact on market value") with no objective measurement standard — accept/decline decisions become non-reproducible across underwriters | Underwriting inconsistency, adverse selection, discriminatory rating scrutiny, bad-faith exposure when declination is challenged |
 
 ---
 

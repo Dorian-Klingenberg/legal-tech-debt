@@ -32,6 +32,7 @@
 | **Magic Number Term** | Arbitrary thresholds like "30 days" or "reasonable time" without context or rationale | Magic Number |
 | **Undefined Behavior Clause** | Policy doesn't specify what happens under a plausible event (e.g., concurrent perils) | Missing Else / Null Dereference |
 | **Non-deterministic Language** | Phrases like "customary," "reasonable," or "as deemed appropriate" | Non-deterministic Function |
+| **Non-Deterministic Underwriting Criteria** | Underwriting eligibility rule uses vague, unmeasurable language ("stable or improving area," "favorable impact on market value") with no defined measurement standard — governs accept/decline decisions rather than claim outcomes; distinct from general Non-deterministic Language | Non-deterministic Input Handling |
 | **Contradictory Conditions** | Two clauses contradict each other when applied together | Conflicting Conditional |
 | **Scope Creep Clause** | Clause intended for one coverage area leaks into others via cross-reference | Global Variable |
 | **Implicit Default** | Behavior changes based on silence or omission rather than explicit text | Hidden Side Effect |

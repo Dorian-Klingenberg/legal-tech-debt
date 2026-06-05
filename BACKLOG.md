@@ -85,9 +85,9 @@ Re-opening semantic retrieval requires all three conditions:
 
 ---
 
-### [ ] BACKLOG-006: Node Provision-Type Classification in Stage 002 Ingestion
+### [x] BACKLOG-006: Node Provision-Type Classification in Stage 002 Ingestion — RESOLVED 2026-06-05 (design record)
 
-**Status:** Open — no sandbox assigned  
+**Status:** Resolved as design record — ADR-013 written; implementation deferred  
 **Affects:** Sandbox 002 Stage 006 detectors (Smell 1 specifically); any future smell whose heuristics depend on distinguishing exclusions from conditions/duties/definitions  
 **Priority:** Medium — do not attempt until a validation approach is designed
 
@@ -100,7 +100,7 @@ The Stage 002 ingestion pipeline assigns every parsed section a `node_type` (doc
 
 This likely requires LLM-assisted context classification at the node level during ingestion — not a provision-type enum, but a short characterization of how the broad language is functioning in context. A deterministic rule cannot reliably make this distinction across varied carrier form formats.
 
-**Next action:** Design a node-level context annotation approach — likely a lightweight LLM pass during Stage 002 ingestion that adds a `language_context` field (e.g., "coverage grant", "exclusion", "condition with coverage consequence", "ambiguous") to each node. Validate on a hand-labeled sample before using it to gate or weight detector output. Assign to a new sandbox stage when ready.
+**Resolution (2026-06-05):** ADR-013 (`sandboxes/002-claims-regulatory-automation/adr/ADR-013-language-context-annotation.md`) records the design decision. `language_context` field defined with six-value enum: `coverage_grant`, `exclusion`, `condition`, `filing_instruction`, `definition`, `ambiguous`. Annotation approach: lightweight LLM pass post-ingestion, validate on 20–30 hand-labeled nodes before gating detectors. Resolves BACKLOG-006 and BACKLOG-012 together. Implementation deferred to when Stage 002 annotation work begins.
 
 ---
 
@@ -155,9 +155,9 @@ During Sandbox 003 Stage 001 human review, "replacement cost" findings were asse
 
 ---
 
-### [ ] BACKLOG-009: Potential New Smell — Non-Deterministic Underwriting Criteria
+### [x] BACKLOG-009: Potential New Smell — Non-Deterministic Underwriting Criteria — RESOLVED 2026-06-05
 
-**Status:** Open — candidate smell, not yet validated  
+**Status:** Resolved — taxonomy entries added  
 **Affects:** Future sandbox scope; smell taxonomy  
 **Priority:** Low — record for taxonomy review, do not act on yet
 
@@ -168,7 +168,10 @@ This is not a claims-layer smell (it doesn't affect how a claim is paid). It is 
 
 This belongs in the smell taxonomy as a candidate new class: **Non-Deterministic Underwriting / Eligibility Criteria** — underwriting rules that use subjective, unanchored language to make coverage eligibility or pricing decisions.
 
-**Next action:** Review the smell taxonomy (`legal_code_smell_taxonomy.md`, `insurance_policy_smells.md`) for whether this class already exists under a different name. If not, draft a candidate smell definition and add to the taxonomy for review. Do not build detectors until the taxonomy entry is approved.
+**Resolution (2026-06-05):** Checked both taxonomy files. Closest existing entries are "Non-deterministic Language" (Category 2, `legal_code_smell_taxonomy.md`) and "Magic Rating Factor" (Section 2, `insurance_policy_smells.md`) — neither covers underwriting eligibility criteria specifically. New entry **"Non-Deterministic Underwriting Criteria"** added to both files:
+- `insurance_policy_smells.md` Section 2 (Rating & Underwriting Rule Smells): eligibility rule uses vague, unmeasurable language with no objective measurement standard — accept/decline decisions become non-reproducible.
+- `legal_code_smell_taxonomy.md` Category 2 (Semantic Smells): underwriting eligibility variant of Non-deterministic Language — governs accept/decline decisions, not claim outcomes. Noted as distinct from the general case.
+No detector built; taxonomy entry added for future review.
 
 ---
 
@@ -185,9 +188,9 @@ Several findings have evidence text that is purely structural — a section head
 
 ---
 
-### [ ] BACKLOG-012: H005 Fires on Statements of Filing Requirement, Not Just Statements of Provision
+### [x] BACKLOG-012: H005 Fires on Statements of Filing Requirement, Not Just Statements of Provision — RESOLVED 2026-06-05
 
-**Status:** Open — Sandbox 002 Stage 006 detector refinement  
+**Status:** Resolved — immediate fix applied; long-term fix designed in ADR-013  
 **Affects:** Smell 5 H005 heuristic; affects finding quality in client reports  
 **Priority:** Medium — affects how mandatory-coverage findings are interpreted
 
@@ -198,7 +201,10 @@ H005 fires on "mandatory" language near coverage terms, but two distinct context
 
 The second context is not a regulatory mapping smell. It is a filing instruction. To confirm a real problem in that context, you would need to compare against an actual issued policy. The current heuristic cannot distinguish the two.
 
-**Fix:** Likely the same node-level language context annotation approach as BACKLOG-006 and BACKLOG-012 — a lightweight LLM pass during ingestion that characterizes whether "mandatory" language is a coverage provision or a filing/underwriting instruction. Until then, H005 findings should be flagged in the report as requiring policy-instance verification before escalation.
+**Resolution (2026-06-05):** Two-part fix applied:
+1. **Immediate (code):** Removed `"is not mandatory"` branch from `_H005_PATTERN` in `smell5.py`. This term fires on filing instructions that explicitly say a coverage is *not* required — a negation context is not a regulatory mandate claim. Pattern removal is safe; no real findings are lost.
+2. **Immediate (documentation):** Strengthened `_H005_FP` in `smell5.py` to explicitly name the filing-instruction context and list the specific terms ("special state requirements," "use this endorsement with all," "must be endorsed") that most commonly appear in filing-instruction nodes.
+3. **Long-term (design):** ADR-013 records the `language_context` field design. When annotation is implemented, H005 will skip `filing_instruction` nodes entirely. See BACKLOG-006 resolution.
 
 ---
 
@@ -286,7 +292,7 @@ For each heuristic, a structured entry suitable for inclusion in `dollar_anchors
   - SMELL5-H005: H005 scope may need recalibration — likely a regulatory-citation gap, not a mandatory-coverage gap
   - SMELL5-H006: Hicks/Schoening are closest but don't hit H006 directly; KY DOI open records is next step
 
-**Blocking gap (all open heuristics):** KY DOI market conduct exam reports are NOT publicly indexed online. The exam results portal (`insurance.ky.gov/mc/default.aspx`) returns 404. Finding exam-based enforcement actions requires an open records request (502-564-3630). This is BACKLOG-021 territory.
+**Blocking gap (all open heuristics):** KY DOI market conduct exam reports are NOT publicly indexed online. The exam results portal (`insurance.ky.gov/mc/default.aspx`) returns 404. Finding exam-based enforcement actions requires an open records request (502-564-3630). BACKLOG-021 is now closed; this open records call stands independently for H004/H006 gap sentinels only.
 
 **Next actions (remaining):**
 - [owner lane] Open records request to KY DOI for market conduct exam reports on KFBM and KNIC — this is the only viable path to SMELL5-H004/H006 enforcement examples.
@@ -444,9 +450,9 @@ Extends the source-level pattern established by H004-H006 graph-gap detection (A
 
 ---
 
-### [ ] BACKLOG-021: KFBM Base Policy Jacket Confidence Limitation
+### [x] BACKLOG-021: KFBM Base Policy Jacket Confidence Limitation — CLOSED 2026-06-05
 
-**Status:** Open — optional corpus confidence limitation identified 2026-06-05
+**Status:** Closed — three conditions confirmed; procurement not required  
 **Priority:** LOW — do not block higher-value package-level or cross-document work
 **Affects:** Sandbox 002 Stage 006 SMELL2-H004; future drill-down entries for KFBM
 
@@ -461,6 +467,13 @@ ISO-adopting carriers (e.g., KNIC) outsource their definition domain to ISO HO 0
 
 **Current product-value decision:**
 Do not treat unredacted proprietary base-form procurement as a required corpus milestone. A redacted base jacket or filing reference is enough to support a limitation note: definition-domain review cannot be completed from public text. It is not enough to confirm that a term is missing from the Definitions Section.
+
+**Resolution (2026-06-05):** Closed on three conditions confirmed by owner:
+1. **Pre-2018 forms are out of scope** — KFBM's base jacket almost certainly predates SERFF Filing Access's November 2018 cutoff, cutting off the SERFF path. The KY DOI open records route (502-564-3630) was the only remaining option; with pre-2018 out of scope, the procurement path closes.
+2. **Trust internal document links** — KFBM endorsements reference the base form by implication. H004 is documented as not fireable on KFBM without the Definitions Section; this is a corpus limitation note, not an active gap to fill.
+3. **ISO trust (note: applies to KNIC, not KFBM)** — KNIC is ISO-adopting and ISO HO 00 03 covers their definition domain without holding a copy. KFBM is proprietary — no ISO fallback — but the KFBM procurement path is closed by conditions 1 and 2 regardless.
+
+H004 fires zero on current corpus and will continue to without the base jacket. Nothing active is blocked. The H004/H006 gap sentinels in case_library.json are separately documented as FOIA-wall issues independent of this item.
 
 **Optional resolution path if this becomes high value later:**
 
@@ -578,9 +591,9 @@ The current combined corpus run is the **benchmark artifact** (pitch report). A 
 
 ---
 
-### [ ] BACKLOG-005: Phase A Entry — Agile V Framework Integration and SE Expert Configuration
+### [x] BACKLOG-005: Phase A Entry — Agile V Framework Integration and SE Expert Configuration — CLOSED 2026-06-05
 
-**Status:** Open — actively approaching; blocked on two owner-lane prerequisites  
+**Status:** Closed — superseded by Sandbox 005 (active experiment)  
 **Priority:** HIGH — this is the next major project milestone, not a distant concern
 
 **What this is:**
@@ -602,7 +615,7 @@ Sandbox work continues in parallel. Discovery, proof-of-concept experiments, and
 **Product direction is not yet fixed:**
 Phase A is where the product gets formally defined through stakeholder analysis and concept of operations. The sandbox outputs are the evidence going into that conversation, not the answer.
 
-**Next action:** When SE coursework and RAG corpus are in place, open a dedicated Phase A session. Until then, keep sandbox lanes active.
+**Resolution (2026-06-05):** Superseded. The Phase A / Agile V / SE stack work has been promoted to Sandbox 005 as an active experiment. Backlog item retired — track progress in `sandboxes/005-agentic-sdlc-project-manager/` instead.
 
 ---
 
@@ -611,3 +624,25 @@ Phase A is where the product gets formally defined through stakeholder analysis 
 | ID | Item | Resolution | Date |
 |---|---|---|---|
 | — | KFBM SERFF filings (KY-SERFF-KFBM-POST2018) | 11 files from 5 filings extracted and added to corpus | 2026-06-03 |
+| BACKLOG-001 | Smell 5 detector calibration | Rebuilt as two-tier (lexical + graph gap); 12 Smell 5 findings | 2026-06-04 |
+| BACKLOG-002 | Corpus file extension mismatches | .html → .pdf renamed for two KRS files | 2026-06-05 |
+| BACKLOG-004 | Stage 005 re-open conditions | All three gates met; Stage 005 reopened | 2026-06-04 |
+| BACKLOG-005 | Phase A entry | Superseded by Sandbox 005 (active experiment) | 2026-06-05 |
+| BACKLOG-006 | Node provision-type classification | ADR-013 written; language_context field designed; implementation deferred | 2026-06-05 |
+| BACKLOG-007 | KRS/KAR definitional audit | Zero terms defined; 806 KAR 12:095 strengthens H003 | 2026-06-05 |
+| BACKLOG-008 | Smell 2/4 miscategorization | ADR-011; H003 reclassified as methodology-disclosure gap | 2026-06-04 |
+| BACKLOG-009 | Non-deterministic underwriting criteria | Taxonomy entry added to both taxonomy files | 2026-06-05 |
+| BACKLOG-010 | Detectors firing on regulatory corpus | Source ID prefix guard in detector_runner.py | 2026-06-04 |
+| BACKLOG-011 | Filter structure/header nodes | _has_substantive_text() + 50-char minimum added | 2026-06-05 |
+| BACKLOG-012 | H005 fires on filing instructions | "is not mandatory" removed; _H005_FP strengthened; ADR-013 | 2026-06-05 |
+| BACKLOG-013 | Carrier name anonymization | --anonymize flag on report_builder.py | 2026-06-04 |
+| BACKLOG-014 | LLM prose quality improvement | Direct editorial pass on executive_summary.md | 2026-06-04 |
+| BACKLOG-015 | Case library | 4 cases (CL-001–004), 4 sentinels, all dollar anchors sourced | 2026-06-05 |
+| BACKLOG-016 | Dollar-sign rendering guard | _safe_dollar() helper in report_builder.py | 2026-06-04 |
+| BACKLOG-017 | Expert drill-down report | Sandbox 004 PoC complete; generate_drilldown.py with 5 variants | 2026-06-04 |
+| BACKLOG-018 | ISO base form procurement | Closed — not required for current milestone | 2026-06-04 |
+| BACKLOG-019 | Missing state amendatory detector | SMELL5-H007 implemented (fires zero — corpus gap, correct) | 2026-06-05 |
+| BACKLOG-020 | Broken definitions loop detector | SMELL2-H004 implemented (fires zero — corpus gap, correct) | 2026-06-05 |
+| BACKLOG-021 | KFBM base jacket procurement | Closed — pre-2018 OOS, trust internal links, ISO covers KNIC | 2026-06-05 |
+| BACKLOG-022 | Copyright sanitization | paraphrased_* fields + --sanitize flag on generate_drilldown.py | 2026-06-05 |
+| BACKLOG-023 | Per-carrier report pipeline | --carrier on detector_runner.py + generate_drilldown.py | 2026-06-05 |
