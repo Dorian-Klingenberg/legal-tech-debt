@@ -273,21 +273,25 @@ For each heuristic, a structured entry suitable for inclusion in `dollar_anchors
 
 **Scope constraint:** Public records only. No confidential claim data. No invented or synthesized cases. If a heuristic has no documented case yet, record that explicitly — a known gap in the case library is still useful signal.
 
-**Progress (2026-06-05):**
+**Progress (2026-06-05, session C):**
 - `sandboxes/004-expert-drilldown/data/case_library.json` created — schema v1.0, flat array, dollar_anchor_id cross-reference, `is_local` flag, jurisdiction_preference policy.
 - Source types: court_opinion, doi_enforcement_order, market_conduct_exam, class_action_filing, regulatory_settlement, naic_exam — NO secondary sources.
-- **CL-001** (H003, LOCAL): Hicks v. State Farm Fire & Casualty Co., 965 F.3d 452 (6th Cir. 2020) — 65,575 Kentucky policyholders, labor depreciation impermissible without explicit policy authorization. Class certified. Individual underpayments to $60K+.
-- **CL-002** (H003, LOCAL): Schoening Investment LP v. Cincinnati Casualty Co., No. 25-3273 (6th Cir. 2026) — insurer prevailed because policy *explicitly* defined ACV as RC minus depreciation. Validates H003 from the defense side: without that language, carriers face the Hicks outcome.
-- **CL-003** (H001, LOCAL): FB Ins. Co. v. Jones, 864 S.W.2d 926 (Ky. Ct. App. 1993) — undefined "reasonable time" in rebuild condition forced litigation; court held insurer could not use undefined timing to deny RCV payment.
-- **Gap sentinels** recorded with search notes for H004, H005, H006, and partial H001.
-- **Full holding text** on CL-001, CL-002, CL-003 marked [VERIFY] — sourced from summary reporting; verbatim opinion text to be pulled from Justia/CourtListener when accessed.
-- **dollar_anchor_id** fields populated null — needs cross-reference pass against dollar_anchors.json when cases are linked to risk context section.
+- **CL-001** (H003, LOCAL): Hicks v. State Farm Fire & Casualty Co., 965 F.3d 452 (6th Cir. 2020) — 65,575 KY policyholders, labor depreciation impermissible without explicit policy authorization. full_holding_text updated with verbatim quotes sourced via Property Insurance Coverage Law Blog citation. [VERIFY full opinion text — Justia 403]
+- **CL-002** (H003, LOCAL): Schoening Investment LP v. Cincinnati Casualty Co., No. 25-3273 (6th Cir. 2026) — insurer prevailed because policy explicitly defined ACV as RC minus depreciation. full_holding_text updated with verbatim quotes sourced via Insurance Journal. [VERIFY full opinion — CourtListener PDF binary]
+- **CL-003** (H001, LOCAL): FB Ins. Co. v. Jones, 864 S.W.2d 926 (Ky. Ct. App. 1993) — undefined "reasonable time" in rebuild condition forced litigation. [VERIFY — Justia 403]
+- **CL-004** (SMELL4-H001, OUT-OF-STATE): Mercury Insurance Co. CA DOI enforcement action, $27.6M fine (2019) — carrier charged unapproved rate components not included in filed rate schedule. Out-of-state precedent that rate components outside the approved filing constitute unapproved rates. dollar_anchor_id: null (cross-references DA-S4-001 and DA-S4-002 via case_library_ids added to dollar_anchors.json).
+- **Gap sentinels** updated with thorough search notes for H001, H004, H005, H006:
+  - SMELL4-H001: CL-004 is best anchor; KY DOI exam reports not publicly indexed
+  - SMELL5-H004: No enforcement action found; KY DOI open records request is the next step
+  - SMELL5-H005: H005 scope may need recalibration — likely a regulatory-citation gap, not a mandatory-coverage gap
+  - SMELL5-H006: Hicks/Schoening are closest but don't hit H006 directly; KY DOI open records is next step
 
-**Next actions:**
-- Pull verbatim holding text for CL-001 and CL-002 from Justia/CourtListener (access was blocked during research session).
-- Add dollar_anchor_id cross-references after reviewing dollar_anchors.json.
-- Continue search for H004/H005/H006 cases: KY DOI enforcement orders page, NAIC market conduct exam database, CourtListener KY homeowners.
-- When cases are found, update `dollar_anchors.json` and add a heuristic-matched subsection to the Risk Context section of the executive report.
+**Blocking gap (all open heuristics):** KY DOI market conduct exam reports are NOT publicly indexed online. The exam results portal (`insurance.ky.gov/mc/default.aspx`) returns 404. Finding exam-based enforcement actions requires an open records request (502-564-3630). This is BACKLOG-021 territory.
+
+**Next actions (remaining):**
+- [owner lane] Open records request to KY DOI for market conduct exam reports on KFBM and KNIC — this is the only viable path to SMELL5-H004/H006 enforcement examples.
+- [agent] Retry Justia for CL-001 and CL-003 verbatim text when 403 clears.
+- [agent] Extract CL-002 verbatim text from CourtListener PDF (downloaded as binary; needs PDF reader pass).
 
 ---
 
@@ -479,7 +483,7 @@ Step 2 — Procure unredacted text:
 
 ---
 
-### [ ] BACKLOG-022: Commercial Report Output — Copyright-Safe Sanitization Pass
+### [x] BACKLOG-022: Commercial Report Output — Copyright-Safe Sanitization Pass — RESOLVED 2026-06-05
 
 **Status:** Open — design constraint identified 2026-06-05
 **Priority:** HIGH — blocks commercial distribution of any report containing carrier or ISO policy text

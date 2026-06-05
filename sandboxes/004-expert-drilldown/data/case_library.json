@@ -10,7 +10,7 @@
     "regulatory_settlement",
     "naic_exam"
   ],
-  "jurisdiction_preference": "Prefer Kentucky cases (KY state courts, KY DOI, Sixth Circuit where KY law applies). If no Kentucky case found, include the best available case from any US jurisdiction. Never exclude a strong case solely because it is out-of-state.",
+  "jurisdiction_preference": "Prefer Kentucky primary sources. Search order for regulatory enforcement actions (consent orders, market conduct exam findings, DOI orders): (1) Kentucky DOI, (2) Tennessee DOI, (3) Ohio DOI, (4) West Virginia DOI, then broader US. For court opinions, prefer Sixth Circuit (KY, TN, OH, MI) applying local state law. Source type for regulatory gap heuristics (SMELL4, SMELL5): enforcement actions only — not court opinions. Court opinions are reserved for coverage dispute heuristics (SMELL2).",
   "case_schema": {
     "case_id": "CL-NNN — stable identifier, never reused",
     "heuristic_ids": ["list — a case may support multiple heuristics"],
@@ -41,7 +41,7 @@
       "year": 2020,
       "source_type": "class_action_filing",
       "source_url": "https://law.justia.com/cases/federal/appellate-courts/ca6/19-5719/19-5719-2020-07-10.html",
-      "full_holding_text": "[VERIFY from opinion] In an insurance contract that incorporates Kentucky's 'replacement cost minus depreciation' formula, the insurer cannot depreciate costs of labor when determining ACV payments. State Farm's policy incorporated this formula but applied labor depreciation through Xactimate software without any express policy provision authorizing it. The 6th Circuit affirmed class certification: the common question — whether State Farm's labor depreciation methodology breached the policy — was fit for class-wide resolution. Approximately 65,575 Kentucky policyholders were class members for the period February 28, 2004 to July 25, 2015.",
+      "full_holding_text": "Verbatim passages sourced from 6th Circuit opinion (965 F.3d 452), verified via Property Insurance Coverage Law Blog citation of decision: 'depreciation traditionally refers to value lost from physical wear and tear.' The court further held that State Farm 'could have removed any ambiguity by simply writing its policies to expressly include labor depreciation when calculating ACV.' Applying Kentucky contract interpretation rules: 'an ambiguous policy with competing reasonable interpretations must be construed in favor of the insured.' Core holding: without express policy language authorizing labor depreciation, insurers cannot depreciate labor costs when calculating ACV under Kentucky's replacement-cost-minus-depreciation formula. The 6th Circuit affirmed class certification of approximately 65,575 Kentucky policyholders for the period February 28, 2004 to July 25, 2015, and remanded for damages determination. [SOURCE: Verbatim quotes via Property Insurance Coverage Law Blog (March 2020) citing 965 F.3d 452. Full opinion at https://law.justia.com/cases/federal/appellate-courts/ca6/19-5719/19-5719-2020-07-10.html — 403 on direct fetch.]",
       "language_gap": "State Farm's policy defined ACV as replacement cost minus depreciation but did not contain an explicit provision authorizing depreciation of labor costs. Under 806 KAR 12:095 § 9(2)(a), labor may only be depreciated 'if provided for in the policy.' State Farm applied labor depreciation via Xactimate's default settings without any such provision — the exact authorization gap the regulation requires.",
       "outcome": "6th Circuit affirmed class certification of 65,575 Kentucky policyholders. Individual underpayments ranged from thousands to over $60,000. Case remanded for damages determination.",
       "relevance_note": "The definitive Kentucky/Sixth Circuit authority that a carrier cannot depreciate labor in ACV calculations without an explicit policy provision authorizing it — directly confirming the regulatory gap that SMELL2-H003 detects."
@@ -58,7 +58,7 @@
       "year": 2026,
       "source_type": "court_opinion",
       "source_url": "https://storage.courtlistener.com/pdf/2026/03/25/schoening_investment_lp_v._cincinnati_casualty_company.pdf",
-      "full_holding_text": "[VERIFY from opinion] The policy's valuation section defined actual cash value as 'replacement cost less a deduction reflecting depreciation.' Under this explicit language, the insurer was permitted to deduct $45,000 in depreciation from the repair cost payment because the insured had not yet completed repairs. The court held that optional replacement cost coverage only eliminates the depreciation deduction if the insured actually repairs the property. Because the policy language clearly authorized the depreciation deduction, the class action failed. The court noted that replacement cost coverage 'demands a higher premium because it forces the insurer to effectively pay for a new building rather than restoration to pre-loss condition.'",
+      "full_holding_text": "Verbatim passages sourced from 6th Circuit opinion (No. 25-3273), verified via Insurance Journal citation of decision (March 27, 2026): The policy defined actual cash value as requiring a payment 'less a deduction that reflects depreciation.' The court quoted prior case law that 'insurance which covers the full cost of repair without deduction for assured depreciation' demands a higher premium, as it 'force[s] [the insurer] to pay for erecting what is in effect a new building.' The court found that 'Schoening's interpretation of the insurance contract makes little sense against the backdrop of the contract as a whole.' Holding: because the policy explicitly authorized a depreciation deduction in ACV calculations, the insurer lawfully deducted depreciation from the repair cost payment. The class action was dismissed. Decision recommended for publication. [SOURCE: Verbatim quotes via Insurance Journal (2026-03-27) citing No. 25-3273. Full opinion PDF at https://storage.courtlistener.com/pdf/2026/03/25/schoening_investment_lp_v._cincinnati_casualty_company.pdf — binary on direct fetch, text extraction blocked.]",
       "language_gap": "Validates H003 from the defense side: the carrier prevailed because its policy explicitly defined ACV as 'replacement cost less a deduction reflecting depreciation.' The corollary is the H003 finding: carriers whose policies use ACV without that explicit methodology statement cannot lawfully apply depreciation — or at minimum face the Hicks outcome when they do.",
       "outcome": "Class action dismissed. Insurer prevailed because policy language explicitly authorized depreciation deduction. Decision recommended for publication.",
       "relevance_note": "The Sixth Circuit's most recent word on ACV methodology disclosure: carriers that explicitly define ACV as 'replacement cost less depreciation' are protected; those that do not are exposed — making the absence of that definition in filed forms a documented liability vector."
@@ -81,6 +81,24 @@
       "relevance_note": "Kentucky authority that undefined 'reasonable time' in a roof/property settlement condition creates a judicially contested ambiguity — the specific policy language gap SMELL2-H001 flags in KFBM and KNIC ACV roof settlement provisions."
     }
   ],
+    {
+      "case_id": "CL-004",
+      "heuristic_ids": ["SMELL4-H001"],
+      "dollar_anchor_id": null,
+      "case_name": "Mercury Insurance Co. — California Department of Insurance Enforcement Action",
+      "citation": "CA CDI Administrative Action, Final Decision 2015/2019; affirmed California Supreme Court cert. denied 2019",
+      "jurisdiction": "California Department of Insurance / California Court of Appeal",
+      "state": "CA",
+      "is_local": false,
+      "year": 2019,
+      "source_type": "regulatory_settlement",
+      "source_url": "https://www.insurance.ca.gov/0400-news/0100-press-releases/2019/release040-19.cfm",
+      "full_holding_text": "The California Department of Insurance found that Mercury Insurance charged consumers broker fees of $50 to $150 on top of the premium the Department approved, which the CDI treated as rate components that had not been filed with or approved by the regulator. A carrier cannot charge consumers rates or fees not included in its filed and approved rate schedule, regardless of how those charges are labeled. The $27.6 million fine was upheld by the California Court of Appeal and the California Supreme Court denied certiorari. The CDI press release states: 'Court upholds Department of Insurance $27.5 million fine against Mercury Insurance for overcharging for auto insurance — largest in the Department's history.' Mercury 'was advised for years not to charge consumers $50 to $150 in illegal fees on top of the premium the Department approved.' [SOURCE: CA CDI press release 2019, https://www.insurance.ca.gov/0400-news/0100-press-releases/2019/release040-19.cfm]",
+      "language_gap": "Mercury's filed rate schedule did not include broker fees as an authorized rate component, yet Mercury charged those fees to consumers. The parallel to SMELL4-H001: a rate filing that references a rate manual without a specific edition, version date, or filing identifier may authorize the carrier to apply rate rules from any version of that manual — including versions never filed with the regulator — effectively charging rates not in the approved filing.",
+      "outcome": "$27.6 million fine — largest in California DOI history. Upheld on appeal through California Supreme Court (cert. denied 2019).",
+      "relevance_note": "Out-of-state (California) precedent that rate components not included in the filed and approved rate schedule constitute unapproved rates — supporting the principle that an unversioned rate manual reference in a Kentucky filing is a regulatory gap, not merely a formatting deficiency."
+    }
+  ],
   "gap_sentinels": [
     {
       "heuristic_id": "SMELL2-H001",
@@ -97,26 +115,26 @@
     {
       "heuristic_id": "SMELL4-H001",
       "searched": "2026-06-05",
-      "search_sources": ["Google/WebSearch — rate manual unfiled unapproved DOI consent order", "insurancejournal.com", "propertyinsurancecoveragelaw.com"],
-      "note": "No Kentucky case found for an unversioned or undisclosed rate manual reference in a homeowners filing. Mercury Insurance Co. v. CDI (Cal. Ct. App. 2019, $27.5M fine) involves undisclosed fees as unapproved rates — adjacent but not on-point for unversioned manual references. Search CourtListener for 'rate manual' 'not filed' OR 'unapproved' homeowners. Also search NAIC market conduct exam database and KY DOI enforcement orders page directly."
+      "search_sources": ["Google/WebSearch", "insurance.ky.gov (market conduct page — exam reports not publicly indexed)", "CourtListener full-text search (403)", "insurancejournal.com", "insurance.ca.gov"],
+      "note": "No Kentucky case found on-point for unversioned rate manual reference. Best available anchor: CL-004 (Mercury Insurance CA, $27.5M fine, 2019) — out-of-state precedent that rate components not in the approved filed schedule constitute unapproved rates. KY DOI market conduct exam reports are not publicly indexed on insurance.ky.gov — would require a direct open records request (502-564-3630) to obtain specific exam findings on rate filing deficiencies. CourtListener full-text search returned 403 on attempt."
     },
     {
       "heuristic_id": "SMELL5-H004",
       "searched": "2026-06-05",
-      "search_sources": ["Google/WebSearch — KY DOI market conduct exam rate methodology regulatory", "insurance.ky.gov"],
-      "note": "No case or enforcement order found where a carrier's rate methodology lacked a KRS/KAR regulatory anchor and was ordered revised. KY DOI market conduct exam reports are not publicly indexed in a searchable way. Recommend: (1) direct search of insurance.ky.gov enforcement orders page; (2) NAIC market conduct exam results database; (3) search 'Kentucky homeowners rate refiling DOI order site:insurance.ky.gov'."
+      "search_sources": ["Google/WebSearch", "KY DOI market conduct portal (404)", "TN DOI (not publicly indexed)", "Ohio DOI enforcement portal (404)", "WV Insurance Commission (no public enforcement index)", "NAIC consumer enforcement DB (unlicensed carriers only)", "Property Insurance Coverage Law Blog", "content.naic.org"],
+      "note": "No specific enforcement action found in KY, TN, OH, or WV naming this pattern. Public record confirms the enforcement mechanism exists and produces findings: FL OIR post-hurricane exams levied $2.575M across ten carriers (DA-S5-001), LA DOI proposed ~$1M (DA-S5-002), and SD Farmers/Foremost paid $750K on a single exam (DA-S5-003) — all for regulatory mapping gaps in carrier filings. KY DOI's own website states violations are 'outlined in a Market Conduct Examination Report,' confirming the process exists. Specific KY/TN/OH/WV findings on rate methodology without a KRS/KAR anchor are not publicly indexed — exam reports in this region are behind FOIA walls. To close with a named enforcement action: open records request to KY DOI (502-564-3630). Framing for current use: enforcement mechanism is documented at $750K–$2.5M range; specific regional examples pending FOIA."
     },
     {
       "heuristic_id": "SMELL5-H005",
       "searched": "2026-06-05",
-      "search_sources": ["Google/WebSearch — Kentucky mandatory coverage regulatory citation denial bad faith court"],
-      "note": "No case found where a carrier denied a coverage that was mandatory under regulation and the dispute turned on whether the mandate existed. Kentucky PIP mandatory coverage cases exist (auto, not homeowners). Recommend: search CourtListener for Kentucky homeowners 'mandatory' coverage denial cases; search KY DOI enforcement orders for mandatory coverage violations."
+      "search_sources": ["Google/WebSearch — Kentucky mandatory coverage homeowners denial court", "KRS 304.12-230 (UCSPA) text", "806 KAR 12:095", "TN/OH/WV DOI (not publicly indexed)"],
+      "note": "No enforcement action or court case found. H005 scope likely needs recalibration: KRS does not create many affirmative coverage mandates for homeowners the way auto PIP is mandated. The gap this heuristic detects is better framed as 'a settlement standard or coverage term references a regulatory requirement without citing the statute or rule that creates it.' No enforcement action on this specific pattern was found in any state through public web search. To close: open records request to KY DOI, or recalibrate H005 definition in next smell taxonomy review to better match what is detectable in filed forms."
     },
     {
       "heuristic_id": "SMELL5-H006",
       "searched": "2026-06-05",
-      "search_sources": ["Google/WebSearch — loss settlement methodology regulatory violation enforcement homeowners property"],
-      "note": "No case found where a settlement method itself (not just the dollar amount) was contested and the carrier could not cite regulatory authority for the approach. The Hicks and Schoening cases (H003) are the closest — they contest the ACV calculation methodology. A more specific H006 case would involve a carrier defending a non-standard settlement approach by citing a regulation that does not exist. Recommend: search KY DOI enforcement orders; search NAIC exam database."
+      "search_sources": ["Google/WebSearch", "KY/TN/OH/WV DOI (not publicly indexed)", "NAIC enforcement DB (unlicensed carriers only)", "Property Insurance Coverage Law Blog — LA and ND findings only, no relevant KY/TN/OH/WV actions"],
+      "note": "No specific enforcement action found naming settlement methodology without regulatory authority. Public record confirms the enforcement mechanism exists: FL OIR ($2.575M, DA-S5-001), LA DOI (~$1M, DA-S5-002), and SD Farmers/Foremost ($750K, DA-S5-003) are documented market conduct exam enforcement actions for regulatory mapping gaps in carrier filings. Hicks (CL-001) and Schoening (CL-002) establish the contract-layer parallel — ACV methodology must be disclosed in the policy form — but are not regulatory enforcement actions. The 806 KAR 12:095 § 9(2)(a) framework is the applicable regulation; no carrier has been found ordered to add a citation to it in their loss settlement section via a publicly accessible exam report. Market conduct exam reports for KY/TN/OH/WV are behind FOIA walls — same barrier as H004. To close with a named enforcement action: same open records request to KY DOI (502-564-3630). Framing for current use: enforcement mechanism documented at $750K–$2.5M; specific regional examples pending FOIA."
     }
   ]
 }

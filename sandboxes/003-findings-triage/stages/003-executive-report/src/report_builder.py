@@ -9,6 +9,7 @@ compliance fix-it list.
 
 Usage:
     python report_builder.py
+    python report_builder.py --anonymize
 """
 from __future__ import annotations
 
@@ -298,8 +299,6 @@ def build_risk_context_section(anchors_data: dict) -> str:
     for smell_data in anchors_data["smells"].values():
         lines += [f"**{smell_data['smell_name']}**", ""]
         for anchor in smell_data["anchors"]:
-            # Strip dollar amounts from the label into the description line
-            # to avoid markdown math-delimiter rendering issues with $ inside bold
             label = anchor["label"]
             lines.append(f"- **{label}** — {anchor['description']}")
         lines.append("")
@@ -405,7 +404,6 @@ def build_report(
             )
         lines.append("")
 
-    # Risk context section — dollar anchors before the findings table
     if anchors_data:
         lines += [
             "---",
@@ -482,7 +480,6 @@ def main() -> None:
 
     print("Writing pattern narratives...")
     pattern_narratives = {}
-    # Build a lookup: finding_id → finding
     finding_by_id = {f["finding_id"]: f for f in confirmed}
 
     for smell in comparison["smells"]:
@@ -510,8 +507,6 @@ def main() -> None:
         carrier_labels=carrier_labels,
     )
 
-    # Sanitize dollar signs before writing — prevents math-delimiter rendering
-    # corruption in LaTeX-aware markdown renderers (BACKLOG-016).
     report = _safe_dollar(report)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)

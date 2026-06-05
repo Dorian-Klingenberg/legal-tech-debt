@@ -39,6 +39,13 @@ DETECTORS = [smell1, smell2, smell3, smell4, smell5]
 # not filings that need remediation.  BACKLOG-010.
 _REGULATORY_PREFIXES = ("KY-KRS-", "KY-KAR-", "KY-DOI-")
 
+# Source ID prefixes for each known carrier.  Used by the --carrier filter (BACKLOG-023).
+# Combined (no --carrier flag) = all carrier nodes; single-carrier = pitch → product split.
+CARRIER_PREFIXES: dict[str, str] = {
+    "KFBM": "KY-SERFF-KFBM-",
+    "KNIC": "KY-SERFF-KNIC-",
+}
+
 # BACKLOG-011: minimum substantive character count after stripping the section title.
 # Nodes below this threshold are section headers, table-of-contents entries, or document
 # title nodes with no policy language to analyse.  Conservative — only pure headers are
@@ -81,7 +88,7 @@ SMELL_NAMES = {
 }
 
 
-def run_detectors(run_dir: Path) -> list[Finding]:
+def run_detectors(run_dir: Path, carrier: str | None = None) -> list[Finding]:
     print(f"[detector-runner] Loading index from {run_dir}...")
     idx = RunIndex(run_dir)
     # Enrich nodes with source_type from the source registry so detectors can filter by document type.
@@ -98,6 +105,18 @@ def run_detectors(run_dir: Path) -> list[Finding]:
     if skipped:
         print(f"[detector-runner] Skipped {skipped} regulatory corpus nodes (KY-KRS-*, KY-KAR-*, KY-DOI-*)")
     nodes = carrier_nodes
+
+    # BACKLOG-023: optional single-carrier filter — pitch report uses all carriers,
+    # product report uses one.  Applied after regulatory filter, before structure filter.
+    if carrier:
+        prefix = CARRIER_PREFIXES.get(carrier.upper())
+        if not prefix:
+            known = ", ".join(CARRIER_PREFIXES)
+            sys.exit(f"Unknown carrier '{carrier}'. Known values: {known}")
+        carrier_filtered = [n for n in nodes if n.get("source_id", "").startswith(prefix)]
+        carrier_skipped = len(nodes) - len(carrier_filtered)
+        print(f"[detector-runner] Carrier filter '{carrier}': keeping {len(carrier_filtered)} nodes, skipping {carrier_skipped}")
+        nodes = carrier_filtered
 
     # BACKLOG-011: skip section headers, table-of-contents entries, and document-title-only nodes.
     substantive_nodes = [n for n in nodes if _has_substantive_text(n)]
@@ -125,14 +144,15 @@ def run_detectors(run_dir: Path) -> list[Finding]:
     return all_findings
 
 
-def write_findings(findings: list[Finding], run_dir: Path) -> None:
-    out_path = stage_output_dir("006", run_dir) / "detector_findings.jsonl"
+def write_findings(findings: list[Finding], run_dir: Path, carrier: str | None = None) -> None:
+    suffix = f"_{carrier.upper()}" if carrier else ""
+    out_path = stage_output_dir("006", run_dir) / f"detector_findings{suffix}.jsonl"
     lines = [json.dumps(f.to_dict(), ensure_ascii=False) for f in findings]
     out_path.write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
     print(f"[detector-runner] Written -> {out_path}")
 
 
-def write_report(findings: list[Finding], run_dir: Path, run_id: str) -> None:
+def write_report(findings: list[Finding], run_dir: Path, run_id: str, carrier: str | None = None) -> None:
     out_dir = stage_output_dir("006", run_dir)
     by_smell: dict[int, list[Finding]] = defaultdict(list)
     for f in findings:
@@ -191,7 +211,8 @@ def write_report(findings: list[Finding], run_dir: Path, run_id: str) -> None:
                 "",
             ]
 
-    report_path = out_dir / "detector_report.md"
+    suffix = f"_{carrier.upper()}" if carrier else ""
+    report_path = out_dir / f"detector_report{suffix}.md"
     report_path.write_text("\n".join(lines), encoding="utf-8")
     print(f"[detector-runner] Written -> {report_path}")
 
@@ -199,12 +220,22 @@ def write_report(findings: list[Finding], run_dir: Path, run_id: str) -> None:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run all smell detectors over a Stage 002 run")
     parser.add_argument("--run-dir", required=True, type=Path)
+    parser.add_argument(
+        "--carrier",
+        default=None,
+        metavar="CARRIER",
+        help=(
+            "Restrict detection to a single carrier's nodes. "
+            f"Known values: {', '.join(CARRIER_PREFIXES)}. "
+            "Omit for combined (pitch/benchmark) run."
+        ),
+    )
     args = parser.parse_args()
 
-    findings = run_detectors(args.run_dir)
+    findings = run_detectors(args.run_dir, carrier=args.carrier)
     idx = RunIndex(args.run_dir)
-    write_findings(findings, args.run_dir)
-    write_report(findings, args.run_dir, idx.run_id)
+    write_findings(findings, args.run_dir, carrier=args.carrier)
+    write_report(findings, args.run_dir, idx.run_id, carrier=args.carrier)
 
     print()
     print("=" * 60)
