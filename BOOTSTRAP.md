@@ -25,8 +25,10 @@ Before beginning any conversation or work:
 
 ## Current Operating Mode
 
-- This repository is currently a sandbox research environment.
-- The work is proof-of-concept development, experiments, and evidence capture.
+- This repository is currently a sandbox research environment transitioning toward Phase A (formal SE lifecycle entry).
+- Phase A requires the owner to complete SE coursework (MIT) and configure an SE expert RAG corpus (NASA, INCOSE, IEEE — see open threads in AGENT_CONTEXT.json). Phase A has not started. Do not treat it as active or imminent.
+- **Sandboxes remain open and active during Phase A preparation.** Discovery work, proof-of-concept experiments, and evidence capture in sandboxes directly inform the product decisions that Phase A will formalize. Do not shut down or defer sandbox work on the grounds that formal development has not started.
+- The product direction is not yet fixed. Sandbox outputs are the primary input to the product decision. Keep building evidence.
 - Do not introduce infrastructure, services, deployment layers, databases, queues, containers, or production scaffolding unless a specific stage explicitly exists to evaluate that choice.
 - Keep implementations quick, clean, readable, and easy to explain.
 - Prefer plain files, plain Python, static HTML, JSON/CSV/Markdown outputs, and small deterministic probes while the project is still learning what the right model is.
@@ -107,7 +109,7 @@ Current Sandbox 002 scope:
 - Do not start auto, personal auto, motor vehicle, no-fault, or PIP work unless the user explicitly reopens that scope.
 - If homeowners sources cross-reference auto or other P&C lines, record the reference as context only and keep active discovery, fixtures, and detectors homeowners-centered.
 - Treat broad claims-platform, regulatory-feed, PAS, productization, and infrastructure references as background or parked unless a specific stage explicitly reopens them.
-- Sandbox 002 is closed as a discovery/retrieval/detector/reviewer-report proof of concept. Preserved repaired run: `output/002/20260604_130606_18b0dec5/` (28 sources, 353 nodes, 121 candidate evidence items, 39 Stage 003 retrieval bundles, 35 findings across all five smells). Smell 5 resolved via graph-based gap detection (ADR-010). Latest handoff: `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-04b.md`. Next active lane is Sandbox 003 findings triage unless the user reopens Sandbox 002.
+- Sandbox 002 is closed as a discovery/retrieval/detector/reviewer-report proof of concept. Preserved repaired run: `output/002/20260604_130606_18b0dec5/` (28 sources, 353 nodes, 121 candidate evidence items, 39 Stage 003 retrieval bundles, 35 findings across all five smells). Smell 5 resolved via graph-based gap detection (ADR-010). Latest handoff: `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-04b.md`.
 - Defer vector infrastructure, but design the evidence substrate as if hybrid retrieval will eventually exist.
 - Treat parser/reference uncertainty as part of the evidence layer, not as an implementation detail.
 - Stage 002 JSON/JSONL artifacts should carry schema version, run identity, creation timestamp, and stable source/node IDs under a fixed parsing strategy.
@@ -151,9 +153,11 @@ Sandbox 001 is complete as foundational research. It proved the basic legal debt
 
 The conceptual bottleneck it discovered is semantic edge typing. Stage 004 completed the 46-edge seed labeling pass and paused in Phase 2: refine the edge taxonomy before implementing typed matrices or dashboard edge filtering.
 
-Do not use 001 as the default active work lane. Use it as preserved evidence and reusable foundation. Sandbox 002 is also preserved as the Kentucky homeowners evidence substrate. The active lane is now Sandbox 003: findings triage and intelligence over Sandbox 002 outputs.
+Do not use 001 as the default active work lane. Use it as preserved evidence and reusable foundation. Sandbox 002 is also preserved as the Kentucky homeowners evidence substrate. Sandbox 003 is complete — findings triage, cross-carrier analysis, and executive summary report all built and hardened.
 
-Sandbox 001 work should resume only when a specific 002 experiment needs one of its primitives or when the user explicitly asks to revisit 001.
+The active lane is Sandbox 004: expert drill-down report (BACKLOG-017). This is the paid service deliverable, not the executive summary (which is the sales instrument). See HANDOFF-2026-06-04b.md in sandboxes/003-findings-triage/ for full context.
+
+Sandbox 001 work should resume only when a specific experiment needs one of its primitives or when the user explicitly asks to revisit it.
 
 ## Working Style
 

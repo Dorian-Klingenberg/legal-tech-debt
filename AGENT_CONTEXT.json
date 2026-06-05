@@ -52,10 +52,10 @@
     "Gap detection smells (Smell 5) require graph traversal over the edge substrate, not vector similarity — absence cannot be embedded."
   ],
   "open_threads": [
-    "BACKLOG-006: node language context annotation (LLM pass during ingestion; resolves 006/010/011/012 together). ADR candidate when designed.",
-    "BACKLOG-017 (CRITICAL — this is the product): expert drill-down report with finding-level detail, regulatory grounding, and suggested fixes for three reader roles (compliance/attorney, claims professional, policy designer). Needs own sandbox. PoC: hand-build one entry each for SMELL2-H003, SMELL4-H001, SMELL5-H004.",
+    "PHASE TRANSITION (owner lane): Phase A (formal SE lifecycle) is the next major milestone but has not started. Blocked on owner completing SE coursework (MIT) and configuring SE expert RAG corpus (NASA NPR 7120.5/SE Handbook, INCOSE SE Handbook, IEEE 15288/12207/29148). Sandboxes remain open and active during this preparation period — do not defer sandbox discovery work on the grounds that Phase A has not started. Product direction is not yet fixed; sandbox outputs are the primary input to the product decision.",
+    "BACKLOG-017 (CRITICAL — this is the product): expert drill-down report with finding-level detail, regulatory grounding, and suggested fixes for three reader roles (compliance/attorney, claims professional, policy designer). Sandbox 004. PoC: hand-build one entry each for SMELL2-H003, SMELL4-H001, SMELL5-H004. Static HTML for sandbox phase.",
     "BACKLOG-015 (HIGH — sales): heuristic-specific case and bad-faith closure library. One public case per heuristic matched to the exact language gap. Feeds into BACKLOG-017 claims exposure section.",
-    "BACKLOG-016 (LOW — defensive): dollar-sign rendering guard in report_builder.py.",
+    "BACKLOG-006: node language context annotation (LLM pass during ingestion; resolves 006/010/011/012 together). ADR candidate when designed.",
     "executive_summary_anon.md not yet generated — run: python report_builder.py --anonymize",
     "Kentucky Growers SERFF search incomplete — SERFF site was down on 2026-06-04 recheck (BACKLOG-003).",
     "KY-KRS-304-12-230 and KY-KRS-304-14 are named .html but contain PDF content — low-priority cleanup (BACKLOG-002)."

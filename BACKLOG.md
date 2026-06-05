@@ -350,17 +350,30 @@ Start with the three highest-severity confirmed findings (SMELL2-H003, SMELL4-H0
 
 ---
 
-### [ ] BACKLOG-005: Project Graduation And Agile V Framework Integration
+### [ ] BACKLOG-005: Phase A Entry — Agile V Framework Integration and SE Expert Configuration
 
-**Status:** Open — not yet time; placeholder for future discussion  
-**Priority:** Low — revisit after Sandbox 003 produces a client-ready output
+**Status:** Open — actively approaching; blocked on two owner-lane prerequisites  
+**Priority:** HIGH — this is the next major project milestone, not a distant concern
 
-At some point the sandbox research phase ends and this becomes a real project with a real delivery framework. Two questions to answer when that time comes:
+**What this is:**
+The sandbox research phase is substantively complete. The detection pipeline works, findings are calibrated, a sales report exists, and the product direction (expert drill-down report, BACKLOG-017) is identified. The next milestone is entering Phase A of the Agile V lifecycle: formal stakeholder analysis, concept of operations, requirements, and architecture decisions made with real SE rigor.
 
-1. **Project graduation** — what criteria signal that the sandbox phase is over and a proper project structure (scope, milestones, resourcing, client commitments) is warranted?
-2. **Agile V integration** — how and when does the Agile V framework get layered onto this project's workflow?
+**Blocked on (owner lane):**
+1. **SE coursework** — owner completing MIT SE courses and related material to establish the SE grounding needed for Phase A work.
+2. **SE expert RAG corpus** — configure a RAG knowledge base covering:
+   - NASA: NPR 7120.5 (Program/Project Management), SE Handbook (SP-2016-6105), potentially GSFC/JPL standards
+   - INCOSE: Systems Engineering Handbook
+   - IEEE: 15288 (system lifecycle), 12207 (software lifecycle), 29148 (requirements engineering), and related standards
+   - Possibly DAU/DoD materials depending on the Agile V framework interpretation in use
+   This corpus turns the AI assistant into an SE-grounded collaborator for Phase A work rather than a general-knowledge approximation.
 
-**Next action:** Revisit after Sandbox 003 Stage 003 (executive summary report) is complete and there is a client-facing artifact to evaluate. That output will be the clearest signal of whether the concept is ready to graduate.
+**Sandboxes during this period:**
+Sandbox work continues in parallel. Discovery, proof-of-concept experiments, and the drill-down report (BACKLOG-017) all feed the product decisions that Phase A will formalize. Do not pause sandbox work to wait for Phase A to start.
+
+**Product direction is not yet fixed:**
+Phase A is where the product gets formally defined through stakeholder analysis and concept of operations. The sandbox outputs are the evidence going into that conversation, not the answer.
+
+**Next action:** When SE coursework and RAG corpus are in place, open a dedicated Phase A session. Until then, keep sandbox lanes active.
 
 ---
 
