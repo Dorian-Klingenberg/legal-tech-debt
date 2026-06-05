@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-06-04T23:00:00-04:00",
+  "updated_at": "2026-06-05T00:30:00-04:00",
   "project": {
     "name": "legal-tech-debt",
     "mode": "sandbox research and proof-of-concept development",
@@ -22,12 +22,12 @@
   },
   "current_focus": {
     "active_sandbox": "sandboxes/003-findings-triage",
-    "next_sandbox": "sandboxes/003-findings-triage",
+    "next_sandbox": "Sandbox 004 — expert drill-down report (BACKLOG-017)",
     "source_evidence_sandbox": "sandboxes/002-claims-regulatory-automation",
     "source_evidence_run": "output/002/20260604_130606_18b0dec5/",
     "run_summary": "Sandbox 002 closed with 28 sources, 353 nodes, 121 candidate evidence items, 39 Stage 003 retrieval bundles, and 35 detector findings (five smells fully calibrated including Smell 5 graph-gap detection)",
-    "latest_handoff": "sandboxes/003-findings-triage/HANDOFF-2026-06-04.md",
-    "latest_memory_journal": "sandboxes/003-findings-triage/JOURNAL-2026-06-04.md"
+    "latest_handoff": "sandboxes/003-findings-triage/HANDOFF-2026-06-04b.md",
+    "latest_memory_journal": "sandboxes/003-findings-triage/JOURNAL-2026-06-04b.md"
   },
   "active_scope": [
     "Kentucky homeowners insurance",
@@ -52,14 +52,13 @@
     "Gap detection smells (Smell 5) require graph traversal over the edge substrate, not vector similarity — absence cannot be embedded."
   ],
   "open_threads": [
-    "BACKLOG-010 (HIGH): source ID prefix guard in Stage 006 detectors — skip KY-KRS-*, KY-KAR-*, KY-DOI-* nodes. Quick fix; eliminates all 4 Smell 3 false positives.",
-    "BACKLOG-013: --anonymize flag for report_builder.py before prospect use.",
-    "BACKLOG-014: human editorial pass on LLM prose in executive_summary.md before external distribution.",
     "BACKLOG-006: node language context annotation (LLM pass during ingestion; resolves 006/010/011/012 together). ADR candidate when designed.",
+    "BACKLOG-017 (CRITICAL — this is the product): expert drill-down report with finding-level detail, regulatory grounding, and suggested fixes for three reader roles (compliance/attorney, claims professional, policy designer). Needs own sandbox. PoC: hand-build one entry each for SMELL2-H003, SMELL4-H001, SMELL5-H004.",
+    "BACKLOG-015 (HIGH — sales): heuristic-specific case and bad-faith closure library. One public case per heuristic matched to the exact language gap. Feeds into BACKLOG-017 claims exposure section.",
+    "BACKLOG-016 (LOW — defensive): dollar-sign rendering guard in report_builder.py.",
+    "executive_summary_anon.md not yet generated — run: python report_builder.py --anonymize",
     "Kentucky Growers SERFF search incomplete — SERFF site was down on 2026-06-04 recheck (BACKLOG-003).",
-    "KY-KRS-304-12-230 and KY-KRS-304-14 are named .html but contain PDF content — low-priority cleanup (BACKLOG-002).",
-    "Project graduation and Agile V framework integration discussion deferred (BACKLOG-005).",
-    "Sandbox 003 all three stages complete as of 2026-06-04. Next lane decision: see HANDOFF-2026-06-04.md."
+    "KY-KRS-304-12-230 and KY-KRS-304-14 are named .html but contain PDF content — low-priority cleanup (BACKLOG-002)."
   ],
   "shared_skills": [
     "skills/apply-implementation-defaults/SKILL.md",

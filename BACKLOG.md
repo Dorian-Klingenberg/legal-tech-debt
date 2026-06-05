@@ -102,9 +102,9 @@ This likely requires LLM-assisted context classification at the node level durin
 
 ---
 
-### [ ] BACKLOG-010: Smell Detectors Must Not Fire On Statutory/Regulatory Corpus Nodes
+### [x] BACKLOG-010: Smell Detectors Must Not Fire On Statutory/Regulatory Corpus Nodes — RESOLVED 2026-06-04
 
-**Status:** Open — Sandbox 002 fix required  
+**Status:** Resolved — short-term fix applied  
 **Affects:** All smell detectors in Stage 006; Sandbox 003 Stage 001 output  
 **Priority:** High — directly produces false positives that would appear in a client report
 
@@ -117,7 +117,7 @@ The immediate cause is that `source_type` is blank for all statutory/regulatory 
 
 **Long-term fix (Stage 002 ingestion):** Populate `source_type` correctly for all sources during ingestion. The corpus manifest (`CORPUS-SOURCES.md`) already classifies each source — that classification should flow through to every node as a first-class field. Detectors then guard on `source_type not in {ky_statute, ky_regulation, doi_bulletin, doi_guidance}`.
 
-**Next action:** Apply the short-term source ID prefix guard to Stage 006 detectors. Re-run Stage 006 and Stage 007. Add the long-term schema fix to the Stage 002 ingestion backlog.
+**Resolution (2026-06-04):** Short-term source ID prefix guard applied in `detector_runner.py`. `_REGULATORY_PREFIXES = ("KY-KRS-", "KY-KAR-", "KY-DOI-")` tuple and `_is_carrier_node()` predicate added. Runner now filters regulatory nodes before passing to detectors, logs skip count. Eliminates all four Smell 3 false positives. Long-term `source_type` ingestion fix remains open in the Stage 002 ingestion backlog.
 
 ---
 
@@ -202,24 +202,22 @@ The second context is not a regulatory mapping smell. It is a filing instruction
 
 ---
 
-### [ ] BACKLOG-013: Stage 003 Report — Carrier Name Anonymization
+### [x] BACKLOG-013: Stage 003 Report — Carrier Name Anonymization — RESOLVED 2026-06-04
 
-**Status:** Open — design decision required before prospect use  
+**Status:** Resolved  
 **Affects:** `stages/003-executive-report/src/report_builder.py`; Stage 003 output  
 **Priority:** Medium — required before this report goes in front of a prospect who doesn't know the carriers
 
 **What we know:**
 The carrier-specific patterns section names KNIC and KFBM explicitly. For internal analysis this is correct. For a prospect pitch to a carrier that doesn't know those names, it is a distraction and may raise questions about data sourcing. The report should have a mode that replaces carrier names with generic labels ("Carrier A", "Carrier B") or "one of the carriers analyzed."
 
-**Decision needed:** Should anonymization be a build-time flag (always anonymize for external output) or a post-processing step? Also: should the methodology note disclose whether carrier names are available on request?
-
-**Next action:** Add an `--anonymize` flag to `report_builder.py` that substitutes KNIC → "Carrier A" and KFBM → "Carrier B" throughout the output. The internal version retains real names; the prospect version uses labels.
+**Resolution (2026-06-04):** `--anonymize` flag added to `report_builder.py`. `CARRIER_LABELS_INTERNAL` (identity map) used by default; `CARRIER_LABELS_ANON` (`KNIC→Carrier A`, `KFBM→Carrier B`) used when flag is set. Labels threaded through `apply_verdicts()`, `build_findings_table()`, and `build_report()`. Anonymized run writes to `executive_summary_anon.md`; internal run writes to `executive_summary.md`. LLM narrative sections were already anonymous. Decision: build-time flag (not post-processing) — two output files coexist.
 
 ---
 
-### [ ] BACKLOG-014: Stage 003 Report — LLM Prose Quality Improvement
+### [x] BACKLOG-014: Stage 003 Report — LLM Prose Quality Improvement — RESOLVED 2026-06-04
 
-**Status:** Open — iterative prompt work  
+**Status:** Resolved — direct editorial pass applied  
 **Affects:** `stages/003-executive-report/src/report_builder.py` narrative prompts  
 **Priority:** Low — current prose is serviceable but generic; a human editorial pass would significantly improve it
 
@@ -232,7 +230,123 @@ The current executive intro and closing use generic phrases ("crucial insights,"
 
 Both are needed. Option 2 is essential for any client-facing version regardless of prompt quality.
 
-**Next action:** Before any prospect use, have a human editor review and tighten the narrative sections. In parallel, iterate on prompts to reduce generic language — add an explicit list of prohibited phrases and a short example of the target register to the system prompt.
+**Resolution (2026-06-04):** Direct editorial pass applied to `executive_summary.md` (12 targeted replacements). Removed all boilerplate openers/closers ("rapidly evolving landscape", "cannot be understated", "showcasing a proactive stance", etc.). Replaced heuristic-ID technical openers in pattern narratives. Fixed typo "undocumentated". Tightened H003/H004/H005 paragraph 2 closers. Fixed dangling clause in H003-p2. Report is now prospect-ready for a final human read. Prompt improvement (Option 1) deferred — not needed before this report ships.
+
+---
+
+### [ ] BACKLOG-015: Heuristic-Specific Case and Bad-Faith Closure Library
+
+**Status:** Open — no sandbox assigned  
+**Affects:** Stage 003 executive report; sales materials; dollar_anchors.json  
+**Priority:** High for sales readiness — current anchors are real but pattern-general; heuristic-matched cases are materially stronger in a prospect conversation
+
+**What we want:**
+
+The current Risk Context section uses real public events (labor depreciation class actions, State Farm ACV settlement, Florida OIR fines) but they map to broad smell categories, not to the specific gaps we detected. A prospect CCO will ask: "Did this exact problem — undefined 'reasonable time' in a roof settlement condition — actually cause a payout dispute in court?" We should be able to answer that with a case citation, not a general category.
+
+For each active heuristic, find at least one real public case or documented bad-faith closure where the specific language gap drove the dispute outcome:
+
+| Heuristic | Specific gap | Target case type |
+|---|---|---|
+| SMELL2-H001 | "Reasonable time" undefined in roof/windstorm loss settlement — controls ACV vs. replacement cost cutoff | Court ruling or arbitration where timing ambiguity in a hail/roof claim led to underpayment dispute or bad-faith finding |
+| SMELL2-H003 | ACV or replacement cost used without a stated calculation methodology | Case where the carrier's undisclosed depreciation method or valuation tool was the contested issue — not just that ACV was low, but that the method was opaque |
+| SMELL4-H001 | Rate manual referenced as "the Manual" with no version, edition, or date | Case or DOI enforcement action where an unversioned external reference was the basis for a disputed rate application or retroactive rate change |
+| SMELL5-H004 | Rate-setting nodes with no traceable KRS/KAR/DOI citation | Market conduct exam finding or DOI order where a carrier's rate methodology lacked a regulatory anchor and was ordered revised or refiled |
+| SMELL5-H005 | Mandatory coverage assertion with no regulatory citation | Case where a carrier denied a claim on the basis that a coverage was optional, and the dispute turned on whether the regulatory mandate existed |
+| SMELL5-H006 | Loss settlement methodology section with no regulatory citation for the settlement approach | Case where the settlement method itself (not just the dollar amount) was contested and the carrier could not cite authority for the approach used |
+
+**Output format:**
+
+For each heuristic, a structured entry suitable for inclusion in `dollar_anchors.json` and the executive report:
+- Case name / enforcement action identifier (public record only)
+- Jurisdiction and year
+- The specific language gap that drove the dispute
+- Outcome (settlement amount, fine, order to refile, bad-faith verdict)
+- One-sentence connection to the heuristic
+
+**Sources to search:**
+- Westlaw / Lexis (if available) — Kentucky homeowners, property insurance, bad faith
+- State DOI enforcement orders (Kentucky DOI, Florida OIR, Louisiana DOI, others with public records)
+- NAIC market conduct exam results database
+- Publicly reported class action filings (PACER, news sources)
+- Insurance coverage law blogs and trade press for documented bad-faith closures
+
+**Scope constraint:** Public records only. No confidential claim data. No invented or synthesized cases. If a heuristic has no documented case yet, record that explicitly — a known gap in the case library is still useful signal.
+
+**Next action:** Assign to a research stage (Sandbox 003 Stage 004, or a new Sandbox 004 research lane). When cases are found, update `dollar_anchors.json` and add a heuristic-matched subsection to the Risk Context section of the executive report.
+
+---
+
+### [x] BACKLOG-016: Dollar-Sign Rendering Guard in report_builder.py — RESOLVED 2026-06-04
+
+**Status:** Open — low priority, defensive hardening  
+**Affects:** `stages/003-executive-report/src/report_builder.py` — `build_risk_context_section()` and `build_report()`  
+**Priority:** Low — source data in `dollar_anchors.json` is already fixed; this prevents the same bug from re-entering via future data edits
+
+**What we know:**
+Dollar signs (`$`) inside markdown bold strings and blockquotes are interpreted as math delimiters by renderers that support LaTeX (GitHub, Obsidian, some PDF converters). The pattern `$X ... $Y` renders the content between the two signs as a math expression rather than plain text. This has now surfaced twice:
+- First: bold label strings in the findings table (fixed by removing `$` from labels)
+- Second: the blockquote ROI pitch and portfolio framing range strings (fixed by rewriting values in `dollar_anchors.json`)
+
+The current fix lives in the data. The right fix is also in the code.
+
+**What the fix is:** Add a `_safe_dollar(text: str) -> str` helper to `report_builder.py` that replaces bare `$` followed by a digit or letter with an escaped or reworded form before writing into markdown output. Apply it in `build_risk_context_section()` wherever `anchor["dollar_figure"]`, `r["annual_estimate"]`, `r["ten_year_range"]`, and `pf["conservative_pitch"]` are interpolated into markdown strings. The simplest safe form: strip `$` from numeric strings and append `USD` where needed (matching what the data now contains).
+
+**Resolution (2026-06-04):** `_safe_dollar()` helper added to `report_builder.py`. Regex `\$(\d[\d,./KMBkmbillion]*)` strips bare `$` signs from all numeric amounts. Applied to the complete report string after `build_report()` and before writing — covers LLM prose and deterministic sections equally. Removed 13 dollar signs from `executive_summary.md` in the same pass. Future builds generate clean output automatically.
+
+---
+
+### [ ] BACKLOG-017: Expert Drill-Down Report — Finding-Level Technical Brief with Suggested Fixes
+
+**Status:** Open — new sandbox candidate; requires proof-of-concept and iteration  
+**Affects:** New output layer on top of Sandbox 002/003 findings; likely Sandbox 004 or a new stage in Sandbox 003  
+**Priority:** CRITICAL — this is the product being sold, not a supporting artifact
+
+**Strategic framing:**
+The executive summary is the sales instrument — it gets a CEO or CCO to the table. The drill-down report is the service itself — the deliverable a carrier pays for. The distinction matters for how we build it: the executive summary can be generated once and reused as a prospect hook; the drill-down must be carrier-specific, finding-specific, and actionable enough that an expert can hand it to a policy revision team and get a concrete result.
+
+**The readers (all three must be served):**
+- **Compliance officer / coverage attorney** — needs regulatory grounding, exact filing citations, and defensible suggested language. Their question: "what do I need to change and what authority supports the change?"
+- **Claims professional** — needs to understand how each gap affects claim handling and dispute exposure. Their question: "which of these gaps is most likely to generate a bad-faith exposure or a reopened claim, and how does the current language let a claimant challenge a settlement?"
+- **Policy designer / filing specialist** — needs proposed redlines or remediation templates they can actually implement. Their question: "what does the corrected language look like, and does it require a new DOI filing?"
+
+Each reader may use a different section of the same report, or the report may eventually support role-based filtering. The proof-of-concept should serve all three with a single document structure before considering role-specific views.
+
+**What the expert reader needs (all three roles):**
+- The exact policy language that triggered the finding, verbatim and in context
+- The specific section, endorsement, or rate manual page it came from
+- A precise statement of what the problem is (not the smell category — the actual gap)
+- The regulatory standard the language should be measured against (KRS/KAR/DOI citation where available)
+- A suggested fix — either a concrete proposed redline or a description of what compliant language typically includes
+- Enough sourcing that they can hand it to outside counsel without re-doing the research
+
+**What "suggested fixes" means (to be validated in proof-of-concept):**
+Two possible levels — both worth exploring:
+1. **Redline suggestion** — proposed replacement language: "replace 'reasonable time' with 'within 60 days of the carrier's written request for documentation, or as otherwise required by KRS 304.12-230'" — concrete, actionable, auditable
+2. **Remediation template** — "this section requires a valuation methodology; compliant language typically includes: (a) the calculation basis (ACV vs. RC), (b) the external tool or index used if any, (c) the effective date of that reference" — gives the expert a checklist rather than a redline
+
+Both may be appropriate for different finding types. Smell 4 (unversioned rate reference) lends itself to a redline. Smell 2 (undefined valuation term) may need a template because the right methodology varies by carrier.
+
+**Relationship to existing outputs:**
+- Source data: `enriched_findings.jsonl` (Sandbox 003 Stage 001) — already has plain-English descriptions, dispute scenarios, confidence ratings
+- Source data: `detector_findings.jsonl` (Sandbox 002 Stage 006) — has verbatim evidence text, node IDs, source IDs, section paths
+- Source data: `carrier_comparison.json` (Sandbox 003 Stage 002) — has confirmed heuristics and carrier scope
+- The drill-down report is a new assembly layer over these existing artifacts — it does not require re-running detection
+
+**Likely output format:**
+A structured markdown (or HTML) document with one section per confirmed finding or finding group, containing: finding ID, heuristic, source document, section path, verbatim evidence, gap statement, regulatory reference, and suggested fix. Possibly also a machine-readable JSON companion for future UI integration.
+
+**Proof-of-concept scope:**
+Start with the three highest-severity confirmed findings (SMELL2-H003, SMELL4-H001, SMELL5-H004) and hand-build one example drill-down entry each. Validate the format with a human expert read before building the pipeline. The suggested-fix language will require LLM assistance plus human review — it must not be presented as legal advice.
+
+**Open design questions (for the proof-of-concept phase):**
+- Redline vs. template vs. both — depends on finding type
+- How to source suggested fix language — LLM draft + human review, or curated from regulatory text in the corpus?
+- Disclaimer language — fixes are editorial suggestions, not legal advice; how prominent?
+- Whether carrier names appear (internal version) or are anonymized (external version) — same `--anonymize` flag pattern as the executive summary
+- Output format — markdown, HTML, Word doc, or all three
+
+**Next action:** Open a new sandbox (Sandbox 004) or Stage 004 in Sandbox 003. Build one hand-crafted example entry per priority finding type. Review with a human expert. Then decide whether the fix-suggestion pipeline is LLM-driven or template-driven before building at scale.
 
 ---
 

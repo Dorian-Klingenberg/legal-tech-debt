@@ -34,6 +34,17 @@ from detectors import smell1, smell2, smell3, smell4, smell5
 
 DETECTORS = [smell1, smell2, smell3, smell4, smell5]
 
+# Source ID prefixes that identify reference corpus nodes (statutes, regulations, DOI bulletins).
+# Detectors must not fire on these — they are the standard we check filings *against*,
+# not filings that need remediation.  BACKLOG-010.
+_REGULATORY_PREFIXES = ("KY-KRS-", "KY-KAR-", "KY-DOI-")
+
+
+def _is_carrier_node(node: dict) -> bool:
+    """Return True if the node belongs to a carrier filing (not the regulatory reference corpus)."""
+    source_id: str = node.get("source_id", "")
+    return not source_id.startswith(_REGULATORY_PREFIXES)
+
 SMELL_NAMES = {
     1: "Overbroad / Non-deterministic Exclusions",
     2: "Magic Number / Magic Valuation Terms",
@@ -52,7 +63,15 @@ def run_detectors(run_dir: Path) -> list[Finding]:
         {**n, "source_type": source_type_by_id.get(n.get("source_id", ""), "")}
         for n in idx.content_nodes
     ]
-    print(f"[detector-runner] {len(nodes)} content nodes")
+    print(f"[detector-runner] {len(nodes)} content nodes (pre-filter)")
+
+    # BACKLOG-010: skip regulatory reference corpus nodes; detectors target carrier filings only.
+    carrier_nodes = [n for n in nodes if _is_carrier_node(n)]
+    skipped = len(nodes) - len(carrier_nodes)
+    if skipped:
+        print(f"[detector-runner] Skipped {skipped} regulatory corpus nodes (KY-KRS-*, KY-KAR-*, KY-DOI-*)")
+    nodes = carrier_nodes
+    print(f"[detector-runner] {len(nodes)} carrier filing nodes passed to detectors")
 
     counter = [0]
     all_findings: list[Finding] = []

@@ -35,7 +35,7 @@ This sandbox turns findings into decisions.
 - [x] 5-finding sample run and reviewed — output quality validated
 - [x] Full 35-finding run complete: 35/35 enriched, 0 errors — `stages/001-llm-triage/output/enriched_findings.jsonl`
 - [x] Human review of all 35 findings complete — confirmed finding set documented in `stages/001-llm-triage/validation/human-review-notes.md`
-
+ I think I see that there was this little notification over the files, but it didn't say what file there was a problem with. Now that's gone because I did this thing. 
 **Key outputs:**
 - `stages/001-llm-triage/output/enriched_findings.jsonl` — 35 enriched findings
 - `stages/001-llm-triage/validation/human-review-notes.md` — confirmed/rejected/downgraded findings with reasoning

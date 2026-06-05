@@ -75,21 +75,20 @@
     "ranges": [
       {
         "category": "Semantic defects (Smells 1 and 2)",
-        "annual_estimate": "$20M–$200M",
-        "ten_year_range": "$200M–$2.0B"
+        "annual_estimate": "20M-200M USD",
+        "ten_year_range": "200M-2.0B USD"
       },
       {
         "category": "Regulatory mapping (Smell 5)",
-        "annual_estimate": "$5M–$25M",
-        "ten_year_range": "$50M–$250M"
+        "annual_estimate": "5M-25M USD",
+        "ten_year_range": "50M-250M USD"
       },
       {
         "category": "Calculation rule drift (Smell 4)",
-        "annual_estimate": "$10M–$100M",
-        "ten_year_range": "$100M–$1.0B"
+        "annual_estimate": "10M-100M USD",
+        "ten_year_range": "100M-1.0B USD"
       }
     ],
-    "conservative_pitch": "If the review has only a 10% chance of preventing a $1M remediation or litigation event, expected value is $100K. If the service costs $60K–$90K, the buyer has a plausible positive expected ROI before counting reviewer time savings or reputational risk."
+    "conservative_pitch": "If the review has only a 10% chance of preventing a 1M-dollar remediation or litigation event, expected value is 100K. If the service costs 60K-90K, the buyer has a plausible positive expected ROI before counting reviewer time savings or reputational risk."
   }
 }
-
