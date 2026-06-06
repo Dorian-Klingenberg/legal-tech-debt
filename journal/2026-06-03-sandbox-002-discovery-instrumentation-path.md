@@ -108,7 +108,6 @@ Ran `git diff --check`; it reported only line-ending warnings, no whitespace err
 
 ## Open Notes
 
-`SECRET_SCAN_REPORT.md` was already modified in the worktree to mark the earlier scan findings as reviewed false positives. This journal did not modify that report.
 
 ## Closeout
 

@@ -136,13 +136,12 @@ Every future agent working in this repository should do the following before mak
    - `AGENTS.md` for Codex and general coding agents.
    - `CLAUDE.md` for Claude Code.
    - `.github/copilot-instructions.md` for GitHub Copilot.
-5. Read `SECRET_SCAN_REPORT.md` if present.
-6. Read the current sandbox README, controlling scope document, active roadmap, and latest handoff.
-7. For Sandbox 002 work, inspect the corpus manifest and known gaps before deciding that more source procurement is needed.
-8. Preserve decisions in shared files that Codex, Copilot, Claude Code, and future agents can all read. Do not store durable project knowledge in one assistant's private memory only.
-9. Add or update journal, handoff, lesson, and context records at major pause points, scope changes, corpus changes, or stage transitions. Write chronological journals under top-level `journal/`; keep handoffs near the sandbox or component they resume. Use `skills/project-memory-artifacts/SKILL.md` when creating these shared memory artifacts.
-10. For substantive code changes or code review, read `skills/project-coding-preferences/SKILL.md` so implementation defaults are shared across agents.
-11. For skill work, inspect `skills/README.md`, `skills/SKILL-DEVELOPMENT.md`, and `skills/registry.csv` before drafting or installing a skill.
+5. Read the current sandbox README, controlling scope document, active roadmap, and latest handoff.
+6. For Sandbox 002 work, inspect the corpus manifest and known gaps before deciding that more source procurement is needed.
+7. Preserve decisions in shared files that Codex, Copilot, Claude Code, and future agents can all read. Do not store durable project knowledge in one assistant's private memory only.
+8. Add or update journal, handoff, lesson, and context records at major pause points, scope changes, corpus changes, or stage transitions. Write chronological journals under top-level `journal/`; keep handoffs near the sandbox or component they resume. Use `skills/project-memory-artifacts/SKILL.md` when creating these shared memory artifacts.
+9. For substantive code changes or code review, read `skills/project-coding-preferences/SKILL.md` so implementation defaults are shared across agents.
+10. For skill work, inspect `skills/README.md`, `skills/SKILL-DEVELOPMENT.md`, and `skills/registry.csv` before drafting or installing a skill.
 
 ## Current Sandbox 001 State
 

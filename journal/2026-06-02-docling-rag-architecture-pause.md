@@ -87,6 +87,4 @@ After that, Stage 003 can run a tiny Docling parse against one selected corpus f
 
 ## Open Notes
 
-- `SECRET_SCAN_REPORT.md` still asks the repo owner to review and classify scanner findings, mostly from archived third-party captures under `sources/`.
 - No machine-readable Legal Tech Debt `AGENT_CONTEXT` file exists yet. If future agents need one, create it deliberately as a separate memory artifact rather than smuggling context into private assistant memory.
-

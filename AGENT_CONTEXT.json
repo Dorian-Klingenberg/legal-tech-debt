@@ -13,15 +13,9 @@
     "AGENT_OPERATING_MODEL.md",
     "tool-specific entry file: AGENTS.md, CLAUDE.md, or .github/copilot-instructions.md",
     "latest_handoff and latest_backlog_plan named in AGENT_CONTEXT.json",
-    "SECRET_SCAN_REPORT.md if present",
     "skills/project-coding-preferences/SKILL.md before substantive code changes",
     "active sandbox README, roadmap, ADRs, and latest handoff"
   ],
-  "secret_scan": {
-    "path": "SECRET_SCAN_REPORT.md",
-    "status": "complete_no_action_required",
-    "note": "Repo owner confirmed reported findings were false positives on 2026-06-03."
-  },
   "current_focus": {
     "active_lane": "All agent-actionable backlog items closed. Active lanes: Sandbox 005 (SDLC stack) and Sandbox 006 (interactive UX). Owner-lane: KY DOI open records call + BACKLOG-003 SERFF recheck.",
     "active_sandbox": "sandboxes/006-interactive-drilldown-report/",

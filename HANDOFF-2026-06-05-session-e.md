@@ -74,7 +74,6 @@ lessons/LESSON-2026-06-05-detector-negation-patterns.md
 2. Read this handoff and `journal/2026-06-05-backlog-implementation-session-e.md`
 3. Read `BACKLOG.md` — all agent-actionable items are closed; no immediate work queue
 4. The next substantive work is owner-lane (KY DOI call, SERFF recheck) or one of the active sandbox experiments (005, 006)
-5. `SECRET_SCAN_REPORT.md` status: complete, no action required (confirmed 2026-06-03)
 
 ---
 
