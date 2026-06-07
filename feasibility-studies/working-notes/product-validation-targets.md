@@ -20,6 +20,26 @@ Start with people who already understand one of these pains:
 
 The first objective is not a sale. It is to learn whether the product is pointing at a real budgeted pain.
 
+Important founder constraint:
+
+> The preferred business path should avoid high-volume direct sales, repetitive report production for thousands of small customers, and busy-work-heavy customer chasing.
+
+This means the likely best client may not be the end carrier, broker, or insurer. The better client or channel may be a provider that already serves those customers:
+
+- insurance regulatory/compliance consulting firms,
+- insurance coverage or regulatory law firms,
+- filing-support vendors,
+- forms/product compliance vendors,
+- regulatory intelligence vendors,
+- policy administration or core-system vendors,
+- insurtech platforms selling to carriers,
+- due-diligence or audit providers,
+- expert-report or litigation-support firms.
+
+The product should be evaluated not only as "can carriers buy this?" but also as:
+
+> "Can this become a specialized evidence/review capability that an existing provider uses to serve many carrier clients without me building a large direct-sales machine?"
+
 ---
 
 ## Best First Audience

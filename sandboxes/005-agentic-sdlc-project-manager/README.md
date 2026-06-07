@@ -6,7 +6,7 @@ Scope: Development SDLC stack, agent coordination, Agile V control surface
 
 ## Purpose
 
-This sandbox explores the development-side project manager for Legal Tech Debt: a repo-native SDLC control system that turns human/agent conversation into requirements, implementation slices, verification evidence, risk records, and human-approved progress.
+This sandbox explores the development-side project manager for Legal Tech Debt: a repo-native SDLC control system that turns human/agent conversation and experiment evidence into requirements, implementation slices, verification evidence, risk records, and human-approved progress.
 
 This is the SDLC stack, not the agentic product runtime stack. See `../../ADR-012-separate-sdlc-stack-from-agentic-product-stack.md` and `../../SDLC-AND-AGENTIC-PRODUCT-STACK-SEPARATION.md`.
 
@@ -35,9 +35,10 @@ In scope:
 - SDLC artifact model: goals, requirements, Gherkin specs, tasks, risks, ADRs, verification evidence, handoffs, journals, and release decisions.
 - Agent role model: planner/specifier, implementer, reviewer/verifier, researcher, release/handoff coordinator.
 - Work isolation model: branches, worktrees, file allowlists, dirty-worktree protection, and agent handoff rules.
-- Verification model: deterministic tests first, schema/golden/regression evidence, risk-adaptive mutation testing, and optional LLM review.
+- Verification model: deterministic tests first, schema/golden/regression evidence, risk-adaptive mutation testing, experiment-backed V&V, and optional LLM review.
 - Project-manager control surface: dashboard/report generated from repo truth.
 - Conversation-to-contract gate: when exploratory chat becomes actionable work.
+- Experiment-to-requirement gate: when sandbox observations, failed probes, surprising outputs, or prototype behavior become requirements, risks, or backlog items.
 
 Out of scope:
 
@@ -50,9 +51,11 @@ Out of scope:
 ## Design Principles
 
 - Repo truth first. Dashboards summarize canonical files; they do not become canonical.
-- Conversation before contract. Exploration is allowed, but implementation starts only after the work has a clear artifact contract.
+- Conversation and experimentation before contract. Exploration is allowed, and requirements may be discovered through sandbox runs, prototypes, playtests, corpus probes, or failed experiments. Implementation starts only after the discovered work has a clear artifact contract.
 - Verification is risk-adaptive. Unit tests and fixtures are common; mutation testing and LLM judges are used when the risk justifies them.
+- Experimentation supports both sides of the V. Experiments can discover requirements before implementation and can validate/verify whether built behavior matches real domain expectations after implementation.
 - Agents leave evidence. Every substantive agent run should leave a readable trail: what changed, why, what was validated, and what remains uncertain.
+- Experiments leave requirements candidates. A surprising sandbox result should be captured as evidence first, then promoted deliberately into a requirement, risk, backlog item, ADR, or lesson when it proves durable.
 - Gherkin is for behavior. Use it when acceptance behavior benefits from executable specification, not as universal paperwork.
 - Swarm discipline can be adopted incrementally. Start with roles, work isolation, and prompts before depending on any one orchestration tool.
 
@@ -61,6 +64,7 @@ Out of scope:
 | Layer | Candidate Tools / Artifacts | Notes |
 |---|---|---|
 | Source of truth | Git, Markdown, JSON/JSONL, ADRs, backlog, journals, handoffs | Existing repo pattern; preserve it. |
+| Experiment evidence | Sandbox outputs, playtest notes, probe results, failed runs, screenshots, generated reports | Requirements can be discovered by experiment, not only written before implementation. |
 | Requirements | `requirements/`, `features/`, traceability records | Design in this sandbox before creating globally. |
 | BDD | Gherkin, `pytest-bdd` or `behave` for Python slices | Use for product behavior and acceptance tests. |
 | Tests | `pytest`, golden fixtures, schema validation, regression snapshots | Default hard gate. |
@@ -73,6 +77,7 @@ Out of scope:
 ## Starting Questions
 
 - What is the minimum artifact contract for a disciplined implementation slice?
+- How should experiment observations become requirement candidates without turning every surprise into scope creep?
 - What work requires Gherkin, and what work should stay in Markdown task/ADR/risk form?
 - What is the smallest useful traceability model from requirement to test to evidence?
 - What agent roles are actually useful for this repo, and which create coordination overhead?
@@ -91,4 +96,3 @@ A likely future sandbox should explore the agentic product runtime stack: produc
 - IEEE 1012 V&V overview: `https://standards.ieee.org/ieee/1012/7324/`
 - CMU SEI V-model testing discussion: `https://www.sei.cmu.edu/blog/using-v-models-for-testing/`
 - Clean AI course overview: `https://www.oreilly.com/videos/clean-ai-agentic/9780135968819/`
-

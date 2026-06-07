@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-06-05T21:00:00-04:00",
+  "updated_at": "2026-06-07T00:00:00-04:00",
   "project": {
     "name": "legal-tech-debt",
     "mode": "sandbox research and proof-of-concept development",
@@ -25,7 +25,7 @@
     "source_evidence_run": "sandboxes/002-claims-regulatory-automation/output/002/20260604_130606_18b0dec5/",
     "run_summary": "29 sources, 353 nodes, 143 carrier nodes after filters, 31 detector findings (HIGH:1, MEDIUM:24, LOW:6). H007 and H004 fire zero times — corpus gap, correct.",
     "latest_handoff": "HANDOFF-2026-06-05-session-e.md",
-    "latest_memory_journal": "journal/2026-06-05-backlog-implementation-session-e.md",
+    "latest_memory_journal": "journal/2026-06-07-cross-repo-ai-portfolio-memory.md",
     "latest_backlog_plan": "BACKLOG-IMPLEMENTATION-PLAN.md"
   },
   "active_scope": [
@@ -61,7 +61,7 @@
     "BACKLOG-006 [CLOSED]: ADR-013 written. language_context 6-value enum designed. Implementation deferred.",
     "BACKLOG-009 [CLOSED]: Non-Deterministic Underwriting Criteria added to insurance_policy_smells.md Section 2 and legal_code_smell_taxonomy.md Category 2.",
     "BACKLOG-012 [CLOSED]: H005 'is not mandatory' removed from pattern; _H005_FP strengthened. ADR-013 is the long-term fix.",
-    "SANDBOX-005 (ACTIVE): Agentic SDLC project-manager stack exploration. Goal: define repo-native Agile V + Gherkin/BDD + Clean AI + SwarmForge-style role/worktree discipline, evidence bundles, and generated status surfaces without confusing SDLC tooling with product runtime agents.",
+    "SANDBOX-005 (ACTIVE): Agentic SDLC project-manager stack exploration. Goal: define repo-native Agile V + Gherkin/BDD + Clean AI + SwarmForge-style role/worktree discipline, evidence bundles, experiment-to-requirement promotion, experiment-backed V&V, and generated status surfaces without confusing SDLC tooling with product runtime agents.",
     "SANDBOX-006 (ACTIVE): Interactive drill-down report UX exploration. Goal: learn what the expert report should feel like as a local static HTML workbench; Figma and Canva are design aids, not hosted product infrastructure or sources of truth.",
     "CORPUS PROCUREMENT STRATEGY: Data procurement risk is not a project blocker by default. Target current new-business policy repairability, not historical filing reconstruction. See corpus/PROCUREMENT-STRATEGY.md.",
     "OWNER LANE: Document accessibility research — deep research on KY DOI open records process, ISO form access, one-batch procurement strategy. Prerequisite for BACKLOG-021.",
