@@ -233,6 +233,57 @@ It introduces new risks:
 
 ---
 
+## Engineering Leverage Hypothesis
+
+The reports and prototype suggest a second possible insight:
+
+> With current AI tooling, a capable software engineer may be able to reproduce a meaningful portion of expensive insurance compliance evidence work with surprisingly little build time, provided the task is tightly scoped and source-traceable.
+
+This should **not** be framed yet as:
+
+> "A solo engineer can replace Perr&Knight, Milliman, counsel, or established compliance vendors."
+
+That is too broad and ignores trust, credentials, access, private records, liability, procurement, and domain judgment.
+
+The more grounded version is:
+
+> "A solo engineer may be able to build a lightweight evidence workflow that compresses the research and source-assembly portion of work normally performed by expensive trusted providers."
+
+That matters because trusted incumbents may still need:
+
+- faster source collection,
+- repeatable first-pass issue detection,
+- stable citation packaging,
+- cross-state comparison,
+- public filing/source harvesting,
+- standardized report scaffolds,
+- and junior-review replacement or augmentation.
+
+The user's emerging operating hypothesis is:
+
+- less than 40 hours might be enough to build a scoped working system,
+- roughly one hour of ingestion per state might be enough for an initial state packet,
+- roughly 15 minutes per carrier might be enough for a first carrier packet,
+- and the result may be good enough to produce useful, source-traceable first-pass findings.
+
+This is encouraging, but it must be tested as a measured claim:
+
+- time the state ingestion,
+- time the carrier ingestion,
+- record what sources are missing,
+- record where human review catches errors,
+- compare output against a generic LLM,
+- compare output against what a domain expert says they would have done manually,
+- and track whether the result is useful enough for a provider to pay attention.
+
+If this hypothesis holds, the value may be less "replace trusted providers" and more:
+
+> "Become the person who gives trusted providers a faster evidence engine."
+
+That is a more believable and more strategically useful version of the opportunity.
+
+---
+
 ## The Most Promising Wedge
 
 The cleanest wedge is not "AI compliance."
