@@ -11,6 +11,13 @@ Before doing any work, read `BOOTSTRAP.md` and follow its startup contract. Do n
 - If `CLAUDE_CONSTRAINTS.md` is unavailable, unreadable, or conflicts cannot be resolved, stop immediately and ask for human instruction.
 - Do not proceed under inferred policy.
 
+## Environment & Tool Constraints
+
+- Never use visual or GUI tools (such as File Explorer, native application windows, or browser screenshots) if a command-line alternative is available.
+- Always prefer executing commands within Windows Subsystem for Linux (WSL) over any other interface.
+- If a task cannot be handled within WSL, fall back to standard CLI tools or PowerShell commands.
+- Use text-based terminal utilities (e.g., `ls`, `grep`, `find`, `cat`, `Get-ChildItem`) exclusively for navigating file systems and managing project tasks.
+
 Key reminders:
 
 - The current work is sandbox research and proof-of-concept experimentation.

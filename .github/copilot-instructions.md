@@ -4,6 +4,13 @@ This repository uses shared cross-agent project memory.
 
 Before suggesting or making changes, read `BOOTSTRAP.md` and follow its startup contract. Do not rely on Copilot-only context; project memory must remain visible to Codex, Claude Code, and future agents.
 
+## Environment & Tool Constraints
+
+- Never use visual or GUI tools (such as File Explorer, native application windows, or browser screenshots) if a command-line alternative is available.
+- Always prefer executing commands within Windows Subsystem for Linux (WSL) over any other interface.
+- If a task cannot be handled within WSL, fall back to standard CLI tools or PowerShell commands.
+- Use text-based terminal utilities (e.g., `ls`, `grep`, `find`, `cat`, `Get-ChildItem`) exclusively for navigating file systems and managing project tasks.
+
 Key reminders:
 
 - Current work is sandbox proof-of-concept development and experimentation.

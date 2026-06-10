@@ -4,6 +4,13 @@ This repository uses shared cross-agent project memory.
 
 Before doing any work, read `BOOTSTRAP.md` and follow its startup contract. These instructions apply to Codex and to any general coding agent that reads `AGENTS.md`.
 
+## Environment & Tool Constraints
+
+- Never use visual or GUI tools (such as File Explorer, native application windows, or browser screenshots) if a command-line alternative is available.
+- Always prefer executing commands within Windows Subsystem for Linux (WSL) over any other interface.
+- If a task cannot be handled within WSL, fall back to standard CLI tools or PowerShell commands.
+- Use text-based terminal utilities (e.g., `ls`, `grep`, `find`, `cat`, `Get-ChildItem`) exclusively for navigating file systems and managing project tasks.
+
 Key reminders:
 
 - The user uses Codex, GitHub Copilot, and Claude Code. Durable memory must be visible to all of them.
