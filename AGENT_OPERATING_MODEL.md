@@ -80,3 +80,15 @@ Before wrapping up a session, verify:
 - and old docs are labeled historical if they are no longer current.
 
 If a document is historical, mark it as historical or superseded so it cannot be mistaken for active guidance.
+
+## Research and Sourcing Standards
+
+This project is building toward a published academic paper on legal tech debt. All research must meet that bar from the start.
+
+**Primary sources:** peer-reviewed academic papers, court records, regulatory filings, enforcement actions, published NAIC data, state insurance department decisions.
+
+**Secondary sources only:** blog posts, news articles, Wikipedia, and accessible explainers may be referenced to help general readers orient, but must never serve as primary evidentiary backing for a claim.
+
+**Synthetic examples:** all published examples illustrating code smells must be synthetic (purpose-built to exhibit the pattern). Real corpus analysis informs the taxonomy; real policy text is never published. The identities of the guilty parties have been protected.
+
+If no academic source exists for a claim, flag the gap explicitly. Do not substitute an accessible source silently.
