@@ -62,13 +62,17 @@ Start with these documents when orienting:
 2. `AGENT_OPERATING_MODEL.md` - shared role split, type-specific truth hierarchy, and drift prevention rules for Codex, Claude Code, and Copilot.
 3. `path.md` - current project path and north star.
 4. `legal_tech_debt_report.md` - foundational research snapshot, not the current roadmap.
-5. `legal_code_smell_taxonomy.md` - core smell taxonomy and RAII defect classes.
-6. `insurance_policy_smells.md` and `insurance_claims_smells.md` - insurance-specific smells.
-7. `Real-World Cost Events Mapped to Insurance Legal Code Smells.md` - background cost-event map; verify sources before publication.
-8. `Insurance Process Maturity Models  A Landscape Assessment for the Legal Tech Debt Platform.md` - dated maturity-model research snapshot.
-9. `sandboxes/README.md` - sandbox rules and index.
-10. `corpus/README.md` - shared primary-document corpus rules.
-11. `previous-chats/README.md` and `previous-chats/Legal Tech Debt & Legal Code Smells — ChatGPT Conversation Index.md` only when historical context is needed.
+5. **Complete smell inventory (159 total code smells):**
+   - `legal_code_smell_taxonomy.md` - 74 cross-domain legal/regulatory patterns (10 categories + RAII defect classes)
+   - `insurance_policy_smells.md` - 43 policy-layer smells (form wording, rating/underwriting rules, regulatory mapping, configurator traceability)
+   - `insurance_claims_smells.md` - 41 claims-layer smells (coverage determination, valuation, notice, adjuster workflow, subrogation, bad faith exposure)
+   - See unified index at session file: `SMELL_INVENTORY_COMPLETE.md`
+6. `Real-World Cost Events Mapped to Insurance Legal Code Smells.md` - background cost-event map; verify sources before publication.
+7. `Insurance Process Maturity Models  A Landscape Assessment for the Legal Tech Debt Platform.md` - dated maturity-model research snapshot.
+8. `sandboxes/README.md` - sandbox rules and index.
+9. `corpus/README.md` - shared primary-document corpus rules.
+10. `previous-chats/README.md` and `previous-chats/Legal Tech Debt & Legal Code Smells — ChatGPT Conversation Index.md` only when historical context is needed.
+
 
 For Sandbox 001, read:
 

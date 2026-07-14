@@ -6,6 +6,20 @@ Status: Working taxonomy. Entries are candidate review patterns, not validated d
 
 ---
 
+## Complete Smell Inventory Reference
+
+This document contains **43 policy-layer smells**. For the complete legal code smell ecosystem (159 total smells), see:
+
+| Taxonomy | Count | Scope |
+|---|---|---|
+| **[legal_code_smell_taxonomy.md](legal_code_smell_taxonomy.md)** | 74 | Cross-domain legal/regulatory patterns |
+| **[insurance_policy_smells.md](insurance_policy_smells.md)** (this file) | 43 | Policy specification, drafting, rating, underwriting, regulatory mapping |
+| **[insurance_claims_smells.md](insurance_claims_smells.md)** | 41 | Claims handling, adjudication, resolution, bad faith exposure |
+
+**Currently operationalized (Sandbox 002):** Five of these policy-layer smells have detection specs. The remaining 38 are specification documents ready for future detector development.
+
+---
+
 ## Overview
 
 These smells occur **before and during the binding of a policy** — in the spec, form wording, rating rules,

@@ -1,8 +1,28 @@
 # Legal Code Smell Taxonomy
 *Derived from original research — Insurance & Legal Domain*
-*Total: 67 named patterns across 10 categories + 7 RAII defect classes = 74 entries*
+*This document: 67 named patterns across 10 categories + 7 RAII defect classes = 74 entries*
 
 > Status: Working taxonomy, not a claim of legal validity, novelty, or complete academic coverage. Counts describe entries in this document. Any publication claim about originality or adjacent research requires a dedicated source and prior-art review.
+
+---
+
+## ⚠️ Complete Smell Inventory: 159 Total Code Smells
+
+This taxonomy covers **cross-domain legal and regulatory patterns**. For the complete inventory across all smell sources, see:
+
+| Taxonomy Document | Scope | Count |
+|---|---|---|
+| **[legal_code_smell_taxonomy.md](legal_code_smell_taxonomy.md)** (this file) | Cross-domain legal/regulatory patterns | **74** |
+| **[insurance_policy_smells.md](insurance_policy_smells.md)** | Policy specification, drafting, rating, underwriting, regulatory mapping | **43** |
+| **[insurance_claims_smells.md](insurance_claims_smells.md)** | Claims handling, adjudication, resolution, bad faith exposure | **41** |
+| **Five Kentucky Homeowners Policy-Layer Smells** | Operationalized subset (Sandbox 002) | **5** (subset of 43+74) |
+| **[SMELL_INVENTORY_COMPLETE.md](SMELL_INVENTORY_COMPLETE.md)** | Unified index of all 159 smells | Reference only |
+
+**Currently detected in Sandbox 002**: Only the 5 operationalized Kentucky homeowners policy-layer smells (31 findings).
+
+**Available but not yet operationalized**: ~110+ smells remain as specification documents ready for detector development.
+
+---
 
 ---
 
