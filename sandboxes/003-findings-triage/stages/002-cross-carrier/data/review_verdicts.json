@@ -1,0 +1,219 @@
+{
+  "schema_version": "1.0.0",
+  "reviewed_by": "Dorian Klingenberg",
+  "reviewed_at": "2026-06-04",
+  "source_run": "18b0dec5",
+  "notes": "Human review of all 35 Stage 001 enriched findings. Full reasoning in stages/001-llm-triage/validation/human-review-notes.md.",
+  "verdicts": [
+    {
+      "finding_id": "18b0dec5-s1-0001",
+      "status": "false_positive",
+      "revised_severity": null,
+      "reason": "Notice provision (Duties After Loss), not a coverage exclusion. Detector fired on 'any claim' near 'no coverage' but context is a late-notice reporting deadline, not an overbroad exclusion scope."
+    },
+    {
+      "finding_id": "18b0dec5-s2-0002",
+      "status": "downgraded",
+      "revised_severity": "LOW",
+      "reason": "Underwriting eligibility criterion, not a claims payment term. 'Market value' here describes favorable risk characteristics assessed at time of application, not a loss settlement calculation."
+    },
+    {
+      "finding_id": "18b0dec5-s2-0003",
+      "status": "false_positive",
+      "revised_severity": null,
+      "reason": "Endorsement table of contents — 'Replacement Cost' is an endorsement name, not a valuation term requiring definition."
+    },
+    {
+      "finding_id": "18b0dec5-s2-0004",
+      "status": "confirmed",
+      "revised_severity": "HIGH",
+      "reason": "Replacement cost undefined in loss settlement section. May indicate external valuation tool not cited in filing (see BACKLOG-008)."
+    },
+    {
+      "finding_id": "18b0dec5-s2-0005",
+      "status": "confirmed",
+      "revised_severity": "HIGH",
+      "reason": "Replacement cost undefined in additional amounts of insurance section."
+    },
+    {
+      "finding_id": "18b0dec5-s2-0006",
+      "status": "confirmed",
+      "revised_severity": "HIGH",
+      "reason": "Replacement cost referenced in water backup endorsement charge without methodology."
+    },
+    {
+      "finding_id": "18b0dec5-s2-0007",
+      "status": "confirmed",
+      "revised_severity": "HIGH",
+      "reason": "Replacement cost referenced in rate change comments without methodology."
+    },
+    {
+      "finding_id": "18b0dec5-s2-0008",
+      "status": "confirmed",
+      "revised_severity": "MEDIUM",
+      "reason": "'Reasonable time' undefined in roof surfacing loss settlement condition. Severity MEDIUM pending KRS/KAR cross-reference check (BACKLOG-007)."
+    },
+    {
+      "finding_id": "18b0dec5-s2-0009",
+      "status": "confirmed",
+      "revised_severity": "MEDIUM",
+      "reason": "'Reasonable time' undefined — controls RC vs ACV settlement basis. MEDIUM pending KRS check."
+    },
+    {
+      "finding_id": "18b0dec5-s2-0010",
+      "status": "confirmed",
+      "revised_severity": "HIGH",
+      "reason": "ACV undefined in roof surfacing loss settlement condition. Direct payment impact."
+    },
+    {
+      "finding_id": "18b0dec5-s2-0011",
+      "status": "confirmed",
+      "revised_severity": "HIGH",
+      "reason": "Replacement cost without deduction for depreciation — methodology not defined."
+    },
+    {
+      "finding_id": "18b0dec5-s2-0012",
+      "status": "confirmed",
+      "revised_severity": "HIGH",
+      "reason": "ACV loss settlement in roof surfacing endorsement — valuation methodology absent."
+    },
+    {
+      "finding_id": "18b0dec5-s2-0013",
+      "status": "confirmed",
+      "revised_severity": "MEDIUM",
+      "reason": "'Reasonable time' in KFBM markup form — same pattern as s2-0008. MEDIUM pending KRS check."
+    },
+    {
+      "finding_id": "18b0dec5-s2-0014",
+      "status": "confirmed",
+      "revised_severity": "MEDIUM",
+      "reason": "'Reasonable time' in KFBM markup form conditions. MEDIUM pending KRS check."
+    },
+    {
+      "finding_id": "18b0dec5-s2-0015",
+      "status": "confirmed",
+      "revised_severity": "HIGH",
+      "reason": "ACV loss settlement — 7-year roof replacement window triggers ACV without defined methodology."
+    },
+    {
+      "finding_id": "18b0dec5-s2-0016",
+      "status": "confirmed",
+      "revised_severity": "HIGH",
+      "reason": "Replacement cost without depreciation deduction — methodology not defined in KFBM markup."
+    },
+    {
+      "finding_id": "18b0dec5-s2-0017",
+      "status": "confirmed",
+      "revised_severity": "MEDIUM",
+      "reason": "'Reasonable' in general contractor fee inclusion condition — KFBM endorsement. MEDIUM pending KRS check."
+    },
+    {
+      "finding_id": "18b0dec5-s2-0018",
+      "status": "confirmed",
+      "revised_severity": "MEDIUM",
+      "reason": "'Reasonably likely' in general contractor overhead/profit condition. MEDIUM pending KRS check."
+    },
+    {
+      "finding_id": "18b0dec5-s3-0019",
+      "status": "false_positive",
+      "revised_severity": null,
+      "reason": "Statutory node (KY-KRS-304-14). Detectors must not fire on reference-layer sources. 'Except as otherwise provided' is standard legislative drafting."
+    },
+    {
+      "finding_id": "18b0dec5-s3-0020",
+      "status": "false_positive",
+      "revised_severity": null,
+      "reason": "Statutory node (KY-KRS-304-14). Same issue as s3-0019."
+    },
+    {
+      "finding_id": "18b0dec5-s3-0021",
+      "status": "false_positive",
+      "revised_severity": null,
+      "reason": "Regulatory node (KY-KAR-806-13-150). Reference-layer source — not a carrier filing."
+    },
+    {
+      "finding_id": "18b0dec5-s3-0022",
+      "status": "false_positive",
+      "revised_severity": null,
+      "reason": "Regulatory node (KY-KAR-806-12-095). Reference-layer source — not a carrier filing."
+    },
+    {
+      "finding_id": "18b0dec5-s4-0023",
+      "status": "confirmed",
+      "revised_severity": "HIGH",
+      "reason": "Unversioned external manual reference in KNIC rate rule. Clean, auditable finding — no edition or date cited."
+    },
+    {
+      "finding_id": "18b0dec5-s5-0024",
+      "status": "confirmed",
+      "revised_severity": "HIGH",
+      "reason": "KNIC rate information node — rate-setting content with no traceable edge to KRS/KAR/DOI authority."
+    },
+    {
+      "finding_id": "18b0dec5-s5-0025",
+      "status": "confirmed",
+      "revised_severity": "HIGH",
+      "reason": "KFBM Homeowner Risk Factor — credit-score-based discount factor with no regulatory citation."
+    },
+    {
+      "finding_id": "18b0dec5-s5-0026",
+      "status": "confirmed",
+      "revised_severity": "HIGH",
+      "reason": "KFBM base premium computation section — rate methodology with no regulatory authority cited."
+    },
+    {
+      "finding_id": "18b0dec5-s5-0027",
+      "status": "confirmed",
+      "revised_severity": "HIGH",
+      "reason": "KFBM deductible factor computation — no KRS/KAR citation for the methodology."
+    },
+    {
+      "finding_id": "18b0dec5-s5-0028",
+      "status": "confirmed",
+      "revised_severity": "HIGH",
+      "reason": "KFBM roof rating factor — age-based rating component with no regulatory citation."
+    },
+    {
+      "finding_id": "18b0dec5-s5-0029",
+      "status": "downgraded",
+      "revised_severity": "LOW",
+      "reason": "Statement of filing requirement, not a coverage provision. 'Section II Coverage is not mandatory' is a rate manual instruction to agents, not a regulatory mapping gap. Would need actual issued policy to confirm a real problem."
+    },
+    {
+      "finding_id": "18b0dec5-s5-0030",
+      "status": "confirmed",
+      "revised_severity": "MEDIUM",
+      "reason": "Inflation guard mandatory language — 'the policy must be endorsed' with no regulatory citation. Real finding; inflation guard requirement may have DOI basis not visible in this filing."
+    },
+    {
+      "finding_id": "18b0dec5-s5-0031",
+      "status": "duplicate",
+      "revised_severity": null,
+      "reason": "Coverage C replacement cost section already captured by Smell 2 (s2-0004). Duplicate signal."
+    },
+    {
+      "finding_id": "18b0dec5-s5-0032",
+      "status": "false_positive",
+      "revised_severity": null,
+      "reason": "Evidence text is only a section header ('Roof Surface Loss Settlement') — no substantive policy language to analyze."
+    },
+    {
+      "finding_id": "18b0dec5-s5-0033",
+      "status": "false_positive",
+      "revised_severity": null,
+      "reason": "Endorsement table of contents — no substantive policy language. Same issue as s2-0003."
+    },
+    {
+      "finding_id": "18b0dec5-s5-0034",
+      "status": "duplicate",
+      "revised_severity": null,
+      "reason": "Overlaps with the notice provision already captured in Smell 1 (s1-0001). Duplicate signal."
+    },
+    {
+      "finding_id": "18b0dec5-s5-0035",
+      "status": "confirmed",
+      "revised_severity": "MEDIUM",
+      "reason": "Inflation guard — 'percentage is based on an index of construction costs' with no citation to which index or version. Real finding: unidentified external index."
+    }
+  ]
+}

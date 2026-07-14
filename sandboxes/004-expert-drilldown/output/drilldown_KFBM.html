@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kentucky Homeowners Insurance — Expert Drill-Down Report — KFBM</title>
+<style>
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #c9d1d9;
+    background: #0d1117;
+  }
+
+  /* ── Layout ───────────────────────────────────────────────────────── */
+  .page-header {
+    background: #010409;
+    color: #e6edf3;
+    padding: 28px 40px 24px;
+    border-bottom: 3px solid #da3633;
+  }
+  .page-header h1 { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.01em; }
+  .page-header .subtitle { font-size: 0.85rem; color: #8b949e; margin-top: 4px; }
+
+  .page-body { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  /* ── Finding card ─────────────────────────────────────────────────── */
+  .finding-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    overflow: hidden;
+  }
+
+  .finding-header {
+    padding: 20px 28px 16px;
+    border-bottom: 1px solid #21262d;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .badge-col { display: flex; flex-direction: column; gap: 6px; min-width: 120px; }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .badge-high     { background: #3d0c0c; color: #f85149; border: 1px solid #6e1a1a; }
+  .badge-medium   { background: #2d1f00; color: #d29922; border: 1px solid #5a3e00; }
+  .badge-low      { background: #0c2a0c; color: #3fb950; border: 1px solid #1a4e1a; }
+  .badge-heuristic{ background: #0d1f3c; color: #58a6ff; border: 1px solid #1a3a6e; }
+  .badge-carrier  { background: #1a1a2e; color: #a5b4fc; border: 1px solid #2e3a5e; }
+  .badge-industry { background: #0c2a1a; color: #3fb950; border: 1px solid #1a4e2a; }
+
+  .finding-meta { flex: 1; }
+  .finding-meta h2 { font-size: 1.1rem; font-weight: 600; color: #e6edf3; margin-bottom: 4px; }
+  .finding-meta .source-line { font-size: 0.82rem; color: #8b949e; }
+  .finding-meta .section-line {
+    font-size: 0.82rem;
+    color: #6e7681;
+    margin-top: 2px;
+    font-family: "SF Mono", "Fira Code", monospace;
+  }
+
+  /* ── Evidence block ───────────────────────────────────────────────── */
+  .evidence-block {
+    margin: 0;
+    padding: 16px 28px;
+    background: #0d1117;
+    border-bottom: 1px solid #21262d;
+  }
+  .evidence-block .label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6e7681;
+    margin-bottom: 6px;
+  }
+  .verbatim {
+    font-family: "SF Mono", "Fira Code", "Courier New", monospace;
+    font-size: 0.88rem;
+    color: #f85149;
+    background: #1a0a0a;
+    border-left: 3px solid #da3633;
+    padding: 10px 14px;
+    border-radius: 0 4px 4px 0;
+  }
+  .context-text {
+    font-size: 0.85rem;
+    color: #8b949e;
+    margin-top: 10px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* ── Gap statement ────────────────────────────────────────────────── */
+  .gap-block {
+    padding: 16px 28px;
+    border-bottom: 1px solid #21262d;
+    background: #1a1200;
+    border-left: 4px solid #9e6a03;
+  }
+  .gap-block .label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #9e6a03;
+    margin-bottom: 6px;
+  }
+  .gap-block p { font-size: 0.9rem; color: #c9d1d9; line-height: 1.65; }
+
+  /* ── Three-panel reader sections ──────────────────────────────────── */
+  .reader-panels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid #21262d;
+  }
+
+  .panel {
+    padding: 20px 24px 24px;
+    border-right: 1px solid #21262d;
+  }
+  .panel:last-child { border-right: none; }
+
+  .panel-heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #21262d;
+  }
+  .panel-icon { font-size: 1rem; }
+  .panel-title { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  .panel-compliance .panel-title { color: #58a6ff; }
+  .panel-compliance .panel-heading { border-color: #1a3a6e; }
+
+  .panel-claims .panel-title { color: #d29922; }
+  .panel-claims .panel-heading { border-color: #5a3e00; }
+
+  .panel-policy .panel-title { color: #3fb950; }
+  .panel-policy .panel-heading { border-color: #1a4e2a; }
+
+  .panel p, .panel li { font-size: 0.85rem; color: #c9d1d9; line-height: 1.6; }
+  .panel ul { list-style: none; padding: 0; }
+  .panel ul li { padding: 6px 0; border-bottom: 1px solid #21262d; }
+  .panel ul li:last-child { border-bottom: none; }
+
+  .citation-item { margin-bottom: 10px; }
+  .citation-ref {
+    font-family: "SF Mono", "Fira Code", monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #58a6ff;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .citation-summary { font-size: 0.82rem; color: #8b949e; line-height: 1.5; }
+
+  .question-block {
+    margin-top: 14px;
+    padding: 10px 12px;
+    background: #0d1f3c;
+    border-radius: 4px;
+    border-left: 3px solid #388bfd;
+    font-size: 0.82rem;
+    color: #a5c4f3;
+    font-style: italic;
+  }
+
+  .scenario-block {
+    margin-top: 10px;
+    padding: 10px 12px;
+    background: #1a1000;
+    border-radius: 4px;
+    border-left: 3px solid #9e6a03;
+    font-size: 0.82rem;
+    color: #c9a84c;
+    line-height: 1.55;
+  }
+
+  .risk-tag {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 6px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: #2d1f00;
+    color: #d29922;
+    border: 1px solid #5a3e00;
+  }
+  .risk-tag-high {
+    background: #3d0c0c;
+    color: #f85149;
+    border-color: #6e1a1a;
+  }
+
+  .redline-block { margin-top: 10px; }
+  .redline-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #8b949e; margin-bottom: 4px; }
+  .redline-old {
+    font-family: "SF Mono", "Fira Code", monospace;
+    font-size: 0.8rem;
+    color: #f85149;
+    background: #1a0a0a;
+    border-left: 3px solid #6e1a1a;
+    padding: 8px 10px;
+    border-radius: 0 3px 3px 0;
+    text-decoration: line-through;
+    opacity: 0.8;
+    margin-bottom: 6px;
+  }
+  .redline-new {
+    font-family: "SF Mono", "Fira Code", monospace;
+    font-size: 0.8rem;
+    color: #3fb950;
+    background: #0c2a0c;
+    border-left: 3px solid #1a4e2a;
+    padding: 8px 10px;
+    border-radius: 0 3px 3px 0;
+    margin-bottom: 8px;
+  }
+  .refiling-note {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: #c9d1d9;
+    background: #1c2128;
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: 1px solid #30363d;
+  }
+  .refiling-note strong { color: #e6edf3; }
+
+  .disclaimer {
+    margin-top: 14px;
+    font-size: 0.74rem;
+    color: #6e7681;
+    font-style: italic;
+    border-top: 1px dashed #30363d;
+    padding-top: 10px;
+  }
+
+  /* ── Nav bar ──────────────────────────────────────────────────────── */
+  .report-nav {
+    font-size: 0.8rem;
+    color: #8b949e;
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    background: #161b22;
+    border-radius: 6px;
+    border: 1px solid #30363d;
+  }
+  .report-nav strong { color: #c9d1d9; }
+  .nav-item {
+    display: inline-block;
+    margin-right: 16px;
+    padding: 2px 0;
+    color: #8b949e;
+    cursor: pointer;
+  }
+  .nav-item:hover { color: #f85149; }
+  .nav-active { color: #58a6ff; font-weight: 600; }
+
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Kentucky Homeowners Insurance — Expert Drill-Down Report — KFBM</h1>
+  <div class="subtitle">Confidential · KFBM Filings Only · Not Legal Advice · Findings require review by qualified coverage counsel</div>
+</div>
+
+<div class="page-body">
+
+  <div class="report-nav">
+    <strong>Confirmed findings:</strong>
+    <span class="nav-item nav-active">S5-H004-KFBM-KNIC-001 — SMELL5-H004</span><span class="nav-item nav-active">S4-H003-KFBM-001 — SMELL2-H003</span>
+  </div>
+
+
+  <div class="finding-card" id="S5-H004-KFBM-KNIC-001">
+
+    <div class="finding-header">
+      <div class="badge-col">
+        <span class="badge badge-high">HIGH severity</span>
+<span class="badge badge-medium">MEDIUM confidence</span>
+<span class="badge badge-heuristic">SMELL5-H004</span>
+<span class="badge badge-carrier">KNIC + KFBM</span>
+<span class="badge badge-industry">Industry-wide</span>
+      </div>
+      <div class="finding-meta">
+        <h2>SMELL5-H004</h2>
+        <div class="source-line"></div>
+        <div class="section-line"></div>
+      </div>
+    </div>
+
+    <div class="evidence-block">
+      <div class="label">Verbatim triggering language</div>
+      <div class="verbatim">The Homeowner Risk Factor is a rating component made up of data derived from claim experience and a Property Insurance Score. The factor will be calculated at new business, reinstatements with a lapse and renewals. If a discount factor is applied to a policy, the Homeowner Risk Factor will be referred to as the PropertyPlus discount.</div>
+      
+    </div>
+
+    <div class="gap-block">
+      <div class="label">The gap</div>
+      <p>Both carriers&#x27; rate-setting filings contain rating methodology sections — base premium computation, homeowner risk factors, roof rating factors, deductible factors — with no traceable citation to the Kentucky statute, administrative regulation, or DOI bulletin that authorizes each methodology. The Homeowner Risk Factor is the most significant instance: it incorporates a &#x27;Property Insurance Score&#x27; derived from an external third-party source, with no citation to the regulatory authority permitting the use of such a score in Kentucky homeowners rating. A market conduct examiner reviewing these filings cannot verify from the filing alone that each rating component is authorized under Kentucky law.</p>
+    </div>
+
+    <div class="reader-panels">
+
+      <div class="panel panel-compliance">
+        <div class="panel-heading">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">Compliance &amp; Coverage Counsel</span>
+        </div>
+        
+      <div class="citation-item">
+        <span class="citation-ref">KRS 304.13-050</span>
+        <span class="citation-summary">Rates shall not be excessive, inadequate, or unfairly discriminatory. The standard requires that rate methodologies be supportable. A filing that does not cite the regulatory basis for a rating component cannot demonstrate compliance with this standard from the face of the filing.</span>
+      </div>
+      <div class="citation-item">
+        <span class="citation-ref">KRS 304.13-051</span>
+        <span class="citation-summary">Requires every insurer to file rates and supplementary rate information with the commissioner. A rate filing that contains a methodology but no regulatory citation for that methodology is incomplete as a matter of verifiability — the DOI cannot confirm that the methodology is authorized without additional investigation.</span>
+      </div>
+      <div class="citation-item">
+        <span class="citation-ref">806 KAR 13:110 — Rate Standards, Section 1</span>
+        <span class="citation-summary">Manual rates and rating plans shall be made and adopted in accordance with sound actuarial principles. A rate component that operates without a cited regulatory basis cannot be independently verified as meeting this standard during a market conduct examination.</span>
+      </div>
+      <div class="citation-item">
+        <span class="citation-ref">KRS 304.20-040 — Unfair Discrimination (verify)</span>
+        <span class="citation-summary">Prohibits unfair discrimination between insureds of the same class. The use of a &#x27;Property Insurance Score&#x27; — a composite score derived from third-party data — may implicate this provision depending on the score&#x27;s composition. Kentucky&#x27;s adoption of NAIC credit scoring model guidance should be verified before relying on this citation.</span>
+      </div>
+        <div class="question-block">For each rating component (Homeowner Risk Factor, Roof Rating Factor, Deductible Factor, Base Premium Computation): what Kentucky statute or administrative regulation authorizes the use of this specific methodology? For the Property Insurance Score component specifically: what third-party data source provides the score, and what regulatory authority permits its use in homeowners rating in Kentucky?</div>
+      </div>
+
+      <div class="panel panel-claims">
+        <div class="panel-heading">
+          <span class="panel-icon">📋</span>
+          <span class="panel-title">Claims Professional</span>
+        </div>
+        <p>These are not primarily claims-layer findings — they operate at the rate-setting layer, before a policy is issued. The exposure is regulatory and market-conduct. However, rate methodology gaps create downstream claims exposure in two ways: (1) if a rating factor is found unauthorized after issuance, a carrier may face ordered premium refunds affecting all policyholders rated under that factor; (2) if the Homeowner Risk Factor (which incorporates a Property Insurance Score) is found to constitute unfair discrimination, affected policyholders may have grounds for both regulatory complaints and bad-faith claims based on the rating decision.</p>
+        <div class="scenario-block"><strong>Dispute scenario:</strong> A Kentucky DOI market conduct examiner reviews KFBM&#x27;s rate filing following a consumer complaint about a premium surcharge. The examiner asks: &#x27;On what regulatory authority does KFBM rely for the Homeowner Risk Factor?&#x27; The filing provides no citation. KFBM must reconstruct its regulatory basis from scratch during the exam — a position that invites a finding of non-compliance regardless of whether the methodology is substantively sound.</div>
+        <span class="risk-tag risk-tag-high">Bad-faith risk: HIGH</span>
+      </div>
+
+      <div class="panel panel-policy">
+        <div class="panel-heading">
+          <span class="panel-icon">✏️</span>
+          <span class="panel-title">Policy Designer / Filing Specialist</span>
+        </div>
+        
+        <div class="refiling-note"><strong>DOI refiling required: Yes.</strong> Adding regulatory citations to existing rate methodology sections constitutes supplementary rating information changes under KRS 304.13-051 and 806 KAR 13:150. File via SERFF. If the Property Insurance Score provider or methodology is being identified for the first time, this may also require a new rate filing rather than a supplementary information amendment — verify with DOI before filing.</div>
+        <div class="refiling-note" style="margin-top:8px;">Unlike SMELL4-H001 (which required a single redline), H004 requires a systematic annotation pass across rate methodology sections. Each rate component should carry a parenthetical regulatory citation identifying the authority under which the methodology is used.</div>
+        <div class="disclaimer">This is an editorial suggestion based on pattern analysis of filed documents. It is not legal advice and should not be implemented without review by qualified coverage counsel and a licensed filing specialist.</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="finding-card" id="S4-H003-KFBM-001">
+
+    <div class="finding-header">
+      <div class="badge-col">
+        <span class="badge badge-high">HIGH severity</span>
+<span class="badge badge-high">HIGH confidence</span>
+<span class="badge badge-heuristic">SMELL2-H003</span>
+<span class="badge badge-carrier">KFBM + KNIC</span>
+<span class="badge badge-industry">Industry-wide</span>
+      </div>
+      <div class="finding-meta">
+        <h2>SMELL2-H003</h2>
+        <div class="source-line"></div>
+        <div class="section-line"></div>
+      </div>
+    </div>
+
+    <div class="evidence-block">
+      <div class="label">Verbatim triggering language</div>
+      <div class="verbatim">Such loss will be subject to actual cash value loss settlement. Therefore, the loss settlement conditions that pertain to &#x27;repair or replacement cost without deduction for depreciation&#x27; are changed as noted below: In Form HO 00 03 and HO 00 02, Condition 3. Loss Settlement...</div>
+      
+    </div>
+
+    <div class="gap-block">
+      <div class="label">The gap</div>
+      <p>KFBM&#x27;s proprietary base form HO 04 93 imposes ACV loss settlement on roof surfacing when the roof has not been entirely replaced within 7 years of the loss date. The form uses &#x27;actual cash value&#x27; as the operative settlement standard for this coverage restriction without defining the calculation methodology anywhere in the filed policy package. No depreciation schedule, depreciation tool, or methodology basis (age-only vs. age-and-condition; whether labor costs are depreciated) is disclosed. A policyholder with a roof older than 7 years — the majority of Kentucky homeowners — who suffers a windstorm or hail loss will have their claim settled on an ACV basis they cannot predict, verify, or challenge from the policy documents alone. The same methodology gap appears across KNIC&#x27;s rate rule filing (Section 406), which references replacement cost settlement under HO 00 03 without specifying the calculation standard. ISO HO 00 03 defines ACV but does not specify the depreciation methodology applied at claim time — a gap established by over a decade of labor depreciation class action litigation nationwide.</p>
+    </div>
+
+    <div class="reader-panels">
+
+      <div class="panel panel-compliance">
+        <div class="panel-heading">
+          <span class="panel-icon">⚖️</span>
+          <span class="panel-title">Compliance &amp; Coverage Counsel</span>
+        </div>
+        
+      <div class="citation-item">
+        <span class="citation-ref">KRS 304.12-230 — Unfair Competition and Deceptive Practices</span>
+        <span class="citation-summary">Prohibits misrepresentation of the benefits, advantages, conditions, or terms of any insurance policy. A loss settlement provision that applies ACV without disclosing the calculation methodology may constitute a misrepresentation of the actual settlement conditions the policyholder will face.</span>
+      </div>
+      <div class="citation-item">
+        <span class="citation-ref">KRS 304.20-040 — Unfair Claims Settlement Practices</span>
+        <span class="citation-summary">Prohibits failing to adopt and implement reasonable standards for the prompt investigation of claims and for attempting in good faith to effectuate prompt, fair, and equitable settlements. A carrier that applies an undisclosed depreciation methodology to ACV settlements — particularly one that depreciates labor costs — cannot demonstrate that its settlement standard is disclosed to or verifiable by the policyholder.</span>
+      </div>
+      <div class="citation-item">
+        <span class="citation-ref">806 KAR 12:095 Section 9(2)(a) — Mandatory ACV Calculation Standard</span>
+        <span class="citation-summary">Establishes a mandatory calculation standard for ACV settlements on residential fire and extended coverage: &#x27;the insurer shall determine actual cash value as follows: replacement cost of property at the time of the loss less depreciation, if any.&#x27; Critically, Section 9(2)(a) permits labor depreciation ONLY &#x27;if provided for in the policy&#x27; — meaning explicit policy authorization is required before labor costs may be depreciated. A carrier applying labor depreciation without such a policy provision is not merely failing a disclosure standard; it may be violating Kentucky regulation. On request, the insurer must also provide claim file worksheets showing all depreciation deductions. Source: node 6715f59035644bcc, KY-KAR-806-12-095, run 18b0dec5.</span>
+      </div>
+      <div class="citation-item">
+        <span class="citation-ref">806 KAR 20:010 — Unfair Claims Settlement Practices</span>
+        <span class="citation-summary">Implements KRS 304.20-040. Prohibits refusing to pay claims without conducting a reasonable investigation, and requiring an insured to submit to a less favorable settlement standard than disclosed in the policy. An undisclosed depreciation methodology that reduces a settlement below what the policyholder expected from the policy language creates exposure under this standard.</span>
+      </div>
+        <div class="question-block">What methodology does KFBM use to calculate actual cash value for roof surfacing losses? Is labor depreciated? If so, under what schedule and on what regulatory authority? Has this methodology been filed with and approved by the Kentucky DOI? Can a market conduct examiner reproduce a sample ACV calculation from the filed policy documents alone? Specifically: does KFBM&#x27;s filing contain an explicit provision authorizing labor depreciation as required by 806 KAR 12:095 Section 9(2)(a)? If not, on what authority is labor being depreciated — and has that practice been disclosed to the Kentucky DOI?</div>
+      </div>
+
+      <div class="panel panel-claims">
+        <div class="panel-heading">
+          <span class="panel-icon">📋</span>
+          <span class="panel-title">Claims Professional</span>
+        </div>
+        <p>Kentucky sits within a high-frequency hail and wind corridor. Windstorm and hail are among the most common homeowners claim types in the state. KFBM&#x27;s 7-year roof rule means that any policyholder with a roof older than 7 years — a substantial majority of the book — who suffers a windstorm or hail loss receives ACV rather than replacement cost on roof surfacing. The ACV calculation methodology is not disclosed. If KFBM depreciates labor costs as part of its ACV calculation — a practice challenged in class action litigation across multiple states beginning in 2015 — the undisclosed methodology creates direct bad-faith exposure for every such claim in the book.</p>
+        <div class="scenario-block"><strong>Dispute scenario:</strong> A Kentucky homeowner with a 10-year-old roof suffers hail damage. KFBM pays ACV on the roof surfacing claim. The settlement is calculated using an internal depreciation schedule that depreciates both materials and labor. The policyholder receives a settlement that is materially less than the cost to repair the roof. The policyholder asks: how was this number calculated? KFBM cannot point to any policy document that discloses the methodology. The policyholder files a complaint with the Kentucky DOI and retains counsel. Counsel identifies that the labor depreciation methodology was applied without disclosure — the same pattern litigated in Henn v. American Family (Iowa, 2016), Wilcox v. State Farm (multiple states, 2016–2019), and related class actions.</div>
+        <span class="risk-tag risk-tag-high">Bad-faith risk: HIGH</span>
+      </div>
+
+      <div class="panel panel-policy">
+        <div class="panel-heading">
+          <span class="panel-icon">✏️</span>
+          <span class="panel-title">Policy Designer / Filing Specialist</span>
+        </div>
+        
+      <div class="redline-block">
+        <div class="redline-label">Current language</div>
+        <div class="redline-old">Such loss will be subject to actual cash value loss settlement.</div>
+        <div class="redline-label">Suggested language</div>
+        <div class="redline-new">Such loss will be subject to actual cash value loss settlement. For purposes of this provision, actual cash value means the cost to repair or replace the damaged property with material of like kind and quality, less depreciation. Depreciation shall be calculated using [carrier&#x27;s named depreciation schedule or tool, e.g., &#x27;the Kentucky Farm Bureau Mutual depreciation schedule as filed with the Kentucky Department of Insurance under SERFF tracking number [tracking number], effective [date]&#x27;]. Labor costs [are / are not] subject to depreciation under this provision. The depreciation methodology applied to any loss under this provision will be disclosed to the insured upon request within [X] business days of the initial settlement offer.</div>
+      </div>
+        <div class="refiling-note"><strong>DOI refiling required: Yes.</strong> Amending loss settlement conditions in the base form requires a form filing under 806 KAR 14:006. If a new depreciation schedule or tool is being identified for the first time, it may also need to be filed as supplementary rate information under KRS 304.13-051. File via SERFF under the existing HO TOI with a cover letter explaining the amendment as a disclosure enhancement.</div>
+        <div class="refiling-note" style="margin-top:8px;">Three elements are required: (1) define ACV explicitly in the provision that triggers it — not just in a definitions section the adjuster may not apply; (2) identify the depreciation tool or schedule by name and filing reference; (3) state clearly whether labor is depreciated. Without all three, the provision remains unverifiable. If KFBM currently does not depreciate labor, stating that fact explicitly is a competitive advantage and a liability shield. If KFBM does depreciate labor, this must be disclosed AND an explicit policy provision authorizing it must be added — this is a regulatory requirement under 806 KAR 12:095 Section 9(2)(a), not merely a disclosure best practice. If no such provision currently exists and labor is being depreciated, KFBM faces a regulatory compliance exposure that precedes any bad-faith claim.</div>
+        <div class="disclaimer">This is an editorial suggestion based on pattern analysis of filed documents. It is not legal advice and should not be implemented without review by qualified coverage counsel and a licensed filing specialist.</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>

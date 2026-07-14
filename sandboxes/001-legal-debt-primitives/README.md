@@ -15,12 +15,12 @@ The first prototype is intentionally plain Python with no third-party dependenci
 
 ## Stage Workflow
 
-This sandbox is now staged. The current stable baseline is [stages/001-baseline](stages/001-baseline/STAGE.md).
+This sandbox is frozen. Its runnable baseline is [stages/001-baseline](stages/001-baseline/STAGE.md), and Stage 004 is a preserved partial semantic study rather than active work.
 
 Use [STAGING.md](STAGING.md) for the workflow and [NEXT_STAGES.md](NEXT_STAGES.md) for candidate follow-on experiments.
 Each stage should include a `LESSON.md`; the baseline example is [stages/001-baseline/LESSON.md](stages/001-baseline/LESSON.md).
 
-To start a new stage from the current study:
+Only if a concrete future experiment explicitly reopens typed-edge work, the historical stage tool can clone a new stage:
 
 ```powershell
 python .\tools\new_stage.py --from 004-typed-edge-study --to 005-typed-matrix-prototype --title "Typed Matrix Prototype" --include-output
@@ -74,7 +74,7 @@ Lightweight parsing plus graph/matrix checks get far enough to support useful pr
 
 They also expose the next bottleneck: legal references need semantic relationship types before reachability can be treated as legal or compliance meaning.
 
-That lesson now carries forward into [../002-claims-regulatory-automation](../002-claims-regulatory-automation/002-claims-regulatory-automation-README.md), where the active focus is insurance policy and claims smells.
+That lesson carried forward into [../002-claims-regulatory-automation](../002-claims-regulatory-automation/002-claims-regulatory-automation-README.md), which is also now complete and preserved. Use the repository root `README.md` for current work.
 
 ## Success Criteria
 

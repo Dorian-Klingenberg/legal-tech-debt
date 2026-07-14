@@ -1,20 +1,20 @@
 # How To Procure Kentucky Insurance Information
 
 Created: 2026-05-29
-Scope: Sandbox 002 Kentucky homeowners insurance research and proof-of-concept fixtures
+Scope: Sandbox 002 Kentucky homeowners insurance research, discovery-and-instrumentation, and proof-of-concept evidence
+Status: Preserved acquisition guide. Use `corpus/PROCUREMENT-STRATEGY.md`, `CORPUS-SOURCES.md`, and `KNOWN-GAPS.md` for current acquisition decisions.
 
 ## Purpose
 
 This guide explains how to collect Kentucky homeowners insurance source material for Sandbox 002 without turning the project into an infrastructure project.
 
-The goal is to gather enough public, reviewable homeowners material to build synthetic-but-realistic fixtures for policy and claims legal tech debt detectors:
+The goal is to gather enough public, reviewable homeowners material to support discovery-and-instrumentation, candidate evidence, curated fixtures, and later policy-layer legal tech debt detectors:
 
-- Broken Link / Null Reference Clause
-- Calculation Rule Drift
-- Coverage Inversion
-- Magic Number Term
-- Non-deterministic Language
-- Regulatory Drift in Claim Handling
+- Overbroad / Non-deterministic Exclusions
+- Magic Number / Magic Valuation Terms
+- Coverage Inversion / Contradictory Conditions
+- Calculation Rule Drift / Unversioned Rate Reference
+- Regulatory Mapping Smells
 
 This is a research procurement guide, not legal advice.
 
@@ -22,9 +22,21 @@ This is a research procurement guide, not legal advice.
 
 Focus on Kentucky homeowners insurance.
 
-Do not procure personal auto, motor vehicle, no-fault, or PIP material for the active fixture. Those sources may appear nearby on Kentucky DOI pages, but they are out of scope unless the user explicitly reopens auto work.
+Do not procure personal auto, motor vehicle, no-fault, or PIP material for active discovery, fixtures, or detectors. Those sources may appear nearby on Kentucky DOI pages, but they are out of scope unless the user explicitly reopens auto work.
 
-If a homeowners source cross-references another line, record the reference in the manifest as context and keep the fixture homeowners-centered.
+If a homeowners source cross-references another line, record the reference in the manifest as context and keep active evidence homeowners-centered.
+
+## Procurement Targets By Five-Smell Scope
+
+Use `002-five-policy-layer-phish.md` as the source of truth for what discovery and candidate evidence need.
+
+| Active Smell | Source Material To Prioritize |
+|---|---|
+| Overbroad / Non-deterministic Exclusions | Homeowners exclusions, endorsements, ordinance-or-law provisions, virus/data/governmental-action language, and any "arising out of" or "directly or indirectly" wording. |
+| Magic Number / Magic Valuation Terms | Conditions, definitions, loss settlement provisions, actual cash value language, notice duties, prompt-payment references, and valuation manuals. |
+| Coverage Inversion / Contradictory Conditions | Complete homeowners packages with base form, mandatory endorsements, optional endorsements, sublimits, exceptions, and priority language. |
+| Calculation Rule Drift / Unversioned Rate Reference | Homeowners rate/rule filings, rating manuals, loss-cost references, premium factor pages, and ACV or replacement-cost calculation references. |
+| Regulatory Mapping Smells | Kentucky-specific schedules, cancellation/notice provisions, mandatory coverage provisions, DOI bulletins, KRS/KAR citations, and "as required by law" clauses. |
 
 ## Source Priority
 
@@ -46,16 +58,16 @@ Avoid secondary sources unless they are only being used to discover an official 
 | P&C form filing rules | [806 KAR 14:006](https://apps.legislature.ky.gov/law/kar/titles/806/014/006/) | Key source for form filing procedures and approval/disapproval context. |
 | Rate, rule, and form filing access | [Kentucky DOI access page](https://insurance.ky.gov/ppc/newstatic_Info.aspx?static_ID=665) | DOI says P&C filings are accepted through SERFF and SFA can be used for public access. |
 | Public filing search instructions | [Public Access Insurance Filings PDF](https://insurance.ky.gov/ppc/Documents/publicaccessinsurancefilingsforproperty.pdf) | Explains SFA coverage and cautions about filing status. |
-| P&C checklists and documents | [DOI P&C Documents](https://insurance.ky.gov/ppc/new_docs.aspx?cat=198) | Use the homeowners-related checklist/materials. If Kentucky combines homeowners with dwelling, mobile homeowners, or farmowners in one checklist, extract only the ordinary homeowners portions for the active fixture. |
+| P&C checklists and documents | [DOI P&C Documents](https://insurance.ky.gov/ppc/new_docs.aspx?cat=198) | Use the homeowners-related checklist/materials. If Kentucky combines homeowners with dwelling, mobile homeowners, or farmowners in one checklist, extract only the ordinary homeowners portions for active evidence. |
 | Open records | [DOI Open Records page](https://insurance.ky.gov/ppc/newstatic_Info.aspx?static_ID=6) and [PPC Open Records form](https://ppc.ky.gov/NewOpenRecords.aspx) | Use when filings are older, unavailable in SFA, or need confirmation. |
 
 ## What To Collect First
 
-For the first useful 002 fixture, collect only enough to support one narrow policy/claims lane.
+For the first useful 002 discovery-and-instrumentation pass, use only enough source material to support candidate evidence for the five active policy-layer smells.
 
 Recommended first lane:
 
-> Kentucky homeowners property coverage, with a small rate-rule or form-filing component.
+> One Kentucky homeowners program package, with enough form, endorsement, rule, and Kentucky citation material to seed all five active smells.
 
 Minimum bundle:
 
@@ -74,8 +86,9 @@ Minimum bundle:
    - P&C rate/rule/form filing schedules or transmittal instructions.
 
 4. SERFF public filing samples
-   - One approved homeowners form filing.
+   - One approved homeowners form filing or package with base form and endorsements.
    - One rate/rule filing or loss-cost-multiplier-related filing if publicly available.
+   - Any Kentucky-specific state amendatory endorsement, schedule, or cancellation/notice provision attached to the homeowners package.
    - Prefer filings with clear status, effective date, filing number, company name, line of business, and attached forms/rules.
 
 5. Open records backup
@@ -151,8 +164,11 @@ Use a raw/processed split.
 
 ```text
 stages/
-  002-dual-detector-probe/
+  002-homeowners-discovery-instrumentation/
+    schema/
     data/
+      source_manifest_subset.csv
+      heuristics.md
       raw/
         kentucky/
           statutes/
@@ -162,7 +178,21 @@ stages/
           open-records/
       processed/
         corpus/
-        source_manifest.csv
+    output/
+      run_manifest.json
+      sources.jsonl
+      parser_runs.jsonl
+      blocks.jsonl
+      block_stats.jsonl
+      nodes.jsonl
+      citations.jsonl
+      references.jsonl
+      edges.jsonl
+      table_failures.jsonl
+      parse_warnings.jsonl
+      candidate_evidence.jsonl
+      retrieval_bundles.json
+      discovery_report.md
 ```
 
 Do not edit raw source files after download. Create cleaned Markdown excerpts under `processed/corpus/`.
@@ -185,15 +215,16 @@ Example source types:
 - `serff_rate_rule_filing`
 - `open_records_response`
 
-## Conversion To Sandbox Fixtures
+## Conversion To Discovery Outputs And Fixtures
 
-For early experiments, do not try to analyze giant PDFs directly.
+For early experiments, do not try to analyze giant PDFs all at once. Select a tiny subset and let the discovery-and-instrumentation pipeline produce parser diagnostics, legal nodes, citations, broader references, conservative graph edges, retrieval bundles, and candidate evidence.
 
 1. Select small excerpts.
 2. Convert relevant sections to Markdown.
 3. Preserve source IDs and citations in headings or front matter.
-4. Seed intentional defects in synthetic copies, not in raw files.
-5. Keep the original source and synthetic fixture clearly separated.
+4. Keep parser provenance, block stats, table failures, and parse warnings visible.
+5. Seed intentional defects in synthetic copies only when discovery outputs cannot support a needed smell example.
+6. Keep the original source, discovery output, curated fixture, and synthetic seed clearly separated.
 
 Suggested heading format:
 
@@ -213,7 +244,7 @@ Before using a source in an experiment, confirm:
 - The effective date, filing status, or revision date is recorded when available.
 - SERFF material is not assumed final unless the status supports that conclusion.
 - Any transformed Markdown preserves enough text to explain a finding.
-- The fixture does not imply legal advice or legal interpretation.
+- The discovery output, fixture, or candidate evidence does not imply legal advice or legal interpretation.
 
 ## What Not To Do Yet
 
@@ -223,20 +254,24 @@ Before using a source in an experiment, confirm:
 - Do not create a database.
 - Do not treat DOI consumer guidance as a substitute for statute/regulation text.
 - Do not rely on unofficial summaries when official KRS/KAR/DOI sources are available.
-- Do not collect auto/no-fault/PIP material for the active fixture.
+- Do not collect auto/no-fault/PIP material for active discovery, fixtures, or detectors.
 
 ## First Procurement Checklist
 
-- [ ] Download or save links for KRS Chapter 304 and homeowners/property-specific sections discovered through official sources.
-- [ ] Download or save links for Title 806 KAR and 806 KAR 14:006.
-- [ ] Download the DOI homeowners/personal dwelling checklist or related P&C document.
-- [ ] Manually collect 1-2 recent SERFF filings for Kentucky homeowners.
-- [ ] Create `source_manifest.csv`.
-- [ ] Convert 5-10 short excerpts into Markdown fixtures.
-- [ ] Document any source gaps or open records requests.
+Current status as of 2026-06-01: the first real-document corpus has been downloaded under `corpus/`, with one directory per active smell. Use `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv` before procuring more sources.
+
+- [x] Download or save links for KRS Chapter 304 and homeowners/property-specific sections discovered through official sources.
+- [x] Download or save links for Title 806 KAR and 806 KAR 14:006.
+- [x] Download the DOI homeowners/personal dwelling checklist or related P&C document.
+- [x] Create a corpus-level download manifest.
+- [x] Document source gaps and manual-access items in `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`.
+- [ ] Run a tiny discovery-and-instrumentation pass over selected corpus files and emit JSONL evidence/diagnostic outputs.
+- [ ] Curate 5-10 short fixture excerpts from candidate evidence, with at least one excerpt or clearly marked synthetic seed for each active smell where practical.
+- [ ] Manually collect 1-2 recent SERFF filings for Kentucky homeowners only if active candidate evidence, fixture curation, detector work, or reviewer questions need missing current-state carrier evidence.
 
 ## Notes For Future Agents
 
 Keep this procurement work small. The project is still proving detector value, not building a Kentucky insurance data warehouse.
 
 When in doubt, collect one better source with excellent metadata instead of ten poorly tracked sources.
+

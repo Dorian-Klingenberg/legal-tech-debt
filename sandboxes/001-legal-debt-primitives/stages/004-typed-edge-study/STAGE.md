@@ -3,6 +3,12 @@
 Created: 2026-05-13
 Cloned from: `003-kentucky-insurance-sample`
 
+## Disposition Checklist
+
+- [x] Complete the controlled seed-labeling study.
+- [x] Record semantic edge-taxonomy refinement as the remaining research question.
+- [x] Park implementation phases when Sandbox 001 closed.
+
 ## Purpose
 
 Study whether plain dependency references can be classified into relationship types that make reachability legally meaningful.

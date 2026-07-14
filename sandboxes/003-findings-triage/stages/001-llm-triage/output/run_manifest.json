@@ -1,0 +1,12 @@
+{
+  "stage": "003-001-llm-triage",
+  "run_at": "2026-06-04T17:28:18.970376+00:00",
+  "findings_source": "D:\\Repos\\legal-tech-debt\\sandboxes\\002-claims-regulatory-automation\\output\\006\\20260604_130606_18b0dec5\\detector_findings.jsonl",
+  "total_findings": 35,
+  "enriched": 35,
+  "errors": 0,
+  "tier1_model": "gpt-4o-mini",
+  "tier2_model": "gpt-4o",
+  "tier1_prompt_version": "1.0.0",
+  "tier2_prompt_version": "1.1.0"
+}

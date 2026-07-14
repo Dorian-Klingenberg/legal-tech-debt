@@ -1,5 +1,7 @@
 # Legal Tech Debt: Deep Research Report
 
+Status: Foundational research snapshot. Its market, MVP, tooling, and roadmap language predates the completed sandbox evidence and provider-facing pivot. Use the root `README.md` and `path.md` for current direction, and verify source claims before publication.
+
 ## Executive Summary
 
 Legal tech debt — the systematic accumulation of unmanaged complexity, contradiction, obsolescence, and structural fragility in legal texts, policies, regulations, and compliance systems — is an emerging concept at the intersection of software engineering, computational law, and regulatory governance. This report synthesizes original practitioner thinking documented in the available archived conversations and conversation index, cross-references it with credible external research, maps the broader academic and industry landscape, identifies who is working in this space, and assesses what pain is being solved and whether it is solvable.

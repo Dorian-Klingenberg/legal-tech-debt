@@ -1,0 +1,243 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-06-04",
+  "note": "Hand-crafted proof-of-concept entries. One per confirmed heuristic type. Source data: enriched_findings.jsonl, detector_findings.jsonl, corpus nodes from run 20260604_130606_18b0dec5.",
+  "entries": [
+    {
+      "entry_id": "S4-H001-KNIC-001",
+      "heuristic_id": "SMELL4-H001",
+      "smell_name": "Calculation Rule Drift / Unversioned Rate Reference",
+      "finding_id": "18b0dec5-s4-0023",
+      "carrier": "KNIC",
+      "carrier_display": "Carrier A",
+      "source_id": "KY-SERFF-KNIC-127064322",
+      "source_description": "Kentucky National Insurance Company Homeowners Policy Program Manual",
+      "section_path": "Section 602 — Other Insured Location Occupied by Insured",
+      "confidence": "HIGH",
+      "severity": "HIGH",
+      "scope": "Carrier-specific",
+
+      "verbatim_evidence": "If the insured location is in another state, refer to the Manual for that state.",
+      "verbatim_context": "Section II Coverage may be provided on locations, other than the residence premises, where an insured resides, but which are insured for Section I Coverage under another insurance program or by another company. Make the appropriate charge for each other insured location shown in the Declarations of this policy. If the insured location is in another state, refer to the Manual for that state.",
+      "paraphrased_evidence": "The rate rule for other-state insured locations directs the adjuster to a state-specific rate manual without specifying an edition, version date, effective date, or filing identifier.",
+      "paraphrased_context": "Section 602 governs coverage charges for insured locations other than the primary residence where the insured also resides. The section instructs adjusters to apply the appropriate charge for each such location shown in the Declarations and, for out-of-state locations, to reference the applicable state manual — without identifying which version of that manual governs or how to establish which edition was in force at the time of policy issuance.",
+
+      "gap_statement": "The rate rule for other-state insured locations directs the adjuster to \"the Manual for that state\" with no edition, version date, effective date, or filing identifier. The same manual's Section 204 explicitly acknowledges that manual revisions occur and take effect \"as announced\" — meaning the referenced Manual can change. There is no anchor that determines which version of the Manual governed a specific policy at issuance or a specific claim at loss date.",
+
+      "compliance_section": {
+        "heading": "Regulatory Grounding",
+        "regulatory_citations": [
+          {
+            "citation": "KRS 304.13-051",
+            "summary": "Requires every insurer to file with the commissioner rates and supplementary rate information to be used in Kentucky. Filings must be complete. A rate rule that references an unidentified external document does not constitute a complete filing."
+          },
+          {
+            "citation": "806 KAR 13:150 — P&C Rate and Rule Filings",
+            "summary": "Establishes rate filing procedures. Section 10 provides that an insurer adopting loss costs of an advisory organization must identify the specific filing being adopted. The same principle applies to any external manual reference: the filing must be traceable to a specific, identified document."
+          },
+          {
+            "citation": "806 KAR 13:110 — Rate Standards for P&C Flex Rating",
+            "summary": "Manual, minimum, class rates, rating schedules, and rating plans shall be made and adopted in accordance with the filed and approved rate standards. A floating reference to an unversioned manual is not a rate standard that can be verified against the filed and approved record."
+          }
+        ],
+        "compliance_question": "Which specific edition and effective date of the referenced Manual was in force at the time this policy was issued? If the Manual has been revised since the policy was issued, which version governs the claim?"
+      },
+
+      "claims_section": {
+        "heading": "Claims Exposure",
+        "exposure_narrative": "When a claim arises for a secondary location in another state, the adjuster must determine which state's Manual applies and which version governs. \"The Manual for that state\" provides no answer to either question. If the Manual was revised between policy issuance and the loss date, the carrier can apply either version without the policyholder having any basis to verify the choice. A carrier that applies a less favorable revised Manual to a pre-revision policy has created a bad-faith exposure without the policyholder having any basis to identify or challenge it.",
+        "dispute_scenario": "An insured suffers a loss at a secondary residence in another state. The adjuster calculates the Section II charge using the current Manual. The insured's policy was issued two years earlier, when the Manual contained a different rate schedule. The insured has no way to determine which version was used, cannot obtain the Manual independently, and cannot verify the charge. The carrier cannot produce contemporaneous documentation of which version governed the policy at issuance.",
+        "bad_faith_risk": "MEDIUM — The risk is not that coverage is denied outright. It is that the calculation is unverifiable. Kentucky courts treat policy ambiguity against the drafter. A floating reference to an unversioned external document is a form of policy ambiguity."
+      },
+
+      "policy_designer_section": {
+        "heading": "Suggested Fix",
+        "fix_type": "redline",
+        "current_language": "If the insured location is in another state, refer to the Manual for that state.",
+        "paraphrased_current_language": "The rate rule directs the adjuster to the applicable state rate manual for out-of-state locations with no version, edition, or filing anchor.",
+        "suggested_language": "If the insured location is in another state, refer to the Kentucky National Insurance Company Homeowners Policy Program Manual applicable to that state, as filed with and approved by that state's Department of Insurance, in the edition in effect on the policy effective date. The applicable edition and filing reference shall be identified in the Declarations or rate supplement accompanying this policy.",
+        "remediation_note": "The core fix is two-step: (1) anchor the reference to a specific edition — at minimum an effective date; (2) ensure the policy package includes documentation of which version governed at issuance. Without step 2, step 1 alone does not prevent the drift problem if the Manual is later revised.",
+        "doi_refiling_required": true,
+        "refiling_note": "Rate rule changes require a new rate filing under KRS 304.13-051 and 806 KAR 13:150. This is a supplementary rating information change. File via SERFF under the existing TOI with a letter of explanation per 806 KAR 14:006 Section 6.",
+        "disclaimer": "This is an editorial suggestion based on pattern analysis of filed documents. It is not legal advice and should not be implemented without review by qualified coverage counsel and a licensed filing specialist."
+      }
+    }
+  ,
+    {
+      "entry_id": "S5-H004-KFBM-KNIC-001",
+      "heuristic_id": "SMELL5-H004",
+      "smell_name": "Regulatory Mapping Smells — Rate Methodology Without Regulatory Citation",
+      "finding_ids": ["18b0dec5-s5-0024", "18b0dec5-s5-0025", "18b0dec5-s5-0026", "18b0dec5-s5-0027", "18b0dec5-s5-0028"],
+      "carriers": ["KNIC", "KFBM"],
+      "scope": "Industry-wide — both carriers independently",
+      "confidence": "MEDIUM",
+      "severity": "HIGH",
+
+      "paraphrased_evidence": "The carrier's rate filing describes a composite rating factor calculated from claim experience and a third-party property insurance score, without identifying the score provider or citing the Kentucky statute or regulation that authorizes use of this methodology in homeowners rating.",
+      "paraphrased_context": "Supporting sections of the same filing describe an age-based roof rating factor, a deductible factor calculated by interpolation, and a general rate data section noting a rate increase — none of which cite the regulatory authority that authorizes the methodology under Kentucky law.",
+      "primary_instance": {
+        "carrier": "KFBM",
+        "source_id": "KY-SERFF-KFBM-134870230-UW-MANUAL",
+        "section_path": "Section h — Homeowner Risk Factor",
+        "verbatim_evidence": "The Homeowner Risk Factor is a rating component made up of data derived from claim experience and a Property Insurance Score. The factor will be calculated at new business, reinstatements with a lapse and renewals. If a discount factor is applied to a policy, the Homeowner Risk Factor will be referred to as the PropertyPlus discount."
+      },
+
+      "supporting_instances": [
+        {
+          "carrier": "KFBM",
+          "source_id": "KY-SERFF-KFBM-134870729-RATE-MANUAL-HOP8",
+          "section_path": "Roof Rating Factor",
+          "verbatim_evidence": "The Roof Rating Factor is a rating component based on the age of the dwelling's roof. The factor will be calculated at new business, reinstatements with a lapse and renewals."
+        },
+        {
+          "carrier": "KFBM",
+          "source_id": "KY-SERFF-KFBM-134870729-RATE-MANUAL-HOP2-1",
+          "section_path": "Deductible Factor",
+          "verbatim_evidence": "Divide the difference between the desired Coverage A and the lower Coverage A by the difference between the upper and lower Coverage A bounds. Multiply by the difference between the high and low deductible factors. Truncate after four decimal places. Add to the low Coverage A deductible factor."
+        },
+        {
+          "carrier": "KNIC",
+          "source_id": "KY-SERFF-KNIC-127064322",
+          "section_path": "Rate Information",
+          "verbatim_evidence": "Rate data applies to filing. Filing Method: Use & File. Rate Change Type: Increase. Overall Percentage of Last Rate Revision: 4.190%."
+        }
+      ],
+
+      "gap_statement": "Both carriers' rate-setting filings contain rating methodology sections — base premium computation, homeowner risk factors, roof rating factors, deductible factors — with no traceable citation to the Kentucky statute, administrative regulation, or DOI bulletin that authorizes each methodology. The Homeowner Risk Factor is the most significant instance: it incorporates a 'Property Insurance Score' derived from an external third-party source, with no citation to the regulatory authority permitting the use of such a score in Kentucky homeowners rating. A market conduct examiner reviewing these filings cannot verify from the filing alone that each rating component is authorized under Kentucky law.",
+
+      "compliance_section": {
+        "heading": "Regulatory Grounding",
+        "regulatory_citations": [
+          {
+            "citation": "KRS 304.13-050",
+            "summary": "Rates shall not be excessive, inadequate, or unfairly discriminatory. The standard requires that rate methodologies be supportable. A filing that does not cite the regulatory basis for a rating component cannot demonstrate compliance with this standard from the face of the filing."
+          },
+          {
+            "citation": "KRS 304.13-051",
+            "summary": "Requires every insurer to file rates and supplementary rate information with the commissioner. A rate filing that contains a methodology but no regulatory citation for that methodology is incomplete as a matter of verifiability — the DOI cannot confirm that the methodology is authorized without additional investigation."
+          },
+          {
+            "citation": "806 KAR 13:110 — Rate Standards, Section 1",
+            "summary": "Manual rates and rating plans shall be made and adopted in accordance with sound actuarial principles. A rate component that operates without a cited regulatory basis cannot be independently verified as meeting this standard during a market conduct examination."
+          },
+          {
+            "citation": "KRS 304.20-040 — Unfair Discrimination (verify)",
+            "summary": "Prohibits unfair discrimination between insureds of the same class. The use of a 'Property Insurance Score' — a composite score derived from third-party data — may implicate this provision depending on the score's composition. Kentucky's adoption of NAIC credit scoring model guidance should be verified before relying on this citation."
+          }
+        ],
+        "compliance_question": "For each rating component (Homeowner Risk Factor, Roof Rating Factor, Deductible Factor, Base Premium Computation): what Kentucky statute or administrative regulation authorizes the use of this specific methodology? For the Property Insurance Score component specifically: what third-party data source provides the score, and what regulatory authority permits its use in homeowners rating in Kentucky?"
+      },
+
+      "claims_section": {
+        "heading": "Claims Exposure",
+        "exposure_narrative": "These are not primarily claims-layer findings — they operate at the rate-setting layer, before a policy is issued. The exposure is regulatory and market-conduct. However, rate methodology gaps create downstream claims exposure in two ways: (1) if a rating factor is found unauthorized after issuance, a carrier may face ordered premium refunds affecting all policyholders rated under that factor; (2) if the Homeowner Risk Factor (which incorporates a Property Insurance Score) is found to constitute unfair discrimination, affected policyholders may have grounds for both regulatory complaints and bad-faith claims based on the rating decision.",
+        "dispute_scenario": "A Kentucky DOI market conduct examiner reviews KFBM's rate filing following a consumer complaint about a premium surcharge. The examiner asks: 'On what regulatory authority does KFBM rely for the Homeowner Risk Factor?' The filing provides no citation. KFBM must reconstruct its regulatory basis from scratch during the exam — a position that invites a finding of non-compliance regardless of whether the methodology is substantively sound.",
+        "bad_faith_risk": "LOW (individual claim) / HIGH (regulatory/market-conduct)",
+        "industry_wide_note": "This pattern appears independently in both carriers analyzed. It is an industry-wide drafting convention, not a KFBM-specific filing choice. That convergence suggests the gap is systemic — it is not the result of a single carrier's oversight."
+      },
+
+      "policy_designer_section": {
+        "heading": "Suggested Fix",
+        "fix_type": "template",
+        "paraphrased_current_language": "Rate methodology sections across both carriers describe rating components — including a composite property risk score, a roof age factor, a deductible interpolation formula, and base premium computation — with no citation to the Kentucky statute, administrative regulation, or DOI bulletin that authorizes each methodology.",
+        "remediation_note": "Unlike SMELL4-H001 (which required a single redline), H004 requires a systematic annotation pass across rate methodology sections. Each rate component should carry a parenthetical regulatory citation identifying the authority under which the methodology is used.",
+        "template": "For each rate methodology section, append a regulatory basis note in the following form: '(Authorized under [KRS/KAR citation], as filed with the Kentucky Department of Insurance under SERFF tracking number [tracking number], effective [date].)' For the Homeowner Risk Factor / Property Insurance Score specifically, the citation must also identify: (a) the third-party score provider; (b) the regulatory authority permitting use of credit-based or behavioral scoring in Kentucky homeowners rating; (c) the Kentucky DOI filing or advisory opinion, if any, that approved this approach.",
+        "priority_order": [
+          "1. Homeowner Risk Factor / Property Insurance Score — highest priority. External score source not identified; regulatory basis not cited.",
+          "2. Roof Rating Factor — age-based rating component. Standard approach but requires regulatory citation.",
+          "3. Base Premium Computation — section header only in corpus; verify that the full computation section carries citations.",
+          "4. Deductible Factor — interpolation formula. Cite the filed rate schedule that authorizes the factor table."
+        ],
+        "doi_refiling_required": true,
+        "refiling_note": "Adding regulatory citations to existing rate methodology sections constitutes supplementary rating information changes under KRS 304.13-051 and 806 KAR 13:150. File via SERFF. If the Property Insurance Score provider or methodology is being identified for the first time, this may also require a new rate filing rather than a supplementary information amendment — verify with DOI before filing.",
+        "disclaimer": "This is an editorial suggestion based on pattern analysis of filed documents. It is not legal advice and should not be implemented without review by qualified coverage counsel and a licensed filing specialist."
+      }
+    }
+  ,
+    {
+      "entry_id": "S4-H003-KFBM-001",
+      "heuristic_id": "SMELL2-H003",
+      "smell_name": "Undisclosed ACV Calculation Methodology (reclassified from Smell 2 to Smell 4 per ADR-011)",
+      "finding_ids": ["18b0dec5-s2-0010", "18b0dec5-s2-0011", "18b0dec5-s2-0012", "18b0dec5-s2-0015", "18b0dec5-s2-0016"],
+      "carriers": ["KFBM", "KNIC"],
+      "scope": "Industry-wide — both carriers; KFBM primary (proprietary base form HO 04 93; ACV applied to roof surfacing older than 7 years)",
+      "confidence": "HIGH",
+      "severity": "HIGH",
+
+      "paraphrased_evidence": "An endorsement in the carrier's filed policy form imposes actual cash value loss settlement on roof surfacing losses where the roof has not been fully replaced within seven years of the loss date, without defining the ACV calculation methodology, identifying the depreciation schedule, or disclosing whether labor costs are subject to depreciation.",
+      "paraphrased_context": "The ACV loss settlement restriction is applied through a named endorsement covering windstorm or hail losses to roof surfacing. Supporting instances in the markup filing confirm the same provision. A separate supporting instance from the other carrier's rate manual references replacement cost settlement under the base ISO form without specifying the calculation standard applied at claim time.",
+      "primary_instance": {
+        "carrier": "KFBM",
+        "source_id": "KY-SERFF-KFBM-134503212-HO-FORM",
+        "section_path": "SECTION I — CONDITIONS",
+        "verbatim_evidence": "Such loss will be subject to actual cash value loss settlement. Therefore, the loss settlement conditions that pertain to 'repair or replacement cost without deduction for depreciation' are changed as noted below: In Form HO 00 03 and HO 00 02, Condition 3. Loss Settlement..."
+      },
+
+      "supporting_instances": [
+        {
+          "carrier": "KFBM",
+          "source_id": "KY-SERFF-KFBM-134503212-HO-FORM-MARKUP",
+          "section_path": "Endorsements",
+          "verbatim_evidence": "Roof Surface Actual Cash Value Loss Settlement — Windstorm or Hail Losses to Roof Surfacing"
+        },
+        {
+          "carrier": "KFBM",
+          "source_id": "KY-SERFF-KFBM-134503212-HO-FORM-MARKUP",
+          "section_path": "SECTION I — CONDITIONS",
+          "verbatim_evidence": "Such loss will be subject to actual cash value loss settlement. Therefore, the loss settlement conditions that pertain to 'repair or replacement cost without deduction for depreciation' are changed as noted below."
+        },
+        {
+          "carrier": "KNIC",
+          "source_id": "KY-SERFF-KNIC-127064322",
+          "section_path": "Section 406 — Additional Amounts of Insurance Form HO 00 03",
+          "verbatim_evidence": "The policy provides loss settlement for buildings insured under Coverage A or B on a replacement cost basis without deduction for depreciation, if, at the time of loss, the amount of insurance on the damaged building..."
+        }
+      ],
+
+      "gap_statement": "KFBM's proprietary base form HO 04 93 imposes ACV loss settlement on roof surfacing when the roof has not been entirely replaced within 7 years of the loss date. The form uses 'actual cash value' as the operative settlement standard for this coverage restriction without defining the calculation methodology anywhere in the filed policy package. No depreciation schedule, depreciation tool, or methodology basis (age-only vs. age-and-condition; whether labor costs are depreciated) is disclosed. A policyholder with a roof older than 7 years — the majority of Kentucky homeowners — who suffers a windstorm or hail loss will have their claim settled on an ACV basis they cannot predict, verify, or challenge from the policy documents alone. The same methodology gap appears across KNIC's rate rule filing (Section 406), which references replacement cost settlement under HO 00 03 without specifying the calculation standard. ISO HO 00 03 defines ACV but does not specify the depreciation methodology applied at claim time — a gap established by over a decade of labor depreciation class action litigation nationwide.",
+
+      "compliance_section": {
+        "heading": "Regulatory Grounding",
+        "regulatory_citations": [
+          {
+            "citation": "KRS 304.12-230 — Unfair Competition and Deceptive Practices",
+            "summary": "Prohibits misrepresentation of the benefits, advantages, conditions, or terms of any insurance policy. A loss settlement provision that applies ACV without disclosing the calculation methodology may constitute a misrepresentation of the actual settlement conditions the policyholder will face."
+          },
+          {
+            "citation": "KRS 304.20-040 — Unfair Claims Settlement Practices",
+            "summary": "Prohibits failing to adopt and implement reasonable standards for the prompt investigation of claims and for attempting in good faith to effectuate prompt, fair, and equitable settlements. A carrier that applies an undisclosed depreciation methodology to ACV settlements — particularly one that depreciates labor costs — cannot demonstrate that its settlement standard is disclosed to or verifiable by the policyholder."
+          },
+          {
+            "citation": "806 KAR 12:095 Section 9(2)(a) — Mandatory ACV Calculation Standard",
+            "summary": "Establishes a mandatory calculation standard for ACV settlements on residential fire and extended coverage: 'the insurer shall determine actual cash value as follows: replacement cost of property at the time of the loss less depreciation, if any.' Critically, Section 9(2)(a) permits labor depreciation ONLY 'if provided for in the policy' — meaning explicit policy authorization is required before labor costs may be depreciated. A carrier applying labor depreciation without such a policy provision is not merely failing a disclosure standard; it may be violating Kentucky regulation. On request, the insurer must also provide claim file worksheets showing all depreciation deductions. Source: node 6715f59035644bcc, KY-KAR-806-12-095, run 18b0dec5."
+          },
+          {
+            "citation": "806 KAR 20:010 — Unfair Claims Settlement Practices",
+            "summary": "Implements KRS 304.20-040. Prohibits refusing to pay claims without conducting a reasonable investigation, and requiring an insured to submit to a less favorable settlement standard than disclosed in the policy. An undisclosed depreciation methodology that reduces a settlement below what the policyholder expected from the policy language creates exposure under this standard."
+          }
+        ],
+        "compliance_question": "What methodology does KFBM use to calculate actual cash value for roof surfacing losses? Is labor depreciated? If so, under what schedule and on what regulatory authority? Has this methodology been filed with and approved by the Kentucky DOI? Can a market conduct examiner reproduce a sample ACV calculation from the filed policy documents alone? Specifically: does KFBM's filing contain an explicit provision authorizing labor depreciation as required by 806 KAR 12:095 Section 9(2)(a)? If not, on what authority is labor being depreciated — and has that practice been disclosed to the Kentucky DOI?"
+      },
+
+      "claims_section": {
+        "heading": "Claims Exposure",
+        "exposure_narrative": "Kentucky sits within a high-frequency hail and wind corridor. Windstorm and hail are among the most common homeowners claim types in the state. KFBM's 7-year roof rule means that any policyholder with a roof older than 7 years — a substantial majority of the book — who suffers a windstorm or hail loss receives ACV rather than replacement cost on roof surfacing. The ACV calculation methodology is not disclosed. If KFBM depreciates labor costs as part of its ACV calculation — a practice challenged in class action litigation across multiple states beginning in 2015 — the undisclosed methodology creates direct bad-faith exposure for every such claim in the book.",
+        "dispute_scenario": "A Kentucky homeowner with a 10-year-old roof suffers hail damage. KFBM pays ACV on the roof surfacing claim. The settlement is calculated using an internal depreciation schedule that depreciates both materials and labor. The policyholder receives a settlement that is materially less than the cost to repair the roof. The policyholder asks: how was this number calculated? KFBM cannot point to any policy document that discloses the methodology. The policyholder files a complaint with the Kentucky DOI and retains counsel. Counsel identifies that the labor depreciation methodology was applied without disclosure — the same pattern litigated in Henn v. American Family (Iowa, 2016), Wilcox v. State Farm (multiple states, 2016–2019), and related class actions.",
+        "bad_faith_risk": "HIGH — The roof ACV restriction affects a large share of the active book (roofs older than 7 years), applies to the highest-frequency claim type (windstorm/hail), and uses an undisclosed calculation methodology. The labor depreciation class-action wave established that this exact pattern — ACV applied without methodology disclosure — generates both individual bad-faith claims and class-wide liability. Kentucky courts apply a broad bad-faith standard under KRS 304.12-230.",
+        "industry_pattern_note": "KNIC's Section 406 shows the same methodology gap on the replacement cost side: loss settlement on a replacement cost basis without deduction for depreciation, with no methodology citation. The gap is industry-wide. Both carriers reference ISO HO 00 03 settlement conditions without anchoring the actual calculation standard used at claim time."
+      },
+
+      "policy_designer_section": {
+        "heading": "Suggested Fix",
+        "fix_type": "redline",
+        "current_language": "Such loss will be subject to actual cash value loss settlement.",
+        "paraphrased_current_language": "The policy endorsement imposes ACV loss settlement on roof surfacing losses for roofs not replaced within seven years, with no definition of the calculation methodology, no identification of the depreciation schedule or tool, and no disclosure of whether labor costs are depreciated.",
+        "suggested_language": "Such loss will be subject to actual cash value loss settlement. For purposes of this provision, actual cash value means the cost to repair or replace the damaged property with material of like kind and quality, less depreciation. Depreciation shall be calculated using [carrier's named depreciation schedule or tool, e.g., 'the Kentucky Farm Bureau Mutual depreciation schedule as filed with the Kentucky Department of Insurance under SERFF tracking number [tracking number], effective [date]']. Labor costs [are / are not] subject to depreciation under this provision. The depreciation methodology applied to any loss under this provision will be disclosed to the insured upon request within [X] business days of the initial settlement offer.",
+        "remediation_note": "Three elements are required: (1) define ACV explicitly in the provision that triggers it — not just in a definitions section the adjuster may not apply; (2) identify the depreciation tool or schedule by name and filing reference; (3) state clearly whether labor is depreciated. Without all three, the provision remains unverifiable. If KFBM currently does not depreciate labor, stating that fact explicitly is a competitive advantage and a liability shield. If KFBM does depreciate labor, this must be disclosed AND an explicit policy provision authorizing it must be added — this is a regulatory requirement under 806 KAR 12:095 Section 9(2)(a), not merely a disclosure best practice. If no such provision currently exists and labor is being depreciated, KFBM faces a regulatory compliance exposure that precedes any bad-faith claim.",
+        "doi_refiling_required": true,
+        "refiling_note": "Amending loss settlement conditions in the base form requires a form filing under 806 KAR 14:006. If a new depreciation schedule or tool is being identified for the first time, it may also need to be filed as supplementary rate information under KRS 304.13-051. File via SERFF under the existing HO TOI with a cover letter explaining the amendment as a disclosure enhancement.",
+        "disclaimer": "This is an editorial suggestion based on pattern analysis of filed documents. It is not legal advice and should not be implemented without review by qualified coverage counsel and a licensed filing specialist."
+      }
+    }
+  ]
+}

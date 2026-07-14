@@ -2,6 +2,22 @@
 *Legal Code Smells specific to the Claims Handling, Adjudication, and Resolution lifecycle*
 *Derived from original research — P&C domain*
 
+Status: Working taxonomy. Entries are candidate review patterns, not validated defects, legal conclusions, or detector coverage claims.
+
+---
+
+## Complete Smell Inventory Reference
+
+This document contains **41 claims-layer smells**. For the complete legal code smell ecosystem (159 total smells), see:
+
+| Taxonomy | Count | Scope |
+|---|---|---|
+| **[legal_code_smell_taxonomy.md](legal_code_smell_taxonomy.md)** | 74 | Cross-domain legal/regulatory patterns |
+| **[insurance_policy_smells.md](insurance_policy_smells.md)** | 43 | Policy specification, drafting, rating, underwriting, regulatory mapping |
+| **[insurance_claims_smells.md](insurance_claims_smells.md)** (this file) | 41 | Claims handling, adjudication, resolution, bad faith exposure |
+
+**Currently operationalized (Sandbox 002):** Five policy-layer smells have detection specs. The 41 claims-layer smells are specification documents ready for future detector development.
+
 ---
 
 ## Overview
@@ -146,4 +162,3 @@ This is the feedback channel that eventually makes the legal tech debt system se
 *See companion document: Insurance Policy Smells.*
 *These smells are detectable at: claims audit, SIU review, litigation analysis,*
 *regulatory market conduct examination, and AI-assisted claim file review.*
-

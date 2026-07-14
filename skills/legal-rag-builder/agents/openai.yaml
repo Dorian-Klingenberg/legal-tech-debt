@@ -1,0 +1,4 @@
+display_name: Legal RAG Builder
+short_description: Build structure-aware legal ingestion and retrieval for the Sandbox 002 homeowners corpus.
+default_prompt: Use this skill to plan or implement legal document ingestion, citation extraction, graph-linked nodes, and retrieval bundles for Sandbox 002.
+

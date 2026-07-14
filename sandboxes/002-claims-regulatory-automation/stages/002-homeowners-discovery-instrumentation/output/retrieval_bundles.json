@@ -1,0 +1,790 @@
+[
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.648562+00:00",
+    "bundle_id": "b010b414e1656cfc0e9f",
+    "query": "all losses",
+    "hit_node_id": "bdfadc8c3e7aec8ab312",
+    "source_id": "KY-DOI-AO-2023-08",
+    "source_title": "Advisory Opinion 2023-08 — Matching in Property Loss Settlement",
+    "source_type": "doi_bulletin",
+    "section_path": "KY-DOI-AO-2023-08 > Opinion",
+    "why_retrieved": [
+      "bm25 match on 'all losses' (score=2.6339)",
+      "2 citation(s): 806 KAR 12:095, 806 KAR 12:09",
+      "smell_id=1"
+    ],
+    "hit_text": "Opinion The purpose of this Advisory Opinion is to clarify the Department's interpretation of 806 KAR 12:095 Section 9(1)(b), which provides as follows: 'If a loss requires replacement of items and the replaced items do not reasonably match in quality, color, and size, the insurer shall replace all items in the area so as to conform to a reasonably uniform appearance. This applies to interior and exterior losses. The insured shall not bear any cost over the applicable deductible.' The intent of ",
+    "parent_node_id": "3d83dc824d75847eb951",
+    "parent_text": "Advisory Opinion 2023-08 — Matching in Property Loss Settlement\nAndy Beshear Governor\nJacqueline Coleman Lieutenant Governor",
+    "adjacent_node_ids": [
+      "84492f7b6712efdf4b82",
+      "259a39df43cba12a0f7c",
+      "ddbbb7b67f1fb4cc3cb5"
+    ],
+    "citation_ids": [
+      "de6a430d6c4e0ee1e6cf",
+      "f7c813753cf59f363415"
+    ],
+    "reference_ids": [],
+    "parser_run_id": "14c1121a0b420947a203",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 2.6339
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.648562+00:00",
+    "bundle_id": "596cd200052fd77bca06",
+    "query": "all losses",
+    "hit_node_id": "bd6aaeea193d384f5341",
+    "source_id": "KY-KAR-806-13-150",
+    "source_title": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "source_type": "kar_regulation",
+    "section_path": "KY-KAR-806-13-150 > Section 5. All rate, loss cost, or supplementary rating information filings shall be accompanied by Form PC RRFS-1. Rate/Ruling Filing Schedule. This form is available electronically at https://insurance.ky.gov/PPC/Documents/NAICPropCasFormFilingSched102708.pdf.",
+    "why_retrieved": [
+      "bm25 match on 'all losses' (score=1.6778)",
+      "smell_id=1"
+    ],
+    "hit_text": "Section 5. All rate, loss cost, or supplementary rating information filings shall be accompanied by Form PC RRFS-1. Rate/Ruling Filing Schedule. This form is available electronically at https://insurance.ky.gov/PPC/Documents/NAICPropCasFormFilingSched102708.pdf.",
+    "parent_node_id": "8585a617a69d4a124105",
+    "parent_text": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "adjacent_node_ids": [
+      "7967d3f6e6ab1e79f108",
+      "a59d25c5cb24a871a4e5",
+      "3563914738b82d3cece4"
+    ],
+    "citation_ids": [],
+    "reference_ids": [],
+    "parser_run_id": "93f4b03a5a6649c7fd15",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 1.6778
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.648562+00:00",
+    "bundle_id": "1658ccb85027f6d91fea",
+    "query": "all losses",
+    "hit_node_id": "e3a5934b2e3ba1f9b4ae",
+    "source_id": "KY-KAR-806-13-150",
+    "source_title": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "source_type": "kar_regulation",
+    "section_path": "KY-KAR-806-13-150 > Section 1. Definitions.",
+    "why_retrieved": [
+      "bm25 match on 'all losses' (score=1.5458)",
+      "6 citation(s): KRS 304.13-011(9), KRS 304.1-050(1), KRS 304.1-050(2), KRS 304.13-011(22)",
+      "smell_id=1"
+    ],
+    "hit_text": "Section 1. Definitions. (1) \"Advisory organization\" is defined by KRS 304.13-011(9). (2) \"Commissioner\" is defined by KRS 304.1-050(1). (3) \"Department\" is defined by KRS 304.1-050(2). (4) \"Loss cost\" means the loss cost per unit of exposure excluding all loss adjustment expenses.[ (5) \"Rate\" is defined by KRS 304.13-011(22). (6) \"Statistical agent\" is defined by KRS 304.13-011(24). (7) \"Supplementary rating information\" is defined by KRS 304.13-011(2).",
+    "parent_node_id": "8585a617a69d4a124105",
+    "parent_text": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "adjacent_node_ids": [
+      "7967d3f6e6ab1e79f108",
+      "a59d25c5cb24a871a4e5",
+      "3563914738b82d3cece4"
+    ],
+    "citation_ids": [
+      "244b632420ab3999dbd0",
+      "94ec8b3e86ebc494eceb",
+      "22d05312119175903288",
+      "ecbc0558be66c6a6c725",
+      "5c795422ece25e385111",
+      "bc73339d641c46b220fb"
+    ],
+    "reference_ids": [],
+    "parser_run_id": "93f4b03a5a6649c7fd15",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 1.5458
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.648562+00:00",
+    "bundle_id": "77ad2df4ccc08ab04080",
+    "query": "all losses",
+    "hit_node_id": "76b3bb9916c8e155fe14",
+    "source_id": "KY-KAR-806-13-150",
+    "source_title": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "source_type": "kar_regulation",
+    "section_path": "KY-KAR-806-13-150 > Section 10.",
+    "why_retrieved": [
+      "bm25 match on 'all losses' (score=1.5445)",
+      "2 citation(s): KRS 304.4-010, 806 KAR 4:010",
+      "smell_id=1"
+    ],
+    "hit_text": "Section 10. (1) An insurer that is a member, subscriber, or service purchaser of an advisory organization or statistical agent may choose to adopt all or some of the loss costs, supplementary rating information, or statistical plans of that advisory organization or statistical agent. (2) If an insurer chooses to adopt only a specific filing of an advisory organization or statistical agent, it shall do so in accordance with the procedures established in subsection (3) of this section , and shall ",
+    "parent_node_id": "8585a617a69d4a124105",
+    "parent_text": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "adjacent_node_ids": [
+      "7967d3f6e6ab1e79f108",
+      "a59d25c5cb24a871a4e5",
+      "3563914738b82d3cece4"
+    ],
+    "citation_ids": [
+      "a2476443489610f4e28b",
+      "0c80b503278476c0460a"
+    ],
+    "reference_ids": [],
+    "parser_run_id": "93f4b03a5a6649c7fd15",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 1.5445
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.648562+00:00",
+    "bundle_id": "55d2ee2897bfbc8d0ccd",
+    "query": "all losses",
+    "hit_node_id": "092fb8d206e126861a86",
+    "source_id": "KY-KAR-806-13-150",
+    "source_title": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "source_type": "kar_regulation",
+    "section_path": "KY-KAR-806-13-150 > Section 8.",
+    "why_retrieved": [
+      "bm25 match on 'all losses' (score=1.5386)",
+      "smell_id=1"
+    ],
+    "hit_text": "Section 8. (1) A property and casualty rate or supplementary rating information filing may include rates or supplementary rating information for a particular insurance company or group of insurance companies. (2) If the filing is made for a group of insurance companies, Form PC TD-1, Property and Casualty Transmittal Document shall identify all companies included in the filing.",
+    "parent_node_id": "8585a617a69d4a124105",
+    "parent_text": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "adjacent_node_ids": [
+      "7967d3f6e6ab1e79f108",
+      "a59d25c5cb24a871a4e5",
+      "3563914738b82d3cece4"
+    ],
+    "citation_ids": [],
+    "reference_ids": [],
+    "parser_run_id": "93f4b03a5a6649c7fd15",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 1.5386
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.648562+00:00",
+    "bundle_id": "924d38564474a816984c",
+    "query": "reasonable",
+    "hit_node_id": "6e567f744686f431d174",
+    "source_id": "KY-KAR-806-14-006",
+    "source_title": "806 KAR 14:006 — P&C Insurance Form Filings",
+    "source_type": "kar_regulation",
+    "section_path": "KY-KAR-806-14-006::meta::6fdb16291505b9feefbd",
+    "why_retrieved": [
+      "bm25 match on 'reasonable' (score=2.9393)",
+      "3 citation(s): KRS 304.2-110, KRS 304.1-010, KRS 304.14-120",
+      "smell_id=2"
+    ],
+    "hit_text": "NECESSITY, FUNCTION, AND CONFORMITY: KRS 304.2-110 authorizes the commissioner to promulgate reasonable administrative regulations necessary for or as an aid to the effectuation of any provision of the Kentucky Insurance Code as defined in KRS 304.1-010. KRS 304.14-120 authorizes the commissioner to approve, disapprove, or exempt insurance documents and forms prior to issuance for delivery in Kentucky. This administrative regulation provides form filing procedures for property, casualty, surety,",
+    "parent_node_id": "ef8fe78c277fd96e835c",
+    "parent_text": "806 KAR 14:006 — P&C Insurance Form Filings",
+    "adjacent_node_ids": [
+      "baec6d958650b2501eb5",
+      "acc5b4dd4f318a354d32",
+      "beb90322756b55a48ef9"
+    ],
+    "citation_ids": [
+      "d0d52d11966fbc846fe8",
+      "80ef7642e669298105a8",
+      "67c9f1c3a68e753152ab"
+    ],
+    "reference_ids": [],
+    "parser_run_id": "5efdaf1b3977f73aa2a6",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 2.9393
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.648562+00:00",
+    "bundle_id": "9017e21da622d8aa90f6",
+    "query": "reasonable",
+    "hit_node_id": "4daa7817e31a758c56d8",
+    "source_id": "KY-DOI-BULLETIN-2026-01",
+    "source_title": "DOI Bulletin 2026-01 — Use of Satellite and Aerial Imagery for Cancellations and Claim Denials",
+    "source_type": "doi_bulletin",
+    "section_path": "KY-DOI-BULLETIN-2026-01 > BULLETIN 2026-01",
+    "why_retrieved": [
+      "bm25 match on 'reasonable' (score=1.4182)",
+      "3 citation(s): KRS 304.12-230, KRS 304.20-320, KRS 304.20-340",
+      "1 reference(s), 1 unresolved",
+      "smell_id=2"
+    ],
+    "hit_text": "BULLETIN 2026-01 This Bulletin is to advise the reader of the current position of the Kentucky Department of Insurance (\"Department\"), on the specified issue. The Bulletin is not legally binding on either the Department or the reader. TO: ALLPROPERTY&CASUALTYINSURANCECOMPANIESAUTHORIZED TOTRANSACTBUSINESSINTHECOMMONWEALTHOFKENTUCKY FROM: SHARONP.CLARK,COMMISSIONER RE: USE OFSATELLITE/AERIALIMAGERYASBASISFORCANCELLATIONS, NONRENEWALS,AND CLAIM DENIALS DATE: March 11, 2026 The Kentucky Department ",
+    "parent_node_id": "861330bba197a49ac646",
+    "parent_text": "DOI Bulletin 2026-01 — Use of Satellite and Aerial Imagery for Cancellations and Claim Denials\nAndy Beshear GOVERNOR\nJacqueline Coleman LIEUTENANT GOVERNOR",
+    "adjacent_node_ids": [
+      "273e86b67daace39cbbd",
+      "ab3e3add54e4113de943"
+    ],
+    "citation_ids": [
+      "2f22a2d2bb89dffe3026",
+      "f1bc9133b1a11c7dabcb",
+      "7543539c23273e46f140"
+    ],
+    "reference_ids": [
+      "65067de4cfa9f4a3a526"
+    ],
+    "parser_run_id": "b0c028e7357f33160129",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 1.4182
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.648562+00:00",
+    "bundle_id": "2ae720462722355b639c",
+    "query": "reasonable",
+    "hit_node_id": "bdfadc8c3e7aec8ab312",
+    "source_id": "KY-DOI-AO-2023-08",
+    "source_title": "Advisory Opinion 2023-08 — Matching in Property Loss Settlement",
+    "source_type": "doi_bulletin",
+    "section_path": "KY-DOI-AO-2023-08 > Opinion",
+    "why_retrieved": [
+      "bm25 match on 'reasonable' (score=1.216)",
+      "2 citation(s): 806 KAR 12:095, 806 KAR 12:09",
+      "smell_id=2"
+    ],
+    "hit_text": "Opinion The purpose of this Advisory Opinion is to clarify the Department's interpretation of 806 KAR 12:095 Section 9(1)(b), which provides as follows: 'If a loss requires replacement of items and the replaced items do not reasonably match in quality, color, and size, the insurer shall replace all items in the area so as to conform to a reasonably uniform appearance. This applies to interior and exterior losses. The insured shall not bear any cost over the applicable deductible.' The intent of ",
+    "parent_node_id": "3d83dc824d75847eb951",
+    "parent_text": "Advisory Opinion 2023-08 — Matching in Property Loss Settlement\nAndy Beshear Governor\nJacqueline Coleman Lieutenant Governor",
+    "adjacent_node_ids": [
+      "84492f7b6712efdf4b82",
+      "259a39df43cba12a0f7c",
+      "ddbbb7b67f1fb4cc3cb5"
+    ],
+    "citation_ids": [
+      "de6a430d6c4e0ee1e6cf",
+      "f7c813753cf59f363415"
+    ],
+    "reference_ids": [],
+    "parser_run_id": "14c1121a0b420947a203",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 1.216
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.648562+00:00",
+    "bundle_id": "84c110f5c4e8437448b3",
+    "query": "replacement cost",
+    "hit_node_id": "f01b63bb04e71f0168cf",
+    "source_id": "KY-KAR-806-13-150",
+    "source_title": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "source_type": "kar_regulation",
+    "section_path": "KY-KAR-806-13-150 > Section 6.",
+    "why_retrieved": [
+      "bm25 match on 'replacement cost' (score=2.8482)",
+      "smell_id=2"
+    ],
+    "hit_text": "Section 6. (1) (a) Except as otherwise provided in paragraph (b) of this subsection, rate filings referencing loss costs formulated by an advisory organization shall be accompanied by Form LC-1 P & C, Calculation of Loss Cost Multiplier. This form is available electronically at https://insurance.ky.gov/PPC/Documents/LC-1%202007.pdf. (b) A rate filing referencing loss costs formulated by an advisory organization in which an expense constant is used shall be accompanied by Form LC-2 P & C, Expense",
+    "parent_node_id": "8585a617a69d4a124105",
+    "parent_text": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "adjacent_node_ids": [
+      "7967d3f6e6ab1e79f108",
+      "a59d25c5cb24a871a4e5",
+      "3563914738b82d3cece4"
+    ],
+    "citation_ids": [],
+    "reference_ids": [],
+    "parser_run_id": "93f4b03a5a6649c7fd15",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 2.8482
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.650097+00:00",
+    "bundle_id": "fe357f31caa78baab294",
+    "query": "replacement cost",
+    "hit_node_id": "e3a5934b2e3ba1f9b4ae",
+    "source_id": "KY-KAR-806-13-150",
+    "source_title": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "source_type": "kar_regulation",
+    "section_path": "KY-KAR-806-13-150 > Section 1. Definitions.",
+    "why_retrieved": [
+      "bm25 match on 'replacement cost' (score=2.7507)",
+      "6 citation(s): KRS 304.13-011(9), KRS 304.1-050(1), KRS 304.1-050(2), KRS 304.13-011(22)",
+      "smell_id=2"
+    ],
+    "hit_text": "Section 1. Definitions. (1) \"Advisory organization\" is defined by KRS 304.13-011(9). (2) \"Commissioner\" is defined by KRS 304.1-050(1). (3) \"Department\" is defined by KRS 304.1-050(2). (4) \"Loss cost\" means the loss cost per unit of exposure excluding all loss adjustment expenses.[ (5) \"Rate\" is defined by KRS 304.13-011(22). (6) \"Statistical agent\" is defined by KRS 304.13-011(24). (7) \"Supplementary rating information\" is defined by KRS 304.13-011(2).",
+    "parent_node_id": "8585a617a69d4a124105",
+    "parent_text": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "adjacent_node_ids": [
+      "7967d3f6e6ab1e79f108",
+      "a59d25c5cb24a871a4e5",
+      "3563914738b82d3cece4"
+    ],
+    "citation_ids": [
+      "244b632420ab3999dbd0",
+      "94ec8b3e86ebc494eceb",
+      "22d05312119175903288",
+      "ecbc0558be66c6a6c725",
+      "5c795422ece25e385111",
+      "bc73339d641c46b220fb"
+    ],
+    "reference_ids": [],
+    "parser_run_id": "93f4b03a5a6649c7fd15",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 2.7507
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.650097+00:00",
+    "bundle_id": "f845f2d60d91fa564f54",
+    "query": "replacement cost",
+    "hit_node_id": "bd6aaeea193d384f5341",
+    "source_id": "KY-KAR-806-13-150",
+    "source_title": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "source_type": "kar_regulation",
+    "section_path": "KY-KAR-806-13-150 > Section 5. All rate, loss cost, or supplementary rating information filings shall be accompanied by Form PC RRFS-1. Rate/Ruling Filing Schedule. This form is available electronically at https://insurance.ky.gov/PPC/Documents/NAICPropCasFormFilingSched102708.pdf.",
+    "why_retrieved": [
+      "bm25 match on 'replacement cost' (score=2.3222)",
+      "smell_id=2"
+    ],
+    "hit_text": "Section 5. All rate, loss cost, or supplementary rating information filings shall be accompanied by Form PC RRFS-1. Rate/Ruling Filing Schedule. This form is available electronically at https://insurance.ky.gov/PPC/Documents/NAICPropCasFormFilingSched102708.pdf.",
+    "parent_node_id": "8585a617a69d4a124105",
+    "parent_text": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "adjacent_node_ids": [
+      "7967d3f6e6ab1e79f108",
+      "a59d25c5cb24a871a4e5",
+      "3563914738b82d3cece4"
+    ],
+    "citation_ids": [],
+    "reference_ids": [],
+    "parser_run_id": "93f4b03a5a6649c7fd15",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 2.3222
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.650097+00:00",
+    "bundle_id": "fbc885984c4336294703",
+    "query": "replacement cost",
+    "hit_node_id": "a901b9d3ba6f3f6ec504",
+    "source_id": "KY-KAR-806-13-150",
+    "source_title": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "source_type": "kar_regulation",
+    "section_path": "KY-KAR-806-13-150 > Section 12. Incorporation by Reference.",
+    "why_retrieved": [
+      "bm25 match on 'replacement cost' (score=2.3048)",
+      "smell_id=2"
+    ],
+    "hit_text": "Section 12. Incorporation by Reference. (1) The following material is incorporated by reference: (a) \"Uniform Property and Casualty Product Coding Matrix\", 01/2021 ; (b) Form PC TD-1, \"Property and Casualty Transmittal Document\", 01/2020 ; (c) Form PC RRFS-1, \"Rate/Rule Filing Schedule\", 3/2007; (d) LC-1 P&C, \"Calculation of Loss Cost Multiplier\", 10/2007 ; (e) LC-2 P&C, \"Expense Constant Supplement, Calculation of Loss Cost Multiplier with Expense Constant\", 10/2007; ;[. (2) This material may b",
+    "parent_node_id": "8585a617a69d4a124105",
+    "parent_text": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "adjacent_node_ids": [
+      "7967d3f6e6ab1e79f108",
+      "a59d25c5cb24a871a4e5",
+      "3563914738b82d3cece4"
+    ],
+    "citation_ids": [],
+    "reference_ids": [],
+    "parser_run_id": "93f4b03a5a6649c7fd15",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 2.3048
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.652133+00:00",
+    "bundle_id": "8d31e70b37e6fba4cb9c",
+    "query": "coverage is provided",
+    "hit_node_id": "f01b63bb04e71f0168cf",
+    "source_id": "KY-KAR-806-13-150",
+    "source_title": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "source_type": "kar_regulation",
+    "section_path": "KY-KAR-806-13-150 > Section 6.",
+    "why_retrieved": [
+      "bm25 match on 'coverage is provided' (score=3.7344)",
+      "smell_id=3"
+    ],
+    "hit_text": "Section 6. (1) (a) Except as otherwise provided in paragraph (b) of this subsection, rate filings referencing loss costs formulated by an advisory organization shall be accompanied by Form LC-1 P & C, Calculation of Loss Cost Multiplier. This form is available electronically at https://insurance.ky.gov/PPC/Documents/LC-1%202007.pdf. (b) A rate filing referencing loss costs formulated by an advisory organization in which an expense constant is used shall be accompanied by Form LC-2 P & C, Expense",
+    "parent_node_id": "8585a617a69d4a124105",
+    "parent_text": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "adjacent_node_ids": [
+      "7967d3f6e6ab1e79f108",
+      "a59d25c5cb24a871a4e5",
+      "3563914738b82d3cece4"
+    ],
+    "citation_ids": [],
+    "reference_ids": [],
+    "parser_run_id": "93f4b03a5a6649c7fd15",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 3.7344
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.652133+00:00",
+    "bundle_id": "409595f8c461ee3932f7",
+    "query": "coverage is provided",
+    "hit_node_id": "77855c73ea11759acde2",
+    "source_id": "KY-KRS-304-14",
+    "source_title": "KRS Chapter 304 Subtitle 14 — The Insurance Contract",
+    "source_type": "krs_statute",
+    "section_path": "KY-KRS-304-14 > 304.14-120   Filing and approval of forms.",
+    "why_retrieved": [
+      "bm25 match on 'coverage is provided' (score=2.2693)",
+      "3 citation(s): KRS 304.17, KRS 304.17-591, KRS 304.13-011",
+      "parser=partial (1 warnings)",
+      "smell_id=3"
+    ],
+    "hit_text": "304.14-120 Filing and approval of forms. (a) Except as otherwise provided in this section, a basic insurance policy or annuity contract form, or application form where written application is required and is to be made a part of the policy or contract, or printed rider or indorsement form or form of renewal certificate, shall not be delivered, or issued for delivery in this state, unless the form has been filed with and approved by the commissioner. (b) This subsection shall not apply to: Any rat",
+    "parent_node_id": "3f9da95d26691130be27",
+    "parent_text": "KRS Chapter 304 Subtitle 14 — The Insurance Contract",
+    "adjacent_node_ids": [],
+    "citation_ids": [
+      "506187362ba3e733488c",
+      "a69cc3de8c1222dbcecc",
+      "1da0fe5f4844a9ab9c51"
+    ],
+    "reference_ids": [],
+    "parser_run_id": "389ded7938f33530e4ca",
+    "parser_confidence": "medium",
+    "signal_scores": {
+      "bm25": 2.2693
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.652133+00:00",
+    "bundle_id": "b9572ff99492bc45040a",
+    "query": "coverage is provided",
+    "hit_node_id": "4daa7817e31a758c56d8",
+    "source_id": "KY-DOI-BULLETIN-2026-01",
+    "source_title": "DOI Bulletin 2026-01 — Use of Satellite and Aerial Imagery for Cancellations and Claim Denials",
+    "source_type": "doi_bulletin",
+    "section_path": "KY-DOI-BULLETIN-2026-01 > BULLETIN 2026-01",
+    "why_retrieved": [
+      "bm25 match on 'coverage is provided' (score=1.764)",
+      "3 citation(s): KRS 304.12-230, KRS 304.20-320, KRS 304.20-340",
+      "1 reference(s), 1 unresolved",
+      "smell_id=3"
+    ],
+    "hit_text": "BULLETIN 2026-01 This Bulletin is to advise the reader of the current position of the Kentucky Department of Insurance (\"Department\"), on the specified issue. The Bulletin is not legally binding on either the Department or the reader. TO: ALLPROPERTY&CASUALTYINSURANCECOMPANIESAUTHORIZED TOTRANSACTBUSINESSINTHECOMMONWEALTHOFKENTUCKY FROM: SHARONP.CLARK,COMMISSIONER RE: USE OFSATELLITE/AERIALIMAGERYASBASISFORCANCELLATIONS, NONRENEWALS,AND CLAIM DENIALS DATE: March 11, 2026 The Kentucky Department ",
+    "parent_node_id": "861330bba197a49ac646",
+    "parent_text": "DOI Bulletin 2026-01 — Use of Satellite and Aerial Imagery for Cancellations and Claim Denials\nAndy Beshear GOVERNOR\nJacqueline Coleman LIEUTENANT GOVERNOR",
+    "adjacent_node_ids": [
+      "273e86b67daace39cbbd",
+      "ab3e3add54e4113de943"
+    ],
+    "citation_ids": [
+      "2f22a2d2bb89dffe3026",
+      "f1bc9133b1a11c7dabcb",
+      "7543539c23273e46f140"
+    ],
+    "reference_ids": [
+      "65067de4cfa9f4a3a526"
+    ],
+    "parser_run_id": "b0c028e7357f33160129",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 1.764
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.652133+00:00",
+    "bundle_id": "8a8132a7ed32fdebf147",
+    "query": "coverage is provided",
+    "hit_node_id": "e3a5934b2e3ba1f9b4ae",
+    "source_id": "KY-KAR-806-13-150",
+    "source_title": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "source_type": "kar_regulation",
+    "section_path": "KY-KAR-806-13-150 > Section 1. Definitions.",
+    "why_retrieved": [
+      "bm25 match on 'coverage is provided' (score=1.2903)",
+      "6 citation(s): KRS 304.13-011(9), KRS 304.1-050(1), KRS 304.1-050(2), KRS 304.13-011(22)",
+      "smell_id=3"
+    ],
+    "hit_text": "Section 1. Definitions. (1) \"Advisory organization\" is defined by KRS 304.13-011(9). (2) \"Commissioner\" is defined by KRS 304.1-050(1). (3) \"Department\" is defined by KRS 304.1-050(2). (4) \"Loss cost\" means the loss cost per unit of exposure excluding all loss adjustment expenses.[ (5) \"Rate\" is defined by KRS 304.13-011(22). (6) \"Statistical agent\" is defined by KRS 304.13-011(24). (7) \"Supplementary rating information\" is defined by KRS 304.13-011(2).",
+    "parent_node_id": "8585a617a69d4a124105",
+    "parent_text": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "adjacent_node_ids": [
+      "7967d3f6e6ab1e79f108",
+      "a59d25c5cb24a871a4e5",
+      "3563914738b82d3cece4"
+    ],
+    "citation_ids": [
+      "244b632420ab3999dbd0",
+      "94ec8b3e86ebc494eceb",
+      "22d05312119175903288",
+      "ecbc0558be66c6a6c725",
+      "5c795422ece25e385111",
+      "bc73339d641c46b220fb"
+    ],
+    "reference_ids": [],
+    "parser_run_id": "93f4b03a5a6649c7fd15",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 1.2903
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.652133+00:00",
+    "bundle_id": "3c98a9e1bcaf26305c69",
+    "query": "coverage is provided",
+    "hit_node_id": "beb90322756b55a48ef9",
+    "source_id": "KY-KAR-806-14-006",
+    "source_title": "806 KAR 14:006 — P&C Insurance Form Filings",
+    "source_type": "kar_regulation",
+    "section_path": "KY-KAR-806-14-006 > Section 1. Definitions.",
+    "why_retrieved": [
+      "bm25 match on 'coverage is provided' (score=1.1817)",
+      "2 citation(s): KRS 304.1-050(1), KRS 304.1-050(2)",
+      "smell_id=3"
+    ],
+    "hit_text": "Section 1. Definitions. (1) \"Commissioner\" is defined by KRS 304.1-050(1). (2) \"Department\" is defined by KRS 304.1-050(2).",
+    "parent_node_id": "ef8fe78c277fd96e835c",
+    "parent_text": "806 KAR 14:006 — P&C Insurance Form Filings",
+    "adjacent_node_ids": [
+      "baec6d958650b2501eb5",
+      "acc5b4dd4f318a354d32",
+      "6e567f744686f431d174"
+    ],
+    "citation_ids": [
+      "28d71fe4c83a60a4eb4c",
+      "fd53c4c22e71afc70c14"
+    ],
+    "reference_ids": [],
+    "parser_run_id": "5efdaf1b3977f73aa2a6",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 1.1817
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.652133+00:00",
+    "bundle_id": "6789ee0d53c091c4256e",
+    "query": "underwriting guidelines",
+    "hit_node_id": "4daa7817e31a758c56d8",
+    "source_id": "KY-DOI-BULLETIN-2026-01",
+    "source_title": "DOI Bulletin 2026-01 — Use of Satellite and Aerial Imagery for Cancellations and Claim Denials",
+    "source_type": "doi_bulletin",
+    "section_path": "KY-DOI-BULLETIN-2026-01 > BULLETIN 2026-01",
+    "why_retrieved": [
+      "phrase match on 'underwriting guidelines' (score=1.0)",
+      "3 citation(s): KRS 304.12-230, KRS 304.20-320, KRS 304.20-340",
+      "1 reference(s), 1 unresolved",
+      "smell_id=4"
+    ],
+    "hit_text": "BULLETIN 2026-01 This Bulletin is to advise the reader of the current position of the Kentucky Department of Insurance (\"Department\"), on the specified issue. The Bulletin is not legally binding on either the Department or the reader. TO: ALLPROPERTY&CASUALTYINSURANCECOMPANIESAUTHORIZED TOTRANSACTBUSINESSINTHECOMMONWEALTHOFKENTUCKY FROM: SHARONP.CLARK,COMMISSIONER RE: USE OFSATELLITE/AERIALIMAGERYASBASISFORCANCELLATIONS, NONRENEWALS,AND CLAIM DENIALS DATE: March 11, 2026 The Kentucky Department ",
+    "parent_node_id": "861330bba197a49ac646",
+    "parent_text": "DOI Bulletin 2026-01 — Use of Satellite and Aerial Imagery for Cancellations and Claim Denials\nAndy Beshear GOVERNOR\nJacqueline Coleman LIEUTENANT GOVERNOR",
+    "adjacent_node_ids": [
+      "273e86b67daace39cbbd",
+      "ab3e3add54e4113de943"
+    ],
+    "citation_ids": [
+      "2f22a2d2bb89dffe3026",
+      "f1bc9133b1a11c7dabcb",
+      "7543539c23273e46f140"
+    ],
+    "reference_ids": [
+      "65067de4cfa9f4a3a526"
+    ],
+    "parser_run_id": "b0c028e7357f33160129",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "phrase": 1.0
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.655103+00:00",
+    "bundle_id": "b2333eb7e96cc5ab3cf4",
+    "query": "applicable law",
+    "hit_node_id": "a901b9d3ba6f3f6ec504",
+    "source_id": "KY-KAR-806-13-150",
+    "source_title": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "source_type": "kar_regulation",
+    "section_path": "KY-KAR-806-13-150 > Section 12. Incorporation by Reference.",
+    "why_retrieved": [
+      "bm25 match on 'applicable law' (score=4.2553)",
+      "smell_id=5"
+    ],
+    "hit_text": "Section 12. Incorporation by Reference. (1) The following material is incorporated by reference: (a) \"Uniform Property and Casualty Product Coding Matrix\", 01/2021 ; (b) Form PC TD-1, \"Property and Casualty Transmittal Document\", 01/2020 ; (c) Form PC RRFS-1, \"Rate/Rule Filing Schedule\", 3/2007; (d) LC-1 P&C, \"Calculation of Loss Cost Multiplier\", 10/2007 ; (e) LC-2 P&C, \"Expense Constant Supplement, Calculation of Loss Cost Multiplier with Expense Constant\", 10/2007; ;[. (2) This material may b",
+    "parent_node_id": "8585a617a69d4a124105",
+    "parent_text": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "adjacent_node_ids": [
+      "7967d3f6e6ab1e79f108",
+      "a59d25c5cb24a871a4e5",
+      "3563914738b82d3cece4"
+    ],
+    "citation_ids": [],
+    "reference_ids": [],
+    "parser_run_id": "93f4b03a5a6649c7fd15",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 4.2553
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.655103+00:00",
+    "bundle_id": "9d763c5a6974396d0e2e",
+    "query": "applicable law",
+    "hit_node_id": "b7efaa36bb653879884c",
+    "source_id": "KY-KAR-806-14-006",
+    "source_title": "806 KAR 14:006 — P&C Insurance Form Filings",
+    "source_type": "kar_regulation",
+    "section_path": "KY-KAR-806-14-006 > Section 6. If a filing includes a form which amends, replaces, or supplements a form which has been previously filed and not disapproved, it shall be accompanied by a letter of explanation from the filer setting forth the following:",
+    "why_retrieved": [
+      "bm25 match on 'applicable law' (score=2.9393)",
+      "smell_id=5"
+    ],
+    "hit_text": "Section 6. If a filing includes a form which amends, replaces, or supplements a form which has been previously filed and not disapproved, it shall be accompanied by a letter of explanation from the filer setting forth the following: (1) All changes contained in the newly filed form; (2) The effect, if any, the changes have upon the hazards purported to be assumed by the policy; and (3) An explanation as to the effect on the applicable rates.",
+    "parent_node_id": "ef8fe78c277fd96e835c",
+    "parent_text": "806 KAR 14:006 — P&C Insurance Form Filings",
+    "adjacent_node_ids": [
+      "baec6d958650b2501eb5",
+      "acc5b4dd4f318a354d32",
+      "6e567f744686f431d174"
+    ],
+    "citation_ids": [],
+    "reference_ids": [],
+    "parser_run_id": "5efdaf1b3977f73aa2a6",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 2.9393
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.655103+00:00",
+    "bundle_id": "9304754682e9b9844415",
+    "query": "applicable law",
+    "hit_node_id": "6f3320431cb63d925566",
+    "source_id": "KY-KAR-806-13-150",
+    "source_title": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "source_type": "kar_regulation",
+    "section_path": "KY-KAR-806-13-150 > Section 3.",
+    "why_retrieved": [
+      "bm25 match on 'applicable law' (score=2.8136)",
+      "smell_id=5"
+    ],
+    "hit_text": "Section 3. (1) Every insurer, other than a life or health insurer, required by law or licensed advisory organization, or statistical agent permitted by law to file rates, loss costs, supplementary rating information, statistical plans, advertising and sales materials, or other documents shall file with these documents a completed and signed Form PC TD-1, Property and Casualty Transmittal Document. (2) If the filing is being made by a third party, a signed letter of authorization from the insurer",
+    "parent_node_id": "8585a617a69d4a124105",
+    "parent_text": "806 KAR 13:150 — P&C Rate and Rule Filings",
+    "adjacent_node_ids": [
+      "7967d3f6e6ab1e79f108",
+      "a59d25c5cb24a871a4e5",
+      "3563914738b82d3cece4"
+    ],
+    "citation_ids": [],
+    "reference_ids": [],
+    "parser_run_id": "93f4b03a5a6649c7fd15",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 2.8136
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.655103+00:00",
+    "bundle_id": "da3853a4a8766617228c",
+    "query": "applicable law",
+    "hit_node_id": "f8ba5a5b6d13a1081a1d",
+    "source_id": "KY-KAR-806-14-006",
+    "source_title": "806 KAR 14:006 — P&C Insurance Form Filings",
+    "source_type": "kar_regulation",
+    "section_path": "KY-KAR-806-14-006 > Section 2. Electronic Filing.",
+    "why_retrieved": [
+      "bm25 match on 'applicable law' (score=2.5379)",
+      "1 reference(s), 1 unresolved",
+      "smell_id=5"
+    ],
+    "hit_text": "Section 2. Electronic Filing. (1) Every insurer, other than life or health insurers, required by law or licensed advisory organization or form provider permitted by law to file policy forms or endorsements, advertising and sales materials, or other documents subject to form filing requirements shall file the forms with the department electronically through the System for Electronic Rate and Form Filing (SERFF) or other electronic manner approved by the department. (2) If the filing is being made",
+    "parent_node_id": "ef8fe78c277fd96e835c",
+    "parent_text": "806 KAR 14:006 — P&C Insurance Form Filings",
+    "adjacent_node_ids": [
+      "baec6d958650b2501eb5",
+      "acc5b4dd4f318a354d32",
+      "6e567f744686f431d174"
+    ],
+    "citation_ids": [],
+    "reference_ids": [
+      "2225f235bcb3eed06559"
+    ],
+    "parser_run_id": "5efdaf1b3977f73aa2a6",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 2.5379
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "run_id": "caba8e20-e894-42a3-b782-5e988113832a",
+    "created_at": "2026-06-03T17:41:06.655103+00:00",
+    "bundle_id": "d48bd4217caa0d9a9b10",
+    "query": "applicable law",
+    "hit_node_id": "832d76b2d75deece7b0a",
+    "source_id": "KY-KAR-806-14-006",
+    "source_title": "806 KAR 14:006 — P&C Insurance Form Filings",
+    "source_type": "kar_regulation",
+    "section_path": "KY-KAR-806-14-006 > Section 3.",
+    "why_retrieved": [
+      "bm25 match on 'applicable law' (score=2.3435)",
+      "2 citation(s): KRS 304.14-120(4), KRS 304.14-120",
+      "smell_id=5"
+    ],
+    "hit_text": "Section 3. (1) A policy or form shall not be used in Kentucky until it has been approved unless a policy or form has been exempted by an order of the commissioner pursuant to KRS 304.14-120(4). Any policy or form exempt from prior approval requirements under an order issued by the commissioner pursuant to KRS 304.14-120(4) may be subsequently disapproved for continued use on a prospective basis by the commissioner or designee upon a finding that the policy or form: (a) Does not meet the requirem",
+    "parent_node_id": "ef8fe78c277fd96e835c",
+    "parent_text": "806 KAR 14:006 — P&C Insurance Form Filings",
+    "adjacent_node_ids": [
+      "baec6d958650b2501eb5",
+      "acc5b4dd4f318a354d32",
+      "6e567f744686f431d174"
+    ],
+    "citation_ids": [
+      "a5b6ecfbc5420017bb32",
+      "e5c0f7303ad6e1545561"
+    ],
+    "reference_ids": [],
+    "parser_run_id": "5efdaf1b3977f73aa2a6",
+    "parser_confidence": "high",
+    "signal_scores": {
+      "bm25": 2.3435
+    }
+  }
+]

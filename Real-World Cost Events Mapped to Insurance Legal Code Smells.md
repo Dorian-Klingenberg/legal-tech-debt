@@ -1,8 +1,10 @@
 # Real-World Cost Events Mapped to Insurance Legal Code Smells
 
+Status: Background research snapshot. It maps public events to candidate smell analogies; it does not prove causation, prevalence, buyer savings, or project revenue. Recheck every primary source and amount before publication or external use.
+
 ## Overview
 
-The 83 smells identified across the two companion documents — 41 in Claims and 42 in Policy — are not theoretical. For each major category, real insurers have absorbed measurable financial losses in the form of class-action settlements, regulatory fines, market conduct penalties, and adverse court judgments. The examples below are organized by smell section and annotated with the financial consequence, the smell it instantiates, and what the underlying technical failure was.
+The 84 entries in the two companion documents — 41 in Claims and 43 in Policy — describe patterns that may be compared with public insurance disputes, settlements, fines, and judgments. The examples below are analogical risk context, not proof that a smell alone caused the event or that detecting it would have avoided the stated cost.
 
 ***
 
@@ -307,4 +309,3 @@ The absence of a named public case does not mean these smells are harmless. Indu
 39. [North and South Dakota Fine Insurers More than $1 Million](https://www.insurancejournal.com/magazines/mag-features/2015/06/15/371021.htm) - The South Dakota Division of Insurance (DOI) said it reached a settlement with Farmers Insurance Gro...
 
 40. [Eliminating Claims Leakage - Core P&C Insurance Software Solutions](https://www.spear-tech.com/eliminating-claims-leakage/) - Claims leakage is defined as the extent of financial loss due to errors, inefficiencies, or fraudule...
-

@@ -1,5 +1,9 @@
 # Insurance Policy-Layer Pain Points Taxonomy (Sandbox 002 Context)
 
+Status note: Background only. Do not use this taxonomy to expand active Sandbox 002 scope.
+
+This document intentionally maps a broad claims and regulatory-automation landscape. That broader landscape is not current work. Sandbox 002 later completed a narrower Kentucky homeowners proof of concept; use `CLOSURE.md` and the repository root `README.md` for current state.
+
 ## Overview
 
 This document maps policy-layer insurance pain points that can be addressed by legal tech debt detectors. It remains a broad taxonomy reference, but Sandbox 002 implementation is currently narrowed to **Kentucky homeowners** and the **five policy-layer phish** plan.

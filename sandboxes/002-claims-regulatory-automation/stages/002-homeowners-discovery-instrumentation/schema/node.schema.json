@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "node.schema.json",
+  "title": "Node",
+  "description": "A legal-structure segment with stable ID and provenance.",
+  "type": "object",
+  "required": ["schema_version", "run_id", "created_at", "node_id", "source_id", "source_hash", "node_type", "section_path", "text", "retrievable_text", "depth"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "run_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "node_id": { "type": "string", "description": "sha256 of source_id::section_path, first 20 hex chars" },
+    "source_id": { "type": "string" },
+    "source_hash": { "type": "string" },
+    "node_type": { "type": "string", "enum": ["document", "section", "subsection", "clause", "list_item", "definition", "table", "metadata_block"] },
+    "section_path": { "type": "string", "description": "Human-readable path like 'Section 1 > (2) > (a)'" },
+    "title": { "type": ["string", "null"] },
+    "text": { "type": "string" },
+    "retrievable_text": { "type": "string", "description": "Whitespace-normalized text for retrieval" },
+    "page_number": { "type": ["integer", "null"] },
+    "element_ref": { "type": ["string", "null"] },
+    "parent_node_id": { "type": ["string", "null"] },
+    "depth": { "type": "integer" },
+    "block_ids": { "type": "array", "items": { "type": "string" } }
+  }
+}

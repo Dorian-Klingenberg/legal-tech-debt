@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.1.0",
+  "source": "sandboxes/002-claims-regulatory-automation/002-ROI-CASES-FIVE-SMELLS.md",
+  "notes": "Public cost examples mapped to confirmed smells. These are directional anchors from project research — not audited figures. Use to ground severity claims in the executive report. source_url fields added in session 2026-06-05-C; all figures verified against primary sources where available.",
+  "smells": {
+    "2": {
+      "smell_name": "Magic Number / Magic Valuation Terms",
+      "cost_pool": "Claim disputes, bad-faith exposure, class-action remediation",
+      "anchors": [
+        {
+          "anchor_id": "DA-S2-001",
+          "label": "Labor depreciation class-action wave",
+          "description": "A wave of class actions beginning around 2015 alleged that carriers were systematically depreciating labor costs when calculating actual cash value — a practice not disclosed or defined in policy language. One Trumbull/Hartford suit alone alleged more than $5 million in underpayments; industry-wide exposure has been estimated in the hundreds of millions.",
+          "dollar_figure": "$5M+ in one case; industry-wide hundreds of millions",
+          "relevance": "Directly tied to undefined ACV methodology — the same pattern flagged by SMELL2-H003.",
+          "source_url": [
+            "https://law.justia.com/cases/federal/appellate-courts/ca6/19-5719/19-5719-2020-07-10.html",
+            "https://storage.courtlistener.com/pdf/2026/03/25/schoening_investment_lp_v._cincinnati_casualty_company.pdf"
+          ],
+          "source_note": "Dollar figure from project research (002-ROI-CASES-FIVE-SMELLS.md). Primary case citations: CL-001 (Hicks v. State Farm, 6th Cir. 2020) and CL-002 (Schoening v. Cincinnati Casualty, 6th Cir. 2026) — both in case_library.json with full source attribution.",
+          "case_library_ids": ["CL-001", "CL-002"]
+        },
+        {
+          "anchor_id": "DA-S2-002",
+          "label": "State Farm ACV settlement — Arkansas auto total loss",
+          "description": "State Farm agreed to a $15.6 million settlement in an Arkansas class action alleging that ACV calculations for total-loss vehicles were systematically understated using 'typical negotiation adjustments' applied via Audatex valuation reports — a direct consequence of undefined or undisclosed ACV methodology. NOTE: This is an auto total-loss case (Chadwick v. State Farm, E.D. Ark.), not a homeowners case. The ACV methodology dispute pattern is directly analogous to homeowners SMELL2-H003, but the specific settlement involved vehicle claims.",
+          "dollar_figure": "$15.6 million (preliminary approval March 2026)",
+          "relevance": "ACV undefined or undisclosed in the loss settlement methodology — the core SMELL2-H003 pattern. Out-of-line pattern: auto, but methodology gap is identical.",
+          "source_url": [
+            "https://www.repairerdrivennews.com/2026/04/13/state-farm-to-settle-arkansas-actual-cash-value-lawsuit-for-15-6-million/",
+            "https://www.propertycasualty360.com/2026/04/08/15m-state-farm-acv-settlement-gets-preliminary-approval/"
+          ],
+          "source_note": "Verified 2026-06-05 via Repairer Driven News and PropertyCasualty360. Case: Chadwick v. State Farm, E.D. Ark., lead plaintiff Rose Chadwick. Settlement preliminary approval March 27, 2026; final approval hearing July 15, 2026.",
+          "case_library_ids": []
+        },
+        {
+          "anchor_id": "DA-S2-003",
+          "label": "Kentucky ambiguity and bad-faith exposure",
+          "description": "Kentucky courts treat policy ambiguity against the drafter. Undefined payment, valuation, or timing terms in Kentucky homeowners forms can survive as the basis for bad-faith exposure once a claim dispute reaches litigation.",
+          "dollar_figure": "Bad-faith multiplier exposure — no single figure; materially increases dispute value",
+          "relevance": "Kentucky-specific risk for carriers with undefined valuation terms in homeowners forms.",
+          "source_url": [
+            "https://law.justia.com/cases/kentucky/court-of-appeals/1993/92-ca-001832-mr-1.html"
+          ],
+          "source_note": "Kentucky rule: ambiguity construed against drafter. Primary case: CL-003 (FB Ins. Co. v. Jones, Ky. Ct. App. 1993) — case_library.json. Justia URL returned 403 on direct fetch; citation from project research.",
+          "case_library_ids": ["CL-003"]
+        }
+      ]
+    },
+    "4": {
+      "smell_name": "Calculation Rule Drift / Unversioned Rate Reference",
+      "cost_pool": "Systematic underpayment, premium leakage, audit findings",
+      "anchors": [
+        {
+          "anchor_id": "DA-S4-001",
+          "label": "Marshall Fire underinsurance — Colorado",
+          "description": "Colorado Division of Insurance released estimates showing 74% of Marshall Fire policyholders were underinsured, 36% severely underinsured (coverage covers less than 75% of rebuild cost). Average shortfall per home ranged from $99,000 to $240,000 depending on rebuild-cost assumption. One documented example: $860,000 in coverage against a $1.3 million rebuild estimate — a $440,000 gap. Root cause: replacement cost estimates not synchronized with actual post-loss reconstruction pricing, driven by stale or unversioned valuation references.",
+          "dollar_figure": "Average shortfall $99K–$240K per home; 74% of 954 affected policies underinsured",
+          "relevance": "Unversioned rate or valuation reference that drifts from real-world reconstruction cost — the SMELL4-H001 pattern.",
+          "source_url": [
+            "https://doi.colorado.gov/news-releases-consumer-advisories/division-of-insurance-releases-initial-estimates-of-underinsurance-for-homes-in-the-marshall-fire",
+            "https://www.cpr.org/2024/12/30/marshall-fire-homeowners-underinsured-study/",
+            "https://uphelp.org/colorado-fire-victims-face-high-building-costs-exceeding-insurance-coverage/"
+          ],
+          "source_note": "Colorado DOI official release for underinsurance statistics. CPR News (Dec 2024) for 74%/36% figures from peer-reviewed study. United Policyholders for individual policyholder example ($860K vs $1.3M). NOTE: Original anchor cited $419K/$850K single-home example — source not located; replaced with Colorado DOI verified statistics.",
+          "case_library_ids": ["CL-004"]
+        },
+        {
+          "anchor_id": "DA-S4-002",
+          "label": "Han v. State Farm",
+          "description": "Alleged systematic property underpayment from using lower new-construction pricing rather than reconstruction pricing in ACV/replacement cost estimates. Pattern affects entire claim population, not individual cases.",
+          "dollar_figure": "Systematic underpayment — class exposure [VERIFY: dollar figure not confirmed in public record]",
+          "relevance": "Filing cites an external pricing manual without version — the filed promise and implemented method diverge.",
+          "source_url": [],
+          "source_note": "[VERIFY] Case name and pattern sourced from 002-ROI-CASES-FIVE-SMELLS.md project research. No direct primary source URL confirmed. Search CourtListener or PACER for Han v. State Farm to retrieve docket and confirm dollar figure.",
+          "case_library_ids": ["CL-004"]
+        }
+      ]
+    },
+    "5": {
+      "smell_name": "Regulatory Mapping Smells",
+      "cost_pool": "Market conduct fines, remediation, refiling, interest and penalties",
+      "anchors": [
+        {
+          "anchor_id": "DA-S5-001",
+          "label": "Florida OIR hurricane market conduct exams — Hurricanes Ian & Idalia",
+          "description": "Florida OIR completed market conduct examinations against 10 carriers for claims-handling operations during Hurricanes Ian and/or Idalia. Total fines: $2,575,000 across two phases (8 carriers at $2,075,000 announced Sept 2025; 2 more at $250,000 each announced Nov 2025). Violations: failures to pay or deny claims promptly, use of adjusters who failed to adjust claims, failure to provide disclosure statements about damage estimates to insureds, and failure to provide adjuster license numbers as required by state law.",
+          "dollar_figure": "$2,575,000 across ten carriers",
+          "relevance": "Carriers whose claim-handling practices are not mapped to statutory deadlines and disclosure obligations face exactly this examination outcome — the H004 and H006 patterns.",
+          "source_url": [
+            "https://floir.gov/newsroom/archives/item-details/2025/09/02/commissioner-yaworsky-penalizes-companies-over--2-million-due-to-misconduct-during-past-hurricanes",
+            "https://floir.gov/home/2025/11/03/commissioner-yaworsky-penalizes-two-more-companies-for-misconduct-during-hurricanes-ian---idalia",
+            "https://www.insurancejournal.com/news/southeast/2025/09/03/837695.htm"
+          ],
+          "source_note": "Verified 2026-06-05 via Florida OIR official press releases (floir.gov) and Insurance Journal. Two-phase announcement: Sept 2, 2025 (8 carriers, $2.075M) and Nov 3, 2025 (Kin Interinsurance + Slide Insurance, $250K each).",
+          "case_library_ids": []
+        },
+        {
+          "anchor_id": "DA-S5-002",
+          "label": "Louisiana DOI hurricane market conduct exams — 2020 storms",
+          "description": "Louisiana Insurance Commissioner proposed fines totaling $764,750 against five homeowners carriers following targeted market conduct examinations covering August 27, 2020 – June 30, 2021 (Hurricanes Laura, Delta, Zeta). 44 instances of improper activities found across claims handling, complaint handling, and operations. Carriers: United Property & Casualty ($250K), GeoVera Specialty ($183K), FedNat ($173.5K), Maison Insurance, and Allied Trust Insurance.",
+          "dollar_figure": "$764,750 proposed fines across five carriers",
+          "relevance": "Regulatory mapping gap in carrier claim-handling practices — directly analogous to SMELL5-H004 and H006.",
+          "source_url": [
+            "https://www.insurancejournal.com/news/southcentral/2022/04/18/663381.htm",
+            "https://www.propertyinsurancecoveragelaw.com/blog/louisiana-insurance-commissioner-proposes-fines-against-insurers-for-wrongful-hurricane-claims-conduct/"
+          ],
+          "source_note": "Verified 2026-06-05 via Insurance Journal (April 18, 2022) and Property Insurance Coverage Law Blog. NOTE: Original anchor stated 'nearly $1 million' — confirmed figure is $764,750 proposed fines. Examination reports adopted April 11, 2022.",
+          "case_library_ids": []
+        },
+        {
+          "anchor_id": "DA-S5-003",
+          "label": "South Dakota — Farmers/Foremost market conduct settlement",
+          "description": "South Dakota Division of Insurance reached a $750,000 settlement with Farmers Insurance Group and Foremost Insurance Group following a market conduct examination that found 'various deficiencies in the companies' practices that needed to be corrected.' The number of violations was cited as a significant driver of the penalty. Farmers disputed many findings but agreed to settle. Exam report published July 2015.",
+          "dollar_figure": "$750,000",
+          "relevance": "Low end of documented market conduct penalty range for a single exam finding — establishes the floor for a regional carrier exam.",
+          "source_url": [
+            "https://www.insurancejournal.com/news/midwest/2015/06/05/370706.htm",
+            "https://dlr.sd.gov/insurance/market_conduct_multi_state_examinations/documents/foremost_farmers_insurance_groups_examination_report.pdf"
+          ],
+          "source_note": "Verified 2026-06-05 via Insurance Journal (June 5, 2015) and South Dakota DLR exam report PDF. Settlement announced June 2015; exam report released July 2015.",
+          "case_library_ids": []
+        }
+      ]
+    }
+  },
+  "portfolio_framing": {
+    "description": "For a carrier with $1B+ in written premium, estimated annual impact ranges from the project's 10-year exposure analysis.",
+    "ranges": [
+      {
+        "category": "Semantic defects (Smells 1 and 2)",
+        "annual_estimate": "20M-200M USD",
+        "ten_year_range": "200M-2.0B USD"
+      },
+      {
+        "category": "Regulatory mapping (Smell 5)",
+        "annual_estimate": "5M-25M USD",
+        "ten_year_range": "50M-250M USD"
+      },
+      {
+        "category": "Calculation rule drift (Smell 4)",
+        "annual_estimate": "10M-100M USD",
+        "ten_year_range": "100M-1.0B USD"
+      }
+    ],
+    "conservative_pitch": "If the review has only a 10% chance of preventing a 1M-dollar remediation or litigation event, expected value is 100K. If the service costs 60K-90K, the buyer has a plausible positive expected ROI before counting reviewer time savings or reputational risk."
+  }
+}

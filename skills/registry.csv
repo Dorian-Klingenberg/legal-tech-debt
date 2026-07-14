@@ -1,0 +1,10 @@
+skill_name,status,repo_path,codex_install_path,source_of_truth,primary_scope,notes
+legal-rag-builder,active,skills/legal-rag-builder,TBD,sandboxes/002-claims-regulatory-automation/002-RAG-INGESTION-RETRIEVAL-SPEC.md,Sandbox 002 legal document ingestion and retrieval,"Validated through the completed Sandbox 002 evidence pipeline. Use only on explicit reopen; not installed into CODEX_HOME."
+project-memory-artifacts,active,skills/project-memory-artifacts,TBD,skills/proposals/project-memory-artifacts.md,Shared handoffs journals lessons and agent context updates,"Validated through repeated journal handoff lesson and context-maintenance work. Repo-visible only."
+project-coding-preferences,active,skills/project-coding-preferences,TBD,AGENT_CONTEXT.json,Shared implementation preferences and constrained-agent handoff behavior,"Validated through implementation and review work across completed sandboxes. Repo-visible only."
+apply-implementation-defaults,active,skills/apply-implementation-defaults,TBD,skills/project-coding-preferences/SKILL.md,Portable implementation defaults for sandbox and prototype work,"Validated in implementation review refactor and validation tasks."
+write-adr,active,skills/write-adr,TBD,skills/project-memory-artifacts/SKILL.md,Architecture decision records and context-freeze ADRs,"Validated through accepted project and sandbox ADRs."
+write-journal-entry,active,skills/write-journal-entry,TBD,skills/project-memory-artifacts/SKILL.md,Dated chronological project journals,"Validated through top-level chronological journal entries."
+write-lesson,active,skills/write-lesson,TBD,skills/project-memory-artifacts/SKILL.md,Reusable lessons and learning artifacts,"Validated through sandbox and top-level lessons."
+write-handoff,active,skills/write-handoff,TBD,skills/project-memory-artifacts/SKILL.md,Handoffs resume notes and next-agent briefs,"Validated through sandbox stage and constrained-agent handoffs."
+maintain-agent-context,active,skills/maintain-agent-context,TBD,AGENT_CONTEXT.json,Shared agent context and startup instruction maintenance,"Validated through AGENT_CONTEXT and cross-agent startup updates."

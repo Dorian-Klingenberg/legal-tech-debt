@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "reference.schema.json",
+  "title": "Reference",
+  "description": "A broader domain reference (DOI bulletin, SERFF tracking, form ID, manual, generic law) extracted from a node. Separate from formal KRS/KAR citations.",
+  "type": "object",
+  "required": ["schema_version", "run_id", "created_at", "reference_id", "source_id", "source_hash", "node_id", "reference_type", "raw_text", "resolved"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "run_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "reference_id": { "type": "string" },
+    "source_id": { "type": "string" },
+    "source_hash": { "type": "string" },
+    "node_id": { "type": "string" },
+    "reference_type": { "type": "string", "enum": ["doi_bulletin", "doi_advisory_opinion", "serff_tracking", "form_id", "endorsement_id", "manual_reference", "current_guideline", "generic_law", "internal_cross", "other"] },
+    "raw_text": { "type": "string" },
+    "normalized": { "type": ["string", "null"] },
+    "resolved": { "type": "boolean" },
+    "resolution_note": { "type": ["string", "null"] }
+  }
+}

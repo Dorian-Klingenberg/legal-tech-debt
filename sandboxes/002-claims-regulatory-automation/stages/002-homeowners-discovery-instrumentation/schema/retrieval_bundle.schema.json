@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "retrieval_bundle.schema.json",
+  "title": "RetrievalBundle",
+  "description": "A node-centric evidence bundle returned for a retrieval query or candidate-evidence task.",
+  "type": "object",
+  "required": ["schema_version", "run_id", "created_at", "bundle_id", "query_text", "hits"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "run_id": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "bundle_id": { "type": "string" },
+    "query_text": { "type": "string" },
+    "task_description": { "type": "string" },
+    "filters": { "type": "object" },
+    "hits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["node_id", "signal_scores"],
+        "properties": {
+          "node_id": { "type": "string" },
+          "rank": { "type": "integer" },
+          "score": { "type": "number" },
+          "node_type": { "type": "string" },
+          "text": { "type": "string" },
+          "source": {
+            "type": "object",
+            "required": ["source_id", "source_hash"],
+            "properties": {
+              "source_id": { "type": "string" },
+              "source_hash": { "type": "string" },
+              "title": { "type": "string" },
+              "source_type": { "type": "string" },
+              "url": { "type": "string" }
+            }
+          },
+          "section_path": { "type": "string" },
+          "pages": { "type": "array", "items": { "type": "integer" } },
+          "why_retrieved": { "type": "array", "items": { "type": "string" } },
+          "candidate_ids": { "type": "array", "items": { "type": "string" } },
+          "signal_scores": {
+            "type": "object",
+            "required": ["exact", "lexical", "graph", "citation", "reference", "metadata", "semantic", "parser_penalty"],
+            "properties": {
+              "exact": { "type": "number" },
+              "lexical": { "type": "number" },
+              "graph": { "type": "number" },
+              "citation": { "type": "number" },
+              "reference": { "type": "number" },
+              "metadata": { "type": "number" },
+              "semantic": { "type": ["number", "null"] },
+              "parser_penalty": { "type": "number" }
+            }
+          },
+          "parser_diagnostics": { "type": "object" },
+          "expanded_context": { "type": "object" }
+        }
+      }
+    }
+  }
+}

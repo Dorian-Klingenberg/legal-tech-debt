@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+    "updated_at": "2026-07-13T21:22:48-04:00",
+  "project": {
+    "name": "legal-tech-debt",
+        "mode": "sandbox research, proof-of-concept development, and production-aligned portfolio work",
+    "north_star": "Build inspectable legal tech debt probes that turn insurance legal and regulatory text into source-traceable evidence, candidate smells, findings, and human-reviewable reports."
+  },
+  "startup_order": [
+    "CLAUDE_CONSTRAINTS.md first when the active agent is Claude Code",
+    "BOOTSTRAP.md",
+    "README.md",
+    "AGENT_CONTEXT.json",
+    "AGENT_OPERATING_MODEL.md",
+    "tool-specific entry file: AGENTS.md, CLAUDE.md, or .github/copilot-instructions.md",
+    "latest_handoff and latest_backlog_plan named in AGENT_CONTEXT.json",
+    "skills/project-coding-preferences/SKILL.md before substantive code changes",
+    "active sandbox README, roadmap, ADRs, and latest handoff"
+  ],
+  "current_focus": {
+    "active_lane": "Primary technical lane: Sandbox 005 Stage 002 is ready but must be explicitly started by the owner. Secondary review lane: Sandbox 006 Stage 002 is implemented and awaits human visual/responsive review. Productization is planning only; provider-facing commercial demand remains unvalidated. Owner/access lane: BACKLOG-003 SERFF recheck and optional KY DOI records work.",
+    "active_sandbox": "sandboxes/005-agentic-sdlc-project-manager/",
+    "sandbox_004_status": "Complete. Three expert drill-down entries render into five combined, carrier-specific, and sanitized HTML variants. case_library.json contains 4 public cases/actions and 6 gap sentinels.",
+        "next_priority": "After explicit owner authorization, run the Sandbox 005 Stage 002 preflight and S005-PILOT-001: manually test the repo-native hybrid on a synthetic-demo manifest contract and validator.",
+    "current_status_surface": "README.md",
+    "source_evidence_sandbox": "sandboxes/002-claims-regulatory-automation",
+    "source_evidence_run": "sandboxes/002-claims-regulatory-automation/output/002/20260604_130606_18b0dec5/",
+    "run_summary": "Scopes differ: 32 canonical corpus files; preserved Stage 002 run has 28 ingested sources, 353 nodes, and 121 candidate-evidence records; 143 carrier nodes reach detectors after regulatory and structure filters; current Stage 006 output has 31 findings (S1:1, S2:17, S3:0, S4:1, S5:12; HIGH:1, MEDIUM:24, LOW:6). Sandbox 003 analyzed an earlier 35-finding snapshot before four Smell 3 regulatory-layer false positives were removed.",
+    "latest_handoff": "HANDOFF-2026-07-13-repository-documentation-audit.md",
+    "latest_memory_journal": "journal/2026-07-13-repository-documentation-audit.md",
+    "latest_backlog_plan": "BACKLOG.md"
+  },
+  "active_scope": [
+    "Kentucky homeowners insurance",
+    "Five policy-layer smells from sandboxes/002-claims-regulatory-automation/002-five-policy-layer-phish.md",
+        "Preserved expert drill-down evidence from Sandbox 004 and bounded follow-on validation over Sandbox 002/003/004 outputs",
+    "Agentic SDLC project-manager stack exploration in Sandbox 005",
+    "Interactive drill-down report UX/static HTML exploration in Sandbox 006",
+    "Human-reviewable outputs, not legal advice",
+    "Production-aligned portfolio and commercial-skeleton documentation; no production infrastructure without an explicit future stage"
+  ],
+  "out_of_scope_by_default": [
+    "Personal auto, no-fault, PIP, and broad claims-platform work",
+    "Production infrastructure, services, databases, queues, schedulers, Docker, and deployment scaffolding",
+        "Vector infrastructure — deferred; vector retrieval may earn a future role in cross-carrier paraphrase matching, but similarity alone does not establish a missing required relationship (see ADR-010)",
+    "Automated legal conclusions"
+  ],
+  "implementation_preferences": [
+    "Prefer small readable local Python over abstractions or infrastructure.",
+    "Prefer deterministic JSON/JSONL/CSV/Markdown artifacts with schemas where downstream stages consume them.",
+    "Preserve provenance, source text, source_type, run_id, schema_version, created_at, and stable IDs.",
+    "Treat parser/reference uncertainty as evidence.",
+    "Separate candidate evidence, detector findings, LLM annotations, and reviewer reports.",
+    "Use source-type-aware heuristics; regulatory documents and carrier filings need different false-positive handling.",
+    "Run focused validation and report concrete counts, run IDs, and unvalidated gaps.",
+        "For the current Smell 5 design, use graph traversal over the edge substrate; vector similarity alone does not prove that a required relationship is absent."
+  ],
+  "open_threads": [
+        "BACKLOG-005 [CLOSED]: Phase A / Agile V / SE stack work promoted to Sandbox 005. Stage 002 execution remains owner-gated. Track it in sandboxes/005-agentic-sdlc-project-manager/.",
+        "BACKLOG-023 [CLOSED]: Per-carrier pipeline complete. detector_runner.py --carrier filters by source_id prefix; generate_drilldown.py supports --carrier and --sanitize; five output variants were verified. report_builder.py was intentionally not given carrier filtering, so the executive report stays combined/anonymized.",
+        "BACKLOG-022 [CLOSED]: Conservative sanitization is implemented. paraphrased_evidence/context/current_language exist for all 3 drill_down_entries.json entries, and generate_drilldown.py --sanitize selects them at render time. The current sanitized variants were verified; future content changes must repeat that check.",
+    "BACKLOG-015 [COMPLETE TO PUBLIC-WEB LIMIT]: case_library.json has 4 cases/actions (CL-001 Hicks, CL-002 Schoening, CL-003 FB Ins, CL-004 Mercury/CA) and 6 explicit gap sentinels. Regional DOI exam reports require an owner/access path. Remaining source-verification notes are limitations, not an open agent implementation item.",
+        "BACKLOG-021 [CLOSED]: KFBM base-jacket procurement is not active. The base form number/text remain unknown; internal references are context, not substitute source text, and edition-specific ISO comparison requires a verified source. H004 fires zero on the current corpus and the package limitation is explicit. KY DOI records are an optional validation path, not a blocker.",
+        "BACKLOG-006 [CLOSED]: ADR-013 records a proposed language_context six-value enum and validation approach. Implementation is parked unless a new explicit stage earns it.",
+    "BACKLOG-009 [CLOSED]: Non-Deterministic Underwriting Criteria added to insurance_policy_smells.md Section 2 and legal_code_smell_taxonomy.md Category 2.",
+    "BACKLOG-012 [CLOSED]: H005 'is not mandatory' removed from pattern; _H005_FP strengthened. ADR-013 is the long-term fix.",
+        "SANDBOX-005 (PRIMARY, OWNER-GATED): Stage 001 completed 2026-07-13 with a provisional layered hybrid: current repo artifacts remain canonical; selected Agile V concepts inform traceability/risk/evidence; Codex CLI is the first execution engine; manual worktrees and one writer come first; executable SwarmForge evaluation is deferred to Stage 004. All five stages have dedicated STAGE.md documents indexed by DOCUMENTATION-MAP.md, and a sandbox-level LESSON.md is present. Stage 002 is ready to pilot S005-PILOT-001 only after explicit owner authorization.",
+    "SANDBOX-006 (REVIEW GATE): Static HTML workbench is implemented. Responsive and local visual review remain open; Stage 003 design-tool comparison and Stage 004 carry-forward are planned but not started. Figma and Canva are design aids, not sources of truth.",
+    "PRODUCTIZATION (PLANNING): Production-aligned portfolio and commercial-skeleton docs live in productization/. They define demo, auth/workspace, billing, audit, and cutover expectations but do not authorize production services, customer data handling, or deployment scaffolding by themselves.",
+    "CORPUS PROCUREMENT STRATEGY: Data procurement risk is not a project blocker by default. Target current new-business policy repairability, not historical filing reconstruction. See corpus/PROCUREMENT-STRATEGY.md.",
+    "OWNER/ACCESS LANE: KY DOI market-conduct records may improve case-library validation, but no current detector or productization stage is blocked on them.",
+    "Kentucky Growers SERFF search incomplete — SERFF site was down on 2026-06-04 recheck (BACKLOG-003)."
+  ],
+  "shared_skills": [
+    "skills/apply-implementation-defaults/SKILL.md",
+    "skills/write-adr/SKILL.md",
+    "skills/write-journal-entry/SKILL.md",
+    "skills/write-lesson/SKILL.md",
+    "skills/write-handoff/SKILL.md",
+    "skills/maintain-agent-context/SKILL.md",
+    "skills/project-coding-preferences/SKILL.md",
+    "skills/legal-rag-builder/SKILL.md",
+    "skills/project-memory-artifacts/SKILL.md"
+  ],
+  "mechanism_boundaries": {
+    "skills": "Reusable procedures and agent behavior.",
+    "context_json": "Compact current state and startup hints.",
+    "startup_docs": "Cross-agent startup contract.",
+    "readme": "Human-readable current state, pivot ledger, scoped evidence counts, and open gates.",
+    "adrs": "Accepted decisions and rejected alternatives.",
+    "journals": "Chronological point-in-time session memory.",
+    "lessons": "Reusable learning and patterns.",
+    "handoffs": "Resume points and next-agent instructions.",
+    "backlog": "BACKLOG.md at repo root — cross-sandbox homeless items, open questions, and deferred work."
+  },
+  "cross_agent_rule": "Durable memory belongs in repo-visible files that Codex, Claude Code, GitHub Copilot, and future agents can all read."
+}

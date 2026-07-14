@@ -3,6 +3,11 @@
 Created: 2026-05-13
 Cloned from: `002-dashboard-mockup`
 
+## Disposition Checklist
+
+- [x] Build and run the larger synthetic Kentucky sample.
+- [x] Preserve this stage as completed Sandbox 001 evidence.
+
 ## Purpose
 
 Replace the tiny teaching corpus with a substantially richer synthetic Kentucky auto-insurance sample.

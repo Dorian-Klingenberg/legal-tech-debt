@@ -2,13 +2,19 @@
 
 Created: 2026-05-29
 Source: `../../001-legal-debt-primitives`
-Status: Imported foundation; refocused on homeowners fixtures
+Status: Imported foundation; refocused on homeowners discovery-and-instrumentation
+
+## Completion Checklist
+
+- [x] Import the useful plain-Python Sandbox 001 foundation.
+- [x] Reframe the next stage around Kentucky homeowners evidence.
+- [x] Preserve this stage as a completed bridge, not an active detector lane.
 
 ## Purpose
 
 Carry the useful Sandbox 001 probe into Sandbox 002 as a runnable starting point for Kentucky homeowners insurance.
 
-This stage is intentionally not a new detector yet. It preserves the known-good plain-Python probe shape so the next 002 stages can adapt it toward high-value homeowners policy and claims smells.
+This stage is intentionally not a new detector yet. It preserves the known-good plain-Python probe shape so the next 002 stages can adapt it toward the five active Kentucky homeowners policy-layer smells.
 
 ## Question
 
@@ -51,17 +57,19 @@ Expected outputs:
 
 ## What This Stage Does Not Claim
 
-- It does not yet detect homeowners-specific policy or claims smells.
-- It does not yet implement Calculation Rule Drift.
+- It does not yet detect the five active homeowners policy-layer smells.
 - It uses only a tiny synthetic homeowners-oriented fixture, not real Kentucky insurance material.
 - It does not include regulatory feed ingestion.
 - It does not introduce a database, service, or production architecture.
 
 ## Next Stage
 
-Create a narrow Kentucky homeowners fixture and adapt this imported probe into a dual-detector experiment:
+Create a narrow Kentucky homeowners discovery-and-instrumentation stage and adapt this imported probe style toward source-traceable candidate evidence for the five active smells:
 
-1. Broken Link / Null Reference Clause
-2. Calculation Rule Drift
+1. Overbroad / Non-deterministic Exclusions
+2. Magic Number / Magic Valuation Terms
+3. Coverage Inversion / Contradictory Conditions
+4. Calculation Rule Drift / Unversioned Rate Reference
+5. Regulatory Mapping Smells
 
-That next stage should keep the same plain local execution style.
+That next stage should keep the same plain local execution style and emit legal nodes, citations, broader references, conservative graph edges, parser diagnostics, retrieval bundles, and candidate evidence before promoting anything into detector findings.

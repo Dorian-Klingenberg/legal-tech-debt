@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "goldset_id": "goldset-002.1",
+  "created_at": "2026-06-03",
+  "pipeline_version": "002.1.0",
+  "corpus_scope": "Stage 002 Kentucky homeowners — regulatory/statutory sources only (6 sources)",
+  "notes": "Gold set derived from Phase 1 candidate evidence. Items here are reviewer-confirmed interesting, not legal findings. Smells 1, 3, 5 have no fixture examples because carrier policy forms are absent from this corpus slice.",
+
+  "items": [
+    {
+      "item_id": "gs-001",
+      "smell_id": 2,
+      "smell_name": "Magic Number / Magic Valuation Terms",
+      "heuristic_id": "SMELL2-H001",
+      "source_id": "KY-DOI-BULLETIN-2026-01",
+      "source_type": "doi_bulletin",
+      "node_id_hint": "KY-DOI-BULLETIN-2026-01 > BULLETIN 2026-01",
+      "fixture_text": "refuse to pay a claim without conducting a reasonable investigation based upon all available information",
+      "queries": ["reasonable investigation", "reasonable"],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "reviewer_note": "DOI Bulletin says insurers must conduct a 'reasonable investigation' without defining what threshold makes an investigation reasonable. This is the regulatory source for Smell 2 — carrier forms that mimic this language without defining the standard inherit the same ambiguity.",
+      "gold_status": "confirmed_interesting"
+    },
+    {
+      "item_id": "gs-002",
+      "smell_id": 2,
+      "smell_name": "Magic Number / Magic Valuation Terms",
+      "heuristic_id": "SMELL2-H001",
+      "source_id": "KY-DOI-BULLETIN-2026-01",
+      "source_type": "doi_bulletin",
+      "node_id_hint": "KY-DOI-BULLETIN-2026-01 > BULLETIN 2026-01",
+      "fixture_text": "cannot reasonably justify the denial of a property insurance claim",
+      "queries": ["reasonably justify", "reasonable"],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "reviewer_note": "DOI states insurers cannot 'reasonably justify' denial without defining what justification threshold satisfies this. A carrier policy that defers claims decisions to an unversioned standard of reasonableness cannot be audited at time of loss.",
+      "gold_status": "confirmed_interesting"
+    },
+    {
+      "item_id": "gs-003",
+      "smell_id": 4,
+      "smell_name": "Calculation Rule Drift / Unversioned Rate Reference",
+      "heuristic_id": "SMELL4-H003",
+      "source_id": "KY-DOI-BULLETIN-2026-01",
+      "source_type": "doi_bulletin",
+      "node_id_hint": "KY-DOI-BULLETIN-2026-01 > BULLETIN 2026-01",
+      "fixture_text": "specify the specific property conditions that are noncompliant with the insurer's underwriting guidelines",
+      "queries": ["underwriting guidelines"],
+      "expected_retrieval_modes": ["phrase"],
+      "reviewer_note": "DOI requires carriers to cite their underwriting guidelines when nonrenewing — but does not require those guidelines to be filed, versioned, or published. A carrier using unversioned internal guidelines to drive nonrenewal decisions is exposed to Smell 4: the calculation input (the guidelines) can change without notice or regulatory anchor.",
+      "gold_status": "confirmed_interesting"
+    },
+    {
+      "item_id": "gs-004",
+      "smell_id": 2,
+      "smell_name": "Magic Number / Magic Valuation Terms",
+      "heuristic_id": "SMELL2-H001",
+      "source_id": "KY-KAR-806-13-150",
+      "source_type": "kar_regulation",
+      "node_id_hint": "KY-KAR-806-13-150 > Section 6.",
+      "fixture_text": "replacement cost",
+      "queries": ["replacement cost", "replacement cost value"],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "reviewer_note": "KAR 806 KAR 13:150 references replacement cost in rate filing requirements. This is the regulatory definition anchor — carrier forms that use 'replacement cost' without citing this KAR provision or defining the calculation method are missing the anchor.",
+      "gold_status": "confirmed_interesting"
+    }
+  ],
+
+  "corpus_gaps": [
+    {
+      "smell_id": 1,
+      "smell_name": "Overbroad / Non-deterministic Exclusions",
+      "gap_reason": "No carrier policy form or endorsement in corpus. Exclusion language ('including but not limited to', 'arising from or related to') does not appear in statutes or DOI bulletins — only in carrier-drafted policy forms. The KNIC SERFF filing (KY-SERFF-KNIC-127064322) is the next candidate source.",
+      "fixture_status": "not_available",
+      "next_step": "Add KY-SERFF-KNIC-127064322 to corpus subset"
+    },
+    {
+      "smell_id": 3,
+      "smell_name": "Coverage Inversion / Contradictory Conditions",
+      "gap_reason": "No carrier policy form or endorsement in corpus. Coverage-inversion patterns require a broad coverage grant followed by an exclusion that swallows it — this pattern only appears in insuring agreements, which are carrier-drafted form language.",
+      "fixture_status": "not_available",
+      "next_step": "Add homeowners base form (HO-3 or equivalent from KNIC SERFF filing)"
+    },
+    {
+      "smell_id": 5,
+      "smell_name": "Regulatory Mapping Smells",
+      "gap_reason": "Smell 5 (null KRS references) requires a carrier form that uses 'as required by law' without a KRS citation. Official regulatory documents (KRS, KAR, DOI bulletins) all cite KRS correctly — the smell is a carrier drafting pattern, not a regulatory pattern. The KRS-nearby filter in the evidence scanner correctly produced zero false positives on regulatory sources.",
+      "fixture_status": "not_available",
+      "next_step": "Add carrier policy form — null references are common in endorsement conditions"
+    }
+  ]
+}

@@ -2,6 +2,11 @@
 
 Created: 2026-05-13
 
+## Disposition Checklist
+
+- [x] Implement the baseline probe and deterministic outputs.
+- [x] Preserve this stage as completed Sandbox 001 evidence.
+
 ## Purpose
 
 This stage is the first stable, working baseline for the legal debt primitives sandbox.

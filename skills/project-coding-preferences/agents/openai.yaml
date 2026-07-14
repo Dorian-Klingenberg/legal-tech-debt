@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Coding Preferences"
+  short_description: "Shared sandbox coding defaults"
+  default_prompt: "Use this skill before implementing or reviewing code in the Legal Tech Debt repository."

@@ -1,9 +1,13 @@
-Below are blueprints for your **five homeowners-policy-layer phish**, each with:
+Status: Preserved controlling scope for the completed Sandbox 002 proof of concept. Use these blueprints only when interpreting or explicitly reopening that sandbox.
+
+Below are blueprints for the **five Kentucky homeowners policy-layer smells** that controlled Sandbox 002 work. Each includes:
 
 - A human-readable detection spec (what to look for, from where).
 - A few **Gherkin scenarios** showing how you’d express this as tests against a KY corpus.
 
-All of these assume you have:  
+Any reopened Sandbox 002 documentation, stages, or fixtures should align to these five smells unless a new decision explicitly changes scope. Sandbox 001 artifacts are supporting primitives only.
+
+All of these assume you have:
 - KY statutes/regs (KRS 304 + 806 KAR).  
 - KY homeowners SERFF filings (forms + rate/rule manuals) via SFA. [insurance.ky](https://insurance.ky.gov/ppc/Documents/publicaccessinsurancefilingsforproperty.pdf)
 
@@ -19,7 +23,7 @@ Current scope note: focus on homeowners insurance. Do not use auto, motor vehicl
 
 **Inputs:**
 
-- All KY P&C policy forms and endorsements from SERFF, 2018+. [insurance.ky](https://insurance.ky.gov/ppc/newstatic_Info.aspx?static_ID=665)
+- Selected Kentucky homeowners policy forms and endorsements from SERFF, 2018+. [insurance.ky](https://insurance.ky.gov/ppc/newstatic_Info.aspx?static_ID=665)
 
 **Signals:**
 
@@ -48,7 +52,7 @@ Current scope note: focus on homeowners insurance. Do not use auto, motor vehicl
 Feature: Detect overbroad exclusions in Kentucky property forms
 
   Background:
-    Given I have loaded all Kentucky P&C policy forms and endorsements filed via SERFF since 2018
+    Given I have loaded selected Kentucky homeowners policy forms and endorsements filed via SERFF since 2018
 
   Scenario: Exclusion uses "arising out of" with a broad governmental subject
     When I scan exclusions for phrases "arising out of" or "resulting from"
@@ -105,7 +109,7 @@ Feature: Detect overbroad exclusions in Kentucky property forms
 Feature: Detect magic temporal and valuation terms in Kentucky policies
 
   Background:
-    Given I have loaded all Kentucky P&C policy forms filed via SERFF since 2018
+    Given I have loaded selected Kentucky homeowners policy forms filed via SERFF since 2018
     And I have loaded Kentucky prompt-pay and notice requirements from KRS and KAR
 
   Scenario: Undefined temporal magic term
@@ -183,7 +187,7 @@ Feature: Detect coverage inversion in Kentucky property policies
 
 **Inputs:**
 
-- KY SERFF **rate and rule** filings (not just forms). [insurance.ky](https://insurance.ky.gov/ppc/newstatic_Info.aspx?static_ID=665)
+- KY homeowners SERFF **rate and rule** filings (not just forms). [insurance.ky](https://insurance.ky.gov/ppc/newstatic_Info.aspx?static_ID=665)
 - KY regs on rating organizations and rate filings (806 KAR 13).*. [kyrules.elaws](https://kyrules.elaws.us/rule/806kar13)
 
 **Signals:**
@@ -213,7 +217,7 @@ Feature: Detect coverage inversion in Kentucky property policies
 Feature: Detect unversioned and opaque rating references in Kentucky filings
 
   Background:
-    Given I have loaded all Kentucky P&C rate and rule filings from SERFF since 2018
+    Given I have loaded selected Kentucky homeowners rate and rule filings from SERFF since 2018
     And I have loaded Kentucky regulations on rating organizations and rate filings
 
   Scenario: Unversioned reference to bureau loss costs
@@ -237,7 +241,7 @@ Feature: Detect unversioned and opaque rating references in Kentucky filings
 
 **Inputs:**
 
-- KY forms and endorsements from SERFF that are filed as multi-state or use generic “applicable law” language. [insurance.ky](https://insurance.ky.gov/ppc/Documents/publicaccessinsurancefilingsforproperty.pdf)
+- KY homeowners forms and endorsements from SERFF that are filed as multi-state or use generic “applicable law” language. [insurance.ky](https://insurance.ky.gov/ppc/Documents/publicaccessinsurancefilingsforproperty.pdf)
 - KY-specific requirements in KRS 304 and 806 KAR (e.g., notice days, cancellation reasons). [law.justia](https://law.justia.com/codes/kentucky/2018/chapter-304/subtitle-20/)
 
 **Signals:**
@@ -263,7 +267,7 @@ Feature: Detect unversioned and opaque rating references in Kentucky filings
 Feature: Detect regulatory mapping smells in Kentucky policy forms
 
   Background:
-    Given I have loaded all Kentucky P&C policy forms and endorsements from SERFF since 2018
+    Given I have loaded selected Kentucky homeowners policy forms and endorsements from SERFF since 2018
     And I have loaded Kentucky statutory and regulatory requirements for notice, cancellation, and mandatory coverages
 
   Scenario: Generic "as required by state law" with no citation
@@ -280,4 +284,4 @@ Feature: Detect regulatory mapping smells in Kentucky policy forms
 
 ***
 
-If you want to go one step further, I can take one KY homeowners program (from a named SERFF filing) and walk through a concrete, end-to-end example: show exactly which clauses are flagged by these Gherkin scenarios and how they correspond to your smells.
+Next useful sandbox move: take one Kentucky homeowners program or synthetic program package and walk through a concrete, end-to-end example showing which clauses are flagged by these Gherkin scenarios and how they correspond to the five active smells.

@@ -1,0 +1,470 @@
+{
+  "schema_version": "1.0.0",
+  "goldset_id": "goldset-002.2",
+  "created_at": "2026-06-03",
+  "pipeline_version": "002.1.0",
+  "corpus_scope": "Stage 002 Kentucky homeowners — 28 sources including KNIC and KFBM SERFF filings, KRS statutes, KAR regulations, and DOI bulletins (repaired run 18b0dec5)",
+  "purpose": "Retrieval evaluation gold set. Each item has expected_node_id, test_queries, and expected retrieval modes. Used by evaluator.py to measure phrase, BM25, and semantic recall, false positives, and missed hits.",
+  "notes": "eval-001 through eval-021 use document-vocabulary queries (phrase/BM25 matchable). eval-022 through eval-026 are Smell 5 paraphrase items added 2026-06-04 using reviewer-perspective plain-language queries; expected_retrieval_modes is [semantic] to test whether embeddings surface nodes that BM25 misses. Run 996e36af was the original reference run; repaired expanded run 18b0dec5 revalidated BM25 at 21/21 on 2026-06-04.",
+
+  "items": [
+    {
+      "item_id": "eval-001",
+      "smell_id": 2,
+      "smell_name": "Magic Number / Magic Valuation Terms",
+      "source_id": "KY-DOI-BULLETIN-2026-01",
+      "source_type": "doi_bulletin",
+      "expected_node_id": "4daa7817e31a758c56d8",
+      "expected_section_path": "KY-DOI-BULLETIN-2026-01 > BULLETIN 2026-01",
+      "fixture_summary": "DOI requirement for 'reasonable investigation' — magic valuation term with no defined threshold",
+      "test_queries": [
+        "reasonable investigation",
+        "reasonable",
+        "refuse to pay a claim"
+      ],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "tier": "doi_bulletin"
+    },
+    {
+      "item_id": "eval-002",
+      "smell_id": 4,
+      "smell_name": "Calculation Rule Drift / Unversioned Rate Reference",
+      "source_id": "KY-DOI-BULLETIN-2026-01",
+      "source_type": "doi_bulletin",
+      "expected_node_id": "4daa7817e31a758c56d8",
+      "expected_section_path": "KY-DOI-BULLETIN-2026-01 > BULLETIN 2026-01",
+      "fixture_summary": "DOI reference to 'underwriting guidelines' without requiring those guidelines to be versioned or filed",
+      "test_queries": [
+        "underwriting guidelines",
+        "guidelines",
+        "nonrenewal"
+      ],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "tier": "doi_bulletin"
+    },
+    {
+      "item_id": "eval-003",
+      "smell_id": 2,
+      "smell_name": "Magic Number / Magic Valuation Terms",
+      "source_id": "KY-KAR-806-13-150",
+      "source_type": "kar_regulation",
+      "expected_node_id": "f01b63bb04e71f0168cf",
+      "expected_section_path": "KY-KAR-806-13-150 > Section 6.",
+      "fixture_summary": "KAR filing requirement referencing replacement cost — the regulatory anchor for valuation terms",
+      "test_queries": [
+        "replacement cost",
+        "actual cash value",
+        "replacement cost value"
+      ],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "tier": "kar_regulation"
+    },
+    {
+      "item_id": "eval-004",
+      "smell_id": 2,
+      "smell_name": "Magic Number / Magic Valuation Terms",
+      "source_id": "KY-KAR-806-13-150",
+      "source_type": "kar_regulation",
+      "expected_node_id": "e3a5934b2e3ba1f9b4ae",
+      "expected_section_path": "KY-KAR-806-13-150 > Section 1. Definitions.",
+      "fixture_summary": "KAR definitions section — defines 'loss cost', 'rate', and filing terms; regulatory vocabulary anchor",
+      "test_queries": [
+        "loss cost",
+        "definitions",
+        "rate"
+      ],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "tier": "kar_regulation"
+    },
+    {
+      "item_id": "eval-005",
+      "smell_id": 5,
+      "smell_name": "Regulatory Mapping Smells",
+      "source_id": "KY-KAR-806-13-150",
+      "source_type": "kar_regulation",
+      "expected_node_id": "a901b9d3ba6f3f6ec504",
+      "expected_section_path": "KY-KAR-806-13-150 > Section 12. Incorporation by Reference.",
+      "fixture_summary": "KAR incorporation by reference section — defines how regulatory anchors are established; the standard a carrier 'applicable law' reference should meet",
+      "test_queries": [
+        "incorporation by reference",
+        "applicable law",
+        "in accordance with applicable law"
+      ],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "tier": "kar_regulation"
+    },
+    {
+      "item_id": "eval-006",
+      "smell_id": 4,
+      "smell_name": "Calculation Rule Drift / Unversioned Rate Reference",
+      "source_id": "KY-KAR-806-13-150",
+      "source_type": "kar_regulation",
+      "expected_node_id": "76b3bb9916c8e155fe14",
+      "expected_section_path": "KY-KAR-806-13-150 > Section 10.",
+      "fixture_summary": "KAR section on rate/loss cost filings — establishes what versioned rate references look like under regulation",
+      "test_queries": [
+        "rate filing",
+        "loss cost",
+        "supplementary rating"
+      ],
+      "expected_retrieval_modes": ["bm25"],
+      "tier": "kar_regulation"
+    },
+    {
+      "item_id": "eval-007",
+      "smell_id": 2,
+      "smell_name": "Magic Number / Magic Valuation Terms",
+      "source_id": "KY-KAR-806-14-006",
+      "source_type": "kar_regulation",
+      "expected_node_id": "6e567f744686f431d174",
+      "expected_section_path": "KY-KAR-806-14-006::meta::6fdb16291505b9feefbd",
+      "fixture_summary": "KAR statutory authority block — 'reasonable administrative regulations' without defining reasonableness",
+      "test_queries": [
+        "reasonable administrative regulations",
+        "reasonable",
+        "commissioner"
+      ],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "tier": "kar_regulation"
+    },
+    {
+      "item_id": "eval-008",
+      "smell_id": 5,
+      "smell_name": "Regulatory Mapping Smells",
+      "source_id": "KY-KAR-806-14-006",
+      "source_type": "kar_regulation",
+      "expected_node_id": "832d76b2d75deece7b0a",
+      "expected_section_path": "KY-KAR-806-14-006 > Section 3.",
+      "fixture_summary": "KAR Section 3 filing requirements — references applicable law; tests whether KRS citations are present",
+      "test_queries": [
+        "applicable law",
+        "filing requirements",
+        "KRS"
+      ],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "tier": "kar_regulation"
+    },
+    {
+      "item_id": "eval-009",
+      "smell_id": 2,
+      "smell_name": "Magic Number / Magic Valuation Terms",
+      "source_id": "KY-KRS-304-14",
+      "source_type": "krs_statute",
+      "expected_node_id": "77855c73ea11759acde2",
+      "expected_section_path": "KY-KRS-304-14 > 304.14-120   Filing and approval of forms.",
+      "fixture_summary": "KRS form filing statute — 'reasonably to inform the insurer'; the statutory source of the reasonableness standard in claims communication",
+      "test_queries": [
+        "filing and approval",
+        "reasonably inform",
+        "grounds therefor"
+      ],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "tier": "krs_statute"
+    },
+    {
+      "item_id": "eval-010",
+      "smell_id": 1,
+      "smell_name": "Overbroad / Non-deterministic Exclusions",
+      "source_id": "KY-KRS-304-12-230",
+      "source_type": "krs_statute",
+      "expected_node_id": "37be60fad2665fbfe5c5",
+      "expected_section_path": "12-010   Unfair competition -- Unfair, deceptive practices prohibited.",
+      "fixture_summary": "KRS unfair practices statute — lists prohibited practices; tests whether BM25 retrieves this for exclusion-related queries despite parser quality being medium (PDF-as-HTML source)",
+      "test_queries": [
+        "unfair deceptive practices",
+        "prohibited practices",
+        "unfair competition"
+      ],
+      "expected_retrieval_modes": ["bm25"],
+      "tier": "krs_statute"
+    },
+    {
+      "item_id": "eval-011",
+      "smell_id": 4,
+      "smell_name": "Calculation Rule Drift / Unversioned Rate Reference",
+      "source_id": "KY-DOI-BULLETIN-2026-01",
+      "source_type": "doi_bulletin",
+      "expected_node_id": "4daa7817e31a758c56d8",
+      "expected_section_path": "KY-DOI-BULLETIN-2026-01 > USE OF SATELLITE/AERIAL IMAGERY",
+      "fixture_summary": "DOI Bulletin 2026-01 on satellite/aerial imagery for cancellations and claim denials — references insurer practices without versioning requirements",
+      "test_queries": [
+        "aerial imagery",
+        "satellite imagery",
+        "property inspection"
+      ],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "tier": "doi_bulletin",
+      "notes": "Node 4daa7817e31a758c56d8 is also used by eval-001 and eval-002 (same DOI Bulletin node, different smell angle). Prior assignment to bdfadc8c3e7aec8ab312 (AO-2023-08 matching/uniform opinion) was incorrect."
+    },
+    {
+      "item_id": "eval-012",
+      "smell_id": 4,
+      "smell_name": "Calculation Rule Drift / Unversioned Rate Reference",
+      "source_id": "KY-SERFF-KNIC-127064322",
+      "source_type": "serff_rate_rule_filing",
+      "expected_node_id": "615cdc5d11be8d20f6a2",
+      "expected_section_path": "KY-SERFF-KNIC-127064322 > 204. MANUAL PREMIUM REVISION",
+      "fixture_summary": "Manual Premium Revision: 'revision shall be made in accordance with...as announced' — no version anchor, no effective date reference; canonical smell 4 pattern",
+      "test_queries": [
+        "manual premium revision",
+        "as announced",
+        "revision shall be made"
+      ],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "tier": "rate_manual_fragments"
+    },
+    {
+      "item_id": "eval-013",
+      "smell_id": 4,
+      "smell_name": "Calculation Rule Drift / Unversioned Rate Reference",
+      "source_id": "KY-SERFF-KNIC-127064322",
+      "source_type": "serff_rate_rule_filing",
+      "expected_node_id": "30f04de24c4a3c92b2ae",
+      "expected_section_path": "KY-SERFF-KNIC-127064322 > Rate/Rule Schedule",
+      "fixture_summary": "SERFF Rate/Rule Schedule references 'Revised Manual Pages' (KYHO0211) without a version or edition anchor — the filing index that ties changes to unversioned manual text",
+      "test_queries": [
+        "revised manual pages",
+        "rate rule schedule",
+        "KYHO0211"
+      ],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "tier": "rate_manual_fragments"
+    },
+    {
+      "item_id": "eval-014",
+      "smell_id": 4,
+      "smell_name": "Calculation Rule Drift / Unversioned Rate Reference",
+      "source_id": "KY-SERFF-KNIC-127064322",
+      "source_type": "serff_rate_rule_filing",
+      "expected_node_id": "26f2ddb748290db26609",
+      "expected_section_path": "KY-SERFF-KNIC-127064322 > GENERAL RULES",
+      "fixture_summary": "GENERAL RULES section header — top of the rate manual; test whether parser surfaces the section boundary as a retrievable node",
+      "test_queries": [
+        "general rules",
+        "homeowners manual"
+      ],
+      "expected_retrieval_modes": ["bm25"],
+      "tier": "rate_manual_fragments"
+    },
+    {
+      "item_id": "eval-015",
+      "smell_id": 2,
+      "smell_name": "Magic Number / Magic Valuation Terms",
+      "source_id": "KY-SERFF-KNIC-127064322",
+      "source_type": "serff_rate_rule_filing",
+      "expected_node_id": "e0eb758f025d97f4df25",
+      "expected_section_path": "KY-SERFF-KNIC-127064322 > 403. REPLACEMENT COST COVERAGE",
+      "fixture_summary": "Replacement Cost Coverage: flat premium charge cited without defining replacement cost or linking to an appraisal standard",
+      "test_queries": [
+        "replacement cost coverage",
+        "flat premium",
+        "replacement cost"
+      ],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "tier": "policy_manual_clauses"
+    },
+    {
+      "item_id": "eval-016",
+      "smell_id": 2,
+      "smell_name": "Magic Number / Magic Valuation Terms",
+      "source_id": "KY-SERFF-KNIC-127064322",
+      "source_type": "serff_rate_rule_filing",
+      "expected_node_id": "0096edf53167a05d1159",
+      "expected_section_path": "KY-SERFF-KNIC-127064322 > 406. ADDITIONAL AMOUNTS",
+      "fixture_summary": "406 Additional Amounts: '80% or more' coinsurance threshold — magic number with no actuarial basis cited in the text",
+      "test_queries": [
+        "replacement cost basis",
+        "80%",
+        "without deduction for depreciation"
+      ],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "tier": "policy_manual_clauses"
+    },
+    {
+      "item_id": "eval-017",
+      "smell_id": 2,
+      "smell_name": "Magic Number / Magic Valuation Terms",
+      "source_id": "KY-SERFF-KNIC-127064322",
+      "source_type": "serff_rate_rule_filing",
+      "expected_node_id": "8d70fc9b3b7b85ac4cdd",
+      "expected_section_path": "KY-SERFF-KNIC-127064322 > 901. INSURANCE TO VALUE",
+      "fixture_summary": "Insurance to Value: 'statistics provided by a national appraisal company' — undefined external data source driving policy adjustment, no filing anchor",
+      "test_queries": [
+        "insurance to value",
+        "national appraisal company",
+        "inflation"
+      ],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "tier": "policy_manual_clauses"
+    },
+    {
+      "item_id": "eval-018",
+      "smell_id": 4,
+      "smell_name": "Calculation Rule Drift / Unversioned Rate Reference",
+      "source_id": "KY-SERFF-KNIC-127064322",
+      "source_type": "serff_rate_rule_filing",
+      "expected_node_id": "176e1f63ad696b0a8166",
+      "expected_section_path": "KY-SERFF-KNIC-127064322 > 210. SPECIAL STATE REQUIREMENTS",
+      "fixture_summary": "Special State Requirements: mandates specific endorsements by form number without citing an edition date or version anchor — references filed forms by ID without tying to a dated filing",
+      "test_queries": [
+        "special state requirements",
+        "endorsement",
+        "form number"
+      ],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "tier": "policy_manual_clauses"
+    },
+    {
+      "item_id": "eval-019",
+      "smell_id": 1,
+      "smell_name": "Overbroad / Non-deterministic Exclusions",
+      "source_id": "KY-SERFF-KNIC-127064322",
+      "source_type": "serff_rate_rule_filing",
+      "expected_node_id": "47de8e88722aca3c95ef",
+      "expected_section_path": "KY-SERFF-KNIC-127064322 > 516. SINKHOLE COLLAPSE",
+      "fixture_summary": "Sinkhole Collapse endorsement: 'may be endorsed to provide' — optional coverage language with undefined scope and no mandatory disclosure; smell 1 overbroad exclusion pattern",
+      "test_queries": [
+        "sinkhole collapse",
+        "may be endorsed",
+        "sinkhole"
+      ],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "tier": "endorsement_form_fragments"
+    },
+    {
+      "item_id": "eval-020",
+      "smell_id": 3,
+      "smell_name": "Coverage Inversion / Illusory Coverage",
+      "source_id": "KY-SERFF-KNIC-127064322",
+      "source_type": "serff_rate_rule_filing",
+      "expected_node_id": "4e2b39f16cc68c311de1",
+      "expected_section_path": "KY-SERFF-KNIC-127064322 > 520. LIMITED FUNGI",
+      "fixture_summary": "Limited Fungi endorsement: coverage grant qualified by 'limited' with no defined scope — coverage inversion via restrictive qualifier that narrows apparent coverage without enumerated limits",
+      "test_queries": [
+        "limited fungi",
+        "fungi",
+        "mold"
+      ],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "tier": "endorsement_form_fragments"
+    },
+    {
+      "item_id": "eval-021",
+      "smell_id": 3,
+      "smell_name": "Coverage Inversion / Illusory Coverage",
+      "source_id": "KY-SERFF-KNIC-127064322",
+      "source_type": "serff_rate_rule_filing",
+      "expected_node_id": "af3487c1753d115d888a",
+      "expected_section_path": "KY-SERFF-KNIC-127064322 > 505. EARTHQUAKE COVERAGE",
+      "fixture_summary": "Earthquake Coverage endorsement: optional add-on with its own deductible structure — smell 3 pattern where optional endorsement creates coverage inversion relative to base policy",
+      "test_queries": [
+        "earthquake coverage",
+        "earthquake",
+        "separate deductible"
+      ],
+      "expected_retrieval_modes": ["phrase", "bm25"],
+      "tier": "endorsement_form_fragments"
+    },
+    {
+      "item_id": "eval-022",
+      "smell_id": 5,
+      "smell_name": "Regulatory Mapping Smells",
+      "source_id": "KY-SERFF-KNIC-127064322",
+      "source_type": "serff_rate_rule_filing",
+      "expected_node_id": "176e1f63ad696b0a8166",
+      "expected_section_path": "KY-SERFF-KNIC-127064322 > 210. SPECIAL STATE REQUIREMENTS",
+      "fixture_summary": "Special State Requirements mandates specific endorsements on all policies without citing which law or regulation requires them — paraphrase query tests semantic retrieval for regulatory-obligation-without-citation pattern",
+      "test_queries": [
+        "Does this policy tell me which specific law or regulation requires this provision?"
+      ],
+      "expected_retrieval_modes": ["semantic"],
+      "tier": "smell5_paraphrase",
+      "notes": "Same node as eval-018 (Smell 4, document-vocabulary queries). This item tests the same node with a reviewer-perspective paraphrase query to evaluate semantic recall."
+    },
+    {
+      "item_id": "eval-023",
+      "smell_id": 5,
+      "smell_name": "Regulatory Mapping Smells",
+      "source_id": "KY-SERFF-KNIC-127064322",
+      "source_type": "serff_rate_rule_filing",
+      "expected_node_id": "615cdc5d11be8d20f6a2",
+      "expected_section_path": "KY-SERFF-KNIC-127064322 > 204. MANUAL PREMIUM REVISION",
+      "fixture_summary": "Manual Premium Revision: 'revision shall be made in accordance with...as announced' — no SERFF filing number or effective date anchor; paraphrase query tests semantic retrieval for unanchored rate-rule reference",
+      "test_queries": [
+        "Which regulatory filing or approval number governs this rate or rule?"
+      ],
+      "expected_retrieval_modes": ["semantic"],
+      "tier": "smell5_paraphrase",
+      "notes": "Same node as eval-012 (Smell 4, document-vocabulary queries). This item tests the same node with a reviewer-perspective paraphrase query."
+    },
+    {
+      "item_id": "eval-024",
+      "smell_id": 5,
+      "smell_name": "Regulatory Mapping Smells",
+      "source_id": "KY-SERFF-KNIC-127064322",
+      "source_type": "serff_rate_rule_filing",
+      "expected_node_id": "86f5d845167490e38f55",
+      "expected_section_path": "KY-SERFF-KNIC-127064322 > 203. CHANGES OR CANCELLATIONS",
+      "fixture_summary": "Changes or Cancellations asserts 'mandatory coverages' as a cancellation constraint without citing which KRS provision establishes them as mandatory — paraphrase query tests semantic retrieval for implied statutory obligation",
+      "test_queries": [
+        "If I needed to verify this against a Kentucky statute, where would I look?"
+      ],
+      "expected_retrieval_modes": ["semantic"],
+      "tier": "smell5_paraphrase"
+    },
+    {
+      "item_id": "eval-025",
+      "smell_id": 5,
+      "smell_name": "Regulatory Mapping Smells",
+      "source_id": "KY-SERFF-KFBM-134503212-HO-FORM",
+      "source_type": "serff_form_filing",
+      "expected_node_id": "f68f6a64438a142fa351",
+      "expected_section_path": "KY-SERFF-KFBM-134503212-HO-FORM > SECTION I - CONDITIONS",
+      "fixture_summary": "KFBM roof surfacing ACV endorsement limits replacement cost to ACV for windstorm/hail losses without citing the regulatory authority that permits this coverage limitation — paraphrase query tests semantic retrieval for permission-without-citation pattern",
+      "test_queries": [
+        "Does this endorsement explain what regulatory authority permits it to limit coverage this way?"
+      ],
+      "expected_retrieval_modes": ["semantic"],
+      "tier": "smell5_paraphrase"
+    },
+    {
+      "item_id": "eval-026",
+      "smell_id": 5,
+      "smell_name": "Regulatory Mapping Smells",
+      "source_id": "KY-SERFF-KFBM-134870729-RATE-MANUAL-HOP2-1",
+      "source_type": "serff_rate_rule_filing",
+      "expected_node_id": "edd9e1e74c8a3f4843e9",
+      "expected_section_path": "KY-SERFF-KFBM-134870729-RATE-MANUAL-HOP2-1 > 3. INFLATION GUARD",
+      "fixture_summary": "KFBM Inflation Guard references 'an index of construction costs' as the basis for annual limit increases without naming the index or citing the filed rule that governs the percentage — paraphrase query tests semantic retrieval for unanchored rating rule",
+      "test_queries": [
+        "Is there a traceable link between this policy condition and a filed, approved rule?"
+      ],
+      "expected_retrieval_modes": ["semantic"],
+      "tier": "smell5_paraphrase"
+    }
+  ],
+
+  "corpus_gaps": [
+    {
+      "tier": "policy_manual_clauses",
+      "target_count": 10,
+      "available_count": 4,
+      "gap_reason": "4 items added from KNIC SERFF filing (eval-015 through eval-018). Remaining 6 items need HO-3 base form language: insuring agreement, exclusions section, conditions, and definitions. No base policy form yet in corpus.",
+      "fixture_status": "partial"
+    },
+    {
+      "tier": "endorsement_form_fragments",
+      "target_count": 5,
+      "available_count": 3,
+      "gap_reason": "3 items added from KNIC SERFF filing (eval-019 through eval-021). Remaining 2 items need additional endorsement form text — Section I Coverages and Section II Coverages nodes were empty at parse time (header nodes without body text).",
+      "fixture_status": "partial"
+    },
+    {
+      "tier": "rate_manual_fragments",
+      "target_count": 5,
+      "available_count": 3,
+      "gap_reason": "3 items added from KNIC SERFF filing (eval-012 through eval-014). Remaining 2 items need additional manual pages — physical characteristics section and further rules sections that may be in unparsed SERFF attachments.",
+      "fixture_status": "partial"
+    }
+  ]
+}

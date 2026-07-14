@@ -2,6 +2,22 @@
 *Legal Code Smells specific to the Policy Specification, Drafting, Rating, and Underwriting lifecycle*
 *Derived from original research — Kentucky Home/Farmowners & P&C domain*
 
+Status: Working taxonomy. Entries are candidate review patterns, not validated defects, legal conclusions, or detector coverage claims.
+
+---
+
+## Complete Smell Inventory Reference
+
+This document contains **43 policy-layer smells**. For the complete legal code smell ecosystem (159 total smells), see:
+
+| Taxonomy | Count | Scope |
+|---|---|---|
+| **[legal_code_smell_taxonomy.md](legal_code_smell_taxonomy.md)** | 74 | Cross-domain legal/regulatory patterns |
+| **[insurance_policy_smells.md](insurance_policy_smells.md)** (this file) | 43 | Policy specification, drafting, rating, underwriting, regulatory mapping |
+| **[insurance_claims_smells.md](insurance_claims_smells.md)** | 41 | Claims handling, adjudication, resolution, bad faith exposure |
+
+**Currently operationalized (Sandbox 002):** Five of these policy-layer smells have detection specs. The remaining 38 are specification documents ready for future detector development.
+
 ---
 
 ## Overview
@@ -49,6 +65,7 @@ requirements time, spec review, configurator build, and pre-filing audit.
 | **Order-Sensitive Rating** | Premium changes depending on which discount/surcharge fires first — no explicit sequence defined | Non-reproducible quotes |
 | **Orphan Underwriting Guideline** | A guideline references a form or class code that no longer exists | Underwriters applying a rule to a ghost |
 | **Implicit Underwriting Default** | "If not otherwise specified, standard terms apply" — but "standard" is not defined | Inconsistent decisions across UWs |
+| **Non-Deterministic Underwriting Criteria** | Eligibility rule uses vague, unmeasurable language ("stable or improving area," "favorable impact on market value") with no objective measurement standard — accept/decline decisions become non-reproducible across underwriters | Underwriting inconsistency, adverse selection, discriminatory rating scrutiny, bad-faith exposure when declination is challenged |
 
 ---
 
@@ -91,14 +108,13 @@ requirements time, spec review, configurator build, and pre-filing audit.
 | Section | Smell Count |
 |---|---|
 | 1. Form & Wording | 14 |
-| 2. Rating & Underwriting Rules | 10 |
+| 2. Rating & Underwriting Rules | 11 |
 | 3. Regulatory Mapping | 10 |
 | 4. Spec-to-Configurator Traceability | 8 |
-| **Total** | **42** |
+| **Total** | **43** |
 
 ---
 
 *These smells are detectable at: spec authoring, form filing review, pre-launch configurator audit,*
 *regulatory mapping review, and periodic debt-scan of in-force products.*
 *See companion document: Insurance Claims Smells.*
-

@@ -1,5 +1,7 @@
 # STAGE 004 DOCUMENTATION MAP
 
+> Historical map for a frozen partial study. References to "current," "today," and moving to Phase 3 describe the May 2026 snapshot, not the repository's active lane.
+
 ## Directory Structure
 
 ```

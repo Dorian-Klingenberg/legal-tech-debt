@@ -1,0 +1,5 @@
+"source_id","reason","url_or_request_id","smells_supported","notes"
+"KY-DOI-OPEN-RECORDS-PAGE","no_active_smell_mapping","https://insurance.ky.gov/ppc/newstatic_Info.aspx?static_ID=6","N/A","Required for pre-November 2018 SERFF filings not on SFA"
+"KY-SERFF-KFBM-POST2018","manual_serff_access_required","https://filingaccess.serff.com/sfa/home/KY","1|2|3|4|5","Highest-priority SFA search; KY-only carrier with KY-specific forms; search for anti-concurrent causation and matching sublimit endorsements"
+"KY-SERFF-KGIC-POST2018","manual_serff_access_required","https://filingaccess.serff.com/sfa/home/KY","1|2|3|4|5","Rural/suburban Kentucky specialist; farmowners/homeowners combination forms likely; search TOI 04.0 and 04.1"
+"KY-SERFF-KNIC-POST2018","manual_serff_access_required","https://filingaccess.serff.com/sfa/home/KY","2|4","Search: SFA → KY → P&C → TOI 04.0 → 'Kentucky National' → Closed-Approved; supersedes KNIC-127064322 for current-state analysis"

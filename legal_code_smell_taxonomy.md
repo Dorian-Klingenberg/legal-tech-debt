@@ -1,9 +1,28 @@
 # Legal Code Smell Taxonomy
 *Derived from original research — Insurance & Legal Domain*
-*Total: ~87 named patterns across 10 categories + 7 RAII defect classes*
+*This document: 67 named patterns across 10 categories + 7 RAII defect classes = 74 entries*
 
-> The academic "Law Smells" paper (Coupette et al., 2022) covers only 5 basic smells.
-> The Rules as Code movement covers 0. Everything below is original work.
+> Status: Working taxonomy, not a claim of legal validity, novelty, or complete academic coverage. Counts describe entries in this document. Any publication claim about originality or adjacent research requires a dedicated source and prior-art review.
+
+---
+
+## ⚠️ Complete Smell Inventory: 159 Total Code Smells
+
+This taxonomy covers **cross-domain legal and regulatory patterns**. For the complete inventory across all smell sources, see:
+
+| Taxonomy Document | Scope | Count |
+|---|---|---|
+| **[legal_code_smell_taxonomy.md](legal_code_smell_taxonomy.md)** (this file) | Cross-domain legal/regulatory patterns | **74** |
+| **[insurance_policy_smells.md](insurance_policy_smells.md)** | Policy specification, drafting, rating, underwriting, regulatory mapping | **43** |
+| **[insurance_claims_smells.md](insurance_claims_smells.md)** | Claims handling, adjudication, resolution, bad faith exposure | **41** |
+| **Five Kentucky Homeowners Policy-Layer Smells** | Operationalized subset (Sandbox 002) | **5** (subset of 43+74) |
+| **[SMELL_INVENTORY_COMPLETE.md](SMELL_INVENTORY_COMPLETE.md)** | Unified index of all 159 smells | Reference only |
+
+**Currently detected in Sandbox 002**: Only the 5 operationalized Kentucky homeowners policy-layer smells (31 findings).
+
+**Available but not yet operationalized**: ~110+ smells remain as specification documents ready for detector development.
+
+---
 
 ---
 
@@ -32,6 +51,7 @@
 | **Magic Number Term** | Arbitrary thresholds like "30 days" or "reasonable time" without context or rationale | Magic Number |
 | **Undefined Behavior Clause** | Policy doesn't specify what happens under a plausible event (e.g., concurrent perils) | Missing Else / Null Dereference |
 | **Non-deterministic Language** | Phrases like "customary," "reasonable," or "as deemed appropriate" | Non-deterministic Function |
+| **Non-Deterministic Underwriting Criteria** | Underwriting eligibility rule uses vague, unmeasurable language ("stable or improving area," "favorable impact on market value") with no defined measurement standard — governs accept/decline decisions rather than claim outcomes; distinct from general Non-deterministic Language | Non-deterministic Input Handling |
 | **Contradictory Conditions** | Two clauses contradict each other when applied together | Conflicting Conditional |
 | **Scope Creep Clause** | Clause intended for one coverage area leaks into others via cross-reference | Global Variable |
 | **Implicit Default** | Behavior changes based on silence or omission rather than explicit text | Hidden Side Effect |
@@ -174,7 +194,7 @@
 | Category | Smell Count |
 |---|---|
 | 1. Structural | 9 |
-| 2. Semantic | 8 |
+| 2. Semantic | 9 |
 | 3. Dependency | 6 |
 | 4. Legislative Drift / Bureau Change | 10 |
 | 5. Logic and Flow | 7 |
@@ -184,11 +204,10 @@
 | 9. AI-Specific | 5 |
 | 10. Automation / Agent | 4 |
 | **RAII Defect Classes** | **7** |
-| **Total** | **73** |
+| **Total** | **74** |
 
 ---
 
 *For comparison: Coupette et al. (2022) "Law Smells" academic paper covers 5 smells.*
 *Rules as Code movement (OECD, NZ, AU, etc.) covers 0 smells.*
 *This taxonomy is original work at the intersection of software engineering, insurance, and computational law.*
-

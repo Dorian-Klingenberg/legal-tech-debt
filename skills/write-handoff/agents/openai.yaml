@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write Handoff"
+  short_description: "Resume handoffs for agents"
+  default_prompt: "Use this skill to write a handoff or context freeze for the next agent."

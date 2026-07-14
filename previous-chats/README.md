@@ -1,5 +1,7 @@
 # Legal Tech Debt & Legal Code Smells — ChatGPT Conversation Compilation
 
+Status: Historical conversation archive. These exports preserve idea provenance and may contain obsolete plans, counts, assumptions, examples, or missing assets. They never override the root `README.md`, `AGENT_CONTEXT.json`, accepted ADRs, current sandbox docs, or `BACKLOG.md`.
+
 > Compiled: May 8, 2026 | Source: ChatGPT chat history search
 > Search terms: "legal tech debt", "legal code smells"
 > Total matching chats found in search: 28+ | Archived here: 8 exported chat files plus index/summary material
