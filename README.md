@@ -35,6 +35,8 @@ No production infrastructure, customer data handling, authentication, billing in
 
 | Scope | Verified state |
 |---|---|
+| **Complete legal code smell inventory** | 159 documented smells across three taxonomies: `legal_code_smell_taxonomy.md` (74 patterns), `insurance_policy_smells.md` (43 patterns), `insurance_claims_smells.md` (41 patterns) |
+| **Operationalized detectors** | Five Kentucky homeowners policy-layer smells (Sandbox 002) with detection specs and Gherkin scenarios |
 | Canonical Kentucky corpus inventory | 32 unique files in `corpus/kentucky-homeowners-policy-smells/sources/` |
 | Preserved Sandbox 002 ingestion run | 28 ingested sources, 353 nodes, 121 candidate-evidence records, 41 Stage 002 discovery bundles |
 | Stage 003 retrieval baseline | 39 retrieval bundles |
