@@ -6,6 +6,8 @@ Scope: Client-base reframing, incumbent interpretation, and next validation dire
 
 ---
 
+> Current disposition (2026-07-13): the provider-facing hypothesis remains active, but it is still unvalidated. Bounded portfolio, Sandbox 005 SDLC, and Sandbox 006 UX work may continue; production and commercial claims remain gated by buyer evidence. Vendor and market details in this June 6 synthesis require fresh verification before external use.
+
 ## Executive Take
 
 The four reports do **not** say the idea is fake.

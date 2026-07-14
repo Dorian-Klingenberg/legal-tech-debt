@@ -1,5 +1,14 @@
 # Typed Edge Study Plan
 
+Status: Historical partial plan. Phase 1 completed; later phases were parked when Sandbox 001 closed. Unchecked items are re-open conditions, not current commitments.
+
+## Current Disposition Checklist
+
+- [x] Complete Phase 1 with 46 labeled seed edges.
+- [x] Preserve the taxonomy-refinement question discovered in Phase 2.
+- [x] Park Phases 2-5 at Sandbox 001 closure.
+- [x] Require a concrete current experiment before resuming this plan.
+
 ## Purpose
 
 Turn the Stage 003 Kentucky insurance sample into a semantic dependency study.

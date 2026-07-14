@@ -1,7 +1,7 @@
 # ADR-009: Close Sandbox 002 With Smell 5 As A Carried Limitation
 
 Date: 2026-06-04
-Status: Accepted
+Status: Accepted closure decision; Smell 5 limitation superseded by ADR-010
 Scope: Sandbox 002 closure and Sandbox 003 start conditions
 
 ## Context
@@ -57,4 +57,4 @@ Sandbox 003 may begin from run `output/002/20260604_130606_18b0dec5/`, provided 
 - [x] Update Sandbox 002 handoff and startup docs to point to the repaired run.
 - [x] Mark gold-set re-evaluation complete.
 - [x] Update Sandbox 003 plan so Smell 5 is a known limitation, not a hard start blocker.
-- [ ] Calibrate Smell 5 if Sandbox 003 needs all five smells represented in triage or executive output.
+- [x] Calibrate Smell 5 using graph-based gap detection (ADR-010).

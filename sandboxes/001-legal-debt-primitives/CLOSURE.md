@@ -7,7 +7,7 @@ Status: Complete as foundational research
 
 Sandbox 001 is complete. It should now be treated as a preserved foundation, not the active forward-development lane.
 
-Future insurance policy and claims work should continue in `sandboxes/002-claims-regulatory-automation` unless the explicit task is to revisit a primitive from 001.
+Insurance policy work later continued through Sandboxes 002-004. Use the repository root `README.md` for current work unless the explicit task is to revisit a primitive from 001.
 
 ## Why We Are Closing 001
 
@@ -96,6 +96,4 @@ Those may become useful later, but 002 should earn each dependency through a con
 
 001 remains valuable as evidence, reference code, and method. It is no longer the main place to add new product-facing work.
 
-The active project lane is now:
-
-> Sandbox 002: insurance policy and claims legal tech debt experiments using the proven 001 primitives where they help.
+The transition recorded at closure was to Sandbox 002. That transition is historical: Sandboxes 002-004 are now complete, and the current lanes are maintained in the repository root `README.md` and `AGENT_CONTEXT.json`.

@@ -1,6 +1,6 @@
 # Sandbox 006: Interactive Drill-Down Report
 
-Status: Active concept sandbox
+Status: Current secondary UX lane; paused at the Stage 002 human review gate
 Started: 2026-06-05
 Scope: Product UX, interactive report/workbench, static HTML review artifact
 
@@ -115,6 +115,8 @@ Static HTML is the preferred review artifact because it stays repo-visible, runn
 
 ## Starting Point
 
-Begin with Stage 001: define the UX concept, information architecture, and design-tool evaluation plan before building a prototype.
+Stage 001 is complete. Stage 002 generated `output/workbench.html` and passed structural JavaScript/data checks. The next step is a human visual and responsive review; do not start Stage 003 design-tool comparison until that review identifies a question worth testing.
 
 Use [PLAYBOOK.md](PLAYBOOK.md) for the agreed exploration loop: discuss functionality with Codex, optionally build static HTML or client-side Blazor for real interaction, use Figma/Canva for focused design passes, then bring useful design learning back into repo-visible notes and local artifacts.
+
+Use [DOCUMENTATION-MAP.md](DOCUMENTATION-MAP.md) for the current reading order and [HANDOFF-2026-07-13.md](HANDOFF-2026-07-13.md) for the exact review gate.

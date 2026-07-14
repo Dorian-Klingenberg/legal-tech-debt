@@ -74,11 +74,11 @@ Not acceptable. The regulatory traceability pattern is commercially important (m
 
 ## Follow-Up
 
-- [ ] Redesign Smell 5 detector as a graph-based gap detector:
+- [x] Redesign Smell 5 detector as a graph-based gap detector:
   - Identify carrier nodes making rate-setting, mandatory-coverage, loss-settlement, or filing-compliance claims (new heuristic or keyword classifier)
   - Check each candidate node for outbound edges to KRS, KAR, DOI, or SERFF nodes within a 2-hop radius
   - Surface nodes with no regulatory link as Smell 5 candidates with confidence MEDIUM
-- [ ] Update Stage 006 `smell5.py` with the graph-based approach
-- [ ] Re-run Stage 006 detectors and Stage 007 reviewer report after Smell 5 redesign
-- [ ] Update ADR-002 with the conclusion that vector retrieval is not the right tool for gap-detection smells; note that it remains appropriate for cross-carrier paraphrase matching (a future use case)
-- [ ] Update BACKLOG-001 to reflect this architectural decision
+- [x] Update Stage 006 `smell5.py` with the graph-based approach
+- [x] Re-run Stage 006 detectors and Stage 007 reviewer report after Smell 5 redesign
+- [x] Update ADR-002 with the conclusion that vector retrieval is not the right tool for gap-detection smells; note that it remains appropriate for cross-carrier paraphrase matching (a future use case)
+- [x] Update BACKLOG-001 to reflect this architectural decision

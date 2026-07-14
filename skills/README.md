@@ -37,38 +37,38 @@ Use templates under [templates](templates/) when creating a new skill artifact.
 
 ## Current Direction
 
-The first project skill is `legal-rag-builder`: a workflow for building the local-first legal document ingestion and retrieval system for Sandbox 002 without drifting into chatbot-first design, naive chunking, or premature infrastructure.
+The first project skill is `legal-rag-builder`: the repo-visible workflow used to build and maintain the completed local-first legal evidence substrate for Sandbox 002. Use it only when that sandbox is explicitly reopened.
 
 Current artifacts:
 
-- Draft skill: [legal-rag-builder/SKILL.md](legal-rag-builder/SKILL.md)
+- Active repo-visible skill: [legal-rag-builder/SKILL.md](legal-rag-builder/SKILL.md)
 - Source proposal and raw notes: [proposals/legal-rag-builder.md](proposals/legal-rag-builder.md)
 - Source-of-truth spec: [../sandboxes/002-claims-regulatory-automation/002-RAG-INGESTION-RETRIEVAL-SPEC.md](../sandboxes/002-claims-regulatory-automation/002-RAG-INGESTION-RETRIEVAL-SPEC.md)
-- Architecture decisions: [legal-rag-builder/adr](legal-rag-builder/adr)
-- Boundary lesson: [legal-rag-builder/references/rag-substrate-boundary-lesson.md](legal-rag-builder/references/rag-substrate-boundary-lesson.md)
-- Docling/local stack boundary: [legal-rag-builder/references/docling-local-stack-boundary.md](legal-rag-builder/references/docling-local-stack-boundary.md)
+- Architecture decisions: [Sandbox 002 ADRs](../sandboxes/002-claims-regulatory-automation/adr/)
+- Boundary lesson: [rag-substrate-boundary-lesson.md](../sandboxes/002-claims-regulatory-automation/references/rag-substrate-boundary-lesson.md)
+- Docling/local stack boundary: [docling-local-stack-boundary.md](../sandboxes/002-claims-regulatory-automation/references/docling-local-stack-boundary.md)
 
-Do not install the skill into `$CODEX_HOME/skills` until it has been validated against a real or dry-run Sandbox 002 RAG task.
+The skill has been validated through the completed Sandbox 002 pipeline. It is not installed into `$CODEX_HOME/skills`; installation remains optional because repo visibility is the cross-agent requirement.
 
 The second project skill is `project-memory-artifacts`: a workflow for creating shared handoffs, journals, lessons, and agent context updates that Codex, GitHub Copilot, Claude Code, and future agents can all read.
 
 Current artifacts:
 
-- Draft skill: [project-memory-artifacts/SKILL.md](project-memory-artifacts/SKILL.md)
+- Active repo-visible skill: [project-memory-artifacts/SKILL.md](project-memory-artifacts/SKILL.md)
 - Source proposal and raw notes: [proposals/project-memory-artifacts.md](proposals/project-memory-artifacts.md)
 - Pattern reference: [project-memory-artifacts/references/grannies-memory-patterns.md](project-memory-artifacts/references/grannies-memory-patterns.md)
 
-Do not install the skill into `$CODEX_HOME/skills` until it has been validated against a real journal, handoff, lesson, or agent-context update task.
+This skill has been validated through repeated journal, handoff, lesson, and context updates. It is not installed into `$CODEX_HOME/skills`.
 
 The third project skill is `project-coding-preferences`: a workflow for applying shared implementation preferences that were previously implicit in Codex context.
 
 Current artifacts:
 
-- Draft skill: [project-coding-preferences/SKILL.md](project-coding-preferences/SKILL.md)
+- Active repo-visible skill: [project-coding-preferences/SKILL.md](project-coding-preferences/SKILL.md)
 - Source proposal and raw notes: [proposals/project-coding-preferences.md](proposals/project-coding-preferences.md)
 - Fast cross-agent context: [../AGENT_CONTEXT.json](../AGENT_CONTEXT.json)
 
-Do not install the skill into `$CODEX_HOME/skills` until it has been validated against a real implementation or review task.
+This skill has been used in implementation and review work. It is not installed into `$CODEX_HOME/skills`.
 
 ## Granular Reusable Skills
 

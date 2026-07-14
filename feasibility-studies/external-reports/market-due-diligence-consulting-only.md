@@ -1,5 +1,7 @@
 # Legal Tech Debt Market Due Diligence
 
+> External point-in-time report preserved without editorial normalization. Citations use tool-export markers, and vendor, market, model, legal, and program claims require fresh primary-source verification. This report is an input to `../client-pivot-synthesis-2026-06-06.md`, not current project truth.
+
 ## Executive Verdict
 
 **Verdict:** consulting-only.  

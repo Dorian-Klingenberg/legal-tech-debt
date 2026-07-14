@@ -1,6 +1,6 @@
 # ROI Cases For The Five Active Policy-Layer Smells
 
-Status: Active Sandbox 002 support document
+Status: Preserved directional ROI support document; not a validated sales forecast
 Scope: Kentucky homeowners policy-layer smell experiments
 Controlling scope: `002-five-policy-layer-phish.md`
 
@@ -135,7 +135,7 @@ The strongest economic upside likely sits in Calculation Rule Drift and Coverage
 
 ## Dollar-Value Cost-Benefit Case
 
-The project's 83-smell research found public losses across settlements, regulatory fines, market conduct penalties, adverse coverage outcomes, and class-action exposure. The five Sandbox 002 smells sit inside the highest-value part of that map: coverage determination, valuation, rating, and regulatory mapping.
+The project's 84-entry claims-and-policy taxonomy is accompanied by research mapping selected patterns to public settlements, regulatory fines, market-conduct penalties, adverse coverage outcomes, and class-action allegations. Those analogies do not prove causation or avoided cost. The five Sandbox 002 smells sit in coverage determination, valuation, rating, and regulatory mapping, where the project found useful public risk context.
 
 ### Public Cost Anchors From Project Research
 

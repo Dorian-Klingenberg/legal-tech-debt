@@ -3,6 +3,8 @@
 Date: 2026-06-05
 Audience: Claude Code, Codex, GitHub Copilot, and future agents
 
+> Historical snapshot. The implementation priorities in this handoff were later completed, closed, or promoted to Sandbox 005. Use `README.md`, `AGENT_CONTEXT.json`, and the latest handoff named there.
+
 ## Purpose
 
 This is the resume point after closing the backlog planning session. The user wants to implement the next backlog items with Claude Code, using detailed repo-visible instructions rather than broad chat context.

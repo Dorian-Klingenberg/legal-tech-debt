@@ -1,5 +1,7 @@
 # Legal Tech Debt — Market Due-Diligence & Red-Team Evaluation
 
+> External point-in-time report preserved without editorial normalization. Counts, competitors, prices, links, and market claims may be stale. This report is an input to `../client-pivot-synthesis-2026-06-06.md`, not current project truth.
+
 *Prepared as a skeptical, source-backed analysis. Claims are labeled: **Verified Fact**, **Reasonable Inference**, **Speculation**, or **Unknown / Needs Buyer Interview**.*
 
 ***
@@ -401,4 +403,3 @@ This is a service business first, and possibly a software business never. That i
 35. [Kentucky Department of Insurance](https://insurance.ky.gov) - The Kentucky Department of Insurance regulates the Commonwealth's insurance market, licenses agents ...
 
 36. [Compliance Consultant yearly salaries in the United States ... - Indeed](https://www.indeed.com/cmp/The-Standard-Insurance/salaries/Compliance-Consultant) - The Standard Insurance Compliance Consultant yearly pay in the United States is approximately $108,0...
-

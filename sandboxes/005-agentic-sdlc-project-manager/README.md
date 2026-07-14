@@ -1,6 +1,6 @@
 # Sandbox 005: Agentic SDLC Project Manager
 
-Status: Active concept sandbox
+Status: Primary technical lane; Stage 001 complete, Stage 002 ready but owner-gated
 Started: 2026-06-05
 Scope: Development SDLC stack, agent coordination, Agile V control surface
 
@@ -13,6 +13,46 @@ This is the SDLC stack, not the agentic product runtime stack. See `../../ADR-01
 Working thesis:
 
 > Build a project manager that treats the repository as the source of truth. The project manager reads and writes disciplined artifacts, coordinates agents, tracks verification evidence, and makes project state visible without becoming a second competing planning universe.
+
+## Documentation And Stages
+
+Start with [`DOCUMENTATION-MAP.md`](DOCUMENTATION-MAP.md). It identifies the
+canonical plan, current handoff, sandbox lesson, supporting evidence, and all
+five stage documents.
+
+| Stage | Status | Document |
+|---|---|---|
+| 001 - Stack concept and artifact contract | Complete | [`stages/001-stack-concept/STAGE.md`](stages/001-stack-concept/STAGE.md) |
+| 002 - Manual hybrid pilot | Ready; not started | [`stages/002-manual-pilot/STAGE.md`](stages/002-manual-pilot/STAGE.md) |
+| 003 - Generated status surface | Planned | [`stages/003-generated-status-surface/STAGE.md`](stages/003-generated-status-surface/STAGE.md) |
+| 004 - Agent role and worktree experiment | Planned | [`stages/004-agent-role-worktree-experiment/STAGE.md`](stages/004-agent-role-worktree-experiment/STAGE.md) |
+| 005 - Phase A integration plan | Planned | [`stages/005-phase-a-integration-plan/STAGE.md`](stages/005-phase-a-integration-plan/STAGE.md) |
+
+The sandbox-wide reusable lesson is [`LESSON.md`](LESSON.md). The narrower
+Stage 001 selection lesson remains beside the Stage 001 evidence.
+
+## Current System Selection
+
+Stage 001 concluded on 2026-07-13 with a provisional layered hybrid:
+
+- existing repo artifacts remain the canonical control plane;
+- selected Agile V concepts supply traceability, risk-adaptive gates, evidence
+  bundles, and independent verification;
+- Codex CLI is the first execution engine;
+- manual Git worktrees and one implementation writer provide initial isolation;
+- SwarmForge role, worktree, and handoff concepts remain a Stage 004 experiment.
+
+No upstream framework is being installed wholesale. Stage 002 must test the
+hybrid manually before the project formalizes schemas, builds a status surface,
+or adopts an orchestration tool.
+
+See
+[`stages/001-stack-concept/SDLC-SYSTEM-SELECTION-STUDY.md`](stages/001-stack-concept/SDLC-SYSTEM-SELECTION-STUDY.md)
+for the source-backed comparison, maturity and licensing findings, local
+readiness checks, and adoption gates.
+
+Resume from [`HANDOFF-2026-07-13.md`](HANDOFF-2026-07-13.md) when Stage 002 is
+explicitly started.
 
 ## Why This Exists
 
@@ -70,7 +110,8 @@ Out of scope:
 | Tests | `pytest`, golden fixtures, schema validation, regression snapshots | Default hard gate. |
 | Static checks | `ruff`, optional `mypy`, future `eslint`/`tsc` if TypeScript appears | Match actual implementation languages. |
 | Mutation | `mutmut` for Python, later equivalents if needed | Risk-adaptive, not default ceremony. |
-| Agent orchestration | Existing Codex/Claude/Copilot docs; SwarmForge-style worktrees and role prompts | Evaluate before adopting. |
+| Agent execution | Codex CLI custom agents, subagents, review, and structured `codex exec` output | First pilot runtime; not the source of lifecycle truth. |
+| Agent orchestration | Manual worktrees and one writer first; SwarmForge-style roles and handoffs later | Evaluate executable SwarmForge adoption only in Stage 004. |
 | Semantic review | LLM-as-judge rubrics for report quality, semantic completeness, reviewer usefulness | Sensor only; not final authority. |
 | Dashboard | Generated Markdown/HTML/JSON status view over repo artifacts | No separate planning database at first. |
 
@@ -91,7 +132,12 @@ A likely future sandbox should explore the agentic product runtime stack: produc
 
 ## References
 
+- Agile V organization: `https://github.com/Agile-V`
+- Agile V skills: `https://github.com/Agile-V/agile_v_skills`
+- Agentic Agile V scaffold: `https://github.com/Agile-V/agentic_agile_v`
 - SwarmForge: `https://github.com/unclebob/swarm-forge`
+- Codex CLI reference: `https://learn.chatgpt.com/docs/developer-commands?surface=cli`
+- Codex subagents: `https://learn.chatgpt.com/docs/agent-configuration/subagents.md`
 - Cucumber/Gherkin reference: `https://cucumber.io/docs/gherkin/reference`
 - IEEE 1012 V&V overview: `https://standards.ieee.org/ieee/1012/7324/`
 - CMU SEI V-model testing discussion: `https://www.sei.cmu.edu/blog/using-v-models-for-testing/`

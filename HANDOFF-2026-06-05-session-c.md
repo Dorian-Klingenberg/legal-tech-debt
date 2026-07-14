@@ -5,6 +5,8 @@
 **Previous handoff:** `HANDOFF-2026-06-05-session-b.md`  
 **Journal:** `journal/2026-06-05-backlog-implementation-session-c.md`
 
+> Historical snapshot. The work described here is reflected as resolved in `BACKLOG.md`. Use the root `README.md` and `AGENT_CONTEXT.json` for current work.
+
 ---
 
 ## What Was Completed This Session

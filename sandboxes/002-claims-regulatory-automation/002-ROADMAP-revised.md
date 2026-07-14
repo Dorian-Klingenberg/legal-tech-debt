@@ -1,10 +1,17 @@
 # Roadmap: Sandbox 002 Kentucky Homeowners Policy-Layer Smells
 
 Version: 4.0
-Status: Active roadmap
+Status: Historical completed roadmap; superseded by `002-RAG-STAGE-PLAN.md` and `CLOSURE.md`
 Controlling scope: `002-five-policy-layer-phish.md`
 Path decision: `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
 Artifact contract: `adr/ADR-004-schema-run-identity-and-id-stability.md`
+
+## Historical Completion Checklist
+
+- [x] Narrow the platform idea to Kentucky homeowners and five policy-layer smells.
+- [x] Complete the discovery, retrieval, evaluation, detector, and reviewer-report stages.
+- [x] Preserve the accepted limitations and close Sandbox 002.
+- [x] Supersede this roadmap with `002-RAG-STAGE-PLAN.md` and `CLOSURE.md`.
 
 ## Current Scope
 
@@ -117,7 +124,7 @@ Non-goals:
 
 ## Stage 003: Retrieval Baseline And Fixture Curation
 
-Status: Planned
+Status: Completed as actual Stage 003; preserved here as the original plan
 
 Objective:
 
@@ -151,7 +158,7 @@ Success criteria:
 
 ## Stage 004: Deterministic Pattern Detectors
 
-Status: Planned
+Status: Delivered later as actual Stage 006 after the gold-set and semantic-retrieval decision stages
 
 Objective:
 
@@ -181,7 +188,7 @@ Success criteria:
 
 ## Stage 005: Reviewer Report
 
-Status: Planned
+Status: Delivered later as actual Stage 007; preserved here under the roadmap's earlier numbering
 
 Objective:
 
@@ -256,4 +263,3 @@ Before adding any new tool, stage, or detector, ask:
 > Does this directly help evaluate one of the five Kentucky homeowners policy-layer smells?
 
 If the answer is no, leave it parked.
-

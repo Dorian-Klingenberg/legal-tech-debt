@@ -2,6 +2,8 @@
 
 Date: 2026-06-06
 
+Status: Dated career-strategy working document. It informs portfolio framing but does not control repository scope or current project status.
+
 Prepared from the documented work in:
 
 - `D:\Repos\legal-tech-debt`

@@ -66,5 +66,5 @@ This preserves the principle: defer vector infrastructure, but design the eviden
 - [x] Re-run Stage 004 gold-set evaluation on the repaired run.
 - [x] Re-run Stage 006 deterministic detectors on the repaired run.
 - [x] Re-run Stage 007 reviewer report on the repaired run.
-- [ ] Calibrate Smell 5 detector behavior against the expanded KFBM/KNIC corpus.
-- [ ] Decide in Sandbox 003 whether triage/reporting needs a richer finding schema.
+- [x] Calibrate Smell 5 detector behavior against the expanded KFBM/KNIC corpus (ADR-010).
+- [x] Decide in Sandbox 003 that triage annotations remain a separate enriched artifact rather than mutating the detector schema.

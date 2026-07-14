@@ -8,9 +8,9 @@
 
 ## Purpose
 
-Build the expert drill-down report — the paid product. Three reader panels per finding: compliance/counsel, claims professional, policy designer. Static HTML proof-of-concept with hand-crafted entries grounded in Sandbox 002 detector findings.
+Build an expert drill-down report proof of concept. It tests three reader panels per finding: compliance/counsel, claims professional, and policy designer. The entries are hand-crafted and grounded in Sandbox 002 detector findings.
 
-This is not the executive summary (Sandbox 003). That is the sales instrument. This is the product a carrier expert reads to understand exactly what the gap is, why it matters to their role, and what to do about it.
+This is not the executive summary (Sandbox 003). It explores the deeper work product a qualified reviewer might use. It does not prove that carriers or providers will buy it.
 
 ## Entries Built
 
@@ -23,13 +23,16 @@ This is not the executive summary (Sandbox 003). That is the sales instrument. T
 ## Outputs
 
 - `data/drill_down_entries.json` — hand-crafted entry data (schema version 1.0)
-- `output/drilldown_report.html` — static three-panel HTML report, three finding cards
+- `generate_drilldown.py` — generator with carrier and sanitization filters
+- `output/drilldown.html` — combined internal report
+- `output/drilldown_KFBM.html` and `output/drilldown_KNIC.html` — carrier-scoped internal reports
+- `output/drilldown_KFBM_sanitized.html` and `output/drilldown_KNIC_sanitized.html` — carrier-scoped paraphrased reports
 
 ## Product Principles Established This Sandbox
 
-- **Ground truth is internal disclosure, not ISO comparison.** Every finding is grounded in what the carrier's own filed documents fail to disclose. No external standard required.
-- **ISO as implicit gold standard.** ISO HO 00 03/05 content is established fact; we do not need a copy to make findings. See ADR-011.
-- **Target carriers are ISO divergers.** Pure ISO adopters are low-value targets. Legal tech debt lives in proprietary base forms, heavy endorsement stacks, and proprietary rate/underwriting methodologies. See SESSION-NOTES product principle entry.
+- **Ground findings in available internal disclosure and state the package boundary.** A missing item in an incomplete corpus is a limitation, not automatically a defect.
+- **Use ISO comparison only when its role and source are verified.** ISO HO 04 93 is a roof-surfacing ACV endorsement, not KFBM's base jacket. See the ADR-011 corrective addendum.
+- **Treat divergence and package complexity as hypotheses to inspect.** Modified forms, endorsement stacks, and proprietary methodologies may create review value, but carrier targeting requires verified form roles and buyer evidence.
 - **Two distinct products.** Phase 1: gaps in your own filed documents. Phase 2 (future): how you diverged from ISO and the risk profile of each change.
 - **Four structural gap types** (Jem framework, 2026-06-04): Phantom Form, Broken Definitions Loop, Undisclosed Rating Rules vs. Policy Constraints, Missing State Amendatory. See BACKLOG-019 and BACKLOG-020.
 
@@ -38,8 +41,10 @@ This is not the executive summary (Sandbox 003). That is the sales instrument. T
 All findings sourced from Sandbox 002 run `20260604_130606_18b0dec5`. Detector findings in:
 `sandboxes/002-claims-regulatory-automation/output/006/20260604_130606_18b0dec5/detector_findings.jsonl`
 
-## Next Steps
+## Current Disposition
 
-- BACKLOG-019: Missing State Amendatory detector (new high-value gap type)
-- BACKLOG-015: Heuristic-specific case library (one public case per heuristic)
-- Phase 2 product planning: Internal Reference Map visualization (post-Phase A)
+- [x] BACKLOG-019 missing-state-amendatory detector implemented.
+- [x] BACKLOG-015 case library completed to the public-web limit.
+- [x] Carrier filtering and sanitization generation implemented.
+- [ ] Treat buyer value, pricing, and paid-deliverable language as validation questions.
+- [ ] Use Sandbox 006 for interaction/UX review rather than modifying this completed content proof by default.

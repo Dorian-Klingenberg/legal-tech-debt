@@ -1,3 +1,7 @@
+# Context Freeze Prompt Template
+
+Status: Reusable historical template, not a current agent directive. Use `skills/write-adr/SKILL.md` and current project memory rules before applying it.
+
 Generate a "Context Freeze" ADR for this session. Use this exact structure. Keep it entirely mechanical, dense, and objective. No conversational filler.
 
 # [ADR-XXX]: Context Freeze & Handoff

@@ -3,6 +3,11 @@
 Created: 2026-05-13
 Cloned from: `001-baseline`
 
+## Disposition Checklist
+
+- [x] Build the self-contained dashboard mockup.
+- [x] Preserve this stage as completed Sandbox 001 evidence.
+
 ## Purpose
 
 Build a static, self-contained HTML dashboard from the Stage 001 demo output so we can explore ways of seeing the legal dependency system before committing to a real visualization stack.

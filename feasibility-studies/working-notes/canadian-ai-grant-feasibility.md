@@ -6,6 +6,8 @@ Purpose: Assess whether Canadian government funding could support Legal Tech Deb
 
 ---
 
+> Time-sensitive working note, not legal, tax, accounting, or grant advice. Program windows, eligibility, entity obligations, ownership, residency, and the corporation's status may have changed since 2026-06-06. Reverify official program and government sources and obtain qualified advice before keeping, dissolving, transferring assets from, or spending through the corporation.
+
 ## Short Answer
 
 Canadian government support is **plausible**, but not automatic.

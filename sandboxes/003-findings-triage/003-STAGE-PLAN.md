@@ -7,6 +7,8 @@ Depends on: Sandbox 002 repaired run `output/002/20260604_130606_18b0dec5/`, Sta
 
 ---
 
+> Snapshot boundary: this sandbox analyzed the June 4 set of 35 findings. Four Smell 3 findings were later confirmed as regulatory-layer false positives and removed from the current Stage 006 output, which now contains 31 findings. The outputs here remain valid evidence of the point-in-time triage and reporting experiment; they are not the canonical current detector count.
+
 ## The Problem This Sandbox Solves
 
 Sandbox 002 produces structured `Finding` records — each one has a node, evidence text, confidence level, rationale, and a reviewer question. That output is technically correct but not yet useful to a non-technical audience. A claims officer, coverage counsel, or CEO cannot directly act on a JSONL file.

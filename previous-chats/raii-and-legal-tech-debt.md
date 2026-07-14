@@ -1061,7 +1061,7 @@ Then embed in note:
 ![[diagrams/DanglingReference.svg]]
 or
 
-![](diagrams/DanglingReference.svg)
+Image syntax example referenced `diagrams/DanglingReference.svg`; that asset is not present in this historical export.
 What happens in Obsidian?
 Obsidian renders it perfectly.
 

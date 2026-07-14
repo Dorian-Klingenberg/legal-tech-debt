@@ -42,7 +42,7 @@ The current conceptual unit is a **finding card**. Each card contains:
 - policy designer / filing specialist fix guidance,
 - disclaimers and limitations.
 
-This is already close to a product. It just presents the product as a scrollable document rather than an interactive workspace.
+This is product-shaped content, not a product. It provides enough structure to test a review workflow, but production readiness would still require validated users, interaction review, state persistence, access control, audit behavior, testing, deployment, and operational support.
 
 ## What The Interactive Version Should Become
 

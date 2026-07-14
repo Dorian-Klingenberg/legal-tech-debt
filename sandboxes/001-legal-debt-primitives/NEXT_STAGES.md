@@ -1,5 +1,14 @@
 # Candidate Next Stages
 
+Status: Historical candidate plan. Sandbox 001 is closed. Stage 004 Phase 2 and Stages 005-008 are intentionally parked, not active loose ends. Reopen one only when a current detector or product experiment needs the primitive.
+
+## Disposition Checklist
+
+- [x] Complete and preserve Stages 001-003.
+- [x] Complete the Stage 004 seed-labeling phase.
+- [x] Record Stage 004's later phases and Stages 005-008 as parked proposals.
+- [x] Require an explicit current experiment before reopening any parked proposal.
+
 ## Completed: 002 Dashboard Mockup
 
 Question answered:
@@ -20,7 +29,7 @@ Result:
 
 Yes. `stages/003-kentucky-insurance-sample` contains 60 extracted sections, 197 references, 65 matrix nodes, and a regenerated static dashboard with data-driven graph lanes.
 
-## Active: 004 Typed Edge Study
+## Preserved Partial Study: 004 Typed Edge Study
 
 Question:
 

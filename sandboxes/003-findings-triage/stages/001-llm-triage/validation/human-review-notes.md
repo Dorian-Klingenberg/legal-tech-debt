@@ -1,5 +1,7 @@
 # Stage 001 Human Review Notes
 
+> Historical validation set: these notes review Sandbox 003's 35-finding June 4 snapshot. The canonical current Stage 006 output contains 31 findings after four regulatory-layer Smell 3 false positives were removed.
+
 Reviewer: Dorian Klingenberg  
 Date: 2026-06-04  
 Sample reviewed: all 35 findings  

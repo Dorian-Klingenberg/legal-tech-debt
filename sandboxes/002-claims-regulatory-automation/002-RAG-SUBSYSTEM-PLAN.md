@@ -1,12 +1,19 @@
 # Legal RAG Subsystem Plan
 
-Status: Active planning document
+Status: Implemented and frozen design record
 Scope: Sandbox 002 Kentucky homeowners corpus
 Created: 2026-06-01
-Updated: 2026-06-03
+Updated: 2026-07-13 (status reconciled after sandbox closure)
 Related skill: `skills/legal-rag-builder/SKILL.md`
 Path decision: `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
 Artifact contract: `adr/ADR-004-schema-run-identity-and-id-stability.md`
+
+## Completion Checklist
+
+- [x] Define the local evidence-substrate contract.
+- [x] Implement deterministic ingestion, parsing, provenance, graph, and retrieval artifacts.
+- [x] Preserve the repaired Stage 002 run and downstream evidence.
+- [x] Freeze this plan at Sandbox 002 closure; reopen only through an explicit new stage.
 
 ## Purpose
 

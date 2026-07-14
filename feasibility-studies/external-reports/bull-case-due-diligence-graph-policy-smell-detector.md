@@ -1,5 +1,7 @@
 # Bull-Case Due Diligence: Reassessing the "Consulting-Only" Verdict on a Graph-Based Insurance Policy Smell Detector
 
+> External point-in-time report preserved without editorial normalization. Its "83 smells" count predates the added underwriting entry; the current companion-taxonomy count is 84. Technical, competitor, market, and revenue claims require fresh primary-source verification. This report is an input to `../client-pivot-synthesis-2026-06-06.md`, not current project truth.
+
 ## TL;DR
 - The "consulting-only" verdict is **overstated**: the core technical thesis (graph-based statutory dependency mapping + a structured "policy smell" taxonomy + a SERFF-linked corpus) maps directly onto peer-reviewed computer-science precedent and an empirically validated white space — no incumbent (SERFF, Verisk/ISO, LexisNexis, Kira/Litera, Thomson Reuters) ships graph-based, multi-jurisdiction, smell-taxonomy-driven policy-language compliance analysis today.
 - The strongest pillars of the bull case are **ANGLE 1 (graph moat), ANGLE 2 (taxonomy), ANGLE 8 (LLM substitution failure), and ANGLE 9 (white space)**; the weakest are **ANGLE 5 (SGI specifically) and ANGLE 10 (TAM math)**, where the consulting-skeptic is partly right and the bull case must rely on market formation rather than proven willingness-to-pay.

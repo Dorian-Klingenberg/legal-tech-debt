@@ -13,16 +13,16 @@ Keep the three agents aligned on:
 
 ## Shared Truth Sources
 
-When there is a conflict, prefer current repo-visible records over historical notes. Within the same tier, prefer the newest explicitly current record.
+Truth is type-specific. A newer historical note does not automatically override a current decision or status surface.
 
-1. `BOOTSTRAP.md`
-2. `AGENT_CONTEXT.json`
-3. The relevant agent entry file: `AGENTS.md`, `CLAUDE.md`, or `.github/copilot-instructions.md`
-4. The current sandbox README, roadmap, ADRs, handoff, and closure docs
-5. `BACKLOG.md`
-6. The top-level `journal/` history
+1. **Runtime rules:** `BOOTSTRAP.md`, the active tool entry file, and any tool-specific constraint profile.
+2. **Current project state:** `README.md` and `AGENT_CONTEXT.json`.
+3. **Accepted architecture:** accepted ADRs, including explicit supersession or correction notes.
+4. **Sandbox state:** the sandbox README, stage plan, closure record, and latest explicitly current handoff.
+5. **Work queue:** `BACKLOG.md` and the current stage document. A historical implementation brief does not reopen completed work.
+6. **History and evidence:** journals, older handoffs, generated reports, external reports, and archived conversations.
 
-Journals are point-in-time session memory. They explain how the project got somewhere, but they do not override current context, handoffs, ADRs, closure docs, or backlog items unless a current document explicitly incorporates them.
+Within the same type, prefer the newest record explicitly labeled current. Historical records explain how the project got somewhere, but they do not override current context, accepted ADRs, closure docs, or backlog state unless a current document explicitly incorporates them.
 
 Do not rely on private assistant memory when repo-visible memory exists.
 
@@ -78,6 +78,8 @@ Before wrapping up a session, verify:
 - the journal records what changed and why,
 - the backlog reflects any newly deferred work,
 - and old docs are labeled historical if they are no longer current.
+
+When recording counts, name the scope. Corpus inventory, an ingestion run, a filtered detector run, and a downstream historical snapshot are different measurements even when they refer to the same project.
 
 If a document is historical, mark it as historical or superseded so it cannot be mistaken for active guidance.
 

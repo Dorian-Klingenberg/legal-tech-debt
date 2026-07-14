@@ -1,9 +1,11 @@
-Below are blueprints for the **five Kentucky homeowners policy-layer smells** that control active Sandbox 002 work. Each includes:
+Status: Preserved controlling scope for the completed Sandbox 002 proof of concept. Use these blueprints only when interpreting or explicitly reopening that sandbox.
+
+Below are blueprints for the **five Kentucky homeowners policy-layer smells** that controlled Sandbox 002 work. Each includes:
 
 - A human-readable detection spec (what to look for, from where).
 - A few **Gherkin scenarios** showing how you’d express this as tests against a KY corpus.
 
-All active Sandbox 002 documentation, roadmaps, stages, and fixtures should align to these five smells. Sandbox 001 artifacts are supporting primitives only.
+Any reopened Sandbox 002 documentation, stages, or fixtures should align to these five smells unless a new decision explicitly changes scope. Sandbox 001 artifacts are supporting primitives only.
 
 All of these assume you have:
 - KY statutes/regs (KRS 304 + 806 KAR).  

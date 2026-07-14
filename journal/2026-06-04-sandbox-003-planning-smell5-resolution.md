@@ -1,5 +1,7 @@
 # 2026-06-04: Sandbox 003 Planning, Smell 5 Resolution, Stage 005 Architectural Finding
 
+> Historical snapshot boundary: the 35-finding result below predates the regulatory-layer source filter. The current Stage 006 artifact contains 31 findings after four Smell 3 false positives were removed; Sandbox 003 intentionally preserves its original input snapshot.
+
 ## Session Summary
 
 Two major threads completed in this session: (1) Sandbox 003 stage plan was sharpened using external business-prospect feedback, and (2) the long-standing Smell 5 zero-findings problem was diagnosed and resolved through a combination of semantic retrieval investigation and a redesigned graph-based gap detector.

@@ -4,6 +4,12 @@ Phase: 2 — Retrieval Baseline And Fixture Curation
 Status: Complete
 Depends on: Stage 002 pipeline run output
 
+## Completion Checklist
+
+- [x] Implement exact-phrase and BM25 retrieval with graph context.
+- [x] Produce 39 Stage 003 retrieval bundles for the preserved run.
+- [x] Record corpus limitations and close the stage.
+
 ## Purpose
 
 Run exact-phrase and BM25 retrieval over a Stage 002 discovery run. Produce

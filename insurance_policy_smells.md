@@ -2,6 +2,8 @@
 *Legal Code Smells specific to the Policy Specification, Drafting, Rating, and Underwriting lifecycle*
 *Derived from original research — Kentucky Home/Farmowners & P&C domain*
 
+Status: Working taxonomy. Entries are candidate review patterns, not validated defects, legal conclusions, or detector coverage claims.
+
 ---
 
 ## Overview
@@ -92,14 +94,13 @@ requirements time, spec review, configurator build, and pre-filing audit.
 | Section | Smell Count |
 |---|---|
 | 1. Form & Wording | 14 |
-| 2. Rating & Underwriting Rules | 10 |
+| 2. Rating & Underwriting Rules | 11 |
 | 3. Regulatory Mapping | 10 |
 | 4. Spec-to-Configurator Traceability | 8 |
-| **Total** | **42** |
+| **Total** | **43** |
 
 ---
 
 *These smells are detectable at: spec authoring, form filing review, pre-launch configurator audit,*
 *regulatory mapping review, and periodic debt-scan of in-force products.*
 *See companion document: Insurance Claims Smells.*
-

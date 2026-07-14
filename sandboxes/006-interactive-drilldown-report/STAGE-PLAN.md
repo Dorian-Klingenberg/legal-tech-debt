@@ -1,7 +1,7 @@
 # Sandbox 006 Stage Plan
 
-Status: Active
-Last updated: 2026-06-05
+Status: Current secondary plan; paused at the Stage 002 human review gate
+Last updated: 2026-07-13
 
 ## Sandbox Goal
 
@@ -43,7 +43,7 @@ Expected outputs:
 
 ## Stage 002: Static HTML Prototype
 
-Status: Active
+Status: Implemented; visual and responsive review pending
 
 Purpose:
 
@@ -68,6 +68,7 @@ Do not add a dev server, database, API, or deployment layer.
 ## Stage 003: Design Tool Comparison
 
 Status: Planned
+Document: `stages/003-design-tool-comparison/STAGE.md`
 
 Purpose:
 
@@ -89,6 +90,7 @@ Design-tool output must be summarized in repo-visible Markdown. Do not rely on p
 ## Stage 004: UX Review And Carry-Forward
 
 Status: Planned
+Document: `stages/004-ux-review-carry-forward/STAGE.md`
 
 Purpose:
 

@@ -1,5 +1,7 @@
 # Insurance Process Maturity Models: A Landscape Assessment for the Legal Tech Debt Platform
 
+Status: Dated research snapshot. Program names, editions, statistics, and market claims are time-sensitive and must be reverified from primary sources before publication or business decisions. This is not a current project-control document.
+
 ## Executive Summary
 
 No single CMMI equivalent exists for the insurance industry. Instead, the sector has accumulated a patchwork of domain-specific maturity models — each covering a narrow slice of insurer operations — with significant structural gaps in the areas most relevant to legal tech debt: policy form quality, regulatory mapping integrity, and claims adjudication governance. The five models with the most substance are examined below, along with an honest accounting of what each covers, what each misses, and where the opportunity lies for a process-quality framework derived from RAII defect taxonomy and CMMI discipline.
@@ -51,7 +53,7 @@ No single CMMI equivalent exists for the insurance industry. Instead, the sector
 
 **What it covers well:** Root cause discipline (Attribute 4) is directly relevant — it focuses on searching for root causes of risks, classifying risks, and improving internal controls. This maps to CMMI's Causal Analysis and Resolution (CAR) process area and would, in principle, drive upstream fixes to policy wording when claims patterns reveal defects. The formal ERM-based approach also addresses governance culture and executive accountability in ways that overlap with CMMI's Organizational Process Focus.[^9]
 
-**What it misses for legal tech debt purposes:** The RMM is scoped to enterprise risk management as a discipline — not to insurance product governance, policy form quality, or operational claims workflow. It would assess how well a carrier manages its risk portfolio, not how well it drafts coverage terms, versions its rate manuals, or traces adjuster decisions back to specific policy provisions. None of the 83 insurance-specific smells in the policy and claims taxonomy would be directly detected or prevented by RIMS RMM scoring.[^6][^5]
+**What it misses for legal tech debt purposes:** The RMM is scoped to enterprise risk management as a discipline — not to insurance product governance, policy form quality, or operational claims workflow. It would assess how well a carrier manages its risk portfolio, not how well it drafts coverage terms, versions its rate manuals, or traces adjuster decisions back to specific policy provisions. None of the 84 insurance-specific entries in the current policy and claims taxonomy would be directly detected or prevented by RIMS RMM scoring.[^6][^5]
 
 ***
 
@@ -127,7 +129,7 @@ The RIMS RMM is the only existing model with structural CMMI heritage, but its s
 
 ## Implications for a Legal Tech Debt Platform
 
-The absence of a comprehensive operational quality maturity model in insurance is both the competitive gap and the design requirement. A platform that scores carriers against a CMMI-structured progression — using the RAII-derived defect taxonomy as the detection mechanism and the 83-smell policy/claims catalog as the evidence base — would occupy territory that no existing framework covers.
+The apparent absence of a comprehensive operational quality maturity model in this dated review is a hypothesis to validate, not an established competitive gap. A future framework could test a CMMI-structured progression using the RAII-derived defect taxonomy and the current 84-entry policy/claims catalog as candidate evidence, but buyer usefulness and adjacent offerings require fresh research.
 
 The closest structural template is the RIMS RMM (CMM-based, seven attributes, five levels, readiness indicators), but applied to **product governance quality** rather than enterprise risk management. The iDAMM's three-stage model is too coarse; the ACORD study is annual and retrospective rather than diagnostic; the underwriting framework is vendor-scoped and automation-focused; NAIC is a compliance floor with no improvement pathway.
 
@@ -174,4 +176,3 @@ A maturity scoring function that maps smell density by category to CMMI level eq
 17. [Model Laws - NAIC](https://content.naic.org/model-laws) - This comprehensive publication provides quick access to every NAIC Model Law, Regulation, and Guidel...
 
 18. [Explore Digital Maturity Models for Healthcare | HIMSS](https://www.himss.org/maturity-models/) - From analytics to infrastructure, our eight-stage maturity models support every part of your digital...
-

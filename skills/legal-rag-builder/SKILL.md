@@ -7,6 +7,8 @@ description: Build or modify the Legal Tech Debt local-first legal discovery, in
 
 ## Startup
 
+Sandbox 002 is closed. Use this skill only when the owner explicitly reopens its evidence substrate, corpus pipeline, retrieval evaluation, or detector-support contract. Start from `CLOSURE.md`; older handoffs are historical snapshots.
+
 1. Read `BOOTSTRAP.md`.
 2. Read `skills/SKILL-DEVELOPMENT.md`.
 3. Read `sandboxes/002-claims-regulatory-automation/002-RAG-INGESTION-RETRIEVAL-SPEC.md`.
@@ -16,7 +18,7 @@ description: Build or modify the Legal Tech Debt local-first legal discovery, in
    - `ADR-004-schema-run-identity-and-id-stability.md` controls Stage 002 schema, run identity, and stable-ID requirements.
 6. Read `sandboxes/002-claims-regulatory-automation/references/rag-substrate-boundary-lesson.md` when clarifying RAG layer boundaries, findings, or vector-store sequencing.
 7. Read `sandboxes/002-claims-regulatory-automation/references/docling-local-stack-boundary.md` when working on Docling, local parsing models, VLM enrichment, embeddings, or retrieval-store assumptions.
-8. Read `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-01.md`.
+8. Read `sandboxes/002-claims-regulatory-automation/CLOSURE.md` and the root `README.md`. Read an older Sandbox 002 handoff only for point-in-time history.
 9. Inspect `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv` and `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md` before assuming more source collection is needed.
 
 ## Workflow
@@ -78,5 +80,4 @@ When finishing work, report:
 - what schema versions, run manifest, parser runs, nodes, citations, references, edges, candidate evidence, or retrieval bundles were produced
 - what validation passed
 - what remains a known gap or open decision
-
 

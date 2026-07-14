@@ -5,6 +5,8 @@
 **Previous handoff:** `HANDOFF-2026-06-05-session-d.md`
 **Journal:** `journal/2026-06-05-backlog-implementation-session-e.md`
 
+> Historical snapshot. It records the transition to Sandbox 005, not the current Stage 002 resume point. Use the root `README.md`, `AGENT_CONTEXT.json`, and the latest handoff named there.
+
 ---
 
 ## What Was Completed This Session (E)

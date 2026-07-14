@@ -4,12 +4,12 @@ Stage 007: Reviewer Report Builder
 Assembles detector findings, candidate evidence, retrieval bundles, and corpus
 gap information into a human-readable report for a legal reviewer.
 
-Outputs (written into the Stage 002 run directory):
+Outputs (written under the sandbox-level Stage 007 output directory):
   - reviewer_report.html  — single-file dark-theme HTML
   - reviewer_report.md    — plain-text version for diff and version control
 
 Usage:
-    python src/report_builder.py --run-dir ../002-homeowners-discovery-instrumentation/output/<run_id>
+    python src/report_builder.py --run-dir ../../output/002/<run_key>
 """
 from __future__ import annotations
 
@@ -54,10 +54,10 @@ CORPUS_GAPS = [
         "impact": "Calculation-drift and regulatory-mapping review should treat missing manual attachments as coverage limits, not as negative evidence.",
     },
     {
-        "tier": "detector_calibration",
-        "smells": [5],
-        "description": "Smell 5 regulatory-mapping heuristics currently produce no findings on the expanded corpus.",
-        "impact": "The absence of Smell 5 findings is a detector-calibration gap, not evidence that the corpus lacks regulatory mapping risk.",
+        "tier": "detector_and_source_coverage",
+        "smells": [2, 3, 5],
+        "description": "All five detector families are implemented. The current run has no Smell 3 findings after regulatory-layer false positives were removed; H007 and Smell 2 H004 also have no findings because their required package/base-form inputs are absent.",
+        "impact": "Zero findings for a heuristic are scoped to the current sources and detector preconditions. They are not proof that the issue class is absent from the market.",
     },
 ]
 
@@ -107,7 +107,7 @@ def _write_md(run_dir: Path, idx: RunIndex, findings: list[dict],
         "",
         f"Run: `{idx.run_id}`  ",
         f"Generated: {datetime.now(timezone.utc).isoformat()}  ",
-        f"Sources: {len(idx.sources)}  |  Nodes: {len(idx.content_nodes)}  |  Findings: {len(findings)}",
+        f"Sources: {len(idx.sources)}  |  Content nodes: {len(idx.content_nodes)}  |  Findings: {len(findings)}",
         "",
         "> **Note:** This report surfaces patterns for reviewer judgment. "
         "It does not claim any policy is unlawful. All findings require human review.",
@@ -209,7 +209,7 @@ def _write_html(run_dir: Path, idx: RunIndex, findings: list[dict],
     summary_stats = f"""
 <div class="stat-grid">
   <div class="stat"><div class="n">{len(idx.sources)}</div><div class="l">Sources</div></div>
-  <div class="stat"><div class="n">{len(idx.content_nodes)}</div><div class="l">Nodes</div></div>
+  <div class="stat"><div class="n">{len(idx.content_nodes)}</div><div class="l">Content nodes</div></div>
   <div class="stat"><div class="n" style="color:var(--red)">{conf_counts['HIGH']}</div><div class="l">HIGH findings</div></div>
   <div class="stat"><div class="n" style="color:var(--amber)">{conf_counts['MEDIUM']}</div><div class="l">MEDIUM findings</div></div>
   <div class="stat"><div class="n" style="color:var(--muted)">{conf_counts['LOW']}</div><div class="l">LOW findings</div></div>

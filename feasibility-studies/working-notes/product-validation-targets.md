@@ -6,6 +6,8 @@ Purpose: Identify who should see the product first, what they should see, and wh
 
 ---
 
+> Dated targeting note. Contact roles, employers, Saskatchewan/SGI facts, and outreach assumptions require revalidation before use. The current provider-facing hypothesis is summarized in `../README.md` and `../client-pivot-synthesis-2026-06-06.md`.
+
 ## Short Answer
 
 Do **not** start by pitching a whole insurance carrier.

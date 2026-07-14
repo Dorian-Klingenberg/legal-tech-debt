@@ -2,6 +2,8 @@
 *Legal Code Smells specific to the Claims Handling, Adjudication, and Resolution lifecycle*
 *Derived from original research — P&C domain*
 
+Status: Working taxonomy. Entries are candidate review patterns, not validated defects, legal conclusions, or detector coverage claims.
+
 ---
 
 ## Overview
@@ -146,4 +148,3 @@ This is the feedback channel that eventually makes the legal tech debt system se
 *See companion document: Insurance Policy Smells.*
 *These smells are detectable at: claims audit, SIU review, litigation analysis,*
 *regulatory market conduct examination, and AI-assisted claim file review.*
-

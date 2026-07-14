@@ -2,11 +2,11 @@
 
 ---
 
-## Lesson 1: Ground truth is internal disclosure, not external standard
+## Lesson 1: Internal disclosure is useful only with an explicit package boundary
 
 **What happened:** We initially assumed we needed ISO HO 00 03/05 base forms to make the H003 (ACV methodology) finding. SERFF searches found no independently filed ISO base forms for either carrier. The question "do we even need these?" led to the key insight.
 
-**The lesson:** When auditing a carrier's filed documents, the finding is "your own documents don't disclose X" — not "you differ from ISO." ISO content is established fact in litigation and regulation; we can assert it without holding a copy. Phase 1 product findings are entirely self-contained within the carrier's own SERFF filing package.
+**The lesson:** When auditing filed documents, prefer the narrower question "is X disclosed in the material reviewed?" over an unsupported comparison with an external standard. If the public package is incomplete, the report must distinguish a corpus limitation from a confirmed filing defect.
 
 **Application:** Before procuring external reference material, ask whether the finding can be made from the carrier's own documents alone. If yes, external procurement is nice-to-have, not required.
 
@@ -23,13 +23,13 @@
 
 ---
 
-## Lesson 3: KFBM is the higher-value corpus target — proprietary form carriers generate more findings
+## Lesson 3: Verify a form's role before inferring carrier architecture
 
-**What happened:** KFBM's HO 04 93 is a proprietary base form, not ISO. Every deviation from industry standard is untested by decades of case law. KNIC licenses ISO by reference and has fewer filing-layer anomalies.
+**What happened:** Early notes treated KFBM's HO 04 93 as a proprietary base form. Later source verification established that ISO HO 04 93 is a roof-surfacing ACV endorsement. KFBM's actual base-jacket form number remains unknown.
 
-**The lesson:** Target carriers based on ISO divergence, not carrier size. The legal tech debt lives in: proprietary base forms, heavy endorsement stacks that override ISO provisions, and proprietary rate/underwriting methodologies. Pure ISO adopters are low-value targets; heavy divergers are high-value.
+**The lesson:** A form number or SERFF attachment is not enough to infer whether a document is a jacket, endorsement, schedule, or amendment. Validate the document role before describing a carrier as an ISO adopter, diverger, or proprietary-form target. Package complexity may still be valuable, but that remains a tested hypothesis rather than a fact derived from HO 04 93.
 
-**Application:** When selecting corpus carriers or scoping new engagements, check whether the carrier uses ISO base forms or proprietary forms. Proprietary-form carriers warrant deeper analysis.
+**Application:** When selecting corpus carriers or scoping new engagements, record the evidence for every form-role and adoption claim. If the base package is unavailable, name that limitation and target issue classes that the available documents can actually support.
 
 ---
 
@@ -37,7 +37,7 @@
 
 **What happened:** The H003 entry is the most compelling of the three because it ties the gap directly to a high-frequency, high-value claim type (windstorm/hail, roof surfacing) affecting a large proportion of the active book (roofs older than 7 years). The KFBM 7-year rule made the exposure concrete and quantifiable in a way that more abstract findings cannot.
 
-**The lesson:** For each drill-down entry, identify: (1) the most common claim type the gap affects; (2) the proportion of the book at risk; (3) a named legal precedent matching the exact gap. These three elements move the finding from "interesting observation" to "this is a live liability."
+**The lesson:** For each drill-down entry, identify the relevant claim scenario, exposure evidence if it is actually available, and the closest verified legal or regulatory anchor. Do not infer a book-wide exposure percentage or "live liability" from a filing clause alone.
 
 **Application:** When building drill-down entries, start with the claim scenario before writing the compliance citations. The scenario anchors the reader; the citations support it.
 

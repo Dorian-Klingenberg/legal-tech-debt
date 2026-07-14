@@ -1,9 +1,9 @@
 # Discovery, Instrumentation, And Retrieval Spec
 
-Status: Draft engineering spec
+Status: Implemented and frozen proof-of-concept contract
 Scope: Sandbox 002 Kentucky homeowners corpus
 Created: 2026-06-01
-Updated: 2026-06-03
+Updated: 2026-07-13 (status and canonical corpus path reconciled)
 Source notes: `skills/proposals/legal-rag-builder.md`
 Planning docs:
 
@@ -48,7 +48,7 @@ Use the existing corpus:
 
 - `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv`
 - `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`
-- one source directory per smell under `corpus/`
+- canonical unique source files under `corpus/kentucky-homeowners-policy-smells/sources/`; smell subdirectories are historical duplicate views only
 
 Do not procure more SERFF material unless the active task runs into a documented known gap.
 
@@ -1079,5 +1079,4 @@ Gold-set rules:
 - Which source subset best covers all five smells without chasing known SERFF gaps?
 - Are deterministic node IDs stable enough under the chosen parser strategy, or do we need a stronger structural-path alignment pass?
 - Which heuristic rules belong in Stage 002 candidate generation versus Stage 004 detectors?
-
 

@@ -1,5 +1,7 @@
 # Counter-Report: The Case For "Legal Tech Debt" — A Contrarian Review of the Bearish Due-Diligence Analysis
 
+> External point-in-time report preserved without editorial normalization. Its competitor and market claims require fresh primary-source verification. This report is an argumentative input to `../client-pivot-synthesis-2026-06-06.md`, not current project truth.
+
 ## TL;DR
 - The original report's 27/55 score and "consulting not SaaS" verdict rests on three faulty moves: it treats the incumbents as fuller than they are, it underweights its own admission that the pain is "real and well-documented," and it misidentifies the first buyer — and on the evidence, the opportunity is larger and more accessible than the report concedes.
 - The hard data supports the pain signal: in California, homeowners rate filings averaged 293 days to approval and PPA filings 234 days in the most recent four-quarter window (Milliman, 2025 Q2 report), versus countrywide averages of 76 and 67 days; Colorado PPA filings have averaged as long as 367 days. "Virtually all filings in California will take longer than the 60-day deemed-approved date" (Milliman). Pre-filing review that shortens these cycles has quantifiable value.

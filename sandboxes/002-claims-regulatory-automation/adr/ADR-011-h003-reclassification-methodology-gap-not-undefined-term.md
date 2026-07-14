@@ -1,10 +1,16 @@
 # ADR-011: H003 Findings Reclassified — Undisclosed Calculation Methodology (Smell 4), Not Undefined Term (Smell 2)
 
 Date: 2026-06-04
-Status: Accepted
+Status: Accepted for H003 reclassification; corpus premise corrected 2026-06-05
 Deciders: Dorian Klingenberg, Claude Code
 
 ---
+
+## Corrective Addendum
+
+The H003 reclassification remains accepted: the review question is undisclosed calculation methodology, not merely whether the term ACV appears in a Definitions section.
+
+One corpus premise in the original consequences was wrong. ISO HO 04 93 is the two-page "Actual Cash Value Loss Settlement - Windstorm or Hail Losses to Roof Surfacing" endorsement. It is not KFBM's proprietary base policy form. KFBM's actual base-jacket form number and text remain unknown. No current report may claim that HO 04 93 establishes KFBM's complete definition domain or proprietary base-form architecture.
 
 ## Context
 
@@ -66,7 +72,7 @@ H003 detector output is valid as a signal that ACV/replacement cost appears in a
 ### Corpus
 
 - **ISO base forms are treated as an implicit gold standard and will not be procured (decided 2026-06-04).** ISO HO 00 03 and HO 00 05 define ACV — this is established fact in insurance regulation and litigation, documented in decades of case law. We do not need to hold a copy to assert it. SERFF searches for both KNIC (form filings KNIC-132500003, KNIC-133829383) and KFBM (full form filing history) found no independently filed ISO base forms — consistent with standard industry practice of licensing ISO forms by reference rather than re-filing them.
-- KFBM uses a proprietary base form (HO 04 93), which is already in corpus. The H003 drill-down entry for KFBM can be grounded directly in that form.
+- The corpus contains KFBM's version of the HO 04 93 roof-surfacing ACV endorsement and the ISO HO 04 93 reference endorsement. KFBM's actual base jacket is not in the corpus and its form number is unknown. The H003 review can be grounded in the endorsement's disclosed settlement rule, but conclusions about the complete definition domain require the missing base package or an explicit limitation.
 - For KNIC, we assert from established industry knowledge that the ISO base form defines ACV but does not specify depreciation methodology. No copy is required to make the finding.
 - BACKLOG-018 (ISO base form procurement) is closed. The gap record ISO-HO-BASE-FORMS in KNOWN-GAPS.md is retained for reference but is not an active collection target.
 

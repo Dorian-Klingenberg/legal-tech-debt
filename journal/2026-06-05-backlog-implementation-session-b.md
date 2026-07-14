@@ -1,5 +1,7 @@
 # Journal: Backlog Implementation Session B
 
+> Historical snapshot. The "29 sources" shorthand below counted the then-current corpus differently; current documentation distinguishes 32 canonical files from the preserved 28-source ingestion run. The case library later reached 4 cases/actions and 6 gap sentinels. Use the root `README.md` and `AGENT_CONTEXT.json` for current counts.
+
 Date: 2026-06-05
 Session: Claude Code session 6 continuation (compacted mid-session)
 Scope: Backlog implementation, case library research, product architecture decisions

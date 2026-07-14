@@ -8,6 +8,13 @@ Purpose: Keep external feasibility reports, counter-reports, and current validat
 
 ## Current Read
 
+Current disposition, 2026-07-13:
+
+- The provider-facing evidence-workflow hypothesis remains the leading commercial frame.
+- The owner has chosen to continue bounded portfolio, SDLC, and UX experiments while buyer validation remains open.
+- This does not authorize a commercial SaaS build, production infrastructure, or revenue claims.
+- The four external reports are unedited point-in-time inputs. They may contain stale counts, vendor claims, links, or assumptions; this README and the synthesis control the current interpretation.
+
 These reports do **not** yet settle whether Legal Tech Debt is a product, service, provider-facing capability, or research artifact.
 
 The current useful framing is:
@@ -54,7 +61,7 @@ Original root filenames were renamed for clarity when moved into this folder.
 - Avoid repetitive report production for thousands of small customers.
 - Prefer low-sales-burden paths through existing providers, platforms, law firms, consultants, filing vendors, regulatory intelligence vendors, or technology vendors.
 - Do not treat "AI + insurance compliance" as proof of a market.
-- Do not build more software until buyer/workflow evidence improves.
+- Do not build a commercial product or production infrastructure until buyer/workflow evidence improves. Bounded portfolio, SDLC, synthetic-demo, and UX experiments may continue under explicit sandbox stages.
 - Use sanitized samples for validation; do not share source code, detector internals, prompts, or full corpus strategy.
 
 ---
@@ -80,7 +87,8 @@ Original root filenames were renamed for clarity when moved into this folder.
 - [x] Preserve the product validation target map.
 - [x] Preserve the Canadian grant/entity feasibility note.
 - [x] Preserve the family-facing executive summary draft.
-- [ ] Load Claude counter-reports and any follow-up analysis as additional external reports.
+- [x] Collect the four available bearish, red-team, counter, and bull-case reports under `external-reports/`.
+- [ ] Add future external analysis only when it materially changes a validation question.
 - [ ] Ask Karen whether a sanitized finding sounds like a real insurance workflow problem or over-reading.
 - [ ] Ask Roger who inside a carrier or provider would own this workflow.
 - [ ] Identify 5-10 provider-side targets rather than only end-carrier targets.

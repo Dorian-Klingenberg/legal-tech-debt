@@ -2,7 +2,15 @@
 
 Date: 2026-06-05
 Audience: Claude Code, Codex, GitHub Copilot, and future agents
-Status: Active planning brief for unblocked backlog work
+Status: Historical implementation brief; superseded by completed backlog records and active sandbox stage plans
+
+> This file preserves the June 5 execution briefs that led to the completed work in `BACKLOG.md`. It is not a current queue and must not be used to reopen BACKLOG-019, BACKLOG-015, BACKLOG-020, BACKLOG-011, BACKLOG-022, or BACKLOG-023. Current work starts at `README.md`, `AGENT_CONTEXT.json`, and the active sandbox stage document.
+
+## Historical Disposition Checklist
+
+- [x] Reconcile every brief with its final status in `BACKLOG.md`.
+- [x] Move current sandbox work into dedicated stage plans.
+- [x] Mark this June 5 brief as superseded rather than an active queue.
 
 ## Purpose
 

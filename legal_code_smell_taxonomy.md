@@ -1,9 +1,8 @@
 # Legal Code Smell Taxonomy
 *Derived from original research — Insurance & Legal Domain*
-*Total: ~87 named patterns across 10 categories + 7 RAII defect classes*
+*Total: 67 named patterns across 10 categories + 7 RAII defect classes = 74 entries*
 
-> The academic "Law Smells" paper (Coupette et al., 2022) covers only 5 basic smells.
-> The Rules as Code movement covers 0. Everything below is original work.
+> Status: Working taxonomy, not a claim of legal validity, novelty, or complete academic coverage. Counts describe entries in this document. Any publication claim about originality or adjacent research requires a dedicated source and prior-art review.
 
 ---
 
@@ -175,7 +174,7 @@
 | Category | Smell Count |
 |---|---|
 | 1. Structural | 9 |
-| 2. Semantic | 8 |
+| 2. Semantic | 9 |
 | 3. Dependency | 6 |
 | 4. Legislative Drift / Bureau Change | 10 |
 | 5. Logic and Flow | 7 |
@@ -185,11 +184,10 @@
 | 9. AI-Specific | 5 |
 | 10. Automation / Agent | 4 |
 | **RAII Defect Classes** | **7** |
-| **Total** | **73** |
+| **Total** | **74** |
 
 ---
 
 *For comparison: Coupette et al. (2022) "Law Smells" academic paper covers 5 smells.*
 *Rules as Code movement (OECD, NZ, AU, etc.) covers 0 smells.*
 *This taxonomy is original work at the intersection of software engineering, insurance, and computational law.*
-

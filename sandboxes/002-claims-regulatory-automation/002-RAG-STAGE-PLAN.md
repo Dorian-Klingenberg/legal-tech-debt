@@ -1,9 +1,9 @@
 # Legal RAG Stage Plan
 
-Status: Active planning document
+Status: Complete and frozen implementation record
 Scope: Sandbox 002 Kentucky homeowners corpus
 Created: 2026-06-01
-Updated: 2026-06-04 (Stage 002 artifact contract repaired; expanded-corpus run revalidated)
+Updated: 2026-07-13 (post-closure detector/report count reconciliation)
 Path decision: `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
 Artifact contract: `adr/ADR-004-schema-run-identity-and-id-stability.md`
 Contract repair: `adr/ADR-008-stage-002-artifact-contract-repair.md`
@@ -279,7 +279,9 @@ Question:
 
 **Results (run 996e36af, 251 nodes, original corpus):** 17 findings — Smell 2: 13 (MEDIUM), Smell 3: 3 (LOW), Smell 4: 1 (HIGH).
 
-**Results (run 18b0dec5, repaired Stage 002 contract, 353 nodes, 28-source corpus, Smell 5 redesigned):** 35 findings — Smell 1: 1 (LOW), Smell 2: 17 (MEDIUM), Smell 3: 4 (LOW), Smell 4: 1 (HIGH), Smell 5: 12 (7 MEDIUM, 5 LOW, graph-gap detection). ADR-010 records the Smell 5 architecture decision.
+**Historical June 4 result (run 18b0dec5):** 35 findings before the regulatory-layer source filter — Smell 1: 1, Smell 2: 17, Smell 3: 4, Smell 4: 1, Smell 5: 12. Sandbox 003 used this point-in-time snapshot.
+
+**Current post-filter result (2026-06-05):** 31 findings — Smell 1: 1 LOW, Smell 2: 17 MEDIUM, Smell 3: 0, Smell 4: 1 HIGH, Smell 5: 12 (7 MEDIUM, 5 LOW). The four removed Smell 3 records were KRS/KAR regulatory-layer false positives.
 
 **Detector improvement 2026-06-03:** H001/H003 heuristics in smell2.py now suppressed for `kar_regulation`, `krs_statute`, `doi_bulletin`, `doi_guidance` source types. "Reasonable" in regulatory docs is legal standard language, not a claim dispute gate. Detector runner enriches nodes with `source_type` from `source_by_id` before passing to detectors.
 
@@ -311,11 +313,11 @@ Question:
 - [x] Corpus gap section: three gap tiers with affected smells and impact
 - [x] Output: single-file dark-theme HTML with Summary, Findings, Corpus Gaps tabs
 - [x] Output: `reviewer_report.md` — plain-text version for diff and version control
-- [x] Report written into the Stage 002 run directory
+- [x] Report written under sandbox-level `output/007/<stage-002-run-key>/`
 
 **Results (run 996e36af):** 17 findings, 47 candidate evidence items, 3 corpus gap tiers documented.
 
-**Results (run 18b0dec5, repaired Stage 002 contract, after Smell 5 redesign):** 35 findings, 121 candidate evidence items, reviewer report regenerated under `output/007/20260604_130606_18b0dec5/`.
+**Results (run 18b0dec5):** reviewer report regenerated under `output/007/20260604_130606_18b0dec5/` from the current 31 findings and 121 candidate-evidence records. Sandbox 003 retains its separate 35-finding historical analysis.
 
 **Success criteria**
 
@@ -331,11 +333,13 @@ Question:
 - [x] **Smell 5 detector recalibrated** — ADR-010 established graph-based gap detection; H004-H006 now produce 12 Smell 5 findings on run 18b0dec5.
 - [x] **Gold set re-evaluated against repaired expanded run 18b0dec5** — phrase 20/21 (95%), BM25 21/21 (100%); semantic remains deferred.
 - [x] **Stage 005 reopened 2026-06-04** — all three re-open conditions met. See Stage 005 STAGE.md and ADR-002 for next steps.
-- [ ] **EXT MISMATCH files** — KY-KRS-304-12-230 and KY-KRS-304-14 are named `.html` but contain PDF content (same issue as KY-KRS-304-13 which was renamed). Pipeline parses them with warnings. Low priority since they produce nodes, but should be renamed for cleanliness.
+- [x] **EXT MISMATCH files** — KY-KRS-304-12-230 and KY-KRS-304-14 were renamed from `.html` to `.pdf` and manifest paths were updated on 2026-06-05.
 
 ---
 
-## Parked Until Earned
+## Parked Non-Goals Until Earned
+
+The unchecked items below are intentional non-goals, not unfinished Sandbox 002 closure work.
 
 - [ ] Retrieval store selection — deferred; ADR-010 shows vector similarity is not appropriate for gap-detection smells, but may still earn a future role for cross-carrier paraphrase matching
 - [ ] Chatbot interface

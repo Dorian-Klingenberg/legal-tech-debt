@@ -1,6 +1,6 @@
 # Granular Agent Workflow Skills Proposal
 
-Status: draft implemented
+Status: Implemented and validated
 
 ## Recurring Workflow
 
@@ -65,11 +65,11 @@ Use other mechanisms for durable state:
 
 ## First Validation Tasks
 
-- [ ] Use `write-adr` for a real future decision record.
-- [ ] Use `write-journal-entry` for a real session journal.
-- [ ] Use `write-lesson` for a real reusable lesson.
-- [ ] Use `write-handoff` for a real constrained-agent handoff.
-- [ ] Use `maintain-agent-context` for a real context update.
-- [ ] Use `apply-implementation-defaults` for a real implementation or review task.
+- [x] Use `write-adr` for real decision records (Sandbox 002 and root ADRs).
+- [x] Use `write-journal-entry` for real session journals under `journal/`.
+- [x] Use `write-lesson` for real sandbox and top-level lessons.
+- [x] Use `write-handoff` for real constrained-agent and stage handoffs.
+- [x] Use `maintain-agent-context` for real `AGENT_CONTEXT.json` and startup-doc updates.
+- [x] Use `apply-implementation-defaults` for real implementation and review tasks.
 
-After at least one real validation pass per skill, consider marking the relevant skill `active`.
+All six granular skills were marked active on 2026-07-13 after repository evidence confirmed real use.

@@ -27,10 +27,11 @@ Before beginning any conversation or work:
 
 ## Current Operating Mode
 
-- This repository is currently a sandbox research environment transitioning toward Phase A (formal SE lifecycle entry).
-- Phase A requires the owner to complete SE coursework (MIT) and configure an SE expert RAG corpus (NASA, INCOSE, IEEE — see open threads in AGENT_CONTEXT.json). Phase A has not started. Do not treat it as active or imminent.
-- **Sandboxes remain open and active during Phase A preparation.** Discovery work, proof-of-concept experiments, and evidence capture in sandboxes directly inform the product decisions that Phase A will formalize. Do not shut down or defer sandbox work on the grounds that formal development has not started.
-- The product direction is not yet fixed. Sandbox outputs are the primary input to the product decision. Keep building evidence.
+- This repository is a sandbox research and production-aligned portfolio environment. It is not a production service.
+- Read `README.md` and `AGENT_CONTEXT.json` for the current lane. Do not recover current state from an older handoff, journal, generated report, or copied count.
+- Sandboxes 001-004 are complete and preserved. Sandbox 005 is the primary technical lane, but its Stage 002 pilot starts only when the owner explicitly authorizes it. Sandbox 006 is paused at a human visual-review gate.
+- Formal Phase A lifecycle work has not started. Sandbox 005 is evaluating the minimum repo-native SDLC discipline that might support it; do not treat coursework, an SE RAG corpus, or any upstream framework as a prerequisite already imposed on current work.
+- The strongest commercial hypothesis is provider-facing, but demand is not validated. Bounded portfolio, SDLC, and UX experiments may continue while commercial claims remain gated by buyer evidence.
 - Do not introduce infrastructure, services, deployment layers, databases, queues, containers, or production scaffolding unless a specific stage explicitly exists to evaluate that choice.
 - Keep implementations quick, clean, readable, and easy to explain.
 - Prefer plain files, plain Python, static HTML, JSON/CSV/Markdown outputs, and small deterministic probes while the project is still learning what the right model is.
@@ -46,7 +47,7 @@ Before beginning any conversation or work:
   - `skills/registry.csv`
 - Keep skills applicable across Codex, GitHub Copilot, and Claude Code by updating shared repo documentation whenever a skill captures durable project knowledge.
 - Do not use skill creation as a reason to add production infrastructure. Skill work should follow the same quick, clean, readable proof-of-concept discipline as sandbox work.
-- Current draft project skills:
+- Current repo-visible project skills:
   - `legal-rag-builder` for Sandbox 002 legal document ingestion and retrieval.
   - `project-memory-artifacts` for shared handoffs, journals, lessons, and agent context updates.
   - `project-coding-preferences` for shared implementation defaults, validation habits, and constrained-agent handoff behavior.
@@ -56,17 +57,18 @@ Before beginning any conversation or work:
 
 Start with these documents when orienting:
 
-0. `AGENT_CONTEXT.json` - compact current-state context, active scope, open threads, and implementation preferences.
-1. `AGENT_OPERATING_MODEL.md` - shared role split, truth hierarchy, and drift prevention rules for Codex, Claude Code, and Copilot.
-2. `path.md` - current project path and north star.
-3. `legal_tech_debt_report.md` - research synthesis and strategic frame.
-4. `legal_code_smell_taxonomy.md` - core smell taxonomy and RAII defect classes.
-5. `insurance_policy_smells.md` and `insurance_claims_smells.md` - insurance-specific smells.
-6. `Real-World Cost Events Mapped to Insurance Legal Code Smells.md` - evidence and cost examples.
-7. `Insurance Process Maturity Models  A Landscape Assessment for the Legal Tech Debt Platform.md` - maturity model landscape and gap.
-8. `sandboxes/README.md` - sandbox rules and index.
-9. `corpus/README.md` - shared primary-document corpus rules.
-10. `previous-chats/README.md` and `previous-chats/Legal Tech Debt & Legal Code Smells — ChatGPT Conversation Index.md` when historical context is needed.
+0. `README.md` - current human-readable state, evidence-count boundaries, pivot ledger, and open gates.
+1. `AGENT_CONTEXT.json` - compact current-state context, active scope, open threads, and implementation preferences.
+2. `AGENT_OPERATING_MODEL.md` - shared role split, type-specific truth hierarchy, and drift prevention rules for Codex, Claude Code, and Copilot.
+3. `path.md` - current project path and north star.
+4. `legal_tech_debt_report.md` - foundational research snapshot, not the current roadmap.
+5. `legal_code_smell_taxonomy.md` - core smell taxonomy and RAII defect classes.
+6. `insurance_policy_smells.md` and `insurance_claims_smells.md` - insurance-specific smells.
+7. `Real-World Cost Events Mapped to Insurance Legal Code Smells.md` - background cost-event map; verify sources before publication.
+8. `Insurance Process Maturity Models  A Landscape Assessment for the Legal Tech Debt Platform.md` - dated maturity-model research snapshot.
+9. `sandboxes/README.md` - sandbox rules and index.
+10. `corpus/README.md` - shared primary-document corpus rules.
+11. `previous-chats/README.md` and `previous-chats/Legal Tech Debt & Legal Code Smells — ChatGPT Conversation Index.md` only when historical context is needed.
 
 For Sandbox 001, read:
 
@@ -82,11 +84,11 @@ For Sandbox 002, read:
 1. `sandboxes/002-claims-regulatory-automation/002-claims-regulatory-automation-README.md`
 2. `sandboxes/002-claims-regulatory-automation/002-five-policy-layer-phish.md`
 3. `sandboxes/002-claims-regulatory-automation/002-ROI-CASES-FIVE-SMELLS.md`
-4. `sandboxes/002-claims-regulatory-automation/002-ROADMAP-revised.md`
+4. `sandboxes/002-claims-regulatory-automation/002-RAG-STAGE-PLAN.md` as the completed implementation record; `002-ROADMAP-revised.md` is historical.
 5. `sandboxes/002-claims-regulatory-automation/002-CARRY-FORWARD-FROM-001.md`
 6. `sandboxes/002-claims-regulatory-automation/002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md`
 7. `sandboxes/002-claims-regulatory-automation/002-RAG-INGESTION-RETRIEVAL-SPEC.md` when doing discovery, instrumentation, RAG, ingestion, retrieval, chunking, citation/reference extraction, or legal corpus indexing work.
-8. `sandboxes/002-claims-regulatory-automation/002-RAG-SUBSYSTEM-PLAN.md` and `sandboxes/002-claims-regulatory-automation/002-RAG-STAGE-PLAN.md` when doing discovery/RAG implementation planning.
+8. `sandboxes/002-claims-regulatory-automation/002-RAG-SUBSYSTEM-PLAN.md` and `sandboxes/002-claims-regulatory-automation/002-RAG-STAGE-PLAN.md` when explicitly reopening discovery/RAG work.
 9. `sandboxes/002-claims-regulatory-automation/adr/` when doing Legal RAG Builder skill architecture work.
 10. `sandboxes/002-claims-regulatory-automation/adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md` for the current Sandbox 002 path decision.
 11. `sandboxes/002-claims-regulatory-automation/adr/ADR-004-schema-run-identity-and-id-stability.md` for Stage 002 schema, run identity, and stable-ID requirements.
@@ -96,7 +98,7 @@ For Sandbox 002, read:
 15. `sandboxes/002-claims-regulatory-automation/references/docling-local-stack-boundary.md` when doing Docling, local parsing model, VLM enrichment, embedding, or retrieval-store work.
 16. `sandboxes/002-claims-regulatory-automation/002-PAIN-POINTS-TAXONOMY.md`
 17. `sandboxes/002-claims-regulatory-automation/001-vs-002-REUSE-ANALYSIS.md`
-18. `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-04b.md`
+18. `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-04b.md` as a historical closure-era handoff.
 19. `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv`
 20. `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`
 
@@ -112,7 +114,7 @@ Current Sandbox 002 scope:
 - Do not start auto, personal auto, motor vehicle, no-fault, or PIP work unless the user explicitly reopens that scope.
 - If homeowners sources cross-reference auto or other P&C lines, record the reference as context only and keep active discovery, fixtures, and detectors homeowners-centered.
 - Treat broad claims-platform, regulatory-feed, PAS, productization, and infrastructure references as background or parked unless a specific stage explicitly reopens them.
-- Sandbox 002 is closed as a discovery/retrieval/detector/reviewer-report proof of concept. Preserved repaired run: `sandboxes/002-claims-regulatory-automation/output/002/20260604_130606_18b0dec5/` (28 sources, 353 nodes, 121 candidate evidence items, 39 Stage 003 retrieval bundles, 35 findings across all five smells). Smell 5 resolved via graph-based gap detection (ADR-010). Latest handoff: `sandboxes/002-claims-regulatory-automation/HANDOFF-2026-06-04b.md`.
+- Sandbox 002 is closed as a discovery/retrieval/detector/reviewer-report proof of concept. Its preserved Stage 002 ingestion run contains 28 sources, 353 nodes, and 121 candidate-evidence records. Stage 003 produced 39 retrieval bundles. The current Stage 006 output contains 31 findings; the 35-finding set used by Sandbox 003 is a historical pre-filter snapshot. See `README.md` for the scoped count table.
 - Defer vector infrastructure, but design the evidence substrate as if hybrid retrieval will eventually exist.
 - Treat parser/reference uncertainty as part of the evidence layer, not as an implementation detail.
 - Stage 002 JSON/JSONL artifacts should carry schema version, run identity, creation timestamp, and stable source/node IDs under a fixed parsing strategy.
@@ -130,20 +132,21 @@ Every future agent working in this repository should do the following before mak
 
 0. If the active agent is Claude Code, read `CLAUDE_CONSTRAINTS.md` before any exploration, file reads, planning, or tool use.
 1. Read this file.
-2. Read `AGENT_CONTEXT.json`.
-3. Read `AGENT_OPERATING_MODEL.md`.
-4. Read the relevant agent entry file for the tool in use:
+2. Read `README.md` for the current human-readable state and pivot ledger.
+3. Read `AGENT_CONTEXT.json`.
+4. Read `AGENT_OPERATING_MODEL.md`.
+5. Read the relevant agent entry file for the tool in use:
    - `AGENTS.md` for Codex and general coding agents.
    - `CLAUDE.md` for Claude Code.
    - `.github/copilot-instructions.md` for GitHub Copilot.
-5. Read the current sandbox README, controlling scope document, active roadmap, and latest handoff.
-6. For Sandbox 002 work, inspect the corpus manifest and known gaps before deciding that more source procurement is needed.
-7. Preserve decisions in shared files that Codex, Copilot, Claude Code, and future agents can all read. Do not store durable project knowledge in one assistant's private memory only.
-8. Add or update journal, handoff, lesson, and context records at major pause points, scope changes, corpus changes, or stage transitions. Write chronological journals under top-level `journal/`; keep handoffs near the sandbox or component they resume. Use `skills/project-memory-artifacts/SKILL.md` when creating these shared memory artifacts.
-9. For substantive code changes or code review, read `skills/project-coding-preferences/SKILL.md` so implementation defaults are shared across agents.
-10. For skill work, inspect `skills/README.md`, `skills/SKILL-DEVELOPMENT.md`, and `skills/registry.csv` before drafting or installing a skill.
+6. Read the current sandbox README, controlling scope document, active roadmap, and latest handoff.
+7. For Sandbox 002 work, inspect the corpus manifest and known gaps before deciding that more source procurement is needed.
+8. Preserve decisions in shared files that Codex, Copilot, Claude Code, and future agents can all read. Do not store durable project knowledge in one assistant's private memory only.
+9. Add or update journal, handoff, lesson, and context records at major pause points, scope changes, corpus changes, or stage transitions. Write chronological journals under top-level `journal/`; keep handoffs near the sandbox or component they resume. Use `skills/project-memory-artifacts/SKILL.md` when creating these shared memory artifacts.
+10. For substantive code changes or code review, read `skills/project-coding-preferences/SKILL.md` so implementation defaults are shared across agents.
+11. For skill work, inspect `skills/README.md`, `skills/SKILL-DEVELOPMENT.md`, and `skills/registry.csv` before drafting or installing a skill.
 
-## Current Sandbox 001 State
+## Completed Sandboxes And Current Lanes
 
 Sandbox 001 is complete as foundational research. It proved the basic legal debt probe idea with plain Python:
 
@@ -158,9 +161,9 @@ Sandbox 001 is complete as foundational research. It proved the basic legal debt
 
 The conceptual bottleneck it discovered is semantic edge typing. Stage 004 completed the 46-edge seed labeling pass and paused in Phase 2: refine the edge taxonomy before implementing typed matrices or dashboard edge filtering.
 
-Do not use 001 as the default active work lane. Use it as preserved evidence and reusable foundation. Sandbox 002 is preserved as the Kentucky homeowners evidence substrate. Sandbox 003 is complete — findings triage, cross-carrier analysis, and executive summary report all built and hardened. Sandbox 004 is complete as the expert drill-down report proof of concept.
+Do not use 001 as the default active work lane. Use it as preserved evidence and reusable foundation. Sandbox 002 is preserved as the Kentucky homeowners evidence substrate. Sandbox 003 is complete as a point-in-time findings-triage and executive-report proof. Sandbox 004 is complete as the expert drill-down content and generation proof.
 
-The active lane is choosing between BACKLOG-019 (Missing State Amendatory detector) and BACKLOG-015 (heuristic-specific case library). See `sandboxes/004-expert-drilldown/HANDOFF-2026-06-04.md` and `BACKLOG.md` for full context.
+Sandbox 005 is the primary technical lane, with Stage 002 ready but not started. Sandbox 006 is a secondary UX lane paused at visual/responsive review. Productization remains planning, and the provider-facing commercial hypothesis remains validation-gated. `README.md` and `AGENT_CONTEXT.json` control the exact current state.
 
 Sandbox 001 work should resume only when a specific experiment needs one of its primitives or when the user explicitly asks to revisit it.
 

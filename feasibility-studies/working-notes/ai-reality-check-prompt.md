@@ -3,6 +3,8 @@
 Date: 2026-06-06
 Purpose: Weekend-friendly prompt for asking an external AI system whether Legal Tech Debt is a real product opportunity or a nothing burger.
 
+Status: Preserved prompt harness. Tool availability, model names, and research modes are time-sensitive; update them before rerunning the prompt.
+
 ---
 
 ## Recommended Tool Order

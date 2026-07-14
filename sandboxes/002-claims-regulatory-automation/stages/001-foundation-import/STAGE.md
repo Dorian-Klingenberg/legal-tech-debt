@@ -4,6 +4,12 @@ Created: 2026-05-29
 Source: `../../001-legal-debt-primitives`
 Status: Imported foundation; refocused on homeowners discovery-and-instrumentation
 
+## Completion Checklist
+
+- [x] Import the useful plain-Python Sandbox 001 foundation.
+- [x] Reframe the next stage around Kentucky homeowners evidence.
+- [x] Preserve this stage as a completed bridge, not an active detector lane.
+
 ## Purpose
 
 Carry the useful Sandbox 001 probe into Sandbox 002 as a runnable starting point for Kentucky homeowners insurance.

@@ -73,12 +73,13 @@ The 3-tool and 60-second kill-switch applies to ordinary implementation tasks. S
 ## 2) FILE-SYSTEM DISCIPLINE
 
 ### 2.1 Explicit Path Allowlist: REQUIRED
-- The agent may only edit files whose paths are explicitly declared by the user in the current task.
-- Any file path not explicitly listed is out of scope.
+- Outside the narrow startup and memory-task exceptions in Sections 0.1-0.3, the agent may only edit files whose paths are explicitly declared by the user in the current task or named by the current handoff/backlog plan for that task.
+- Any path not authorized by the rule above is out of scope.
 - Assumed or inferred target paths are forbidden.
 
 ### 2.2 File Creation: DENY BY DEFAULT
-- Creating new files is prohibited unless the user explicitly requests file creation and path.
+- Creating new files is prohibited unless the user explicitly requests file creation and path, or an explicit memory/stage-transition task invokes the repository's established journal, handoff, or lesson convention under Section 0.3.
+- Under the memory exception, use only the established location and naming convention in `BOOTSTRAP.md` and the applicable project-memory skill.
 - If path or filename is ambiguous, the agent must stop and request clarification.
 - Temporary files, scratch files, and convenience artifacts are prohibited unless requested.
 
@@ -93,7 +94,7 @@ The 3-tool and 60-second kill-switch applies to ordinary implementation tasks. S
 ## 3) CONTEXT ALIGNMENT
 
 ### 3.1 ADR/Config Compliance: REQUIRED
-- Before proposing architecture-level changes, the agent must read only the ADRs/config files explicitly named by the user.
+- Before proposing architecture-level changes, the agent must read only the ADRs/config files explicitly named by the user, startup contract, current context, or current handoff for that task.
 - The agent must align recommendations to existing ADR decisions unless user requests divergence.
 
 ### 3.2 Rewrite Restriction: ENFORCED
@@ -106,7 +107,7 @@ The 3-tool and 60-second kill-switch applies to ordinary implementation tasks. S
 - The agent must stay within the user-declared context boundary.
 
 ### 3.4 Context Gap Protocol
-- If required source-of-truth files are unknown, the agent must ask for exact file paths.
+- If required source-of-truth files are unknown and cannot be identified through Sections 0.1-0.3 or the current task artifacts, the agent must ask for exact file paths.
 - The agent must not guess and proceed.
 
 ## 4) KILL-SWITCH TRIGGER
@@ -128,11 +129,11 @@ When triggered, output exactly:
 
 ## 5) EXECUTION CHECKLIST (MANDATORY)
 Before any action, the agent must verify all checks pass:
-- [ ] Target file paths explicitly provided by user
-- [ ] Required reads explicitly authorized
+- [ ] Target file paths are explicitly provided, named by current task artifacts, or covered by the repository-wide documentation/memory scope in Section 0.3
+- [ ] Required reads are explicitly authorized or covered by Sections 0.1-0.3
 - [ ] No unauthorized file creation
-- [ ] Estimated tool calls <= 3
-- [ ] Estimated completion <= 60 seconds
+- [ ] Estimated tool calls <= 3, unless the startup or explicit memory-review exception in Section 0.4 applies
+- [ ] Estimated completion <= 60 seconds, unless the startup or explicit memory-review exception in Section 0.4 applies
 - [ ] ADR/config alignment scope explicitly defined
 
 If any check fails, stop and ask for human clarification.

@@ -1,6 +1,6 @@
 # Using Project Skills
 
-Status: Draft user guide
+Status: Active user guide
 
 This guide explains how to use the repo-visible skills in this project, especially the new granular agent workflow skills.
 
@@ -110,16 +110,9 @@ If a skill captures durable knowledge that all agents need, update the shared do
 
 ## Lifecycle
 
-The current granular skills are `draft`.
+The current repo-visible skills are `active`: each has been used in real project implementation, review, decision, journal, lesson, handoff, or context-maintenance work.
 
-That means:
-
-- They are valid skill folders.
-- They can be used now.
-- They should be validated against real work before being marked `active`.
-- They are not installed into `$CODEX_HOME/skills` yet.
-
-After a skill works well on a real task, update `skills/registry.csv` from `draft` to `active`.
+They are not installed into `$CODEX_HOME/skills`. `active` means ready as a shared repository workflow; `installed` is a separate optional state for Codex auto-discovery.
 
 ## Installed Versus Repo-Visible
 

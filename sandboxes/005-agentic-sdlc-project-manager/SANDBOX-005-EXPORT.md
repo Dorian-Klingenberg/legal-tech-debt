@@ -1,8 +1,10 @@
 # Sandbox 005 — Agentic SDLC Project Manager: Full Context Export
 
+> Historical export from 2026-06-10. It intentionally embeds then-current documents and may contain statuses superseded by later work. Do not update embedded copies to simulate current state; use `README.md`, `DOCUMENTATION-MAP.md`, and `HANDOFF-2026-07-13.md` in this sandbox.
+
 **Exported from:** `legal-tech-debt` repository  
 **Export date:** 2026-06-10  
-**Sandbox status:** Active concept sandbox  
+**Sandbox status at export:** Active concept sandbox  
 **Original path:** `sandboxes/005-agentic-sdlc-project-manager/`  
 **Originating project:** Legal Tech Debt (insurance policy smell detection research)
 

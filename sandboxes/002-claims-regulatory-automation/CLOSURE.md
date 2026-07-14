@@ -3,6 +3,8 @@
 Closed: 2026-06-04
 Status: Complete as discovery, retrieval, detector, and reviewer-report proof of concept
 
+Post-closure maintenance: 2026-07-13. The preserved Stage 002 ingestion run did not change. The current Stage 006 output is 31 findings after four regulatory-layer Smell 3 false positives were removed, and Stage 007 has been regenerated from that current output. The 35-finding state below is retained where it describes the June 4 snapshot consumed by Sandbox 003.
+
 ## Decision
 
 Sandbox 002 is complete for its current purpose. It should now be treated as a preserved evidence substrate and implementation record, not the active forward-development lane.
@@ -49,7 +51,7 @@ Active repaired run:
 - Candidate evidence: 121
 - Stage 002 discovery retrieval bundles: 41
 - Stage 003 retrieval bundles: 39
-- Stage 006 detector findings: 35
+- Stage 006 detector findings: 31 current; 35 in the June 4 pre-filter snapshot
 
 Validation:
 
@@ -57,8 +59,8 @@ Validation:
 - Stage 003 retrieval bundles validated against the Stage 002 retrieval-bundle schema.
 - Stage 004 gold-set evaluation on run 18b0dec5: phrase 20/21, BM25 21/21.
 - Gold-set validator passed all 21 items against run 18b0dec5.
-- Stage 006 detectors emitted 35 findings after Smell 5 graph-gap detection was added.
-- Stage 007 reviewer report regenerated.
+- Stage 006 detectors currently emit 31 findings after regulatory and structure-node filtering: Smell 1 = 1, Smell 2 = 17, Smell 3 = 0, Smell 4 = 1, Smell 5 = 12.
+- Stage 007 reviewer report was regenerated from the current 31-finding output.
 
 ## What 002 Proved
 
@@ -84,7 +86,7 @@ Carry these forward:
 
 ## Smell 5 Resolution
 
-ADR-009 originally closed Sandbox 002 with Smell 5 as a carried limitation. Later on 2026-06-04, ADR-010 resolved that limitation by redesigning Smell 5 as graph-based gap detection. The final detector run produced 12 Smell 5 findings and 35 total findings across all five smells.
+ADR-009 originally closed Sandbox 002 with Smell 5 as a carried limitation. Later on 2026-06-04, ADR-010 resolved that limitation by redesigning Smell 5 as graph-based gap detection. That June 4 snapshot produced 12 Smell 5 findings and 35 total findings. Later source-layer filtering removed four Smell 3 false positives; the current output is 31 while retaining all 12 Smell 5 findings.
 
 The important architectural lesson is preserved: regulatory-mapping gaps are absence patterns and should be detected through graph traversal over the evidence substrate, not vector similarity.
 

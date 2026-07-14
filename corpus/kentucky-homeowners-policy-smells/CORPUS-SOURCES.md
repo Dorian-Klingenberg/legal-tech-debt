@@ -23,10 +23,10 @@ All unique source files live in `sources/`. The smell subdirectories (`01-*/` th
 | KY-KRS-304-14 | krs_statute | 16 KB | 1,2,3,5 | KRS 304.14 — insurance contracts |
 | KY-KRS-304-20 | krs_statute | 27 KB | 1,2,5 | KRS 304.20 — claims practices |
 | KY-KRS-304-44 | krs_statute | 21 KB | 3,5 | KRS 304.44 — property insurance |
-| KY-SERFF-KFBM-134503212-HO-FORM | serff_form_filing | 25 KB | 1,2,3,5 | KFBM HO 04-93 homeowners form May 2025 **(redacted — form text stripped in SFA public view)**. Previously described as "second carrier form source" but confirmed 2026-06-05: ISO HO 04 93 is a standard endorsement form (Actual Cash Value Loss Settlement — Windstorm/Hail Roof Surfacing), not a policy jacket. KFBM's actual base policy jacket has an unidentified form number. See BACKLOG-021 and KNOWN-GAPS KY-KFBM-BASE-FORM-UNREDACTED. |
-| ISO-HO-04-93-1000-ROOF-ACV-ENDORSEMENT | iso_endorsement | 49 KB | 2,4 | **ISO HO 04 93 10 00** — Actual Cash Value Loss Settlement: Windstorm or Hail Losses to Roof Surfacing (Copyright ISO 1999). 2-page endorsement applicable to HO 00 02, HO 00 03, HO 00 06, HO 00 08. Confirms HO 04 XX = endorsements in ISO convention. Verbatim language matches H003 drill-down finding. Added 2026-06-05. Note: ISO holds copyright on this form. |
-| KY-SERFF-KFBM-134503212-HO-FORM-MARKUP | serff_form_filing | 210 KB | 1,2,3,5 | KFBM 2025 form with markups showing changes from prior version |
-| KY-SERFF-KFBM-133738601-HO-FORM-MARKUP | serff_form_filing | 216 KB | 1,2,3,5 | KFBM original 2012 HO form with markups; baseline for cross-version comparison |
+| KY-SERFF-KFBM-134503212-HO-FORM | serff_form_filing | 25 KB | 1,2,3,5 | Redacted KFBM May 2025 HO 04 93 roof-surfacing ACV endorsement filing artifact; form text is stripped in the SFA public view. This is not a policy jacket. KFBM's actual base-jacket form number remains unidentified. See BACKLOG-021 and KNOWN-GAPS KY-KFBM-BASE-FORM-UNREDACTED. |
+| ISO-HO-04-93-1000 | iso_endorsement | 49 KB | 2,4 | **ISO HO 04 93 10 00** — Actual Cash Value Loss Settlement: Windstorm or Hail Losses to Roof Surfacing (Copyright ISO 1999). Two-page endorsement applicable to several base forms. Confirms that this document is an endorsement, not KFBM's base jacket. Added 2026-06-05 after the preserved run. Note: ISO holds copyright on this form. |
+| KY-SERFF-KFBM-134503212-HO-FORM-MARKUP | serff_form_filing | 210 KB | 1,2,3,5 | KFBM 2025 HO 04 93 roof-surfacing ACV endorsement with markups showing changes from a prior version; not a base policy jacket |
+| KY-SERFF-KFBM-133738601-HO-FORM-MARKUP | serff_form_filing | 216 KB | 1,2,3,5 | Earlier HO 04 93 filing markup retained for cross-version comparison; it is not verified as a base policy form |
 | KY-SERFF-KFBM-134827992-ENDORSEMENT | serff_form_filing | 20 KB | 1,3,5 | KFBM KY amendatory endorsement HO FB 01 07 26 (2026) |
 | KY-SERFF-KFBM-134870230-UW-MANUAL | serff_rate_rule_filing | 331 KB | 4,5 | KFBM underwriting manual pages HO-4.1; rating factors and underwriting guidelines |
 | KY-SERFF-KFBM-134870230-UW-MANUAL-CHANGES | serff_rate_rule_filing | 354 KB | 4 | KFBM underwriting manual change form; documents rule amendments |
@@ -41,7 +41,15 @@ All unique source files live in `sources/`. The smell subdirectories (`01-*/` th
 
 ## Pipeline Coverage
 
-29 sources as of 2026-06-05. All are included in `_download_manifest.csv`. Note: Stage 002 has not been rerun since ISO-HO-04-93-1000 was added — its nodes are not yet in the current preserved run.
+Inventory reconciled 2026-07-13:
+
+- 32 unique files exist in canonical `sources/`.
+- The preserved Stage 002 run ingested 28 sources and has not been rerun.
+- ISO HO 04 93 and three low-relevance KNIC attachments are outside that preserved 28-source run.
+- `_download_manifest.csv` is the original smell-mapped acquisition history (43 mapping rows, 18 unique source IDs), not a complete current inventory.
+- `CORPUS-SOURCES.md` is the canonical human-readable inventory; the preserved pipeline input is `stages/002-homeowners-discovery-instrumentation/data/source_manifest_subset.csv`.
+
+Do not describe "32 corpus files," "28 ingested sources," and "18 manifest source IDs" as conflicting totals; they measure different artifact scopes.
 
 **File note:** `KY-KRS-304-13` was originally saved as `.html` but is PDF content. Renamed to `KY-KRS-304-13.pdf` on 2026-06-03; manifest updated to match.
 

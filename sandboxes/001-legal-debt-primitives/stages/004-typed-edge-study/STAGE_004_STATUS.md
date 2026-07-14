@@ -1,9 +1,18 @@
 # STAGE 004-TYPED-EDGE-STUDY: CURRENT STATUS & DOCUMENTATION
 
+> Historical status snapshot from 2026-05-19. Sandbox 001 is closed. Phase 2 refinement and Phases 3-5 are intentionally parked until a concrete current experiment needs typed-edge semantics; the TODAY/TOMORROW language below is not current instruction.
+
 **Last Updated: 2026-05-19**
-**Status: Phase 1 Complete → Phase 2 In Progress**
+**Status: Phase 1 Complete; Phase 2 parked at sandbox closure**
 
 ---
+
+## Current Disposition Checklist
+
+- [x] Label all 46 seed edges.
+- [x] Document the Phase 2 taxonomy problem.
+- [x] Park Phases 2-5 rather than leave them as an active queue.
+- [x] Point current work to the repository root `README.md`.
 
 ## QUICK STATUS
 

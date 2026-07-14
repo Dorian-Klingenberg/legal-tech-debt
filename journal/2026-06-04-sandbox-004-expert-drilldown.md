@@ -1,5 +1,7 @@
 # Journal: Sandbox 004 Session — 2026-06-04
 
+> Historical session record with later corrections. ISO HO 04 93 is a roof-surfacing ACV endorsement, not KFBM's proprietary base form; KFBM's actual base-jacket form number remains unknown. Exact ISO text and edition must be verified before an edition-specific comparison. Claims about buyer value, carrier targeting, book impact, and litigation exposure below were hypotheses, not validated market evidence. The corrected wording in this record and Sandbox 004's `LESSON.md` control.
+
 Date: 2026-06-04 (session 5 — continuation after compaction)
 Author: Dorian Klingenberg + Claude Code
 Sandbox: 004 — Expert Drill-Down Report
@@ -13,9 +15,9 @@ Sandbox: 004 — Expert Drill-Down Report
 Conducted SERFF Filing Access searches for both KNIC and KFBM in the Kentucky partition.
 
 - **KNIC:** Form filings KNIC-132500003 (endorsement: HO 04 95 Water Backup) and KNIC-133829383 (non-renewal notice). Neither contains ISO HO 00 03 or HO 00 05. KNIC licenses ISO base forms by reference — standard industry practice.
-- **KFBM:** Full form filing history inspected. KFBM uses proprietary base form HO 04 93, not ISO. Already in corpus. No independently filed ISO base forms.
+- **KFBM:** The session incorrectly classified HO 04 93 as KFBM's proprietary base form. It is roof-surfacing ACV endorsement material. KFBM's actual base-jacket form number and text remain unknown.
 
-**Decision:** BACKLOG-018 closed. ISO HO 00 03/05 content is established fact in insurance regulation and litigation — we do not need a copy to make findings. ADR-011 updated with this principle. KNOWN-GAPS.md ISO-HO-BASE-FORMS downgraded to LOW and noted as no longer an active collection target.
+**Session-time decision, later narrowed:** BACKLOG-018 was closed as an active procurement task. Current project policy does not require ISO base forms for package-level experiments, but it also does not treat unheld text as citable proof. Any edition-specific ISO comparison requires a verified source and license posture. ADR-011's corrective addendum records the current boundary.
 
 Three low-relevance corpus files added during search:
 - `KY-SERFF-KNIC-132500003-HO-04-95.pdf` (endorsement)
@@ -30,9 +32,9 @@ SERFF Kentucky direct URL logged in CORPUS-SOURCES.md: `https://filingaccess.ser
 
 Third and final Sandbox 004 PoC entry: `S4-H003-KFBM-001`.
 
-**Finding:** Undisclosed ACV calculation methodology — KFBM's 7-year roof rule imposes ACV loss settlement on roof surfacing without disclosing the depreciation methodology anywhere in the filed policy package. 11 SMELL2-H003 detector findings across KNIC and KFBM. KFBM primary (proprietary HO 04 93 base form; endorsed separately as "Actual Cash Value Loss Settlement — Windstorm or Hail Losses to Roof Surfacing").
+**Session-time finding, later narrowed:** The visible KFBM HO 04 93 endorsement applies ACV settlement to roof surfacing after a seven-year condition without stating a depreciation methodology in that artifact. Eleven SMELL2-H003 detector findings existed across KNIC and KFBM. Because the complete KFBM base package is not in the corpus, the project cannot claim that the methodology is absent from every controlling document; the drill-down must present this as a scoped review question and source-package limitation.
 
-**Why this is the strongest entry:** Kentucky is in a high-frequency hail/wind corridor. The 7-year rule affects the majority of the active book. The labor depreciation class-action wave (2015+) established this exact gap — ACV applied without methodology disclosure — as a material bad-faith trigger.
+**Why the session prioritized it:** Roof ACV methodology appeared operationally relevant and connected to known depreciation disputes. The session did not establish what share of KFBM's active book the rule affects or prove a carrier-specific bad-faith exposure; those require external evidence and expert review.
 
 Entry includes full three-panel structure: compliance (KRS 304.12-230, KRS 304.20-040, 806 KAR 12:095, 806 KAR 20:010), claims (dispute scenario referencing *Henn v. American Family* and *Wilcox v. State Farm*), policy designer (redline with ACV definition, depreciation schedule citation, labor depreciation disclosure).
 
@@ -68,9 +70,9 @@ Two distinct products clearly defined:
 - **Phase 1 (current):** "Here's what's missing or undisclosed in your own filed documents." Self-contained. Does not require ISO. All three Sandbox 004 entries are grounded in carrier's own SERFF filings.
 - **Phase 2 (future):** "Here's exactly how you diverged from the ISO gold standard and the risk profile of each change." Requires ISO base forms. Higher value, higher build cost.
 
-**Target carrier profile:** Carriers who diverge from ISO — at the form level (proprietary base forms like KFBM HO 04 93) or methodology level (undisclosed rating factors like Property Insurance Score). Pure ISO adopters are low-value targets.
+**Unvalidated target hypothesis:** Carriers with material proprietary forms, rating methods, or package-level divergence may expose more inspectable work than carriers using standard forms without significant modification. KFBM's HO 04 93 endorsement does not establish that its base jacket is proprietary, and no target segment has yet been validated with buyers.
 
-**Sales reframe:** Not "do you use ISO forms?" but "where did you diverge from ISO, and do you know what that divergence costs you in claims exposure?"
+**Unvalidated conversation frame:** Ask where a carrier's filed package diverges from referenced standards and whether those changes are traceable. Do not assert claims-cost impact without carrier-specific evidence.
 
 ---
 
@@ -92,9 +94,9 @@ Static HTML at `sandboxes/004-expert-drilldown/output/drilldown_report.html`. RE
 
 | Decision | Rationale | Where Recorded |
 |---|---|---|
-| BACKLOG-018 closed — ISO forms not needed for Phase 1 | ISO content is established fact; findings are grounded in carrier's own filings | ADR-011, BACKLOG.md, KNOWN-GAPS.md |
-| ISO as implicit gold standard | Carriers adopt ISO by reference; we can assert its content without holding a copy | ADR-011 |
-| KFBM is higher-value target than KNIC | Proprietary base form (HO 04 93), DOI objection on file, heavier endorsement stack | SESSION-NOTES, this journal |
+| BACKLOG-018 closed as active procurement | Package-level experiments can proceed without ISO base forms; edition-specific comparison still requires verified text | ADR-011 corrective addendum, BACKLOG.md, KNOWN-GAPS.md |
+| ISO as a possible comparison baseline | Use only when the applicable source, edition, role, and license posture are verified | ADR-011 corrective addendum |
+| KFBM as a possible validation target | Session-time hypothesis based on available filing artifacts; HO 04 93 does not prove a proprietary base jacket | SESSION-NOTES, this journal |
 | Phase 1 vs Phase 2 product distinction | Phase 1 = internal disclosure gaps; Phase 2 = ISO divergence diff. Different products. | SESSION-NOTES, README |
 | Internal referential integrity as core value prop | Jem framework — ground truth is complete internal disclosure, not external standard | SESSION-NOTES, BACKLOG-019/020 |
 

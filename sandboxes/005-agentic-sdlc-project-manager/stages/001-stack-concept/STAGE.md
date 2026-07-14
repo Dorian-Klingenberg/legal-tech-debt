@@ -1,7 +1,8 @@
 # Stage 001: Stack Concept And Artifact Contract
 
-Status: Active
+Status: Complete
 Started: 2026-06-05
+Completed: 2026-07-13
 
 ## Purpose
 
@@ -27,6 +28,39 @@ The project-manager stack has seven cooperating layers:
 5. **Implementation control:** an agent works in an isolated branch/worktree with narrow file scope.
 6. **Verification evidence:** the agent records tests, lint, schema checks, experimental probes, generated outputs, screenshots, reviewer notes, and unresolved risk.
 7. **Status surface:** a generated dashboard summarizes current state from repo artifacts.
+
+## System Selection Outcome
+
+The source-backed comparison is recorded in
+[`SDLC-SYSTEM-SELECTION-STUDY.md`](SDLC-SYSTEM-SELECTION-STUDY.md).
+
+The provisional selection is a layered hybrid:
+
+- existing repo artifacts remain canonical;
+- selected Agile V concepts inform traceability, risk, evidence, and verifier
+  gates;
+- Codex CLI is the first execution runtime;
+- manual Git worktrees and one writer provide initial isolation;
+- SwarmForge-style executable orchestration is deferred to Stage 004.
+
+This is not yet an architecture decision. Stage 002 must establish whether the
+hybrid reduces ambiguity and improves evidence without creating more ceremony
+or duplicate truth than the task warrants.
+
+## First Agent Role Set
+
+The minimum useful role set is:
+
+1. **Lead/specifier:** forms and approves the task contract; owns scope and
+   acceptance behavior.
+2. **Implementer:** the sole implementation writer; works in an isolated
+   worktree and produces deterministic evidence.
+3. **Verifier:** starts from a fresh, read-only context; checks the contract,
+   diff, tests, evidence, and unresolved risk.
+4. **Researcher, optional:** performs separable read-only evidence gathering.
+
+Architecture, refactoring, security, compliance, and release concerns begin as
+risk-triggered reviews rather than permanent roles.
 
 ## Candidate Artifact Contract
 
@@ -199,4 +233,9 @@ LLM-as-judge must not replace:
 - [x] Sketch `risk-register.md` fields.
 - [x] Sketch `dashboard-read-model.md`.
 - [x] Compare against existing `BACKLOG.md`, `AGENT_CONTEXT.json`, journals, handoffs, and ADRs for duplicate-truth risk.
-- [ ] Decide whether Stage 002 should pilot a real backlog item.
+- [x] Compare Agile V, SwarmForge, and Codex CLI.
+- [x] Define the first agent role set.
+- [x] Record a provisional system-selection decision.
+- [x] Decide that Stage 002 should pilot a real project item.
+- [x] Select the bounded synthetic-demo manifest contract as the Stage 002
+      pilot.

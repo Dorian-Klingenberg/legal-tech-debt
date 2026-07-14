@@ -2,6 +2,7 @@
 
 Created: 2026-05-29
 Scope: Sandbox 002 Kentucky homeowners insurance research, discovery-and-instrumentation, and proof-of-concept evidence
+Status: Preserved acquisition guide. Use `corpus/PROCUREMENT-STRATEGY.md`, `CORPUS-SOURCES.md`, and `KNOWN-GAPS.md` for current acquisition decisions.
 
 ## Purpose
 

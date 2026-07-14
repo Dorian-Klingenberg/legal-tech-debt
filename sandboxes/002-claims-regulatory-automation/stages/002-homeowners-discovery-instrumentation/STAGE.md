@@ -5,7 +5,14 @@ Location: `stages/002-homeowners-discovery-instrumentation/`
 Sandbox: 002 — Kentucky homeowners insurance
 Created: 2026-06-03
 
-> Current Sandbox 002 state is summarized in `../../CLOSURE.md` and `../../HANDOFF-2026-06-04b.md`. This stage document records the original Stage 002 slice and should not be read as the current active work item.
+> Current Sandbox 002 state is summarized in `../../CLOSURE.md`; the repository root `README.md` controls current project work. `../../HANDOFF-2026-06-04b.md` is a historical closure-era snapshot.
+
+## Completion Checklist
+
+- [x] Implement the deterministic JSONL-first pipeline.
+- [x] Repair the output to the artifact contract.
+- [x] Preserve the 28-source, 353-node run used downstream.
+- [x] Freeze the stage at Sandbox 002 closure.
 
 ## Objective
 

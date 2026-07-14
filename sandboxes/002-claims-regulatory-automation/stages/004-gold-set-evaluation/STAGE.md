@@ -4,6 +4,12 @@ Phase: 3 — Tiny Gold Set And Retrieval Evaluation
 Status: Complete (statute/regulation/DOI tier; policy/endorsement/rate tiers blocked on corpus additions)
 Depends on: Stage 002 pipeline run output, Stage 003 retrieval package
 
+## Completion Checklist
+
+- [x] Evaluate the available statute, regulation, and DOI gold-set tier.
+- [x] Record the then-missing carrier-source tiers as a measured limitation.
+- [x] Accept the bounded result at Sandbox 002 closure; no current task remains open here.
+
 ## Purpose
 
 Evaluate exact-phrase and BM25 retrieval recall against a structured gold set.

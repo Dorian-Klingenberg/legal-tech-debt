@@ -46,10 +46,10 @@ Tradeoffs:
 
 Sandbox 003 should not start until:
 
-- [ ] Smell 5 detector calibrated on 28-source corpus (currently 0 findings, which is implausible given the corpus content)
+- [x] Smell 5 detector calibrated on 28-source corpus (ADR-010; 12 findings)
 - [x] Gold set re-evaluated on repaired expanded run 18b0dec5 — BM25 still 100% (21/21)
-- [ ] Perplexity/external LLM feedback on reviewer report reviewed by user
-- [ ] Decision made on Claude model for Stage 001 triage (Sonnet vs. Opus; cost vs. quality)
+- [x] External LLM feedback reviewed and incorporated into Sandbox 003 design
+- [x] Model approach decided and implemented as a two-tier GPT triage pass
 
 ## Rejected Alternatives
 
@@ -60,6 +60,6 @@ Sandbox 003 should not start until:
 
 ## Follow-Up
 
-- Review Perplexity CEO-angle feedback before finalizing Sandbox 003 Stage 003 design
-- Write prompt for LLM triage as a standalone document before running at scale — review it before any API calls
-- Define what "false positive dismissed" means in the enriched finding schema before Stage 001 begins
+- [x] Review external CEO-angle feedback before finalizing Sandbox 003 Stage 003 design.
+- [x] Write and review the LLM triage prompt before the full run.
+- [x] Define human-review dispositions before downstream analysis.

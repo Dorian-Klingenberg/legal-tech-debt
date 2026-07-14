@@ -1,9 +1,9 @@
 # Legal RAG Phase Plan
 
-Status: Active planning document
+Status: Historical phase plan; superseded by `002-RAG-STAGE-PLAN.md` and `CLOSURE.md`
 Scope: Sandbox 002 Kentucky homeowners corpus
 Created: 2026-06-01
-Updated: 2026-06-03 (Phase 1 complete)
+Updated: 2026-07-13 (historical status and completed reopen gates reconciled)
 Path decision: `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
 Artifact contract: `adr/ADR-004-schema-run-identity-and-id-stability.md`
 
@@ -231,9 +231,9 @@ Question:
 
 **What would re-open Phase 4:**
 
-- [ ] Second carrier homeowners policy in corpus (same smells, different language)
-- [ ] Gold set items written as plain-English reviewer questions, not document phrases
-- [ ] At least one documented BM25 failure that a concept-level query would fix
+- [x] Second carrier homeowners policy in corpus (KFBM)
+- [x] Gold set items written as plain-English reviewer questions (five Smell 5 paraphrase queries)
+- [x] At least one documented BM25 failure (Smell 5 absence-pattern query)
 
 ---
 
@@ -247,7 +247,7 @@ Question:
 
 ### Checklist
 
-- [ ] Phase 4 semantic retrieval evaluation complete (gate)
+- [x] Phase 4 semantic retrieval evaluation complete; result did not justify a retrieval store
 - [ ] Workload characterization: is hybrid vector quality or relational metadata/joins the dominant need?
 - [ ] ADR drafted for store selection before implementation
 - [ ] Store selected from candidates:

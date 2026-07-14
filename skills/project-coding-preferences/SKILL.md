@@ -38,7 +38,7 @@ Use a narrower skill when the task is specifically one of these:
 
 ## Sandbox 002 Bias
 
-- Keep active work aligned to the five Kentucky homeowners policy-layer smells in `sandboxes/002-claims-regulatory-automation/002-five-policy-layer-phish.md`.
+- When Sandbox 002 is explicitly reopened, keep its work aligned to the five Kentucky homeowners policy-layer smells in `sandboxes/002-claims-regulatory-automation/002-five-policy-layer-phish.md`.
 - Use canonical corpus paths under `corpus/kentucky-homeowners-policy-smells/sources/`; do not point pipeline code at smell subdirectories.
 - Treat manual SERFF sources as known gaps, not blockers, unless the active experiment needs them.
 - For qualitative-language heuristics, check `source_type` before flagging. Carrier filings and regulatory documents use words like "reasonable" differently.

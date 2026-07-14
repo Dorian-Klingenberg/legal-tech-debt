@@ -4,6 +4,8 @@ Status: Working draft
 Audience: Family / non-technical reader  
 Purpose: Explain the project clearly, including why the work may have economic value
 
+> Time-sensitive note: this draft was not revalidated during the 2026-07-13 repository audit. Recheck Canadian funding announcements, program status, dollar figures, and current project counts before sharing. The income range is an aspiration and scenario, not forecast revenue.
+
 ---
 
 ## Short Version
@@ -192,20 +194,24 @@ Even in that small slice, the prototype found reviewable findings, built an exec
 - deeper per-carrier reports,
 - periodic re-scans after new filings or regulatory changes.
 
-The near-term revenue model would probably be modest and service-like: specialized annual or periodic review reports rather than a large software platform. A possible target price might be **USD 60,000 to USD 90,000 per year** for a focused report and review workflow, but that is a hypothesis, not a proven price. The real price would depend on buyer feedback, scope, report quality, expert involvement, and whether the buyer sees enough risk reduction or time savings.
+The near-term economic model would probably be modest and service-like: employment or contract work for an established provider, a bounded research engagement, or specialized periodic reviews rather than a large software platform. The **USD 60,000 to USD 90,000 per year** figure is best treated as a possible annual personal-income target from this career direction. It is not a price per client, a revenue forecast, or an estimate of take-home pay.
 
-That price range is not pulled from nowhere, but it is also not validated yet. It is a plausible range to test because the work would not be a simple automated scan. A credible report would involve source collection, parsing, detector runs, evidence review, finding triage, copyright-safe summary writing, expert-facing report preparation, and a discussion with the buyer about what the findings mean. In professional services terms, that is closer to a specialized compliance or risk review than a downloadable software subscription.
+That target is not unreasonable as a threshold for testing, for four limited reasons:
 
-The range also has to be judged against the buyer's alternative costs. An insurer already pays for compliance staff, product/forms review, outside counsel, filing support, claims dispute handling, and regulator response. If a report helps focus even a small part of that work, or helps identify one issue before it becomes a larger remediation or dispute, then a five-figure annual review is not automatically unreasonable. Whether it is actually acceptable depends on what real buyers say after seeing the prototype.
+- the work combines software engineering, AI workflow design, source provenance, and a specialized regulated domain;
+- insurers and their providers already spend money on compliance, forms, filing, legal, actuarial, and technology work, although that does not prove they will buy this offering;
+- a repeatable evidence workflow could make a skilled person's review time more productive, if experts confirm that the findings are useful;
+- one employer or provider relationship, one meaningful contract, or a small number of engagements could matter, so the path does not require thousands of retail customers.
 
-The reason that price range matters is that the project would not need hundreds of customers to become worthwhile. If the report proved valuable enough for even a few serious buyers, it could support the work while the product is still being refined.
+There is not yet evidence for a specific report price. The following is only arithmetic showing different ways gross compensation or business revenue could reach the target range:
 
-For example:
+> Three engagements at USD 20,000 each would produce USD 60,000 in gross business revenue.  
+> Six engagements at USD 15,000 each would produce USD 90,000 in gross business revenue.  
+> A provider role or contract averaging USD 5,000 to USD 7,500 per month would produce USD 60,000 to USD 90,000 in gross annual compensation.
 
-> Three annual report clients at USD 60,000 would be USD 180,000 per year.  
-> Five annual report clients at USD 90,000 would be USD 450,000 per year.
+Those are not observed market rates. Business revenue is also not the same as personal income: software, insurance, accounting, legal, travel, subcontracting, taxes, and unpaid sales or research time can reduce what remains. A real plan would need buyer interviews, an explicit scope, delivery-time measurements, cost estimates, and at least one paid test before treating the income range as credible.
 
-Those numbers are not forecasts. They are simple scenario math showing why the idea is worth testing. To be real, those scenarios would require several things that have not been proven yet:
+To become real, the path would require several things that have not been proven yet:
 
 - experts must agree the findings are useful,
 - buyers must believe the report reduces real risk or saves real time,

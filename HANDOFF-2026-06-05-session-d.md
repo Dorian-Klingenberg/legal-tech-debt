@@ -5,6 +5,8 @@
 **Previous handoff:** `HANDOFF-2026-06-05-session-c.md`
 **Journal:** `journal/2026-06-05-backlog-implementation-session-d.md`
 
+> Historical snapshot. The case-library work is complete to the public-web limit and now contains 4 cases/actions plus 6 gap sentinels. Use the root `README.md` and `AGENT_CONTEXT.json` for current work.
+
 ---
 
 ## What Was Completed This Session

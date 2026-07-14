@@ -1,6 +1,6 @@
 # Sandbox 006 Playbook
 
-Status: Active working agreement
+Status: Current working agreement; execution remains subject to the Stage 002 review gate
 Date: 2026-06-05
 Scope: How to explore the interactive drill-down report UX
 
@@ -169,4 +169,3 @@ Question to answer:
 - Figma and Canva are accelerators, not authorities.
 - Repo-visible notes are mandatory for design learning worth keeping.
 - No hosted implementation unless a future sandbox explicitly evaluates hosting.
-

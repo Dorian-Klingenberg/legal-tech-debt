@@ -4,7 +4,7 @@ Status: Complete; preserved as evidence substrate
 Current controlling scope: `002-five-policy-layer-phish.md`
 Created: May 2026
 
-> Current resume point: read `CLOSURE.md`, `HANDOFF-2026-06-04b.md`, `adr/ADR-008-stage-002-artifact-contract-repair.md`, `adr/ADR-010-smell5-retrieval-architecture-gap-detection.md`, and `adr/ADR-011-h003-reclassification-methodology-gap-not-undefined-term.md`. The preserved repaired run is `output/002/20260604_130606_18b0dec5/`. Sandbox 003 and Sandbox 004 are complete; new forward work should use `BACKLOG.md` unless the user explicitly reopens Sandbox 002.
+> This sandbox is closed. Start at the repository `README.md` for current work. Read `CLOSURE.md` and the ADRs here only when using or explicitly reopening the preserved evidence pipeline. `HANDOFF-2026-06-04b.md` is a historical closure-era snapshot.
 
 ## Purpose
 
@@ -12,7 +12,7 @@ Sandbox 002 was the proof-of-concept lane for Kentucky homeowners insurance lega
 
 The work is intentionally narrow: build quick, clean, readable discovery, instrumentation, detectors, and reviewer evidence around the five policy-layer smells in the five-smell report. Sandbox 001 is complete and should be treated as a source of reusable primitives, not as a source of new scope.
 
-## Active Scope
+## Preserved Scope
 
 Preserved focus:
 
@@ -31,7 +31,7 @@ Out of scope unless explicitly reopened:
 - Databases, services, schedulers, Docker, or production architecture.
 - LLM/NLP pipelines unless a later stage earns them with a concrete need.
 
-## Five Active Smells
+## Five Preserved Smells
 
 All Sandbox 002 documentation, plans, stages, and fixtures should align to these smells:
 
@@ -69,9 +69,9 @@ See `002-CARRY-FORWARD-FROM-001.md` for the carry-forward rules.
 | `002-five-policy-layer-phish.md` | Source of truth for active detector scope. |
 | `002-ROI-CASES-FIVE-SMELLS.md` | Smell-specific ROI cases, public cost anchors, service pricing, and buyer savings logic. |
 | `002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md` | How to collect Kentucky homeowners source material for the five smells. |
-| `002-RAG-INGESTION-RETRIEVAL-SPEC.md` | Draft engineering spec for local-first discovery-and-instrumentation, structure-aware chunking, citation/reference extraction, graph-linked nodes, parser diagnostics, candidate evidence, and retrieval bundles. |
-| `002-RAG-SUBSYSTEM-PLAN.md` | Component plan for the discovery/RAG evidence substrate, including parser instrumentation, reuse from Sandbox 001, and layer boundaries. |
-| `002-RAG-STAGE-PLAN.md` | Stage-by-stage build plan for discovery-and-instrumentation, retrieval baselines, semantic retrieval evaluation, detectors, and reviewer report. |
+| `002-RAG-INGESTION-RETRIEVAL-SPEC.md` | Implemented and frozen engineering contract for the local-first evidence substrate. |
+| `002-RAG-SUBSYSTEM-PLAN.md` | Implemented and frozen component design record. |
+| `002-RAG-STAGE-PLAN.md` | Completed stage-by-stage implementation record and post-closure result addendum. |
 | `adr/ADR-001-rag-substrate-reuses-001-structure.md` | Skill architecture decision to reuse Sandbox 001 graph/data structures and keep findings downstream of RAG storage. |
 | `adr/ADR-002-semantic-vector-retrieval-deferred-not-dropped.md` | Skill architecture decision that semantic vector retrieval is expected but vector store selection is deferred until evaluation. |
 | `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md` | Path decision: discovery-and-instrumentation comes before fixture detectors; parser/reference uncertainty is evidence. |
@@ -82,8 +82,8 @@ See `002-CARRY-FORWARD-FROM-001.md` for the carry-forward rules.
 | `adr/ADR-011-h003-reclassification-methodology-gap-not-undefined-term.md` | H003 framing decision: undisclosed methodology is Smell 4, not undefined term. |
 | `CLOSURE.md` | Closure record and final validated state for Sandbox 002. |
 | `002-CARRY-FORWARD-FROM-001.md` | What to reuse from Sandbox 001 and what to leave parked. |
-| `002-ROADMAP-revised.md` | Active implementation roadmap for Sandbox 002. |
-| `HANDOFF-2026-06-04b.md` | Current handoff for future agents, including Smell 5 resolution and 35-finding state. |
+| `002-ROADMAP-revised.md` | Historical implementation roadmap, superseded by the completed RAG stage plan and closure record. |
+| `HANDOFF-2026-06-04b.md` | Historical closure-era handoff documenting the 35-finding June 4 snapshot. |
 | `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv` | Real-document source manifest, downloaded paths, and smell mappings. |
 | `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md` | Known source gaps and rules for when to chase manual SERFF material. |
 | `002-PAIN-POINTS-TAXONOMY.md` | Background rationale only; do not use it to expand active scope. |
@@ -106,11 +106,19 @@ Final validated outputs include:
 - deterministic detector findings across all five smells
 - reviewer HTML and Markdown reports
 
-## Next Lane
+Count scopes are deliberately separate:
+
+- the canonical corpus currently contains 32 unique files;
+- the preserved Stage 002 run ingested 28 sources and produced 353 nodes and 121 candidate-evidence records;
+- Stage 003 produced 39 retrieval bundles;
+- the current Stage 006 output contains 31 findings after four regulatory-layer Smell 3 false positives were removed;
+- Sandbox 003 preserves analysis of the earlier 35-finding snapshot.
+
+## Current Disposition
 
 Sandbox 003 consumed these outputs and is complete. Sandbox 004 built the expert drill-down report proof of concept and is also complete.
 
-New forward work should use `BACKLOG.md`, especially BACKLOG-019 (Missing State Amendatory detector) or BACKLOG-015 (heuristic-specific case library), unless the user explicitly reopens Sandbox 002.
+BACKLOG-019 and BACKLOG-015 were completed after this sandbox closed. Current work is listed in the root `README.md` and `AGENT_CONTEXT.json`. Reopen Sandbox 002 only for a named evidence-substrate, corpus-rerun, or detector-calibration question.
 
 ## Working Rule
 

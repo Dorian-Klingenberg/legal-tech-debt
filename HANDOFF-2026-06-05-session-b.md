@@ -3,6 +3,8 @@
 Date: 2026-06-05
 Audience: Claude Code, Codex, GitHub Copilot, and future agents
 
+> Historical snapshot. Use `README.md`, `AGENT_CONTEXT.json`, and the latest handoff named there for current work. "29 sources" below was a then-current shorthand; the present corpus has 32 canonical files while the preserved ingestion run contains 28 sources.
+
 ## Purpose
 
 Resume point after a full backlog implementation session. Five backlog items completed, case library started, two product architecture decisions made. Session is pausing mid-work — more backlog items remain.

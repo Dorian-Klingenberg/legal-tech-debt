@@ -1,5 +1,7 @@
 # Journal: Sandbox 003 — All Three Stages Built and Run
 
+> Historical snapshot boundary: Sandbox 003 consumed the June 4 pre-filter set of 35 findings. Four regulatory-layer Smell 3 false positives were later removed; the canonical current Stage 006 output contains 31 findings. The work below remains the record of the point-in-time triage experiment.
+
 Date: 2026-06-04
 Session: Third session of the day (Sandbox 003 build)
 Author: Dorian Klingenberg + Claude Code (claude-sonnet-4-6)

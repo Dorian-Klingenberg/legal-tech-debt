@@ -1,12 +1,12 @@
 # Design Tool Evaluation: Figma And Canva
 
-Status: Active trial brief
+Status: Prepared trial brief; not started and blocked on Stage 002 human review
 Date: 2026-06-05
 Scope: Sandbox 006 interactive drill-down report UX
 
 ## Purpose
 
-Evaluate whether Figma and Canva are worth keeping in the workflow for the interactive drill-down report.
+If Stage 002 review identifies a design question worth testing, evaluate whether Figma and Canva help answer it. Do not run this comparison merely because the brief exists.
 
 This is a practical trial, not a tool adoption decision. The question is:
 
@@ -122,4 +122,3 @@ After the trial, choose one:
 - Why:
 - Next action:
 ```
-

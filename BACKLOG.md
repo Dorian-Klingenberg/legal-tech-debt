@@ -2,11 +2,11 @@
 
 Status: Active
 Scope: Cross-sandbox items with no current sandbox home
-Last updated: 2026-06-04 (session 2)
+Last updated: 2026-07-13 (repository documentation audit)
 
 This file tracks open questions, deferred tasks, and homeless backlog items — things that are real enough to record but not yet assigned to a sandbox or stage. Items are checked off when resolved, not deleted, so the search history stays visible.
 
-Implementation brief: see `BACKLOG-IMPLEMENTATION-PLAN.md` for Claude-ready instructions, file allowlists, validation commands, and item-by-item acceptance criteria for currently unblocked backlog work.
+Historical implementation brief: `BACKLOG-IMPLEMENTATION-PLAN.md` records the June 5 execution plan. Its agent-actionable items were completed, closed, or promoted to a sandbox; it is not the current queue.
 
 ---
 
@@ -14,7 +14,7 @@ Implementation brief: see `BACKLOG-IMPLEMENTATION-PLAN.md` for Claude-ready inst
 
 ### [x] BACKLOG-001: Smell 5 Detector Calibration — RESOLVED 2026-06-04
 
-**Status:** Open — no sandbox assigned  
+**Status:** Resolved 2026-06-04  
 **Affects:** Sandbox 002 Stage 006; Sandbox 003 five-smell completeness claim  
 **Priority:** Must resolve before claiming five-smell completeness
 
@@ -29,13 +29,13 @@ The Regulatory Mapping smell detector (Smell 5) produces zero findings on the ex
 
 **Architecture decision (ADR-010, 2026-06-04):** Vector similarity cannot detect absence. Smell 5 requires graph-based gap detection — identify carrier nodes making regulatory-sounding claims, then check for missing outbound edges to KRS/KAR/DOI/SERFF nodes. See `adr/ADR-010-smell5-retrieval-architecture-gap-detection.md`.
 
-**Resolution:** Detector rebuilt as two-tier (H001-H003 lexical + H004-H006 graph gap). H004-H006 emit one consolidated finding per source with supporting_nodes. Detectors rerun: 12 Smell 5 findings (7 MEDIUM, 5 LOW) across KNIC and KFBM. Stage 007 report regenerated: 35 total findings. Five-smell coverage is now complete for the current corpus.
+**Resolution:** Detector rebuilt as two-tier (H001-H003 lexical + H004-H006 graph gap). H004-H006 emit one consolidated finding per source with supporting_nodes. The June 4 detector snapshot had 12 Smell 5 findings and 35 total findings. After the regulatory-layer false-positive filter, the current detector output has 31 total findings while retaining all 12 Smell 5 findings.
 
 ---
 
 ### [x] BACKLOG-002: Corpus File Extension Mismatches — RESOLVED 2026-06-05
 
-**Status:** Open — low priority  
+**Status:** Resolved 2026-06-05  
 **Affects:** Corpus parsing warnings; no stage is currently blocked
 
 Two corpus files are named `.html` but contain PDF content:
@@ -44,7 +44,7 @@ Two corpus files are named `.html` but contain PDF content:
 
 A third file with the same issue (`KY-KRS-304-13`) was already renamed. The pipeline parses these with warnings and does produce nodes, so nothing is blocked.
 
-**Resolution (2026-06-05):** Both files renamed to `.pdf` in `corpus/kentucky-homeowners-policy-smells/sources/`. All manifest rows updated (replace_all — files appear under multiple smell directories). Stage 002 rerun to confirm warnings clear is deferred to next pipeline run.
+**Resolution (2026-06-05):** Both files were renamed to `.pdf` in `corpus/kentucky-homeowners-policy-smells/sources/`, and all manifest rows were updated. The preserved Stage 002 run remains immutable and may retain its original warnings. No confirmation rerun is owed; a future explicitly authorized run will consume the corrected filenames.
 
 ---
 
@@ -68,13 +68,13 @@ A third file with the same issue (`KY-KRS-304-13`) was already renamed. The pipe
 
 ### [x] BACKLOG-004: Stage 005 Semantic Retrieval Re-open Conditions — RESOLVED 2026-06-04
 
-**Status:** Open — one of three gates met  
+**Status:** Resolved 2026-06-04; all three gates met  
 **Affects:** Sandbox 002 Stage 005; ADR-002; vector store selection (ADR-005)
 
 Re-opening semantic retrieval requires all three conditions:
 - [x] Second carrier homeowners corpus present (KFBM added 2026-06-03)
-- [ ] At least one gold set item written as a plain-English reviewer paraphrase query (not document vocabulary)
-- [ ] At least one documented BM25 failure that a concept-level query would fix
+- [x] At least one gold set item written as a plain-English reviewer paraphrase query (not document vocabulary)
+- [x] At least one documented BM25 failure that a concept-level query would fix
 
 **What we know:**
 - BM25 currently hits 21/21 (100%) on the existing gold set, but the gold set queries are written in document vocabulary, making it an unfairly easy test for BM25.
@@ -87,7 +87,7 @@ Re-opening semantic retrieval requires all three conditions:
 
 ### [x] BACKLOG-006: Node Provision-Type Classification in Stage 002 Ingestion — RESOLVED 2026-06-05 (design record)
 
-**Status:** Resolved as design record — ADR-013 written; implementation deferred  
+**Status:** Resolved as a design record — ADR-013 written; implementation is parked unless a new stage earns it  
 **Affects:** Sandbox 002 Stage 006 detectors (Smell 1 specifically); any future smell whose heuristics depend on distinguishing exclusions from conditions/duties/definitions  
 **Priority:** Medium — do not attempt until a validation approach is designed
 
@@ -100,7 +100,7 @@ The Stage 002 ingestion pipeline assigns every parsed section a `node_type` (doc
 
 This likely requires LLM-assisted context classification at the node level during ingestion — not a provision-type enum, but a short characterization of how the broad language is functioning in context. A deterministic rule cannot reliably make this distinction across varied carrier form formats.
 
-**Resolution (2026-06-05):** ADR-013 (`sandboxes/002-claims-regulatory-automation/adr/ADR-013-language-context-annotation.md`) records the design decision. `language_context` field defined with six-value enum: `coverage_grant`, `exclusion`, `condition`, `filing_instruction`, `definition`, `ambiguous`. Annotation approach: lightweight LLM pass post-ingestion, validate on 20–30 hand-labeled nodes before gating detectors. Resolves BACKLOG-006 and BACKLOG-012 together. Implementation deferred to when Stage 002 annotation work begins.
+**Resolution (2026-06-05):** ADR-013 (`sandboxes/002-claims-regulatory-automation/adr/ADR-013-language-context-annotation.md`) records the design decision. `language_context` has a proposed six-value enum: `coverage_grant`, `exclusion`, `condition`, `filing_instruction`, `definition`, `ambiguous`. The proposed annotation approach is a lightweight LLM pass validated on 20–30 hand-labeled nodes before it can gate detectors. This resolves BACKLOG-006 and BACKLOG-012 as design work. Implementation requires a new, explicit stage; it is not an unfinished Sandbox 002 task.
 
 ---
 
@@ -111,7 +111,7 @@ This likely requires LLM-assisted context classification at the node level durin
 **Priority:** High — directly produces false positives that would appear in a client report
 
 **What we know:**
-All four Smell 3 findings in the current run are on KRS/KAR statutory and regulatory nodes. The smell detectors have no guard against firing on reference-layer sources. The statutory/regulatory corpus (KY-KRS-*, KY-KAR-*, KY-DOI-*) exists to check carrier filings *against*, not to be analyzed for smells itself. Suggesting a carrier "clarify the exceptions" in a Kentucky statute is not actionable and would undermine a client report.
+Before the June 4 filter, all four Smell 3 findings in the historical 35-finding snapshot were on KRS/KAR statutory and regulatory nodes. The statutory/regulatory corpus (KY-KRS-*, KY-KAR-*, KY-DOI-*) exists to check carrier filings *against*, not to be analyzed as carrier policy text. Suggesting that a carrier "clarify the exceptions" in a Kentucky statute was not actionable.
 
 The immediate cause is that `source_type` is blank for all statutory/regulatory nodes — it was never populated during ingestion — so detectors cannot guard on it.
 
@@ -119,13 +119,13 @@ The immediate cause is that `source_type` is blank for all statutory/regulatory 
 
 **Long-term fix (Stage 002 ingestion):** Populate `source_type` correctly for all sources during ingestion. The corpus manifest (`CORPUS-SOURCES.md`) already classifies each source — that classification should flow through to every node as a first-class field. Detectors then guard on `source_type not in {ky_statute, ky_regulation, doi_bulletin, doi_guidance}`.
 
-**Resolution (2026-06-04):** Short-term source ID prefix guard applied in `detector_runner.py`. `_REGULATORY_PREFIXES = ("KY-KRS-", "KY-KAR-", "KY-DOI-")` tuple and `_is_carrier_node()` predicate added. Runner now filters regulatory nodes before passing to detectors, logs skip count. Eliminates all four Smell 3 false positives. Long-term `source_type` ingestion fix remains open in the Stage 002 ingestion backlog.
+**Resolution (2026-06-04):** A source ID prefix guard was applied in `detector_runner.py`. `_REGULATORY_PREFIXES = ("KY-KRS-", "KY-KAR-", "KY-DOI-")` and `_is_carrier_node()` now filter regulatory nodes before detection and log the skip count. The four Smell 3 false positives were removed, producing the current 31-finding output. Propagating `source_type` directly into every Stage 002 node remains a possible schema improvement only if that closed stage is explicitly reopened; it is not a current backlog item.
 
 ---
 
 ### [x] BACKLOG-007: KRS/KAR Definitional Cross-Reference Check — RESOLVED 2026-06-05 (audit phase)
 
-**Status:** Open — no sandbox assigned  
+**Status:** Resolved for the current milestone; audit complete and graph enrichment parked  
 **Affects:** Sandbox 002 Stage 006 detectors (Smell 2 specifically); Stage 003 severity ratings  
 **Priority:** Medium — affects severity of multiple findings before they reach a client report
 
@@ -136,7 +136,7 @@ The same issue applies to other common insurance terms flagged by Smell 2 heuris
 
 **What the fix is:** Build a reference lookup during Stage 006 detection (or as a post-detection enrichment step) that checks whether a flagged term appears in the Kentucky statutory/regulatory corpus already in the graph. If a definitional edge exists in the corpus from a statutory node, the finding confidence and severity should be downweighted accordingly.
 
-**Audit result (2026-06-05):** Zero terms formally defined in KRS/KAR corpus. Key finding: 806 KAR 12:095 Section 9(2)(a) establishes a mandatory ACV calculation standard ("replacement cost minus depreciation") and requires explicit policy authorization for labor depreciation. This STRENGTHENS H003 findings — not weakens them. Full audit: `sandboxes/002-claims-regulatory-automation/stages/006-deterministic-detectors/KRS-KAR-DEFINITIONAL-AUDIT.md`. No severity downgrades warranted. Graph-lookup enrichment (Stage 007) deferred — design when ready.
+**Audit result (2026-06-05):** Zero terms were identified as formal definitions in the reviewed KRS/KAR corpus. The audit found that 806 KAR 12:095 Section 9(2)(a) provides an ACV framework and addresses policy authorization for labor depreciation. Full audit: `sandboxes/002-claims-regulatory-automation/stages/006-deterministic-detectors/KRS-KAR-DEFINITIONAL-AUDIT.md`. No severity downgrade was applied in the proof of concept. Graph-lookup enrichment was parked at closure; reconsider it only if a future detector experiment shows that the static audit is insufficient.
 
 ---
 
@@ -151,7 +151,7 @@ During Sandbox 003 Stage 001 human review, "replacement cost" findings were asse
 
 **What the fix is:** Add a cross-check in Smell 2 detection: if a flagged valuation term appears near a rate manual computation rule with no citation to an external source or versioned reference, tag the finding as a potential Smell 4 overlap and adjust the reviewer question accordingly.
 
-**Next action:** In Stage 003 report, note for replacement cost findings that the carrier may be using an external valuation tool not cited in the filing — recommend verifying the rate manual or endorsement references a specific tool or version. Longer term, refine Smell 2 / Smell 4 heuristic boundary in a future Sandbox 002 stage.
+**Disposition:** ADR-011 now controls the Smell 2/Smell 4 boundary and the current drill-down frames missing methodology as a scoped reviewer question. Any further heuristic refinement requires an explicitly reopened Sandbox 002 stage and new validation evidence; no action remains in completed Sandbox 003.
 
 ---
 
@@ -177,7 +177,7 @@ No detector built; taxonomy entry added for future review.
 
 ### [x] BACKLOG-011: Filter Section Headers and Document Structure Nodes Before Smell Detection — RESOLVED 2026-06-05
 
-**Status:** Open — Sandbox 002 Stage 006 fix  
+**Status:** Resolved 2026-06-05  
 **Affects:** All smell detectors; produces noise findings with no actionable content  
 **Priority:** Medium — straightforward fix, directly reduces false positive count
 
@@ -236,13 +236,13 @@ The current executive intro and closing use generic phrases ("crucial insights,"
 
 Both are needed. Option 2 is essential for any client-facing version regardless of prompt quality.
 
-**Resolution (2026-06-04):** Direct editorial pass applied to `executive_summary.md` (12 targeted replacements). Removed all boilerplate openers/closers ("rapidly evolving landscape", "cannot be understated", "showcasing a proactive stance", etc.). Replaced heuristic-ID technical openers in pattern narratives. Fixed typo "undocumentated". Tightened H003/H004/H005 paragraph 2 closers. Fixed dangling clause in H003-p2. Report is now prospect-ready for a final human read. Prompt improvement (Option 1) deferred — not needed before this report ships.
+**Resolution (2026-06-04):** Direct editorial pass applied to `executive_summary.md` (12 targeted replacements). Removed boilerplate openers/closers, replaced heuristic-ID technical openers, fixed a typo and dangling clause, and tightened several pattern narratives. The preserved draft is cleaner, but it is not automatically prospect-ready: any external use still requires current-source verification, sanitization, and qualified human review. Prompt improvement was not needed for the completed proof of concept.
 
 ---
 
-### [ ] BACKLOG-015: Heuristic-Specific Case and Bad-Faith Closure Library
+### [x] BACKLOG-015: Heuristic-Specific Case and Bad-Faith Closure Library — COMPLETE TO PUBLIC-WEB LIMIT 2026-06-05
 
-**Status:** Open — no sandbox assigned  
+**Status:** Complete to the public-web limit; owner/access and source-verification notes remain  
 **Affects:** Stage 003 executive report; sales materials; dollar_anchors.json  
 **Priority:** High for sales readiness — current anchors are real but pattern-general; heuristic-matched cases are materially stronger in a prospect conversation
 
@@ -286,24 +286,19 @@ For each heuristic, a structured entry suitable for inclusion in `dollar_anchors
 - **CL-002** (H003, LOCAL): Schoening Investment LP v. Cincinnati Casualty Co., No. 25-3273 (6th Cir. 2026) — insurer prevailed because policy explicitly defined ACV as RC minus depreciation. full_holding_text updated with verbatim quotes sourced via Insurance Journal. [VERIFY full opinion — CourtListener PDF binary]
 - **CL-003** (H001, LOCAL): FB Ins. Co. v. Jones, 864 S.W.2d 926 (Ky. Ct. App. 1993) — undefined "reasonable time" in rebuild condition forced litigation. [VERIFY — Justia 403]
 - **CL-004** (SMELL4-H001, OUT-OF-STATE): Mercury Insurance Co. CA DOI enforcement action, $27.6M fine (2019) — carrier charged unapproved rate components not included in filed rate schedule. Out-of-state precedent that rate components outside the approved filing constitute unapproved rates. dollar_anchor_id: null (cross-references DA-S4-001 and DA-S4-002 via case_library_ids added to dollar_anchors.json).
-- **Gap sentinels** updated with thorough search notes for H001, H004, H005, H006:
-  - SMELL4-H001: CL-004 is best anchor; KY DOI exam reports not publicly indexed
-  - SMELL5-H004: No enforcement action found; KY DOI open records request is the next step
-  - SMELL5-H005: H005 scope may need recalibration — likely a regulatory-citation gap, not a mandatory-coverage gap
-  - SMELL5-H006: Hicks/Schoening are closest but don't hit H006 directly; KY DOI open records is next step
+- **Six gap sentinels** record search outcomes and limitations for SMELL2-H001, SMELL2-H003, SMELL4-H001, SMELL5-H004, SMELL5-H005, and SMELL5-H006. The first two point to the closest available cases; the latter four record source gaps, scope caveats, and the optional KY DOI records path.
 
-**Blocking gap (all open heuristics):** KY DOI market conduct exam reports are NOT publicly indexed online. The exam results portal (`insurance.ky.gov/mc/default.aspx`) returns 404. Finding exam-based enforcement actions requires an open records request (502-564-3630). BACKLOG-021 is now closed; this open records call stands independently for H004/H006 gap sentinels only.
+**Access limitation, not a blocker:** KY DOI market-conduct exam reports were not publicly indexed when searched. The then-used exam-results portal returned 404. A records request may be needed to find exam-based examples, but no current detector, sandbox, or productization gate depends on that call.
 
-**Next actions (remaining):**
-- [owner lane] Open records request to KY DOI for market conduct exam reports on KFBM and KNIC — this is the only viable path to SMELL5-H004/H006 enforcement examples.
-- [agent] Retry Justia for CL-001 and CL-003 verbatim text when 403 clears.
-- [agent] Extract CL-002 verbatim text from CourtListener PDF (downloaded as binary; needs PDF reader pass).
+**Residual limitations (not open implementation work):**
+- [ ] Owner may request KY DOI market-conduct exam reports if a future validation question needs H004/H006 enforcement examples.
+- [ ] Reverify CL-001, CL-002, and CL-003 against primary opinion text before publication or client use.
 
 ---
 
 ### [x] BACKLOG-016: Dollar-Sign Rendering Guard in report_builder.py — RESOLVED 2026-06-04
 
-**Status:** Open — low priority, defensive hardening  
+**Status:** Resolved 2026-06-04  
 **Affects:** `stages/003-executive-report/src/report_builder.py` — `build_risk_context_section()` and `build_report()`  
 **Priority:** Low — source data in `dollar_anchors.json` is already fixed; this prevents the same bug from re-entering via future data edits
 
@@ -363,20 +358,18 @@ A structured markdown (or HTML) document with one section per confirmed finding 
 **Proof-of-concept scope:**
 Start with the three highest-severity confirmed findings (SMELL2-H003, SMELL4-H001, SMELL5-H004) and hand-build one example drill-down entry each. Validate the format with a human expert read before building the pipeline. The suggested-fix language will require LLM assistance plus human review — it must not be presented as legal advice.
 
-**Open design questions (for the proof-of-concept phase):**
-- Redline vs. template vs. both — depends on finding type
-- How to source suggested fix language — LLM draft + human review, or curated from regulatory text in the corpus?
-- Disclaimer language — fixes are editorial suggestions, not legal advice; how prominent?
-- Whether carrier names appear (internal version) or are anonymized (external version) — same `--anonymize` flag pattern as the executive summary
-- Output format — markdown, HTML, Word doc, or all three
-
-**Next action:** Open a new sandbox (Sandbox 004) or Stage 004 in Sandbox 003. Build one hand-crafted example entry per priority finding type. Review with a human expert. Then decide whether the fix-suggestion pipeline is LLM-driven or template-driven before building at scale.
+**Proof-of-concept decisions:**
+- The three entries use finding-appropriate remediation guidance rather than forcing one redline/template format.
+- Suggested fixes remain drafts for qualified human review and are not legal advice.
+- Internal evidence is preserved in data; sanitized output uses paraphrase and source location.
+- `generate_drilldown.py` produces combined, carrier-scoped, and sanitized HTML from one JSON source.
+- Buyer usefulness, expert acceptance, and paid-deliverable scope remain validation questions, not unfinished Sandbox 004 implementation.
 
 ---
 
 ### [x] BACKLOG-018: Procure ISO HO 00 03 and HO 00 05 Base Policy Forms — CLOSED 2026-06-04
 
-**Status:** Closed — ISO base forms treated as implicit gold standard; procurement not required  
+**Status:** Closed as an active procurement task; edition-specific comparison still requires verified source text  
 **Affects:** Corpus completeness; ADR-011 evidentiary completeness  
 **Priority:** Resolved
 
@@ -388,7 +381,7 @@ The base ISO homeowners policy forms for the carriers in our corpus:
 
 These forms contain the definitions section where ACV is defined, and the base coverage structure that all endorsements amend.
 
-**Why this is no longer a blocker (decided 2026-06-04):** The H003 finding per ADR-011 is "undisclosed ACV calculation methodology," not "undefined ACV term." ISO HO 00 03 defines ACV — that is established industry and litigation fact that does not require us to hold a copy. The finding survives regardless: nowhere in the filed policy package does the carrier disclose *how depreciation is calculated* (specifically, whether labor can be depreciated). For KFBM, HO 04 93 is already in corpus and can be verified directly. For KNIC, we can accurately state that ISO HO 00 03 defines ACV but does not specify depreciation methodology — a gap documented in years of class action litigation — without holding the document. ISO forms are needed only if we want to do a verbatim corpus comparison, which is a nice-to-have, not required for the drill-down report.
+**Why this is no longer a blocker (corrected 2026-06-05):** The H003 review question is "undisclosed ACV calculation methodology," not merely "undefined ACV term." The available KFBM/ISO HO 04 93 endorsement evidence supports asking how roof-surfacing depreciation is calculated, but it does not establish KFBM's complete base-form definition domain. KNIC's exact ISO base-form text is also not parsed in the preserved corpus. Any report must frame the missing methodology as a review question and state the package limitation. ISO base forms become necessary only for an explicit edition-specific comparison or definition-domain conclusion.
 
 **Progress:**
 
@@ -426,7 +419,7 @@ Multi-state master policy jackets filed in a specific state without the required
 - Emits one consolidated MEDIUM finding per source where multi-state cues are present but no Kentucky amendatory text is found.
 - No edge graph required — purely text-presence detection. Acceptance criteria all met.
 
-**Run result (18b0dec5, 2026-06-05):** H007 fired **zero times**. Confirmed correct: current corpus (KFBM HO 04 93 proprietary + KNIC ISO-by-reference) contains no multi-state jacket language. H007 will fire if a multi-state master jacket filing is added to the corpus.
+**Run result (18b0dec5, 2026-06-05):** H007 fired **zero times** because the current carrier nodes contain no multi-state jacket cue. ISO HO 04 93 is an endorsement, not KFBM's base form; KFBM's actual base jacket is absent. H007 will fire only when a source package supplies its multi-state precondition without Kentucky amendatory text.
 
 **Relationship to existing work:**
 Extends the source-level pattern established by H004-H006 graph-gap detection (ADR-010).
@@ -444,7 +437,7 @@ Extends the source-level pattern established by H004-H006 graph-gap detection (A
 - Scans carrier nodes once: identifies Definitions Section nodes (by `section_path` keyword or opening text), extracts quoted defined terms per source; collects quoted terms from body nodes.
 - Emits one LOW-confidence finding per (source, term) where a quoted term appears in the policy body but has no matching entry in the same source's Definitions Section.
 - Guards: only fires when a Definitions Section is found AND at least one term was extracted (avoids empty-Definitions false positives).
-- Amendment-deletion detection deferred (requires richer structural metadata).
+- Amendment-deletion detection is outside the completed scope and would require a new stage plus richer structural metadata.
 
 **Run result (18b0dec5, 2026-06-05):** H004 fired **zero times**. Confirmed correct: current corpus contains only 4 nodes matching "definitions" in section path or opening text — all are rate manual construction/zone definitions, not insurance policy Definitions Sections. Only 7 carrier nodes contain any double-quote characters (rate table entries). Base policy forms with properly formatted Definitions Sections are not in the current corpus. H004 will fire when those forms are added.
 
@@ -452,7 +445,7 @@ Extends the source-level pattern established by H004-H006 graph-gap detection (A
 
 ### [x] BACKLOG-021: KFBM Base Policy Jacket Confidence Limitation — CLOSED 2026-06-05
 
-**Status:** Closed — three conditions confirmed; procurement not required  
+**Status:** Closed as an active procurement task; the missing base jacket remains a documented evidence limitation  
 **Priority:** LOW — do not block higher-value package-level or cross-document work
 **Affects:** Sandbox 002 Stage 006 SMELL2-H004; future drill-down entries for KFBM
 
@@ -463,15 +456,15 @@ KFBM's current new-business base policy form would contain the carrier's Definit
 ISO-adopting carriers (e.g., KNIC) outsource their definition domain to ISO HO 00 03. Missing definitions in a KNIC endorsement are almost certainly covered by ISO by reference — KNIC is already a lower-value prospect. Proprietary-base-form carriers (KFBM) OWN their definition domain: every term used in an endorsement or amendment must be defined somewhere in their own filing package or it is a genuine gap. No ISO fallback. This is the core value of H004.
 
 **Current corpus status (updated 2026-06-05):**
-`KY-SERFF-KFBM-134503212-HO-FORM` is in the corpus but redacted (25 KB). More critically: ISO HO 04 93 has been confirmed as an **endorsement** form — "Actual Cash Value Loss Settlement: Windstorm or Hail Losses to Roof Surfacing" (ISO copyright 1999, 2 pages). HO 04 XX = ISO endorsements by definition. Therefore `KY-SERFF-KFBM-134503212-HO-FORM` is KFBM's version of this endorsement, NOT their base policy jacket. KFBM's actual base policy jacket has an **unknown form number**. The ISO HO 04 93 standard form has been added to the corpus (ISO-HO-04-93-1000) as H003 evidentiary support.
+`KY-SERFF-KFBM-134503212-HO-FORM` is in the corpus but redacted (25 KB). More critically: ISO HO 04 93 has been confirmed as an **endorsement** form — "Actual Cash Value Loss Settlement: Windstorm or Hail Losses to Roof Surfacing" (ISO copyright 1999, 2 pages). The available HO 04 93 artifacts identify themselves as endorsements. Therefore `KY-SERFF-KFBM-134503212-HO-FORM` is KFBM's version of this endorsement, NOT their base policy jacket. KFBM's actual base policy jacket has an **unknown form number**. The ISO HO 04 93 standard form has been added to the corpus (`ISO-HO-04-93-1000`) as H003 evidentiary support.
 
 **Current product-value decision:**
 Do not treat unredacted proprietary base-form procurement as a required corpus milestone. A redacted base jacket or filing reference is enough to support a limitation note: definition-domain review cannot be completed from public text. It is not enough to confirm that a term is missing from the Definitions Section.
 
-**Resolution (2026-06-05):** Closed on three conditions confirmed by owner:
-1. **Pre-2018 forms are out of scope** — KFBM's base jacket almost certainly predates SERFF Filing Access's November 2018 cutoff, cutting off the SERFF path. The KY DOI open records route (502-564-3630) was the only remaining option; with pre-2018 out of scope, the procurement path closes.
-2. **Trust internal document links** — KFBM endorsements reference the base form by implication. H004 is documented as not fireable on KFBM without the Definitions Section; this is a corpus limitation note, not an active gap to fill.
-3. **ISO trust (note: applies to KNIC, not KFBM)** — KNIC is ISO-adopting and ISO HO 00 03 covers their definition domain without holding a copy. KFBM is proprietary — no ISO fallback — but the KFBM procurement path is closed by conditions 1 and 2 regardless.
+**Resolution (2026-06-05, clarified 2026-07-13):** Closed for the current milestone on three bounded conditions:
+1. **Pre-2018 acquisition is outside the current corpus scope.** The project did not verify the KFBM base jacket's filing date, but the public SERFF path did not produce the required text and no current experiment justifies a records request.
+2. **Internal document references are context, not substitute source text.** H004 cannot establish a missing definition domain without the base package, so the absence is recorded as a limitation rather than a confirmed defect.
+3. **ISO reliance does not remove source verification.** KNIC may use ISO forms by reference, but an edition-specific comparison requires the applicable verified text. KFBM's unknown base form cannot be inferred from ISO HO 04 93.
 
 H004 fires zero on current corpus and will continue to without the base jacket. Nothing active is blocked. The H004/H006 gap sentinels in case_library.json are separately documented as FOIA-wall issues independent of this item.
 
@@ -498,22 +491,22 @@ Step 2 — Procure unredacted text:
 
 ### [x] BACKLOG-022: Commercial Report Output — Copyright-Safe Sanitization Pass — RESOLVED 2026-06-05
 
-**Status:** Open — design constraint identified 2026-06-05
-**Priority:** HIGH — blocks commercial distribution of any report containing carrier or ISO policy text
+**Status:** Resolved 2026-06-05
+**Priority:** Was high for external distribution; the conservative sanitization path is now implemented
 **Affects:** `sandboxes/004-expert-drilldown/output/drilldown_report.html`; any future commercial report pipeline; `stages/003-executive-report/src/report_builder.py`
 
 **What the problem is:**
-All carrier policy forms (KFBM, KNIC) and ISO forms (HO 00 03, HO 04 93, etc.) are copyrighted. Verbatim reproduction of their text in a report sold to another party constitutes copyright infringement — regardless of whether the text appears as evidence, quotation, or illustration. The internal research layer (findings JSONL, drill-down entries JSON, KRS-KAR audit markdown) can and must retain verbatim `evidence_text` for analysis. The commercial output layer cannot.
+Carrier and ISO forms may be copyrighted or licensed. The project therefore uses a conservative rule: do not reproduce their verbatim text in externally distributed commercial reports unless qualified legal review and the applicable license permit it. Internal research artifacts retain source evidence for analysis; sanitized output uses paraphrase and source location. This is a project risk-control rule, not a legal conclusion about every possible quotation or use.
 
 **Copyright exposure map:**
 
-| Content type | Copyrighted? | Commercial report safe? |
+| Content type | Conservative project assumption | External-output default pending qualified review |
 |---|---|---|
-| Carrier policy forms (KFBM, KNIC) | Yes — carrier | ❌ No verbatim text |
-| ISO forms (HO 00 03, HO 04 93, etc.) | Yes — ISO | ❌ No verbatim text |
-| KRS / KAR regulatory text | Public domain | ✅ |
-| Court opinions / case law (US) | Public domain | ✅ Full text fine |
-| Our own findings/analysis language | We own it | ✅ |
+| Carrier policy forms (KFBM, KNIC) | Treat as protected or license-controlled | Paraphrase and cite source location; do not reproduce extended text by default |
+| ISO forms (HO 00 03, HO 04 93, etc.) | Treat as protected and license-controlled | Paraphrase and cite only under the applicable license/review boundary |
+| KRS / KAR regulatory text | Government legal material | Cite the official source; keep quotations targeted and verify any reuse requirements |
+| Court opinions / case law (US) | Judicial opinions are generally reusable, but publisher additions may not be | Prefer official/public opinion text and use only what the report needs |
+| Project-authored findings/analysis | Project-authored unless they embed third-party text | Reuse after checking that no protected evidence was copied into the prose |
 
 **What the fix is:**
 A sanitization render pass in the commercial output pipeline that:
@@ -528,94 +521,56 @@ The two-layer separation already exists: the raw findings JSONL and drill-down J
 **Relationship to BACKLOG-015:**
 Case law text (CourtListener, court opinions) is US public domain — full case text retrieval is safe. The copyright constraint applies only to carrier/ISO forms.
 
-**Next action:**
-Before building the commercial report pipeline, define the `paraphrased_evidence` field in the drill-down entry schema. For current PoC entries (S4-H001, S4-H004, S4-H003), draft paraphrased versions of the evidence text. Add a `--sanitize` flag to the commercial report renderer analogous to the existing `--anonymize` flag.
+**Resolution:** `paraphrased_evidence`, `paraphrased_context`, and `paraphrased_current_language` are present for all three entries. `generate_drilldown.py --sanitize` selects those fields at render time, and the five verified variants include KFBM and KNIC sanitized outputs. This is a conservative engineering control, not a legal opinion that every unsanitized quotation would be impermissible.
 
 ---
 
-### [ ] BACKLOG-023: Per-Carrier Report Pipeline — Pitch Report vs. Product Report Split
+### [x] BACKLOG-023: Per-Carrier Report Pipeline — RESOLVED 2026-06-05
 
-**Status:** Open — architecture decided 2026-06-05
-**Priority:** HIGH — required before any commercial delivery
-**Affects:** `stages/003-executive-report/src/report_builder.py`; `stages/006-deterministic-detectors/src/detector_runner.py`; `sandboxes/004-expert-drilldown/output/drilldown_report.html`
+**Status:** Complete on the detector and expert drill-down layers
+**Affects:** Sandbox 002 Stage 006 and Sandbox 004 report generation
 
-**The product model (decided 2026-06-05):**
+The June 5 design initially proposed carrier-specific executive reports. Implementation clarified the correct boundary:
 
-Three distinct report artifacts, one pipeline:
+- The executive summary remains a combined, optionally anonymized pitch/research artifact.
+- `detector_runner.py --carrier KFBM|KNIC` creates carrier-scoped detector outputs without reparsing.
+- `generate_drilldown.py --carrier KFBM|KNIC` creates carrier-scoped expert reports.
+- `generate_drilldown.py --sanitize` switches report evidence to the paraphrased fields added under BACKLOG-022.
+- `report_builder.py` was intentionally not given a carrier mode; the carrier-specific product-content path belongs in the drill-down generator.
 
-| Artifact | Audience | Carrier scope | Existing status |
-|---|---|---|---|
-| **Pitch report** | Prospect — any carrier | Anonymized multi-carrier benchmark | Mostly exists: `--anonymize` run of `report_builder.py` |
-| **Product report — KFBM** | KFBM (paying client) | KFBM findings only, named | Not yet wired |
-| **Product report — KNIC** | KNIC (paying client) | KNIC findings only, named | Not yet wired |
+**Completed acceptance checks:**
 
-The pitch report is the sales hook: "We scanned the Kentucky homeowners market and found these patterns across Carrier A and Carrier B." The prospect buys to find out which is them and get the full findings with remediation guidance. The product report is the deliverable they pay for.
-
-The current combined corpus run is the **benchmark artifact** (pitch report). A per-carrier filtered run is the **product artifact**.
-
-**What needs to be built:**
-
-1. **`--carrier` filter flag on `detector_runner.py`** (or passed to report_builder):
-   - Accept a carrier identifier (e.g., `KFBM`, `KNIC`) and filter corpus nodes to that carrier's source_ids before running detectors.
-   - Source_id prefixes: KFBM sources start with `KY-SERFF-KFBM-`; KNIC sources start with `KY-SERFF-KNIC-`.
-   - Output: per-carrier `detector_findings_KFBM.jsonl` and `detector_findings_KNIC.jsonl` alongside the combined run.
-
-2. **Per-carrier executive report**:
-   - `report_builder.py --carrier KFBM` generates a report scoped to KFBM findings only, with KFBM named explicitly (not anonymized — this is their report).
-   - `report_builder.py --carrier KNIC` same for KNIC.
-   - `report_builder.py --anonymize` remains the pitch report (combined, anonymized).
-   - The carrier comparison section is suppressed or reframed ("your filing package") in per-carrier mode.
-
-3. **Per-carrier drill-down HTML**:
-   - `sandboxes/004-expert-drilldown/output/drilldown_report.html` currently shows all entries. A `--carrier` flag on the report generator filters to that carrier's entries.
-   - Alternatively: separate output files `drilldown_KFBM.html` and `drilldown_KNIC.html`.
-
-4. **Copyright sanitization** (see BACKLOG-022):
-   - Per-carrier product reports are commercial deliverables — must use `paraphrased_evidence` not `verbatim_evidence`.
-   - Pitch report (benchmark) uses only our own analysis language — already clean.
-
-**What is already done:**
-- [x] Combined corpus run with findings — `detector_findings.jsonl` — exists
-- [x] `--anonymize` flag on `report_builder.py` — pitch report mode exists
-- [x] Source_id prefixes are stable and carrier-distinguishable
-- [ ] `--carrier` filter on detector runner
-- [ ] Per-carrier report builder mode
-- [ ] Per-carrier drill-down output
-- [ ] Copyright sanitization pass (BACKLOG-022)
-
-**Acceptance criteria:**
-- `python detector_runner.py --carrier KFBM` produces a findings file containing only KFBM-source findings
-- `python report_builder.py --carrier KFBM` produces a named, per-carrier executive report
-- `python report_builder.py --anonymize` (no `--carrier`) continues to produce the combined benchmark/pitch report
-- Both per-carrier and combined runs are reproducible from the same corpus without re-parsing
+- [x] Combined findings output remains reproducible.
+- [x] Carrier-filtered detector outputs contain only the requested carrier prefix.
+- [x] Combined, KFBM, KNIC, KFBM-sanitized, and KNIC-sanitized drill-down variants are generated from one data file.
+- [x] Internal evidence remains in the data layer while sanitized renders use paraphrased evidence.
+- [x] The executive report retains its combined/anonymized role.
 
 ---
 
 ### [x] BACKLOG-005: Phase A Entry — Agile V Framework Integration and SE Expert Configuration — CLOSED 2026-06-05
 
-**Status:** Closed — superseded by Sandbox 005 (active experiment)  
-**Priority:** HIGH — this is the next major project milestone, not a distant concern
+**Status:** Closed — promoted to Sandbox 005; Stage 002 there is ready but owner-gated  
+**Priority:** Controlled by the Sandbox 005 stage plan, not this historical backlog item
 
-**What this is:**
-The sandbox research phase is substantively complete. The detection pipeline works, findings are calibrated, a sales report exists, and the product direction (expert drill-down report, BACKLOG-017) is identified. The next milestone is entering Phase A of the Agile V lifecycle: formal stakeholder analysis, concept of operations, requirements, and architecture decisions made with real SE rigor.
+**Historical proposal:**
+This item originally assumed that formal Agile V Phase A work should follow the early detector/report proofs and that SE coursework, a dedicated standards RAG corpus, and mandatory Gherkin were prerequisites. Sandbox 005 Stage 001 tested that premise against the repository's actual needs and external SDLC systems.
 
-**Blocked on (owner lane):**
-1. **SE coursework** — owner completing MIT SE courses and related material to establish the SE grounding needed for Phase A work.
-2. **SE expert RAG corpus** — configure a RAG knowledge base covering:
-   - NASA: NPR 7120.5 (Program/Project Management), SE Handbook (SP-2016-6105), potentially GSFC/JPL standards
-   - INCOSE: Systems Engineering Handbook
-   - IEEE: 15288 (system lifecycle), 12207 (software lifecycle), 29148 (requirements engineering), and related standards
-   - Possibly DAU/DoD materials depending on the Agile V framework interpretation in use
-   This corpus turns the AI assistant into an SE-grounded collaborator for Phase A work rather than a general-knowledge approximation.
-3. **Gherkin / BDD specification language** — owner to learn Gherkin before Phase A begins. Gherkin is the specification language for all code behavior in this project going forward. Given-When-Then syntax produces human-readable acceptance criteria that map cleanly onto Agile V test levels (unit, integration, system, acceptance). Gherkin specs will be the bridge between SE requirements and implementation — requirements trace to scenarios; scenarios drive tests. Tools: Behave (Python), Cucumber (multi-language). The SE RAG corpus should include BDD/Gherkin reference material alongside the NASA/INCOSE/IEEE standards.
+**Current decision:**
+- The repository's existing stage plans, ADRs, checklists, handoffs, journals, lessons, validation records, and `AGENT_CONTEXT.json` remain the control plane.
+- Selected Agile V concepts may strengthen traceability, risk, and evidence without importing a second complete state tree.
+- Codex CLI is the first execution engine to test; manual worktrees and one-writer discipline come before orchestration.
+- SwarmForge receives an executable comparison only in Stage 004 if the manual pilot first establishes a need.
+- SE coursework, a standards RAG corpus, and universal Gherkin are not prerequisites imposed on current work. A future stage may adopt any of them for a demonstrated problem.
+- Formal Phase A lifecycle work has not started.
 
-**Sandboxes during this period:**
-Sandbox work continues in parallel. Discovery, proof-of-concept experiments, and the drill-down report (BACKLOG-017) all feed the product decisions that Phase A will formalize. Do not pause sandbox work to wait for Phase A to start.
+**Disposition checklist:**
+- [x] Promote the SDLC-system question to Sandbox 005.
+- [x] Complete Sandbox 005 Stage 001 system selection and document all five stages.
+- [x] Retire this backlog item as a current instruction source.
+- [ ] Owner explicitly authorizes Sandbox 005 Stage 002 before `S005-PILOT-001` begins.
 
-**Product direction is not yet fixed:**
-Phase A is where the product gets formally defined through stakeholder analysis and concept of operations. The sandbox outputs are the evidence going into that conversation, not the answer.
-
-**Resolution (2026-06-05):** Superseded. The Phase A / Agile V / SE stack work has been promoted to Sandbox 005 as an active experiment. Backlog item retired — track progress in `sandboxes/005-agentic-sdlc-project-manager/` instead.
+Track the current experiment only in `sandboxes/005-agentic-sdlc-project-manager/`, its stage plan, and the current root status documents.
 
 ---
 
@@ -627,8 +582,8 @@ Phase A is where the product gets formally defined through stakeholder analysis 
 | BACKLOG-001 | Smell 5 detector calibration | Rebuilt as two-tier (lexical + graph gap); 12 Smell 5 findings | 2026-06-04 |
 | BACKLOG-002 | Corpus file extension mismatches | .html → .pdf renamed for two KRS files | 2026-06-05 |
 | BACKLOG-004 | Stage 005 re-open conditions | All three gates met; Stage 005 reopened | 2026-06-04 |
-| BACKLOG-005 | Phase A entry | Superseded by Sandbox 005 (active experiment) | 2026-06-05 |
-| BACKLOG-006 | Node provision-type classification | ADR-013 written; language_context field designed; implementation deferred | 2026-06-05 |
+| BACKLOG-005 | Phase A entry | Promoted to Sandbox 005; Stage 001 complete and Stage 002 owner-gated | 2026-06-05 |
+| BACKLOG-006 | Node provision-type classification | ADR-013 written; implementation parked behind a new explicit stage | 2026-06-05 |
 | BACKLOG-007 | KRS/KAR definitional audit | Zero terms defined; 806 KAR 12:095 strengthens H003 | 2026-06-05 |
 | BACKLOG-008 | Smell 2/4 miscategorization | ADR-011; H003 reclassified as methodology-disclosure gap | 2026-06-04 |
 | BACKLOG-009 | Non-deterministic underwriting criteria | Taxonomy entry added to both taxonomy files | 2026-06-05 |
@@ -637,12 +592,12 @@ Phase A is where the product gets formally defined through stakeholder analysis 
 | BACKLOG-012 | H005 fires on filing instructions | "is not mandatory" removed; _H005_FP strengthened; ADR-013 | 2026-06-05 |
 | BACKLOG-013 | Carrier name anonymization | --anonymize flag on report_builder.py | 2026-06-04 |
 | BACKLOG-014 | LLM prose quality improvement | Direct editorial pass on executive_summary.md | 2026-06-04 |
-| BACKLOG-015 | Case library | 4 cases (CL-001–004), 4 sentinels, all dollar anchors sourced | 2026-06-05 |
+| BACKLOG-015 | Case library | 4 cases/actions (CL-001–004), 6 gap sentinels, complete to public-web limit | 2026-06-05 |
 | BACKLOG-016 | Dollar-sign rendering guard | _safe_dollar() helper in report_builder.py | 2026-06-04 |
 | BACKLOG-017 | Expert drill-down report | Sandbox 004 PoC complete; generate_drilldown.py with 5 variants | 2026-06-04 |
-| BACKLOG-018 | ISO base form procurement | Closed — not required for current milestone | 2026-06-04 |
+| BACKLOG-018 | ISO base form procurement | Closed for current milestone; verified text still required for edition-specific comparison | 2026-06-04 |
 | BACKLOG-019 | Missing state amendatory detector | SMELL5-H007 implemented (fires zero — corpus gap, correct) | 2026-06-05 |
 | BACKLOG-020 | Broken definitions loop detector | SMELL2-H004 implemented (fires zero — corpus gap, correct) | 2026-06-05 |
-| BACKLOG-021 | KFBM base jacket procurement | Closed — pre-2018 OOS, trust internal links, ISO covers KNIC | 2026-06-05 |
-| BACKLOG-022 | Copyright sanitization | paraphrased_* fields + --sanitize flag on generate_drilldown.py | 2026-06-05 |
+| BACKLOG-021 | KFBM base jacket procurement | Closed as active procurement; missing package remains an explicit evidence limitation | 2026-06-05 |
+| BACKLOG-022 | Copyright sanitization | Conservative paraphrased fields + `--sanitize`; not a legal opinion | 2026-06-05 |
 | BACKLOG-023 | Per-carrier report pipeline | --carrier on detector_runner.py + generate_drilldown.py | 2026-06-05 |

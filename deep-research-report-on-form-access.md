@@ -1,5 +1,7 @@
 # Accessibility map for Kentucky homeowners policy filing packages
 
+Status: Dated deep-research snapshot. The inline tool-export citation markers are not portable references, and access rules, contacts, portal behavior, and legal eligibility may change. Use `corpus/PROCUREMENT-STRATEGY.md`, `corpus/kentucky-homeowners-policy-smells/CORPUS-SOURCES.md`, and `KNOWN-GAPS.md` for current project handling; reverify primary sources before action.
+
 ## Core findings
 
 The highest-friction part of your document universe is **KFBM’s proprietary homeowners package**, especially the **base jacket** and any foundational filings that predate **November 1, 2018**, because Kentucky’s public SERFF Filing Access only exposes filings made after that date. Kentucky DOI’s own public-access guidance says post-2018 electronic filings are available in SERFF Filing Access at no cost, while filings before November 1, 2018 must be obtained from the Department through open records. Kentucky also warns that SERFF Filing Access is only an alternative access method, that the state decides what is public, and that users must observe third-party copyrights; the NAIC terms also prohibit bypassing the intended workflow to automate downloads. For an automated gap-detector project, that means the cleanest acquisition path is **one written DOI request for current in-force packages plus the foundational pre-2018 approving filings**, rather than trying to scrape SFA. citeturn12view0turn11search4turn15search4
