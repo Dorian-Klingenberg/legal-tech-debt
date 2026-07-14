@@ -1,126 +1,92 @@
-# Sandbox 002: Kentucky Homeowners Policy-Layer Smell Experiments
+# Sandbox 002: Kentucky Homeowners Policy-Layer Phish Prototypes
 
-Status: Complete; preserved as evidence substrate
-Current controlling scope: `002-five-policy-layer-phish.md`
-Created: May 2026
+## Project Overview
 
-> This sandbox is closed. Start at the repository `README.md` for current work. Read `CLOSURE.md` and the ADRs here only when using or explicitly reopening the preserved evidence pipeline. `HANDOFF-2026-06-04b.md` is a historical closure-era snapshot.
+Sandbox 002 is the active work lane. It is currently focused on **Kentucky homeowners insurance policy-layer smells** and the **five policy-layer phish** plan in [002-five-policy-layer-phish.md](002-five-policy-layer-phish.md).
 
-## Purpose
+The immediate goal is to produce small, explainable, fixture-first detector prototypes that make policy defects visible early, before they become costly disputes, rework, or compliance fire drills.
 
-Sandbox 002 was the proof-of-concept lane for Kentucky homeowners insurance legal tech debt experiments.
+**Current scope**: Kentucky homeowners insurance only. Do not start personal auto, motor vehicle, no-fault, or PIP work unless the user explicitly reopens that scope.
 
-The work is intentionally narrow: build quick, clean, readable discovery, instrumentation, detectors, and reviewer evidence around the five policy-layer smells in the five-smell report. Sandbox 001 is complete and should be treated as a source of reusable primitives, not as a source of new scope.
+---
 
-## Preserved Scope
+## Current Priority: Five Policy-Layer Phish
 
-Preserved focus:
+Primary near-term workstream:
 
-- Kentucky homeowners insurance.
-- Policy-layer and claim-adjacent policy interpretation defects.
-- Small public source slices, discovery outputs, and clearly marked synthetic seeds only where needed.
-- Plain local scripts and reviewable Markdown/JSON/CSV outputs.
-- Human-readable evidence that a policy, claims, compliance, or product reviewer can understand.
+1. Overbroad / Non-deterministic Exclusions
+2. Magic Number / Magic Valuation Terms
+3. Coverage Inversion / Contradictory Conditions
+4. Calculation Rule Drift / Unversioned Rate Reference
+5. Regulatory Mapping Smells (generic "state law", null references)
 
-Out of scope unless explicitly reopened:
+The canonical detection blueprints and Gherkin-style checks live in [002-five-policy-layer-phish.md](002-five-policy-layer-phish.md).
 
-- Personal auto, motor vehicle, no-fault, and PIP.
-- Broad claims platform work.
-- Live regulatory feeds.
-- PAS or carrier system integration.
-- Databases, services, schedulers, Docker, or production architecture.
-- LLM/NLP pipelines unless a later stage earns them with a concrete need.
+---
 
-## Five Preserved Smells
+## Implementation Style (Sandbox Contract)
 
-All Sandbox 002 documentation, plans, stages, and fixtures should align to these smells:
+- Keep prototypes lightweight, readable, and deterministic.
+- Start with small KY fixtures first; expand only after detector behavior is clear.
+- Prefer regex/rule heuristics plus simple clause/reference graphs over heavy NLP infrastructure.
+- Produce explainable outputs (`findings.json`, concise markdown summaries, fixture notes).
+- Keep human review in the loop; detector findings are not legal advice.
 
-| Smell | What We Are Looking For |
-|---|---|
-| Overbroad / Non-deterministic Exclusions | Exclusions with sweeping trigger language, broad subjects, or conflicts with the coverage grant. |
-| Magic Number / Magic Valuation Terms | Undefined timing, valuation, or calculation terms where a concrete number, formula, or version is needed. |
-| Coverage Inversion / Contradictory Conditions | Broad grants that are hollowed out by exclusions, endorsements, exceptions, or conflicting priority rules. |
-| Calculation Rule Drift / Unversioned Rate Reference | Rating or valuation rules that depend on unversioned manuals, current guidelines, or opaque formulas. |
-| Regulatory Mapping Smells | "Per state law" and similar null references with no Kentucky citation, schedule, parameter, or versioning. |
+---
 
-See `002-five-policy-layer-phish.md` for the controlling detection specs and Gherkin scenarios.
+## Relationship to Sandbox 001
 
-## Relationship To Sandbox 001
+Sandbox 001 remains reusable foundation work. Bring forward only the primitives that help the current policy-layer phish detectors:
 
-Sandbox 001 proved useful legal debt primitives:
+- section/reference extraction
+- dangling/null reference checks
+- circular reference checks
+- simple matrix/graph outputs
+- JSON/CSV/Markdown evidence generation
 
-- section extraction
-- reference extraction
-- dangling/null reference detection
-- circular reference detection
-- orphan definition detection
-- graph/matrix outputs
-- JSON, Markdown, CSV, and static dashboard evidence
-- staged proof-of-concept workflow
+See [002-CARRY-FORWARD-FROM-001.md](002-CARRY-FORWARD-FROM-001.md) for reuse guidance.
 
-Sandbox 002 should reuse those only where they help the five active homeowners policy-layer smells. The primitive is support equipment, not the mission.
+---
 
-See `002-CARRY-FORWARD-FROM-001.md` for the carry-forward rules.
+## Near-Term Implementation Targets
 
-## Current Documentation Map
+The first detector implementations should stay close to the five-phish plan and KY homeowners data reality:
 
-| Document | Role |
-|---|---|
-| `002-five-policy-layer-phish.md` | Source of truth for active detector scope. |
-| `002-ROI-CASES-FIVE-SMELLS.md` | Smell-specific ROI cases, public cost anchors, service pricing, and buyer savings logic. |
-| `002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md` | How to collect Kentucky homeowners source material for the five smells. |
-| `002-RAG-INGESTION-RETRIEVAL-SPEC.md` | Implemented and frozen engineering contract for the local-first evidence substrate. |
-| `002-RAG-SUBSYSTEM-PLAN.md` | Implemented and frozen component design record. |
-| `002-RAG-STAGE-PLAN.md` | Completed stage-by-stage implementation record and post-closure result addendum. |
-| `adr/ADR-001-rag-substrate-reuses-001-structure.md` | Skill architecture decision to reuse Sandbox 001 graph/data structures and keep findings downstream of RAG storage. |
-| `adr/ADR-002-semantic-vector-retrieval-deferred-not-dropped.md` | Skill architecture decision that semantic vector retrieval is expected but vector store selection is deferred until evaluation. |
-| `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md` | Path decision: discovery-and-instrumentation comes before fixture detectors; parser/reference uncertainty is evidence. |
-| `adr/ADR-004-schema-run-identity-and-id-stability.md` | Artifact contract decision: schema versions, run identity, run manifest, and stable IDs are required for Stage 002 outputs. |
-| `adr/ADR-008-stage-002-artifact-contract-repair.md` | Repair decision: Stage 002 implementation drift was restored to the artifact contract. |
-| `adr/ADR-009-close-sandbox-002-with-smell-5-limitation.md` | Historical closure decision before Smell 5 was recalibrated. Superseded for Smell 5 state by ADR-010. |
-| `adr/ADR-010-smell5-retrieval-architecture-gap-detection.md` | Smell 5 architecture decision: graph-based gap detection, not vector similarity. |
-| `adr/ADR-011-h003-reclassification-methodology-gap-not-undefined-term.md` | H003 framing decision: undisclosed methodology is Smell 4, not undefined term. |
-| `CLOSURE.md` | Closure record and final validated state for Sandbox 002. |
-| `002-CARRY-FORWARD-FROM-001.md` | What to reuse from Sandbox 001 and what to leave parked. |
-| `002-ROADMAP-revised.md` | Historical implementation roadmap, superseded by the completed RAG stage plan and closure record. |
-| `HANDOFF-2026-06-04b.md` | Historical closure-era handoff documenting the 35-finding June 4 snapshot. |
-| `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv` | Real-document source manifest, downloaded paths, and smell mappings. |
-| `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md` | Known source gaps and rules for when to chase manual SERFF material. |
-| `002-PAIN-POINTS-TAXONOMY.md` | Background rationale only; do not use it to expand active scope. |
-| `001-vs-002-REUSE-ANALYSIS.md` | Background reuse analysis only; superseded by current carry-forward guidance. |
-| `002-ROADMAP.md` | Historical roadmap only; superseded by the revised roadmap. |
+1. **Regulatory Mapping + Broken/Null Reference pass**
+   - Detect "as required by law"/"applicable law" clauses without concrete KY citations.
+   - Detect missing internal targets and stale external references where possible.
+2. **Calculation Rule Drift / Unversioned Reference pass**
+   - Flag "current manual/current guideline" references without edition/date/version.
+   - Compare filed/expected formula snippets vs. implemented formula snippets in a narrow fixture.
+3. **Magic Terms + Overbroad Exclusion pass**
+   - Flag undefined temporal/valuation terms and broad exclusion trigger language.
+4. **Coverage Inversion pass**
+   - Build small grant→exclusion→exception chains and flag contradictory/hollowed grants.
 
-## Final Stage State
+---
 
-Stages 001-007 are complete. The final repaired run is:
+## Staged Next Steps
 
-`output/002/20260604_130606_18b0dec5/`
+1. **Stage A: Fixture Curation**
+   - Build a small KY homeowners fixture set (forms, endorsements, rate/rule snippets, KY legal references).
+2. **Stage B: Detector Prototypes**
+   - Implement the first two high-traction passes above with explainable outputs.
+3. **Stage C: Expand to Full Five-Phish Coverage**
+   - Add remaining phish detectors incrementally.
+4. **Stage D: Calibration**
+   - Review false positives/negatives on fixtures and tighten heuristics before any broader expansion.
 
-Final validated outputs include:
+The detailed sequencing and success gates are in [002-ROADMAP-revised.md](002-ROADMAP-revised.md).
 
-- source-traceable parser artifacts, nodes, citations, references, and graph edges
-- parser diagnostics and parse warnings
-- candidate evidence for policy-layer smells
-- retrieval bundles shaped for future hybrid retrieval
-- gold-set evaluation with BM25 21/21
-- deterministic detector findings across all five smells
-- reviewer HTML and Markdown reports
+---
 
-Count scopes are deliberately separate:
+## Planning and Reference Documents
 
-- the canonical corpus currently contains 32 unique files;
-- the preserved Stage 002 run ingested 28 sources and produced 353 nodes and 121 candidate-evidence records;
-- Stage 003 produced 39 retrieval bundles;
-- the current Stage 006 output contains 31 findings after four regulatory-layer Smell 3 false positives were removed;
-- Sandbox 003 preserves analysis of the earlier 35-finding snapshot.
+- [002-ROADMAP-revised.md](002-ROADMAP-revised.md) — active roadmap aligned to five policy-layer phish
+- [002-five-policy-layer-phish.md](002-five-policy-layer-phish.md) — detector blueprints + Gherkin scenarios
+- [002-PAIN-POINTS-TAXONOMY.md](002-PAIN-POINTS-TAXONOMY.md) — smell taxonomy, impact framing, and phish mapping
+- [002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md](002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md) — KY fixture source strategy
 
-## Current Disposition
+---
 
-Sandbox 003 consumed these outputs and is complete. Sandbox 004 built the expert drill-down report proof of concept and is also complete.
-
-BACKLOG-019 and BACKLOG-015 were completed after this sandbox closed. Current work is listed in the root `README.md` and `AGENT_CONTEXT.json`. Reopen Sandbox 002 only for a named evidence-substrate, corpus-rerun, or detector-calibration question.
-
-## Working Rule
-
-Treat this sandbox as closed unless the user explicitly reopens it. Do not add infrastructure, broaden corpus scope, or rewrite the Stage 002 artifact contract without a new decision record.
-
+*Last updated: June 2026*

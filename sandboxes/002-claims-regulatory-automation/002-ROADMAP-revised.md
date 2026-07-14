@@ -1,265 +1,125 @@
-# Roadmap: Sandbox 002 Kentucky Homeowners Policy-Layer Smells
+# Sandbox 002 Roadmap (Revised): Five Policy-Layer Phish for Kentucky Homeowners
 
-Version: 4.0
-Status: Historical completed roadmap; superseded by `002-RAG-STAGE-PLAN.md` and `CLOSURE.md`
-Controlling scope: `002-five-policy-layer-phish.md`
-Path decision: `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
-Artifact contract: `adr/ADR-004-schema-run-identity-and-id-stability.md`
+*Version 3.0 — June 2026*
 
-## Historical Completion Checklist
+This is the active Sandbox 002 roadmap. It narrows near-term execution to **Kentucky homeowners** and the **five policy-layer phish** workstream.
 
-- [x] Narrow the platform idea to Kentucky homeowners and five policy-layer smells.
-- [x] Complete the discovery, retrieval, evaluation, detector, and reviewer-report stages.
-- [x] Preserve the accepted limitations and close Sandbox 002.
-- [x] Supersede this roadmap with `002-RAG-STAGE-PLAN.md` and `CLOSURE.md`.
+---
 
-## Current Scope
+## Scope and Operating Constraints
 
-Sandbox 002 is focused on Kentucky homeowners insurance and the five policy-layer smells documented in `002-five-policy-layer-phish.md`.
+- Active sandbox: **Sandbox 002**
+- Active domain: **Kentucky homeowners insurance**
+- Active layer: **policy/rate/rule text and references**, not broad claims-platform automation
+- Delivery style: **lightweight, explainable, fixture-first prototypes**
+- Out of scope unless explicitly reopened: personal auto, motor vehicle, no-fault, PIP, heavy infrastructure, and premature productization
 
-The active smells are:
+---
 
-1. Overbroad / Non-deterministic Exclusions
-2. Magic Number / Magic Valuation Terms
-3. Coverage Inversion / Contradictory Conditions
-4. Calculation Rule Drift / Unversioned Rate Reference
-5. Regulatory Mapping Smells
+## Phase 0: Lock Inputs and Detector Contracts (Week 0–1)
 
-Do not pursue personal auto, motor vehicle, no-fault, PIP, broad claims platforms, live regulatory feeds, PAS integration, or production infrastructure unless the user explicitly reopens that scope.
+**Objective**: Make the five-phish plan executable with concrete fixtures and detector contracts.
 
-## Stage 001: Foundation Import
+### Deliverables
 
-Status: Complete bridge stage
-Location: `stages/001-foundation-import`
+1. **KY homeowners fixture pack (small, explicit)**
+   - Forms + endorsements
+   - Rate/rule excerpts
+   - KY legal references used for citation checks
+2. **Detector contracts for all five phish**
+   - signal patterns
+   - minimum required inputs
+   - explainable output schema
+3. **Phase 1 implementation ordering**
+   - choose the first two detector passes from the five-phish set
 
-Purpose:
+### Success Criteria
 
-- import the useful Sandbox 001 probe shape
-- confirm it runs against a tiny homeowners-oriented fixture
-- preserve the fast local workflow for later stages
+- ✅ Fixture pack is reproducible and documented
+- ✅ Detector contracts are clear enough to implement without architecture expansion
+- ✅ Phase 1 ordering is explicitly justified
 
-What it proves:
+---
 
-- plain Python is enough for the current sandbox style
-- Markdown fixtures and JSON/Markdown/CSV outputs are reviewable
-- section/reference extraction remains useful as a supporting primitive
+## Phase 1: First Two Detector Passes (Weeks 1–4)
 
-What it does not prove:
+**Objective**: Ship two high-value, explainable detector prototypes against the KY fixture.
 
-- it does not implement the five active homeowners smells
-- it does not validate real Kentucky filings
-- it does not justify infrastructure
+### Recommended first implementation targets
 
-## Stage 002: Homeowners Discovery And Instrumentation
+1. **Regulatory Mapping + Broken/Null Reference pass (Phish 5)**
+   - detect generic legal references without concrete KY anchors
+   - detect null internal references and obvious stale external references
+2. **Calculation Rule Drift / Unversioned Rate Reference pass (Phish 4)**
+   - flag unversioned "current manual/current guideline" references
+   - flag opaque calculation language lacking explicit formula/version anchors
 
-Status: Next recommended stage
-Suggested location: `stages/002-homeowners-discovery-instrumentation`
+### Outputs
 
-Objective:
+- `findings.json` (typed findings by phish and severity)
+- `report.md` (human-readable explanation with clause snippets and trigger rationale)
+- fixture-level evidence tables (CSV/Markdown) for traceability
 
-Build a deterministic, JSONL-first discovery-and-instrumentation pipeline over a tiny Kentucky homeowners corpus subset.
+### Success Criteria
 
-This stage is the first discovery pass. It should turn selected real corpus sources into source-traceable legal evidence records, parser diagnostics, conservative graph edges, future-compatible retrieval bundles, and candidate evidence for the five active smells.
+- ✅ Both passes run deterministically on the KY fixture
+- ✅ Findings are traceable to explicit text evidence
+- ✅ Reviewer can understand each flag without opaque model behavior
 
-The fixture is curated from these outputs. It is not a separate manual-first stage.
+---
 
-Inputs:
+## Phase 2: Complete Five-Phish Coverage (Weeks 5–8)
 
-- selected Kentucky homeowners source excerpts from `corpus/kentucky-homeowners-policy-smells/_download_manifest.csv`
-- known source gaps from `corpus/kentucky-homeowners-policy-smells/KNOWN-GAPS.md`
-- one or two documents per useful source type where practical
-- source metadata with access dates, URLs, filing metadata, and effective dates where available
+**Objective**: Add the remaining three policy-layer phish as incremental detectors.
 
-Deliverables:
+### Added detectors
 
-- `STAGE.md` documenting scope and limitations
-- `LESSON.md` documenting what discovery and instrumentation taught
-- `schema/` JSON Schemas for every JSON/JSONL artifact type
-- `data/source_manifest_subset.csv`
-- `data/heuristics.md`
-- `output/run_manifest.json`
-- `output/sources.jsonl`
-- `output/parser_runs.jsonl`
-- `output/blocks.jsonl`
-- `output/block_stats.jsonl`
-- `output/nodes.jsonl`
-- `output/citations.jsonl`
-- `output/references.jsonl`
-- `output/edges.jsonl`
-- `output/table_failures.jsonl`
-- `output/parse_warnings.jsonl`
-- `output/candidate_evidence.jsonl`
-- `output/retrieval_bundles.json`
-- `output/discovery_report.md`
-- curated fixture excerpts or clearly marked synthetic seeds only where the discovery pass cannot support a smell example directly
-- lightweight ROI notes for candidate evidence, using `002-ROI-CASES-FIVE-SMELLS.md`
+3. Overbroad / Non-deterministic Exclusions (Phish 1)  
+4. Magic Number / Magic Valuation Terms (Phish 2)  
+5. Coverage Inversion / Contradictory Conditions (Phish 3)
 
-Success criteria:
+### Success Criteria
 
-- every JSON/JSONL artifact carries schema version, run identity, and creation timestamp
-- IDs are stable under a fixed parsing strategy, with version bumps and migration notes for strategy changes that break ID stability
-- selected real corpus files become source-traceable blocks, nodes, references, citations, graph edges, and parser diagnostics
-- parser uncertainty is visible through parser runs, block stats, table failures, and parse warnings
-- citations and broader references are separated
-- graph edges are conservative and auditable
-- retrieval bundles are shaped for future lexical, semantic, metadata, graph, and citation signals even though the first implementation is file-backed and lexical-first
-- candidate evidence exists for each active smell, or the stage explains why the selected corpus slice did not support one
-- candidate evidence identifies the relevant cost pool and reviewer question without presenting legal conclusions
-- transparent heuristic rules are documented in `data/heuristics.md`
-- no auto/no-fault/PIP material is included except as explicitly noted homeowners context
-- manual SERFF gaps are not chased unless candidate evidence or reviewer questions require missing current-state carrier evidence
-- the stage remains runnable and understandable on a laptop
-- the stage targets 5-10 unique source files; expansion beyond that requires a stage note
+- ✅ All five phish have executable detector logic on the KY fixture
+- ✅ Output format is consistent across all detectors
+- ✅ False-positive notes and known limits are documented per detector
 
-Non-goals:
+---
 
-- no database
-- no vector store
-- no chatbot
-- no production service
-- no final legal findings
-- no LLM boundary adjudication by default
-- no cross-document topic modeling or cluster-level graph edges
-- no manual reviewer annotations written back into the Stage 002 substrate
+## Phase 3: Calibration and Hardening (Weeks 9–12)
 
-## Stage 003: Retrieval Baseline And Fixture Curation
+**Objective**: Improve quality and explainability before any broader expansion.
 
-Status: Completed as actual Stage 003; preserved here as the original plan
+### Deliverables
 
-Objective:
+1. **Calibration pass**
+   - tune rules based on fixture review feedback
+2. **Detector runbook**
+   - how to run, interpret, and review findings
+3. **Prioritized next-step backlog**
+   - candidate enhancements that preserve lightweight sandbox constraints
 
-Use Stage 002 evidence records to curate five-smell fixture examples and evaluate exact, lexical, graph-expanded, citation/reference, and metadata retrieval baselines.
+### Success Criteria
 
-Controlling documents:
+- ✅ Meaningful false-positive reduction on fixture re-runs
+- ✅ Detector behavior is stable across repeated runs
+- ✅ Next-step backlog is scoped as small prototype increments
+- ✅ Go/no-go: expand fixture breadth only if explainability and stability remain strong
 
-- `002-RAG-INGESTION-RETRIEVAL-SPEC.md`
-- `002-RAG-SUBSYSTEM-PLAN.md`
-- `002-RAG-STAGE-PLAN.md`
-- `adr/ADR-001-rag-substrate-reuses-001-structure.md`
-- `adr/ADR-002-semantic-vector-retrieval-deferred-not-dropped.md`
-- `adr/ADR-003-discovery-instrumentation-before-fixture-detectors.md`
-- `adr/ADR-004-schema-run-identity-and-id-stability.md`
+---
 
-Expected outputs:
+## Decision Gates
 
-- curated five-smell fixture excerpts
-- tiny retrieval gold set under `data/goldsets/`, created from Stage 002 outputs and real snippets only
-- lexical and graph-expanded retrieval comparison report
-- updated `retrieval_bundles.json`
-- notes on exact/lexical/graph failures that semantic retrieval should address
+**After Phase 0**: Are fixtures and detector contracts clear enough to avoid infrastructure creep?  
+**After Phase 1**: Do the first two passes produce actionable, explainable findings?  
+**After Phase 2**: Do all five phish produce coherent policy-layer insights on KY fixtures?  
+**After Phase 3**: Is detector quality high enough to justify expanding fixtures or scope?
 
-Success criteria:
+---
 
-- every active smell has a source-traceable candidate fixture example or a documented source limitation
-- retrieval bundles include why-retrieved reasons, parent context, adjacent nodes, citations, references, and parser uncertainty where relevant
-- exact and lexical baselines are measured before embeddings
-- semantic retrieval remains designed for, but no vector store is selected
-- findings are not stored in the RAG substrate; they remain downstream detector outputs
+## Related Documents
 
-## Stage 004: Deterministic Pattern Detectors
-
-Status: Delivered later as actual Stage 006 after the gold-set and semantic-retrieval decision stages
-
-Objective:
-
-Adapt Stage 002/003 candidate evidence and retrieval bundles into lightweight detectors for the five active smells.
-
-Detector approach:
-
-- regex and phrase lists for known trigger language
-- simple section and endorsement indexing
-- simple reference/citation checks
-- small clause relationship graph where it helps coverage inversion
-- no heavy NLP unless a detector cannot be made useful without it
-
-Expected outputs:
-
-- `output/findings.json`
-- `output/report.md`
-- `output/section_index.csv`
-- optional matrix outputs only when they explain a smell
-
-Success criteria:
-
-- the probe promotes at least one candidate evidence item or curated fixture example for each active smell
-- findings include location, smell type, evidence text, cost pool, why it matters, and reviewer questions
-- false-positive limitations are explicit
-- the code stays small enough for future agents to read quickly
-
-## Stage 005: Reviewer Report
-
-Status: Delivered later as actual Stage 007; preserved here under the roadmap's earlier numbering
-
-Objective:
-
-Turn detector output into a practical review artifact for a policy, claims, compliance, or product reviewer.
-
-Deliverables:
-
-- smell-by-smell summary
-- source traceability
-- concise reviewer questions
-- explicit non-legal-advice limitation
-- list of missing sources or human-review blockers
-
-Success criteria:
-
-- a reviewer can understand why each finding was flagged without reading the code
-- the report distinguishes detected text risk from legal conclusions
-- the report makes clear which findings need human review
-
-## Stage 006: Optional Semantic Retrieval Experiment
-
-Status: Parked until retrieval evaluation earns it
-
-Objective:
-
-Evaluate whether embeddings improve recall for homeowners policy-layer smell research beyond exact, lexical, and graph-expanded retrieval.
-
-Allowed if earned:
-
-- local embeddings attached to RAG nodes
-- small gold-set comparison
-- Qdrant or Postgres plus pgvector experiment only after the evaluation question is explicit
-
-Success criteria:
-
-- semantic retrieval improves gold-set recall or reviewer usefulness
-- semantic hits still return source provenance and graph-expanded context
-- vector storage choice is documented in a follow-up ADR before implementation
-
-## Stage 007: Optional Visual Drill-Down
-
-Status: Parked until the report earns it
-
-Objective:
-
-Create a static, local visual drill-down only if Stage 005 shows that a visual surface would make the findings easier to review.
-
-Allowed if earned:
-
-- static HTML generated from local outputs
-- simple tables and links from findings to source excerpts
-- no server, database, scheduled job, or product shell
-
-## Parked Work
-
-These ideas may be useful later, but they are not part of active Sandbox 002 work:
-
-- live statute or regulatory feed ingestion
-- Neo4j or other graph database
-- Docker or deployment packaging
-- PAS or claim system integration
-- broad claim decision audit trails
-- multi-carrier pilots
-- production citation validation
-- LLM extraction pipelines
-- go-to-market platform planning
-
-## Decision Gate
-
-Before adding any new tool, stage, or detector, ask:
-
-> Does this directly help evaluate one of the five Kentucky homeowners policy-layer smells?
-
-If the answer is no, leave it parked.
+- [002-claims-regulatory-automation-README.md](002-claims-regulatory-automation-README.md)
+- [002-five-policy-layer-phish.md](002-five-policy-layer-phish.md)
+- [002-PAIN-POINTS-TAXONOMY.md](002-PAIN-POINTS-TAXONOMY.md)
+- [002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md](002-KENTUCKY-INSURANCE-DATA-PROCUREMENT.md)
