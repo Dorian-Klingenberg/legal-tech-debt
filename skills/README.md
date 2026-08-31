@@ -70,6 +70,17 @@ Current artifacts:
 
 This skill has been used in implementation and review work. It is not installed into `$CODEX_HOME/skills`.
 
+The fourth project skill is `local-legal-smell-review`: a repo-visible wrapper
+for running and interpreting the Sandbox 008 local legal smell engine through
+Python or the CLI. It is active after a forward-test on the synthetic positive
+fixture.
+
+Current artifacts:
+
+- Active repo-visible skill: [local-legal-smell-review/SKILL.md](local-legal-smell-review/SKILL.md)
+- Source-of-truth engine: [Sandbox 008](../sandboxes/008-local-legal-smell-engine/README.md)
+- Registry row: [registry.csv](registry.csv)
+
 ## Granular Reusable Skills
 
 Some agent behaviors are better split into small skills that other projects can copy independently:

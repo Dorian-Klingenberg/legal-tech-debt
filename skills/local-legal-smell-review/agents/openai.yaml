@@ -1,0 +1,4 @@
+interface:
+  display_name: "Local Legal Smell Review"
+  short_description: "Run local evidence-aware legal smell detectors."
+  default_prompt: "Use this skill to run and interpret the local legal smell engine with source-traceable review leads."

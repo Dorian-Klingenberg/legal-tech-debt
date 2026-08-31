@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "legal-smell-engine"
+version = "0.1.0"
+description = "Local deterministic detectors for legal and regulatory code smells"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+mcp = ["mcp>=1.27,<2"]
+azure = ["azure-functions>=1.20"]
+
+[project.scripts]
+legal-smell = "legal_smell_engine.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

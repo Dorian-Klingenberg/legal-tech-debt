@@ -1,0 +1,29 @@
+{
+  "schema_version": "0.1.0",
+  "benchmark_id": "sandbox-008-stage-003-twenty-smell-model-benchmark",
+  "selection_version": "2026-08-07",
+  "result_root": "results",
+  "packet_root": "smells",
+  "smells": [
+    {"smell_id":"SMELL-001","name":"Undefined Depreciation Logic","taxonomy":"insurance_claims_smells.md §2","complexity":"low","packet":"SMELL-001-undefined-depreciation-logic"},
+    {"smell_id":"SMELL-002","name":"Stale Pricing Reference","taxonomy":"insurance_claims_smells.md §2","complexity":"low","packet":"SMELL-002-stale-pricing-reference"},
+    {"smell_id":"SMELL-003","name":"Coverage Sublimit Ambiguity","taxonomy":"insurance_claims_smells.md §2","complexity":"low","packet":"SMELL-003-coverage-sublimit-ambiguity"},
+    {"smell_id":"SMELL-004","name":"Unversioned Proof-of-Loss Form","taxonomy":"insurance_claims_smells.md §3","complexity":"low","packet":"SMELL-004-unversioned-proof-of-loss-form"},
+    {"smell_id":"SMELL-005","name":"Orphan Denial Reason Code","taxonomy":"insurance_claims_smells.md §4","complexity":"low","packet":"SMELL-005-orphan-denial-reason-code"},
+    {"smell_id":"SMELL-006","name":"Dead Recovery Path","taxonomy":"insurance_claims_smells.md §5","complexity":"low","packet":"SMELL-006-dead-recovery-path"},
+    {"smell_id":"SMELL-007","name":"Non-deterministic Denial","taxonomy":"insurance_claims_smells.md §6","complexity":"low","packet":"SMELL-007-non-deterministic-denial"},
+    {"smell_id":"SMELL-008","name":"Time-Based Logic Leak in Bad Faith","taxonomy":"insurance_claims_smells.md §6","complexity":"low","packet":"SMELL-008-time-based-logic-leak-in-bad-faith"},
+    {"smell_id":"SMELL-009","name":"Circular Coverage Definition","taxonomy":"insurance_claims_smells.md §1","complexity":"medium","packet":"SMELL-009-circular-coverage-definition"},
+    {"smell_id":"SMELL-010","name":"Undefined Concurrent Causation","taxonomy":"insurance_claims_smells.md §1","complexity":"medium","packet":"SMELL-010-undefined-concurrent-causation"},
+    {"smell_id":"SMELL-011","name":"Overlapping Exclusion Conflict","taxonomy":"insurance_claims_smells.md §1","complexity":"medium","packet":"SMELL-011-overlapping-exclusion-conflict"},
+    {"smell_id":"SMELL-012","name":"Currency / Unit Drift","taxonomy":"insurance_claims_smells.md §2","complexity":"medium","packet":"SMELL-012-currency-unit-drift"},
+    {"smell_id":"SMELL-013","name":"Missing Escalation Path","taxonomy":"insurance_claims_smells.md §2","complexity":"medium","packet":"SMELL-013-missing-escalation-path"},
+    {"smell_id":"SMELL-014","name":"Sunset Obligation Smell","taxonomy":"insurance_claims_smells.md §3","complexity":"medium","packet":"SMELL-014-sunset-obligation-smell"},
+    {"smell_id":"SMELL-015","name":"Jurisdictional Inheritance in SIU","taxonomy":"insurance_claims_smells.md §3","complexity":"medium","packet":"SMELL-015-jurisdictional-inheritance-in-siu"},
+    {"smell_id":"SMELL-016","name":"Lack of Coverage Test Logging","taxonomy":"insurance_claims_smells.md §6","complexity":"medium","packet":"SMELL-016-lack-of-coverage-test-logging"},
+    {"smell_id":"SMELL-017","name":"Manual Sync — Reserves vs. Payments","taxonomy":"insurance_claims_smells.md §4","complexity":"high","packet":"SMELL-017-manual-sync-reserves-vs-payments"},
+    {"smell_id":"SMELL-018","name":"InvariantViolation — Payment Deadline","taxonomy":"insurance_claims_smells.md §3 / legal_code_smell_taxonomy.md RAII","complexity":"high","packet":"SMELL-018-invariantviolation-payment-deadline"},
+    {"smell_id":"SMELL-019","name":"Regulatory Drift in Claim Handling","taxonomy":"insurance_claims_smells.md §6","complexity":"high","packet":"SMELL-019-regulatory-drift-claim-handling"},
+    {"smell_id":"SMELL-020","name":"Zombie Coverage","taxonomy":"insurance_claims_smells.md §1","complexity":"high","packet":"SMELL-020-zombie-coverage"}
+  ]
+}

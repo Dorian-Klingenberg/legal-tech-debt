@@ -8,3 +8,4 @@ write-journal-entry,active,skills/write-journal-entry,TBD,skills/project-memory-
 write-lesson,active,skills/write-lesson,TBD,skills/project-memory-artifacts/SKILL.md,Reusable lessons and learning artifacts,"Validated through sandbox and top-level lessons."
 write-handoff,active,skills/write-handoff,TBD,skills/project-memory-artifacts/SKILL.md,Handoffs resume notes and next-agent briefs,"Validated through sandbox stage and constrained-agent handoffs."
 maintain-agent-context,active,skills/maintain-agent-context,TBD,AGENT_CONTEXT.json,Shared agent context and startup instruction maintenance,"Validated through AGENT_CONTEXT and cross-agent startup updates."
+local-legal-smell-review,active,skills/local-legal-smell-review,TBD,sandboxes/008-local-legal-smell-engine,Run and interpret the five local deterministic legal smell detector families,"Forward-tested against the synthetic positive fixture; repo-visible and not installed into CODEX_HOME."

@@ -1,7 +1,7 @@
 # Legal Tech Debt
 
 Status: Sandbox research, production-aligned portfolio development, and market validation
-Current as of: 2026-07-13
+Current as of: 2026-08-07
 
 Legal Tech Debt explores whether insurance policy, filing, and regulatory documents can be turned into source-traceable evidence, named defect patterns, reviewer findings, and useful expert work products.
 
@@ -25,6 +25,7 @@ Historical journals, handoffs, generated reports, external reports, and archived
 |---|---|---|
 | [Sandbox 005](sandboxes/005-agentic-sdlc-project-manager/README.md) | Primary technical lane; Stage 001 complete and Stage 002 ready but not started | Owner explicitly starts `S005-PILOT-001`; isolate the dirty worktree before any agent pilot |
 | [Sandbox 006](sandboxes/006-interactive-drilldown-report/README.md) | Secondary UX review lane; static workbench implemented | Human visual/responsive review before design-tool comparison |
+| [Sandbox 008](sandboxes/008-local-legal-smell-engine/README.md) | Local engine and adapter stubs implemented; Stage 003 has a separate 20-smell model benchmark ready for runs | Keep benchmark results under Stage 003; separately calibrate S1/S2 deltas and validate MCP/Azure/Foundry surfaces in authorized experiments |
 | [Productization](productization/README.md) | Planning only | Choose a synthetic public demo and first product unit before production code |
 | [Feasibility studies](feasibility-studies/README.md) | Provider-facing commercial hypothesis, not validated demand | Put a sanitized or synthetic example in front of trusted domain and provider-side reviewers |
 | [BACKLOG-003](BACKLOG.md) | Owner/access lane | Recheck Kentucky Growers in SERFF when practical; close as unavailable if a second search is also empty |
@@ -71,6 +72,8 @@ The source inventory, preserved ingestion run, current detector output, and hist
 
 - [ ] Decide when to start Sandbox 005 Stage 002.
 - [ ] Complete Sandbox 006 visual and responsive review.
+- [ ] Calibrate Sandbox 008 Stage 001 against the preserved Stage 006 baseline.
+- [ ] Run and adjudicate the isolated Sandbox 008 Stage 003 twenty-smell model benchmark.
 - [ ] Validate the provider-facing workflow with at least one trusted domain contact and one provider-side contact.
 - [ ] Choose the synthetic public demo corpus and first production-aligned surface.
 - [ ] Decide the first paid unit only after validation: package, pilot, workspace, internal provider tool, or research engagement.

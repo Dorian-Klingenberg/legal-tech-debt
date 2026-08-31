@@ -1,0 +1,15 @@
+{
+  "status": "ok",
+  "benchmark_id": "sandbox-008-stage-003-twenty-smell-model-benchmark",
+  "validation_type": "packet-structure",
+  "validated_at": "2026-08-07",
+  "smell_count": 20,
+  "complexity_counts": {"low": 8, "medium": 8, "high": 4},
+  "cases_per_smell": {"positive": 2, "negative": 2, "insufficient": 1},
+  "notes": [
+    "Manifest IDs, packet directories, JSONL syntax, expected labels, unique case IDs, node shape, and local node/edge references validated.",
+    "Edge types are non-empty and semantic edge triples are unique per case.",
+    "High-complexity negative fixtures for SMELL-011, SMELL-017, and SMELL-018 were strengthened after independent contract review.",
+    "This is a structural fixture check, not a model accuracy result."
+  ]
+}
