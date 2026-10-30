@@ -1,4 +1,4 @@
-# Insurance Claims: Detailed Pain Points Taxonomy
+# Insurance Policy-Layer Pain Points Taxonomy (Sandbox 002 Context)
 
 Status note: Background only. Do not use this taxonomy to expand active Sandbox 002 scope.
 
@@ -6,7 +6,15 @@ This document intentionally maps a broad claims and regulatory-automation landsc
 
 ## Overview
 
-This document maps the complete landscape of pain points in insurance claims adjudication that can be addressed by legal tech debt detection and regulatory automation. Organized by defect class and impact.
+This document maps policy-layer insurance pain points that can be addressed by legal tech debt detectors. It remains a broad taxonomy reference, but Sandbox 002 implementation is currently narrowed to **Kentucky homeowners** and the **five policy-layer phish** plan.
+
+### Active scope note (controls implementation)
+
+- Use this taxonomy to explain and prioritize policy-layer smells.
+- Treat non-homeowners and broad claims-platform examples as background context only.
+- Current implementation priority is the five-phish detector sequence documented in:
+  - [002-five-policy-layer-phish.md](002-five-policy-layer-phish.md)
+  - [002-ROADMAP-revised.md](002-ROADMAP-revised.md)
 
 ---
 
@@ -375,22 +383,22 @@ This document maps the complete landscape of pain points in insurance claims adj
 
 ---
 
-## MVP Priority Matrix
+## Sandbox 002 Priority Matrix (Five-Phish Aligned)
 
-| Solution | Defect Category | Customer Pain | Implementation Effort | ROI |
+| Detector / Phish | Defect Category | Policy-Layer Pain | Prototype Effort | Near-Term Priority |
 |---|---|---|---|---|
-| **Broken Link Detector** | Dependency | CRITICAL | Low | VERY HIGH |
-| **Regulatory Drift Map** | Legislative Drift | CRITICAL | Medium | HIGH |
-| **Non-Determinism Detector** | Semantic | HIGH | Medium | HIGH |
-| **Decision Audit Trail** | All | HIGH | High | MEDIUM–HIGH |
-| **Scope Creep Detector** | Structural | MEDIUM | Medium | MEDIUM |
+| **Phish 5: Regulatory Mapping + Null References** | Dependency + Legislative Mapping | CRITICAL | Low | **P1** |
+| **Phish 4: Calculation Rule Drift / Unversioned Rate Reference** | Legislative Drift + Calculation Drift | CRITICAL | Low–Medium | **P1** |
+| **Phish 2: Magic Number / Magic Valuation Terms** | Semantic | HIGH | Low–Medium | **P2** |
+| **Phish 1: Overbroad / Non-deterministic Exclusions** | Structural + Semantic | HIGH | Medium | **P2** |
+| **Phish 3: Coverage Inversion / Contradictory Conditions** | Structural + Dependency | HIGH | Medium | **P2** |
 
-**Recommended MVP Sequence**:
-1. Broken Link Detector (quick win, foundation)
-2. Regulatory Drift Map (immediate ongoing value)
-3. Non-Determinism Detector (deepest pain relief)
-4. Decision Audit Trail (credibility + litigation defense)
-5. Scope Creep Detector (profitability protection)
+**Recommended implementation sequence (Sandbox 002):**
+1. Phish 5 (regulatory mapping + null references)
+2. Phish 4 (calculation drift + unversioned references)
+3. Phish 2 (magic number/valuation terms)
+4. Phish 1 (overbroad exclusions)
+5. Phish 3 (coverage inversion/contradictory conditions)
 
 ---
 
